@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T22:42:26.696750+08:00",
+  "generated_at": "2026-08-31T00:38:29.368755+08:00",
   "default_game_id": "2026-A-300",
   "games": [
     {
@@ -17,6 +17,21 @@
       "ball_acc": 90.8,
       "strike_acc": 86.4,
       "missed_count": 18
+    },
+    {
+      "game_id": "2026-A-299",
+      "game_sno": 299,
+      "game_date": "2026-08-30",
+      "field": "洲際",
+      "visiting_team": "富邦悍將",
+      "home_team": "中信兄弟",
+      "visiting_score": 1,
+      "home_score": 6,
+      "hp_umpire": "楊崇煇",
+      "overall_acc": 89.6,
+      "ball_acc": 88.8,
+      "strike_acc": 91.9,
+      "missed_count": 14
     },
     {
       "game_id": "2026-A-298",
