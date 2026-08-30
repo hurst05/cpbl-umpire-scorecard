@@ -74,6 +74,11 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
         except Exception as e:
             raise ValueError(f"賽事 {gid} 的 data_json 損壞或包含無效格式: {e}") from e
 
+        # 判決數明確為 0 時略過
+        total_calls = detail.get("umpire_metrics", {}).get("total_called_pitches")
+        if total_calls is not None and total_calls == 0:
+            continue
+
         games_detail[gid] = detail
 
         summary_item = {

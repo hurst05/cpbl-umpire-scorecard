@@ -38,19 +38,40 @@ def get_game_analysis(game_id: str, force_refresh: bool = False):
     if not force_refresh:
         cached = db.get_game(game_id)
         if cached:
-            return cached
+            total_calls = cached.get("umpire_metrics", {}).get("total_called_pitches", 0)
+            kind_code = cached.get("game_info", {}).get("kind_code")
+            if (kind_code and kind_code != "A") or total_calls == 0:
+                pass  # 快取為無效資料，繼續向下重新抓取
+            else:
+                return cached
 
     try:
         raw_data = fetch_game_detail(game_id)
-        analyzed = analyze_game(raw_data["game"], raw_data.get("players", {}))
+        game_raw = raw_data.get("game", {})
+        kind_code = game_raw.get("kindCode")
+        if kind_code and kind_code != "A":
+            raise HTTPException(
+                status_code=400,
+                detail=f"賽事 {game_id} 非一軍比賽 (kindCode={kind_code})，略過載入分析",
+            )
+
+        analyzed = analyze_game(game_raw, raw_data.get("players", {}))
+        total_calls = analyzed.get("umpire_metrics", {}).get("total_called_pitches", 0)
+        if total_calls == 0:
+            raise HTTPException(status_code=400, detail=f"賽事 {game_id} 判決數為 0，略過載入與儲存")
+
         db.save_game(game_id, analyzed)
         return analyzed
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch and analyze {game_id}: {str(e)}") from e
 
 
 @app.get("/api/game/sno/{sno}")
 def get_game_by_sno(sno: int, year: int = 2026, kind_code: str = "A", force_refresh: bool = False):
+    if kind_code != "A":
+        raise HTTPException(status_code=400, detail=f"僅支援一軍比賽 (kind_code={kind_code})")
     game_id = find_game_id_by_sno(sno, year, kind_code)
     return get_game_analysis(game_id, force_refresh)
 
@@ -66,14 +87,29 @@ def batch_collect_date(date: str):
     results = []
     for g in games:
         gid = g.get("game_id")
+        kind_code = g.get("kind_code")
+        if kind_code and kind_code != "A":
+            results.append({"game_id": gid, "status": "skipped", "reason": "非一軍賽事"})
+            continue
         if gid and g.get("has_trackman") and g.get("status") == "FINISHED":
             try:
                 raw_data = fetch_game_detail(gid)
-                analyzed = analyze_game(raw_data["game"], raw_data.get("players", {}))
+                game_raw = raw_data.get("game", {})
+                if game_raw.get("kindCode") and game_raw.get("kindCode") != "A":
+                    results.append({"game_id": gid, "status": "skipped", "reason": "非一軍賽事"})
+                    continue
+                analyzed = analyze_game(game_raw, raw_data.get("players", {}))
+                total_calls = analyzed.get("umpire_metrics", {}).get("total_called_pitches", 0)
+                if total_calls == 0:
+                    results.append({"game_id": gid, "status": "skipped", "reason": "判決數為 0"})
+                    continue
                 db.save_game(gid, analyzed)
                 results.append({"game_id": gid, "status": "success"})
             except Exception as e:
                 results.append({"game_id": gid, "status": "error", "message": str(e)})
+        else:
+            if gid:
+                results.append({"game_id": gid, "status": "skipped", "reason": "未完賽或無 Trackman 數據"})
     return {"date": date, "processed": results}
 
 

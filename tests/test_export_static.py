@@ -361,3 +361,49 @@ def test_export_rollback_on_final_verification_failure(mock_db, monkeypatch):
 
         manifest_after = Path(target_dir, "manifest.json").read_text(encoding="utf-8")
         assert manifest_before == manifest_after
+
+
+def test_export_skips_zero_called_pitches_game():
+    with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as f:
+        db_path = f.name
+
+    conn = sqlite3.connect(db_path)
+    conn.execute("""
+        CREATE TABLE games (
+            game_id TEXT PRIMARY KEY, game_sno INTEGER, kind_code TEXT, game_date TEXT, field TEXT,
+            home_team TEXT, visiting_team TEXT, home_score INTEGER, visiting_score INTEGER,
+            hp_umpire TEXT, overall_acc REAL, ball_acc REAL, strike_acc REAL, missed_count INTEGER,
+            data_json TEXT, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    # 1. Valid game with calls > 0
+    conn.execute(
+        """
+        INSERT INTO games (game_id, game_sno, kind_code, game_date, data_json)
+        VALUES ('2026-A-101', 101, 'A', '2026-08-30',
+                '{"game_info":{"game_id":"2026-A-101","game_sno":101},"umpire_metrics":{"total_called_pitches":120},"plate_appearances":[],"all_called_pitches":[]}')
+    """
+    )
+    # 2. Game with total_called_pitches == 0 (should be skipped)
+    conn.execute(
+        """
+        INSERT INTO games (game_id, game_sno, kind_code, game_date, data_json)
+        VALUES ('2026-A-102', 102, 'A', '2026-08-30',
+                '{"game_info":{"game_id":"2026-A-102","game_sno":102},"umpire_metrics":{"total_called_pitches":0},"plate_appearances":[],"all_called_pitches":[]}')
+    """
+    )
+    conn.commit()
+    conn.close()
+
+    try:
+        with tempfile.TemporaryDirectory() as out_dir:
+            target_dir = os.path.join(out_dir, "data")
+            res = export_all(output_dir=target_dir, custom_db_path=db_path)
+            assert res["total_games"] == 1
+            assert res["default_game_id"] == "2026-A-101"
+            assert (Path(target_dir) / "games" / "2026-A-101.json").exists()
+            assert not (Path(target_dir) / "games" / "2026-A-102.json").exists()
+    finally:
+        if os.path.exists(db_path):
+            os.remove(db_path)
+

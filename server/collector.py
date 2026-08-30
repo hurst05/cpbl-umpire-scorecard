@@ -98,6 +98,8 @@ def fetch_schedule_by_date(date_str: str) -> list:
         g_date = g.get("preExeDate", "")[:10]
         if date_str and g_date != date_str:
             continue
+        if g.get("kindCode") != "A":
+            continue
         visiting = g.get("visiting", {})
         home = g.get("home", {})
         games_list.append(

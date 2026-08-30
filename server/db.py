@@ -40,10 +40,17 @@ def init_db():
 
 
 def save_game(game_id: str, analyzed_data: dict):
-    conn = get_db()
-    cursor = conn.cursor()
     info = analyzed_data.get("game_info", {})
     metrics = analyzed_data.get("umpire_metrics", {})
+    kind_code = info.get("kind_code")
+    total_calls = metrics.get("total_called_pitches", 0)
+
+    # 只取一軍比賽且判決數大於 0 時才儲存
+    if (kind_code and kind_code != "A") or total_calls == 0:
+        return
+
+    conn = get_db()
+    cursor = conn.cursor()
 
     cursor.execute(
         """
@@ -95,6 +102,7 @@ def list_cached_games() -> list:
                home_team, visiting_team, home_score, visiting_score,
                hp_umpire, overall_acc, ball_acc, strike_acc, missed_count, updated_at
         FROM games
+        WHERE kind_code = 'A'
         ORDER BY game_date DESC, game_sno DESC
     """)
     rows = cursor.fetchall()
