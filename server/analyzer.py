@@ -294,3 +294,75 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
         "all_called_pitches": all_called_pitches,
         "plate_appearances": plate_appearances,
     }
+
+
+def calculate_pitch_distance_cm(p1: dict, p2: dict, target_zone_height_m: float | None = None) -> float:
+    """Calculate hybrid distance: absolute X (plate width) + normalized Z (batter strike zone)."""
+    x1, z1 = p1.get("x"), p1.get("z")
+    x2, z2 = p2.get("x"), p2.get("z")
+    if x1 is None or z1 is None or x2 is None or z2 is None:
+        return float("inf")
+
+    dx_cm = (x1 - x2) * 100
+
+    top1 = p1.get("sz_top") or 0.963
+    bot1 = p1.get("sz_bottom") or 0.486
+    h1 = (top1 - bot1) if (top1 - bot1) > 0 else 0.477
+    norm_z1 = (z1 - bot1) / h1
+
+    top2 = p2.get("sz_top") or 0.963
+    bot2 = p2.get("sz_bottom") or 0.486
+    h2 = (top2 - bot2) if (top2 - bot2) > 0 else 0.477
+    norm_z2 = (z2 - bot2) / h2
+
+    base_h = target_zone_height_m if target_zone_height_m else h1
+    dz_cm = (norm_z1 - norm_z2) * base_h * 100
+
+    return round(math.sqrt(dx_cm * dx_cm + dz_cm * dz_cm), 1)
+
+
+def find_similar_pitches(target_pitch: dict, all_pitches: list[dict], radius_cm: float = 8.0) -> list[dict]:
+    """Find all called pitches within radius_cm distance from target_pitch using hybrid distance."""
+    results = []
+    target_pa = target_pitch.get("pa_index") or target_pitch.get("pa_num")
+    target_p_idx = target_pitch.get("pitch_index") or target_pitch.get("pitch_num")
+    target_top = target_pitch.get("sz_top")
+    target_bot = target_pitch.get("sz_bottom")
+    target_zone_h = (target_top - target_bot) if (target_top and target_bot and target_top > target_bot) else None
+
+    for p in all_pitches:
+        p_pa = p.get("pa_index") or p.get("pa_num")
+        p_p_idx = p.get("pitch_index") or p.get("pitch_num")
+        is_same = (
+            p is target_pitch
+            or (
+                target_pa is not None
+                and p_pa is not None
+                and target_pa == p_pa
+                and target_p_idx is not None
+                and p_p_idx is not None
+                and target_p_idx == p_p_idx
+            )
+            or (
+                abs(p.get("x", 0) - target_pitch.get("x", 0)) < 0.0005
+                and abs(p.get("z", 0) - target_pitch.get("z", 0)) < 0.0005
+                and p.get("inning_num") == target_pitch.get("inning_num")
+                and p.get("inning_half") == target_pitch.get("inning_half")
+                and p.get("pitcher") == target_pitch.get("pitcher")
+                and p.get("batter") == target_pitch.get("batter")
+                and p.get("called") == target_pitch.get("called")
+            )
+        )
+        if is_same:
+            continue
+
+        dist = calculate_pitch_distance_cm(target_pitch, p, target_zone_h)
+        if dist <= radius_cm:
+            item = dict(p)
+            item["distance_to_target_cm"] = dist
+            results.append(item)
+
+    return sorted(results, key=lambda x: x["distance_to_target_cm"])
+
+
+

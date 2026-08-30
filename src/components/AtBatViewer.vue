@@ -123,10 +123,19 @@
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
                 <span>球數: {{ p.count_b }}-{{ p.count_s }}</span>
-                <div v-if="p.is_called_pitch" class="flex items-center gap-1.5">
+                <div v-if="p.is_called_pitch" class="flex items-center gap-1.5 flex-wrap justify-end">
                   <span :class="p.is_correct ? 'text-emerald-600 dark:text-emerald-400 font-medium' : 'text-amber-600 dark:text-amber-400 font-bold'">
                     {{ p.is_correct ? '✓ 判決正確' : '! 誤判 (' + p.dist_cm + ' cm)' }}
                   </span>
+                  <!-- Similar Pitch Button -->
+                  <button 
+                    v-if="!p.is_correct || p.is_called_pitch"
+                    @click.stop="openSimilarPitchModal(p, activePA)"
+                    class="px-1.5 py-0.5 rounded bg-blue-50 hover:bg-blue-600 dark:bg-blue-900/30 dark:hover:bg-blue-600 text-blue-600 hover:text-white dark:text-blue-300 dark:hover:text-white font-bold transition-all border border-blue-200 dark:border-blue-700/60 text-[10px] flex items-center gap-0.5 cursor-pointer"
+                    title="比對同場相近進壘點判決"
+                  >
+                    <span>📍 類似點</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -145,15 +154,29 @@
         />
       </div>
     </div>
+
+    <!-- Similar Pitch Modal -->
+    <SimilarPitchModal 
+      :is-open="isSimilarModalOpen"
+      :target-pitch="activeTargetPitch"
+      :all-pitches="allPitches"
+      :plate-appearances="plateAppearances"
+      @close="isSimilarModalOpen = false"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch } from 'vue'
 import StrikeZoneSVG from './StrikeZoneSVG.vue'
+import SimilarPitchModal from './SimilarPitchModal.vue'
 
 const props = defineProps({
   plateAppearances: {
+    type: Array,
+    default: () => []
+  },
+  allPitches: {
     type: Array,
     default: () => []
   }
@@ -170,6 +193,24 @@ const availableInnings = computed(() => {
 const selectedInning = ref(availableInnings.value[0] || '1局上')
 const activePANum = ref(1)
 const highlightedPitchNum = ref(null)
+
+const isSimilarModalOpen = ref(false)
+const activeTargetPitch = ref(null)
+
+function openSimilarPitchModal(pitch, pa) {
+  const fullPitch = {
+    ...pitch,
+    pa_index: pa.pa_num,
+    pitch_index: pitch.pitch_num,
+    inning_num: pa.inning?.replace(/[^0-9]/g, '') || '1',
+    inning_half: pa.inning?.includes('上') ? '上' : '下',
+    pitcher: pa.pitcher?.name || '',
+    batter: pa.batter?.name || '',
+    batter_height: pa.batter?.height || null
+  }
+  activeTargetPitch.value = fullPitch
+  isSimilarModalOpen.value = true
+}
 
 watch(availableInnings, (newInnings) => {
   if (newInnings.length > 0 && !newInnings.includes(selectedInning.value)) {
@@ -197,3 +238,4 @@ function hasMissedCall(pa) {
   return pa.pitches?.some(p => p.is_called_pitch && !p.is_correct)
 }
 </script>
+

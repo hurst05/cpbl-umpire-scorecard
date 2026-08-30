@@ -120,7 +120,10 @@
 
         <!-- Tab 1: Plate Appearance Breakdown -->
         <div v-show="activeTab === 'at-bat'">
-          <AtBatViewer :plate-appearances="gameData.plate_appearances" />
+          <AtBatViewer 
+            :plate-appearances="gameData.plate_appearances" 
+            :all-pitches="gameData.all_called_pitches"
+          />
         </div>
 
         <!-- Tab 2: Umpire Scorecard -->
@@ -128,6 +131,7 @@
           <ScorecardSummary 
             :metrics="gameData.umpire_metrics"
             :all-pitches="gameData.all_called_pitches"
+            :plate-appearances="gameData.plate_appearances"
           />
         </div>
 

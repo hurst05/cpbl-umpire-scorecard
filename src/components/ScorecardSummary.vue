@@ -115,42 +115,73 @@
           <div 
             v-for="(mc, idx) in effectiveMissedCalls" 
             :key="'mc-' + idx"
-            @click="selectedPitchIndex = mc.pitch_index"
-            class="p-3 rounded-lg bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-slate-700 transition-all flex items-start justify-between gap-3 text-xs cursor-pointer"
+            @click="onSelectMissedCall(mc)"
+            :class="[
+              'p-3 rounded-lg border transition-all flex flex-col gap-2.5 text-xs cursor-pointer',
+              selectedPitchObject === mc
+                ? 'bg-blue-50/90 dark:bg-slate-800/90 border-blue-500 shadow-xs'
+                : 'bg-slate-50 dark:bg-slate-950/80 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-slate-700'
+            ]"
           >
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 font-mono font-bold flex items-center justify-center text-xs shrink-0 border border-amber-500/20">
-                {{ idx + 1 }}
-              </span>
-              <div class="flex flex-col gap-0.5">
-                <span class="font-bold text-slate-900 dark:text-white">
-                  {{ mc.inning_num }}局{{ mc.inning_half }} 投手: {{ mc.pitcher }} vs 打者: {{ mc.batter }}
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-2.5">
+                <span class="w-5 h-5 rounded bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 font-mono font-bold flex items-center justify-center text-xs shrink-0 border border-amber-500/20">
+                  {{ idx + 1 }}
                 </span>
-                <span class="text-slate-500 dark:text-slate-400 text-[11px]">
-                  球數: {{ mc.count_b }}-{{ mc.count_s }} | {{ mc.content }}
+                <div class="flex flex-col gap-0.5">
+                  <span class="font-bold text-slate-900 dark:text-white">
+                    {{ mc.inning_num }}局{{ mc.inning_half }} 投手: {{ mc.pitcher }} vs 打者: {{ mc.batter }}
+                  </span>
+                  <span class="text-slate-500 dark:text-slate-400 text-[11px]">
+                    球數: {{ mc.count_b }}-{{ mc.count_s }} | {{ mc.speed_kmh ? mc.speed_kmh + ' km/h' : '' }} {{ mc.pitch_type || '' }} | {{ mc.content }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Call badges -->
+              <div class="flex flex-col items-end gap-1 shrink-0">
+                <span class="px-2 py-0.5 rounded bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/20 dark:border-red-500/30 font-bold font-mono">
+                  誤差 {{ mc.dist_cm }} cm
+                </span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">
+                  原判 {{ mc.called === 'STRIKE' ? '好球' : '壞球' }} → 實判 {{ mc.true_call === 'STRIKE' ? '好球' : '壞球' }}
                 </span>
               </div>
             </div>
 
-            <!-- Call badges -->
-            <div class="flex flex-col items-end gap-1 shrink-0">
-              <span class="px-2 py-0.5 rounded bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/20 dark:border-red-500/30 font-bold font-mono">
-                誤差 {{ mc.dist_cm }} cm
+            <!-- Bottom Action Toolbar: Similar Pitch Analysis Trigger -->
+            <div class="flex items-center justify-between pt-2 border-t border-slate-200/70 dark:border-slate-800/80 text-[11px]">
+              <span class="text-slate-500 dark:text-slate-400">
+                附近判決：<strong class="text-blue-600 dark:text-blue-400 font-mono font-bold">{{ getNearbyCount(mc) }}</strong> 顆 (8cm半徑)
               </span>
-              <span class="text-[10px] text-slate-500 dark:text-slate-400">
-                原判 {{ mc.called === 'STRIKE' ? '好球' : '壞球' }} → 實判 {{ mc.true_call === 'STRIKE' ? '好球' : '壞球' }}
-              </span>
+              <button 
+                @click.stop="openSimilarPitchModal(mc)"
+                class="px-2.5 py-1 rounded bg-blue-600/10 hover:bg-blue-600 text-blue-700 hover:text-white dark:bg-blue-500/20 dark:hover:bg-blue-600 dark:text-blue-300 dark:hover:text-white font-bold transition-all border border-blue-200 dark:border-blue-500/30 flex items-center gap-1 cursor-pointer"
+              >
+                <span>📍 類似進壘點分析</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Similar Pitch Analysis Modal -->
+    <SimilarPitchModal 
+      :is-open="isSimilarModalOpen"
+      :target-pitch="activeTargetPitch"
+      :all-pitches="allPitches"
+      :plate-appearances="plateAppearances"
+      @close="isSimilarModalOpen = false"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import StrikeZoneSVG from './StrikeZoneSVG.vue'
+import SimilarPitchModal from './SimilarPitchModal.vue'
+import { findSimilarPitches } from '../utils/pitchGeometry.js'
 
 const props = defineProps({
   metrics: {
@@ -160,12 +191,35 @@ const props = defineProps({
   allPitches: {
     type: Array,
     default: () => []
+  },
+  plateAppearances: {
+    type: Array,
+    default: () => []
   }
 })
 
 const toleranceCm = ref(0)
 const showOnlyMissed = ref(true)
 const selectedPitchIndex = ref(null)
+const selectedPitchObject = ref(null)
+
+const isSimilarModalOpen = ref(false)
+const activeTargetPitch = ref(null)
+
+function onSelectMissedCall(mc) {
+  selectedPitchIndex.value = mc.pitch_index
+  selectedPitchObject.value = mc
+}
+
+function openSimilarPitchModal(pitch) {
+  activeTargetPitch.value = pitch
+  isSimilarModalOpen.value = true
+}
+
+function getNearbyCount(pitch) {
+  if (!pitch || !props.allPitches.length) return 0
+  return findSimilarPitches(pitch, props.allPitches, 8.0).length
+}
 
 const effectiveMissedCalls = computed(() => {
   const list = props.metrics.missed_calls || []
@@ -204,3 +258,4 @@ const displayPitches = computed(() => {
   return props.allPitches
 })
 </script>
+
