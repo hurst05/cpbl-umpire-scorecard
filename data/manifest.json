@@ -1,8 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T22:23:49.924762+08:00",
-  "default_game_id": "2026-A-297",
+  "generated_at": "2026-08-30T22:42:26.696750+08:00",
+  "default_game_id": "2026-A-300",
   "games": [
+    {
+      "game_id": "2026-A-300",
+      "game_sno": 300,
+      "game_date": "2026-08-30",
+      "field": "大巨蛋",
+      "visiting_team": "統一7-ELEVEn獅",
+      "home_team": "樂天桃猿",
+      "visiting_score": 5,
+      "home_score": 4,
+      "hp_umpire": "木內九二生",
+      "overall_acc": 89.3,
+      "ball_acc": 90.8,
+      "strike_acc": 86.4,
+      "missed_count": 18
+    },
+    {
+      "game_id": "2026-A-298",
+      "game_sno": 298,
+      "game_date": "2026-08-30",
+      "field": "天母",
+      "visiting_team": "台鋼雄鷹",
+      "home_team": "味全龍",
+      "visiting_score": 0,
+      "home_score": 3,
+      "hp_umpire": "彭楚雲",
+      "overall_acc": 91.2,
+      "ball_acc": 88.9,
+      "strike_acc": 97.5,
+      "missed_count": 13
+    },
     {
       "game_id": "2026-A-297",
       "game_sno": 297,
@@ -184,96 +214,6 @@
       "missed_count": 14
     },
     {
-      "game_id": "2026-A-284",
-      "game_sno": 284,
-      "game_date": "2026-08-23",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "統一7-ELEVEn獅",
-      "visiting_score": 11,
-      "home_score": 1,
-      "hp_umpire": "木內九二生",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
-      "game_id": "2026-A-281",
-      "game_sno": 281,
-      "game_date": "2026-08-22",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "統一7-ELEVEn獅",
-      "visiting_score": 3,
-      "home_score": 5,
-      "hp_umpire": "張展榮",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
-      "game_id": "2026-A-278",
-      "game_sno": 278,
-      "game_date": "2026-08-21",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "統一7-ELEVEn獅",
-      "visiting_score": 2,
-      "home_score": 1,
-      "hp_umpire": "楊崇煇",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
-      "game_id": "2026-A-276",
-      "game_sno": 276,
-      "game_date": "2026-08-20",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "味全龍",
-      "visiting_score": 4,
-      "home_score": 3,
-      "hp_umpire": "尤志欽",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
-      "game_id": "2026-A-275",
-      "game_sno": 275,
-      "game_date": "2026-08-19",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "味全龍",
-      "visiting_score": 6,
-      "home_score": 2,
-      "hp_umpire": "彭楚雲",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
-      "game_id": "2026-A-273",
-      "game_sno": 273,
-      "game_date": "2026-08-19",
-      "field": "台東",
-      "visiting_team": "統一7-ELEVEn獅",
-      "home_team": "台鋼雄鷹",
-      "visiting_score": 6,
-      "home_score": 8,
-      "hp_umpire": "吳家維",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
       "game_id": "2026-A-272",
       "game_sno": 272,
       "game_date": "2026-08-18",
@@ -287,21 +227,6 @@
       "ball_acc": 88.1,
       "strike_acc": 90.6,
       "missed_count": 15
-    },
-    {
-      "game_id": "2026-A-271",
-      "game_sno": 271,
-      "game_date": "2026-08-18",
-      "field": "台東",
-      "visiting_team": "統一7-ELEVEn獅",
-      "home_team": "台鋼雄鷹",
-      "visiting_score": 8,
-      "home_score": 0,
-      "hp_umpire": "木內九二生",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
     },
     {
       "game_id": "2026-A-269",
@@ -319,21 +244,6 @@
       "missed_count": 14
     },
     {
-      "game_id": "2026-A-268",
-      "game_sno": 268,
-      "game_date": "2026-08-16",
-      "field": "大巨蛋",
-      "visiting_team": "樂天桃猿",
-      "home_team": "味全龍",
-      "visiting_score": 5,
-      "home_score": 1,
-      "hp_umpire": "范元淦",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
       "game_id": "2026-A-267",
       "game_sno": 267,
       "game_date": "2026-08-15",
@@ -347,21 +257,6 @@
       "ball_acc": 93.5,
       "strike_acc": 96.3,
       "missed_count": 10
-    },
-    {
-      "game_id": "2026-A-266",
-      "game_sno": 266,
-      "game_date": "2026-08-15",
-      "field": "大巨蛋",
-      "visiting_team": "樂天桃猿",
-      "home_team": "味全龍",
-      "visiting_score": 3,
-      "home_score": 9,
-      "hp_umpire": "楊崇煇",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
     },
     {
       "game_id": "2026-A-265",
@@ -392,21 +287,6 @@
       "ball_acc": 93.3,
       "strike_acc": 88.9,
       "missed_count": 12
-    },
-    {
-      "game_id": "2026-A-263",
-      "game_sno": 263,
-      "game_date": "2026-08-14",
-      "field": "大巨蛋",
-      "visiting_team": "樂天桃猿",
-      "home_team": "味全龍",
-      "visiting_score": 1,
-      "home_score": 2,
-      "hp_umpire": "尤志欽",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
     },
     {
       "game_id": "2026-A-262",
@@ -469,21 +349,6 @@
       "missed_count": 16
     },
     {
-      "game_id": "2026-A-258",
-      "game_sno": 258,
-      "game_date": "2026-08-12",
-      "field": "台東",
-      "visiting_team": "樂天桃猿",
-      "home_team": "統一7-ELEVEn獅",
-      "visiting_score": 4,
-      "home_score": 0,
-      "hp_umpire": "陳均瑋",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
       "game_id": "2026-A-257",
       "game_sno": 257,
       "game_date": "2026-08-11",
@@ -497,21 +362,6 @@
       "ball_acc": 89.6,
       "strike_acc": 89.7,
       "missed_count": 14
-    },
-    {
-      "game_id": "2026-A-256",
-      "game_sno": 256,
-      "game_date": "2026-08-11",
-      "field": "台東",
-      "visiting_team": "樂天桃猿",
-      "home_team": "統一7-ELEVEn獅",
-      "visiting_score": 2,
-      "home_score": 3,
-      "hp_umpire": "鄭惟丞",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
     },
     {
       "game_id": "2026-A-253",
@@ -664,21 +514,6 @@
       "missed_count": 13
     },
     {
-      "game_id": "2026-A-241",
-      "game_sno": 241,
-      "game_date": "2026-08-04",
-      "field": "嘉義市",
-      "visiting_team": "樂天桃猿",
-      "home_team": "台鋼雄鷹",
-      "visiting_score": 8,
-      "home_score": 1,
-      "hp_umpire": "鄭惟丞",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
       "game_id": "2026-A-240",
       "game_sno": 240,
       "game_date": "2026-08-02",
@@ -707,36 +542,6 @@
       "ball_acc": 80.8,
       "strike_acc": 94.7,
       "missed_count": 21
-    },
-    {
-      "game_id": "2026-A-238",
-      "game_sno": 238,
-      "game_date": "2026-08-02",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "味全龍",
-      "visiting_score": 7,
-      "home_score": 0,
-      "hp_umpire": "楊崇煇",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
-    },
-    {
-      "game_id": "2026-A-237",
-      "game_sno": 237,
-      "game_date": "2026-08-01",
-      "field": "大巨蛋",
-      "visiting_team": "中信兄弟",
-      "home_team": "味全龍",
-      "visiting_score": 1,
-      "home_score": 4,
-      "hp_umpire": "吳家維",
-      "overall_acc": 100.0,
-      "ball_acc": 100.0,
-      "strike_acc": 100.0,
-      "missed_count": 0
     },
     {
       "game_id": "2026-A-236",
