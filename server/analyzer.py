@@ -163,9 +163,19 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
 
             evaluation = None
             called_str = None
+            advantage = None
+            favored_team = None
             if is_called_pitch:
                 called_str = "STRIKE" if is_called_strike else "BALL"
                 evaluation = evaluate_pitch_call(x, z, sz_top, sz_bottom, called_str)
+
+                if not evaluation["is_correct"]:
+                    if evaluation["true_call"] == "STRIKE" and called_str == "BALL":
+                        advantage = "BATTER"
+                        favored_team = visiting_team_name if v_h_type == "1" else home_team_name
+                    elif evaluation["true_call"] == "BALL" and called_str == "STRIKE":
+                        advantage = "PITCHER"
+                        favored_team = home_team_name if v_h_type == "1" else visiting_team_name
 
                 call_record = {
                     "pa_index": pa_idx,
@@ -191,6 +201,8 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
                     "true_call": evaluation["true_call"],
                     "is_correct": evaluation["is_correct"],
                     "dist_cm": evaluation["dist_cm"],
+                    "advantage": advantage,
+                    "favored_team": favored_team,
                     "pitch_type": pitch_type_zh,
                     "speed_kmh": speed_kmh,
                 }
@@ -214,6 +226,8 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
                     "true_call": evaluation["true_call"] if evaluation else None,
                     "is_correct": evaluation["is_correct"] if evaluation else None,
                     "dist_cm": evaluation["dist_cm"] if evaluation else None,
+                    "advantage": advantage,
+                    "favored_team": favored_team,
                 }
             )
 
@@ -263,6 +277,30 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
     avg_miss_dist = round(sum(p["dist_cm"] for p in missed_calls) / len(missed_calls), 1) if missed_calls else 0.0
     missed_calls_sorted = sorted(missed_calls, key=lambda x: x["dist_cm"], reverse=True)
 
+    pitcher_favored_calls = [p for p in missed_calls if p.get("advantage") == "PITCHER"]
+    batter_favored_calls = [p for p in missed_calls if p.get("advantage") == "BATTER"]
+
+    pitcher_favored_dist = round(sum(p["dist_cm"] for p in pitcher_favored_calls), 1)
+    batter_favored_dist = round(sum(p["dist_cm"] for p in batter_favored_calls), 1)
+
+    pitcher_favored_avg = (
+        round(pitcher_favored_dist / len(pitcher_favored_calls), 1) if pitcher_favored_calls else 0.0
+    )
+    batter_favored_avg = (
+        round(batter_favored_dist / len(batter_favored_calls), 1) if batter_favored_calls else 0.0
+    )
+
+    home_favored_calls = [p for p in missed_calls if p.get("favored_team") == home_team_name]
+    visiting_favored_calls = [p for p in missed_calls if p.get("favored_team") == visiting_team_name]
+    home_favored_dist = round(sum(p["dist_cm"] for p in home_favored_calls), 1)
+    visiting_favored_dist = round(sum(p["dist_cm"] for p in visiting_favored_calls), 1)
+    home_favored_avg = (
+        round(home_favored_dist / len(home_favored_calls), 1) if home_favored_calls else 0.0
+    )
+    visiting_favored_avg = (
+        round(visiting_favored_dist / len(visiting_favored_calls), 1) if visiting_favored_calls else 0.0
+    )
+
     return {
         "game_info": {
             "game_id": game.get("gameId"),
@@ -289,6 +327,18 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
             "strike_ratio_str": f"{len(true_strikes_correct)}/{len(true_strikes)}",
             "overall_ratio_str": f"{len(correct_calls)}/{total_calls}",
             "avg_miss_distance_cm": avg_miss_dist,
+            "home_favored_count": len(home_favored_calls),
+            "home_favored_dist_cm": home_favored_dist,
+            "home_favored_avg_cm": home_favored_avg,
+            "visiting_favored_count": len(visiting_favored_calls),
+            "visiting_favored_dist_cm": visiting_favored_dist,
+            "visiting_favored_avg_cm": visiting_favored_avg,
+            "pitcher_favored_count": len(pitcher_favored_calls),
+            "pitcher_favored_dist_cm": pitcher_favored_dist,
+            "pitcher_favored_avg_cm": pitcher_favored_avg,
+            "batter_favored_count": len(batter_favored_calls),
+            "batter_favored_dist_cm": batter_favored_dist,
+            "batter_favored_avg_cm": batter_favored_avg,
             "missed_calls": missed_calls_sorted,
         },
         "all_called_pitches": all_called_pitches,

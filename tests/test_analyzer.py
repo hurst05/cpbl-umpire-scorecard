@@ -37,3 +37,71 @@ def test_pitch_distance_and_similar_pitches():
     assert sim[0]["distance_to_target_cm"] == dist
 
 
+def test_analyze_game_advantage():
+    from analyzer import analyze_game
+
+    mock_raw_game = {
+        "game": {
+            "gameId": "2026-A-001",
+            "gameSno": 1,
+            "kindCode": "A",
+            "preExeDate": "2026-08-30",
+            "referee": [{"job": "主審", "name": "林金達"}],
+            "visiting": {"team": {"name": "統一獅"}, "score": 2},
+            "home": {"team": {"name": "中信兄弟"}, "score": 3},
+            "liveLog": [
+                # Pitch 1: 1局上, Strike called ball -> Batter favors (統一獅 / Visiting)
+                {
+                    "inningSeq": 1,
+                    "visitingHomeType": 1,
+                    "hitterAcnt": "H1",
+                    "hitterName": "邱智呈",
+                    "pitcherAcnt": "P1",
+                    "pitcherName": "德保拉",
+                    "pitchCnt": 1,
+                    "ballCnt": 1,
+                    "strikeCnt": 0,
+                    "outCnt": 0,
+                    "content": "壞球",
+                    "trackman": {
+                        "play": {"pitchTag": {"pitchCall": "BallCalled", "taggedPitchType": "Fastball"}},
+                        "pitch": {"location": {"plateLocSide": 0.0, "plateLocHeight": 0.70}},
+                    },
+                },
+                # Pitch 2: 1局下, Ball called strike -> Pitcher favors (統一獅 / Visiting defense)
+                {
+                    "inningSeq": 1,
+                    "visitingHomeType": 2,
+                    "hitterAcnt": "H2",
+                    "hitterName": "岳政華",
+                    "pitcherAcnt": "P2",
+                    "pitcherName": "古林睿煬",
+                    "pitchCnt": 1,
+                    "ballCnt": 0,
+                    "strikeCnt": 1,
+                    "outCnt": 0,
+                    "content": "好球沒揮棒",
+                    "trackman": {
+                        "play": {"pitchTag": {"pitchCall": "StrikeCalled", "taggedPitchType": "Slider"}},
+                        "pitch": {"location": {"plateLocSide": 0.35, "plateLocHeight": 0.70}},
+                    },
+                },
+            ],
+        },
+        "players": {},
+    }
+
+    result = analyze_game(mock_raw_game)
+    metrics = result["umpire_metrics"]
+
+    assert metrics["total_called_pitches"] == 2
+    assert metrics["missed_count"] == 2
+    assert metrics["visiting_favored_count"] == 2  # 1 as batter, 1 as pitcher
+    assert metrics["visiting_favored_dist_cm"] > 0
+    assert metrics["visiting_favored_avg_cm"] > 0
+    assert metrics["home_favored_count"] == 0
+    assert metrics["home_favored_dist_cm"] == 0.0
+
+
+
+

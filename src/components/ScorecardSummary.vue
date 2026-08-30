@@ -8,7 +8,7 @@
           主審裁判：{{ metrics.hp_umpire }}
         </h2>
         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-          本場總判決數：{{ metrics.total_called_pitches }} 顆 | 誤判數：{{ metrics.missed_count }} 顆 | 平均誤差：{{ metrics.avg_miss_distance_cm }} cm
+          本場總判決數：{{ metrics.total_called_pitches }} 顆 | 實質誤判：{{ effectiveMissedCalls.length }} 顆 | 平均誤差：{{ effectiveAvgMissDist }} cm
         </p>
       </div>
 
@@ -55,6 +55,111 @@
       </div>
     </div>
 
+    <!-- Team Advantage / Favor Metrics Summary Cards (容錯範圍後統計，依各隊代表色呈現) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Visiting Team Favor Card -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm flex flex-col justify-between gap-3 transition-colors relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5" :style="{ backgroundColor: visitingColorInfo.primary }"></div>
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span 
+                class="text-xs px-2 py-0.5 rounded font-bold border transition-colors"
+                :style="{ backgroundColor: visitingColorInfo.badgeBg, color: visitingColorInfo.primary, borderColor: visitingColorInfo.badgeBorder }"
+              >
+                客隊
+              </span>
+              <h3 class="text-base font-black text-slate-900 dark:text-white">{{ teamNames.visiting }} 得利</h3>
+            </div>
+            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">容錯過濾後</span>
+          </div>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="text-3xl font-black font-mono transition-colors" :style="{ color: visitingColorInfo.primary }">
+              {{ effectiveVisitingCount }}
+            </span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-bold">顆球</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs">
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px]">得利總距離</span>
+            <strong class="font-mono text-slate-900 dark:text-white text-sm font-bold">{{ effectiveVisitingDist }} cm</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px]">平均每球得利</span>
+            <strong class="font-mono text-slate-900 dark:text-white text-sm font-bold">{{ effectiveVisitingAvg }} cm</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Team Favor Card -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm flex flex-col justify-between gap-3 transition-colors relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5" :style="{ backgroundColor: homeColorInfo.primary }"></div>
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span 
+                class="text-xs px-2 py-0.5 rounded font-bold border transition-colors"
+                :style="{ backgroundColor: homeColorInfo.badgeBg, color: homeColorInfo.primary, borderColor: homeColorInfo.badgeBorder }"
+              >
+                主隊
+              </span>
+              <h3 class="text-base font-black text-slate-900 dark:text-white">{{ teamNames.home }} 得利</h3>
+            </div>
+            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">容錯過濾後</span>
+          </div>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="text-3xl font-black font-mono transition-colors" :style="{ color: homeColorInfo.primary }">
+              {{ effectiveHomeCount }}
+            </span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-bold">顆球</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs">
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px]">得利總距離</span>
+            <strong class="font-mono text-slate-900 dark:text-white text-sm font-bold">{{ effectiveHomeDist }} cm</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px]">平均每球得利</span>
+            <strong class="font-mono text-slate-900 dark:text-white text-sm font-bold">{{ effectiveHomeAvg }} cm</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Net Advantage Differential Card -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm flex flex-col justify-between gap-3 transition-colors relative overflow-hidden md:col-span-2 lg:col-span-1">
+        <div class="absolute top-0 left-0 right-0 h-1.5" :style="{ backgroundColor: netFavoredColor }"></div>
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-700 dark:text-slate-300">⚖️ 全場裁決偏向 (Net Favor)</span>
+            <span 
+              class="text-[10px] px-2 py-0.5 rounded font-mono font-bold border"
+              :style="{ backgroundColor: netFavorBadgeStyle.bg, color: netFavorBadgeStyle.color, borderColor: netFavorBadgeStyle.border }"
+            >
+              {{ netFavorStatusText }}
+            </span>
+          </div>
+          <div class="mt-3">
+            <div class="text-[11px] text-slate-500 dark:text-slate-400">總體得利優勢隊伍：</div>
+            <div class="text-base font-black mt-0.5 truncate transition-colors" :style="{ color: netFavoredColor }">
+              {{ netFavorHeadline }}
+            </div>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs">
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px]">淨得利球數差</span>
+            <strong class="font-mono text-slate-900 dark:text-white text-sm font-bold">{{ netCountDiff }} 顆</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px]">淨得利距離差</span>
+            <strong class="font-mono text-slate-900 dark:text-white text-sm font-bold">{{ netDistDiff }} cm</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Interactive Tolerance Slider & Filter Bar -->
     <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm dark:shadow-none flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors">
       <div class="flex items-center gap-3">
@@ -94,13 +199,16 @@
       <!-- Strike Zone Visualizer (lg:col-span-6) -->
       <div class="lg:col-span-6 flex flex-col items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm dark:shadow-none">
         <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3">
-          {{ showOnlyMissed ? '全場誤判球點分佈' : '全場所有判決球點分佈' }}
+          {{ showOnlyMissed ? '全場誤判球點分佈 (依得利隊伍配色)' : '全場所有判決球點分佈' }}
         </h3>
         <StrikeZoneSVG 
           :pitches="displayPitches"
           :sz-top="0.963"
           :sz-bottom="0.486"
           :highlighted-index="selectedPitchIndex"
+          :is-missed-mode="showOnlyMissed"
+          :home-team="teamNames.home"
+          :visiting-team="teamNames.visiting"
         />
       </div>
 
@@ -129,9 +237,19 @@
                   {{ idx + 1 }}
                 </span>
                 <div class="flex flex-col gap-0.5">
-                  <span class="font-bold text-slate-900 dark:text-white">
-                    {{ mc.inning_num }}局{{ mc.inning_half }} 投手: {{ mc.pitcher }} vs 打者: {{ mc.batter }}
-                  </span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900 dark:text-white">
+                      {{ mc.inning_num }}局{{ mc.inning_half }} 投手: {{ mc.pitcher }} vs 打者: {{ mc.batter }}
+                    </span>
+                    <!-- Favored Team badge with Team representative color -->
+                    <span 
+                      v-if="getPitchFavoredTeam(mc)" 
+                      class="px-2 py-0.5 rounded border text-[10px] font-bold shrink-0 transition-colors"
+                      :style="getTeamBadgeStyle(getPitchFavoredTeam(mc))"
+                    >
+                      {{ getPitchFavoredTeam(mc) }}得利
+                    </span>
+                  </div>
                   <span class="text-slate-500 dark:text-slate-400 text-[11px]">
                     球數: {{ mc.count_b }}-{{ mc.count_s }} | {{ mc.speed_kmh ? mc.speed_kmh + ' km/h' : '' }} {{ mc.pitch_type || '' }} | {{ mc.content }}
                   </span>
@@ -182,6 +300,7 @@ import { ref, computed } from 'vue'
 import StrikeZoneSVG from './StrikeZoneSVG.vue'
 import SimilarPitchModal from './SimilarPitchModal.vue'
 import { findSimilarPitches } from '../utils/pitchGeometry.js'
+import { getTeamColorInfo } from '../utils/teamColors.js'
 
 const props = defineProps({
   metrics: {
@@ -195,6 +314,10 @@ const props = defineProps({
   plateAppearances: {
     type: Array,
     default: () => []
+  },
+  gameInfo: {
+    type: Object,
+    default: () => ({})
   }
 })
 
@@ -221,9 +344,59 @@ function getNearbyCount(pitch) {
   return findSimilarPitches(pitch, props.allPitches, 8.0).length
 }
 
+const teamNames = computed(() => {
+  return {
+    visiting: props.gameInfo?.visiting_team || props.plateAppearances[0]?.batting_team || '客隊',
+    home: props.gameInfo?.home_team || props.plateAppearances[0]?.fielding_team || '主隊'
+  }
+})
+
+const visitingColorInfo = computed(() => getTeamColorInfo(teamNames.value.visiting))
+const homeColorInfo = computed(() => getTeamColorInfo(teamNames.value.home))
+
+function getPitchFavoredTeam(pitch) {
+  if (!pitch) return ''
+  if (pitch.favored_team) return pitch.favored_team
+
+  const vName = teamNames.value.visiting
+  const hName = teamNames.value.home
+
+  const isInningTop = pitch.inning_half === '上' || (typeof pitch.inning === 'string' && pitch.inning.includes('上'))
+  const isStrikeCalledBall = (pitch.true_call === 'STRIKE' && pitch.called === 'BALL') || pitch.advantage === 'BATTER'
+  const isBallCalledStrike = (pitch.true_call === 'BALL' && pitch.called === 'STRIKE') || pitch.advantage === 'PITCHER'
+
+  if (isInningTop) {
+    // 上半局：客隊打擊 (好球判壞球 -> 客隊得利), 主隊投球 (壞球判好球 -> 主隊得利)
+    if (isStrikeCalledBall) return vName
+    if (isBallCalledStrike) return hName
+  } else {
+    // 下半局：主隊打擊 (好球判壞球 -> 主隊得利), 客隊投球 (壞球判好球 -> 客隊得利)
+    if (isStrikeCalledBall) return hName
+    if (isBallCalledStrike) return vName
+  }
+  return ''
+}
+
+function getTeamBadgeStyle(teamName) {
+  const info = getTeamColorInfo(teamName)
+  return {
+    backgroundColor: info.badgeBg,
+    borderColor: info.badgeBorder,
+    color: info.primary
+  }
+}
+
+// 容錯範圍後之實質誤判清單
 const effectiveMissedCalls = computed(() => {
   const list = props.metrics.missed_calls || []
   return list.filter(p => p.dist_cm >= toleranceCm.value)
+})
+
+const effectiveAvgMissDist = computed(() => {
+  const list = effectiveMissedCalls.value
+  if (list.length === 0) return 0.0
+  const sum = list.reduce((acc, p) => acc + (p.dist_cm || 0), 0)
+  return (sum / list.length).toFixed(1)
 })
 
 const effectiveCorrectCount = computed(() => {
@@ -251,6 +424,109 @@ const effectiveStrikeAcc = computed(() => {
   return ((correct.length / trueStrikes.length) * 100).toFixed(1)
 })
 
+// --- 客隊得利統計（容錯範圍後） ---
+const effectiveVisitingFavoredCalls = computed(() => {
+  const vName = teamNames.value.visiting
+  return effectiveMissedCalls.value.filter(p => getPitchFavoredTeam(p) === vName)
+})
+
+const effectiveVisitingCount = computed(() => effectiveVisitingFavoredCalls.value.length)
+
+const effectiveVisitingDist = computed(() => {
+  const sum = effectiveVisitingFavoredCalls.value.reduce((acc, p) => acc + (p.dist_cm || 0), 0)
+  return Math.round(sum * 10) / 10
+})
+
+const effectiveVisitingAvg = computed(() => {
+  const count = effectiveVisitingCount.value
+  if (count === 0) return 0.0
+  return Math.round((effectiveVisitingDist.value / count) * 10) / 10
+})
+
+// --- 主隊得利統計（容錯範圍後） ---
+const effectiveHomeFavoredCalls = computed(() => {
+  const hName = teamNames.value.home
+  return effectiveMissedCalls.value.filter(p => getPitchFavoredTeam(p) === hName)
+})
+
+const effectiveHomeCount = computed(() => effectiveHomeFavoredCalls.value.length)
+
+const effectiveHomeDist = computed(() => {
+  const sum = effectiveHomeFavoredCalls.value.reduce((acc, p) => acc + (p.dist_cm || 0), 0)
+  return Math.round(sum * 10) / 10
+})
+
+const effectiveHomeAvg = computed(() => {
+  const count = effectiveHomeCount.value
+  if (count === 0) return 0.0
+  return Math.round((effectiveHomeDist.value / count) * 10) / 10
+})
+
+// --- 淨得利差額與傾向 ---
+const netCountDiff = computed(() => Math.abs(effectiveHomeCount.value - effectiveVisitingCount.value))
+
+const netDistDiff = computed(() => {
+  return Math.abs(Math.round((effectiveHomeDist.value - effectiveVisitingDist.value) * 10) / 10).toFixed(1)
+})
+
+const netFavorHeadline = computed(() => {
+  const vCount = effectiveVisitingCount.value
+  const hCount = effectiveHomeCount.value
+  const vDist = effectiveVisitingDist.value
+  const hDist = effectiveHomeDist.value
+  const vName = teamNames.value.visiting
+  const hName = teamNames.value.home
+
+  if (vCount > hCount) {
+    return `${vName} 得利 (+${vCount - hCount} 顆 / +${(vDist - hDist).toFixed(1)} cm)`
+  } else if (hCount > vCount) {
+    return `${hName} 得利 (+${hCount - vCount} 顆 / +${(hDist - vDist).toFixed(1)} cm)`
+  } else if (vDist !== hDist) {
+    return vDist > hDist ? `${vName} 距離偏多 (+${(vDist - hDist).toFixed(1)} cm)` : `${hName} 距離偏多 (+${(hDist - vDist).toFixed(1)} cm)`
+  }
+  return '兩隊得利完全平衡'
+})
+
+const netFavorStatusText = computed(() => {
+  const vCount = effectiveVisitingCount.value
+  const hCount = effectiveHomeCount.value
+  if (vCount > hCount) return `${teamNames.value.visiting} 佔優`
+  if (hCount > vCount) return `${teamNames.value.home} 佔優`
+  return '雙方均等'
+})
+
+const netFavoredColor = computed(() => {
+  const vCount = effectiveVisitingCount.value
+  const hCount = effectiveHomeCount.value
+  if (vCount > hCount) return visitingColorInfo.value.primary
+  if (hCount > vCount) return homeColorInfo.value.primary
+  return '#64748b'
+})
+
+const netFavorBadgeStyle = computed(() => {
+  const vCount = effectiveVisitingCount.value
+  const hCount = effectiveHomeCount.value
+  if (vCount > hCount) {
+    return {
+      bg: visitingColorInfo.value.badgeBg,
+      color: visitingColorInfo.value.primary,
+      border: visitingColorInfo.value.badgeBorder
+    }
+  }
+  if (hCount > vCount) {
+    return {
+      bg: homeColorInfo.value.badgeBg,
+      color: homeColorInfo.value.primary,
+      border: homeColorInfo.value.badgeBorder
+    }
+  }
+  return {
+    bg: 'rgba(100, 116, 139, 0.15)',
+    color: '#64748b',
+    border: 'rgba(100, 116, 139, 0.3)'
+  }
+})
+
 const displayPitches = computed(() => {
   if (showOnlyMissed.value) {
     return effectiveMissedCalls.value
@@ -258,4 +534,5 @@ const displayPitches = computed(() => {
   return props.allPitches
 })
 </script>
+
 

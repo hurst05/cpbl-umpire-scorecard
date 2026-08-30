@@ -127,6 +127,12 @@
                   <span :class="p.is_correct ? 'text-emerald-600 dark:text-emerald-400 font-medium' : 'text-amber-600 dark:text-amber-400 font-bold'">
                     {{ p.is_correct ? '✓ 判決正確' : '! 誤判 (' + p.dist_cm + ' cm)' }}
                   </span>
+                  <span 
+                    v-if="!p.is_correct && getFavoredTeamText(p, activePA)" 
+                    class="px-1.5 py-0.2 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-[10px] font-bold"
+                  >
+                    {{ getFavoredTeamText(p, activePA) }}
+                  </span>
                   <!-- Similar Pitch Button -->
                   <button 
                     v-if="!p.is_correct || p.is_called_pitch"
@@ -236,6 +242,16 @@ const activePA = computed(() => {
 
 function hasMissedCall(pa) {
   return pa.pitches?.some(p => p.is_called_pitch && !p.is_correct)
+}
+
+function getFavoredTeamText(pitch, pa) {
+  if (pitch.favored_team) return `${pitch.favored_team}得利`
+  if (!pa) return ''
+  const isBatter = (pitch.true_call === 'STRIKE' && pitch.called === 'BALL') || pitch.advantage === 'BATTER'
+  const isPitcher = (pitch.true_call === 'BALL' && pitch.called === 'STRIKE') || pitch.advantage === 'PITCHER'
+  if (isBatter && pa.batting_team) return `${pa.batting_team}得利`
+  if (isPitcher && pa.fielding_team) return `${pa.fielding_team}得利`
+  return ''
 }
 </script>
 

@@ -2,12 +2,26 @@
   <div class="relative flex flex-col items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm dark:shadow-xl select-none transition-colors">
     <!-- View Switcher Toolbar -->
     <div class="w-full flex items-center justify-between mb-3 text-xs">
-      <div class="flex items-center gap-1.5 font-medium text-slate-700 dark:text-slate-300 flex-wrap">
+      <!-- Missed Mode Legend with Team Colors -->
+      <div v-if="isMissedMode" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-300 flex-wrap">
+        <span class="flex items-center gap-1.5">
+          <span class="inline-block w-3 h-3 rounded-full shadow-xs" :style="{ backgroundColor: visitingTeamColor }"></span>
+          <span>{{ visitingTeam || '客隊' }} 得利</span>
+        </span>
+        <span class="flex items-center gap-1.5 ml-2">
+          <span class="inline-block w-3 h-3 rounded-full shadow-xs" :style="{ backgroundColor: homeTeamColor }"></span>
+          <span>{{ homeTeam || '主隊' }} 得利</span>
+        </span>
+        <span v-if="targetPitch" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-400/20 text-amber-700 dark:text-amber-300 border border-amber-400/40 ml-1.5 font-bold">🎯 基準球</span>
+      </div>
+      <!-- Normal Mode Legend -->
+      <div v-else class="flex items-center gap-1.5 font-medium text-slate-700 dark:text-slate-300 flex-wrap">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-500"></span> 好球
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 ml-1.5"></span> 壞球
         <span class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/30 dark:border-amber-500/40 ml-1.5 font-bold">! 誤判</span>
         <span v-if="targetPitch" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-400/20 text-amber-700 dark:text-amber-300 border border-amber-400/40 ml-1.5 font-bold">🎯 基準球 (黃色)</span>
       </div>
+
       <div class="flex items-center gap-2">
         <label class="flex items-center gap-1.5 cursor-pointer text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
           <input type="checkbox" v-model="showTrajectory" class="rounded bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-blue-600 focus:ring-0">
@@ -140,7 +154,7 @@
             :key="'traj-' + idx"
             :d="calculateTrajectoryPath(p)"
             fill="none"
-            :stroke="p.called === 'STRIKE' ? 'rgba(239, 68, 68, 0.7)' : 'rgba(16, 185, 129, 0.7)'"
+            :stroke="getTrajectoryStroke(p)"
             stroke-width="2.5"
             stroke-linecap="round"
             :opacity="getPitchOpacity(p)"
@@ -273,8 +287,11 @@
           </div>
         </div>
 
-        <div v-if="hoveredPitch.dist_cm != null && !hoveredPitch.is_correct" class="mt-1 text-amber-600 dark:text-amber-400 text-[11px] font-bold">
-          誤判距離：{{ hoveredPitch.dist_cm }} cm
+        <div v-if="hoveredPitch.dist_cm != null && !hoveredPitch.is_correct" class="mt-1 flex items-center justify-between text-[11px] font-bold">
+          <span class="text-amber-600 dark:text-amber-400">誤差距離：{{ hoveredPitch.dist_cm }} cm</span>
+          <span v-if="hoveredPitch.favored_team" class="text-blue-600 dark:text-blue-400 font-bold">
+            {{ hoveredPitch.favored_team }}得利
+          </span>
         </div>
 
         <div v-if="hoveredPitch.distance_to_target_cm != null" class="mt-1 text-sky-600 dark:text-sky-400 text-[11px] font-bold border-t border-slate-200 dark:border-slate-800/80 pt-1">
@@ -292,6 +309,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { getTeamColorInfo } from '../utils/teamColors.js'
 
 const props = defineProps({
   pitches: {
@@ -321,6 +339,18 @@ const props = defineProps({
   searchRadiusCm: {
     type: Number,
     default: null
+  },
+  isMissedMode: {
+    type: Boolean,
+    default: false
+  },
+  homeTeam: {
+    type: String,
+    default: '主隊'
+  },
+  visitingTeam: {
+    type: String,
+    default: '客隊'
   }
 })
 
@@ -337,6 +367,9 @@ const xMin = -0.5
 const xMax = 0.5
 const zMin = 0.15
 const zMax = 1.25
+
+const visitingTeamColor = computed(() => getTeamColorInfo(props.visitingTeam).pitchColor)
+const homeTeamColor = computed(() => getTeamColorInfo(props.homeTeam).pitchColor)
 
 const szBox = computed(() => {
   const leftX = mapX(0.22)
@@ -436,16 +469,49 @@ function mapZ(z, top, bot) {
   return svgH - ((normZ - zMin) / (zMax - zMin)) * svgH
 }
 
+function getFavoredTeamForPitch(pitch) {
+  if (!pitch) return ''
+  if (pitch.favored_team) return pitch.favored_team
+  const vName = props.visitingTeam || '客隊'
+  const hName = props.homeTeam || '主隊'
+  const isInningTop = pitch.inning_half === '上' || (typeof pitch.inning === 'string' && pitch.inning.includes('上'))
+  const isStrikeCalledBall = (pitch.true_call === 'STRIKE' && pitch.called === 'BALL') || pitch.advantage === 'BATTER'
+  const isBallCalledStrike = (pitch.true_call === 'BALL' && pitch.called === 'STRIKE') || pitch.advantage === 'PITCHER'
+  if (isInningTop) {
+    if (isStrikeCalledBall) return vName
+    if (isBallCalledStrike) return hName
+  } else {
+    if (isStrikeCalledBall) return hName
+    if (isBallCalledStrike) return vName
+  }
+  return ''
+}
+
 function getPitchColor(pitch) {
   if (isTarget(pitch)) {
     return '#eab308'
-  } else if (pitch.called === 'STRIKE') {
+  }
+  // 在誤判顯示模式下，捕手視角的球改用得利隊伍的顏色
+  if (props.isMissedMode) {
+    const team = getFavoredTeamForPitch(pitch)
+    if (team) {
+      return getTeamColorInfo(team).pitchColor
+    }
+  }
+  if (pitch.called === 'STRIKE') {
     return '#ef4444'
   } else if (pitch.called === 'BALL') {
     return '#10b981'
   } else {
     return '#94a3b8'
   }
+}
+
+function getTrajectoryStroke(pitch) {
+  if (props.isMissedMode) {
+    return getPitchColor(pitch)
+  }
+  return pitch.called === 'STRIKE' ? 'rgba(239, 68, 68, 0.7)' : 'rgba(16, 185, 129, 0.7)'
 }
 
 function calculateTrajectoryPath(p) {

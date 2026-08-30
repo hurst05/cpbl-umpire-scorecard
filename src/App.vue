@@ -132,6 +132,7 @@
             :metrics="gameData.umpire_metrics"
             :all-pitches="gameData.all_called_pitches"
             :plate-appearances="gameData.plate_appearances"
+            :game-info="gameData.game_info"
           />
         </div>
 
