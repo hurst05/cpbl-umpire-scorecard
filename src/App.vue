@@ -50,38 +50,38 @@
       <!-- Navigation Tabs -->
       <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200 dark:border-slate-700/80 text-xs shrink-0">
         <button 
-          @click="activeTab = 'at-bat'"
-          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap', activeTab === 'at-bat' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
+          @click="activeTab = 'multi-game'"
+          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer', activeTab === 'multi-game' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
         >
-          逐打席檢視
+          跨場次數據庫
         </button>
         <button 
           @click="activeTab = 'scorecard'"
-          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap', activeTab === 'scorecard' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
+          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer', activeTab === 'scorecard' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
         >
           主審評分卡
         </button>
         <button 
-          @click="activeTab = 'multi-game'"
-          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap', activeTab === 'multi-game' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
+          @click="activeTab = 'at-bat'"
+          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer', activeTab === 'at-bat' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
         >
-          跨場次數據庫
+          逐打席檢視
         </button>
       </div>
     </header>
 
     <!-- Main Body -->
     <main class="flex-1 max-w-[1440px] w-full mx-auto p-4 lg:p-6 flex flex-col gap-5">
-      <!-- Loading State -->
-      <div v-if="isLoading" class="flex flex-col items-center justify-center py-24 gap-3">
+      <!-- Loading State for Single Game Views -->
+      <div v-if="isLoading && activeTab !== 'multi-game'" class="flex flex-col items-center justify-center py-24 gap-3">
         <div class="w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         <span class="text-sm font-medium text-slate-500 dark:text-slate-400">
           {{ isStatic ? '正在載入已發布賽事數據...' : '正在直接從 CPBL 官方進階數據網擷取並解析賽事數據...' }}
         </span>
       </div>
 
-      <!-- Error State -->
-      <div v-else-if="errorMessage" class="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300 text-sm flex items-center justify-between gap-4">
+      <!-- Error State for Single Game Views -->
+      <div v-else-if="errorMessage && activeTab !== 'multi-game'" class="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300 text-sm flex items-center justify-between gap-4">
         <span>{{ errorMessage }}</span>
         <button
           v-if="defaultGameId && gameData?.game_info?.game_id !== defaultGameId"
@@ -92,10 +92,9 @@
         </button>
       </div>
 
-      <!-- Loaded Game Content -->
-      <template v-else-if="gameData">
-        <!-- Game Summary Banner -->
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-xs dark:shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
+      <template v-else>
+        <!-- Game Summary Banner (Shown on Single Game tabs: scorecard / at-bat) -->
+        <div v-if="gameData && activeTab !== 'multi-game'" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-xs dark:shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
           <div class="flex flex-wrap items-center gap-3">
             <span class="px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 text-xs font-mono font-bold">
               例行賽 第 {{ gameData.game_info.game_sno }} 場
@@ -129,24 +128,32 @@
         <!-- Tab 1: Plate Appearance Breakdown -->
         <div v-show="activeTab === 'at-bat'">
           <AtBatViewer 
+            v-if="gameData"
             :plate-appearances="gameData.plate_appearances" 
             :all-pitches="gameData.all_called_pitches"
           />
+          <div v-else class="text-center py-16 text-slate-400 text-sm">
+            請先由上方搜尋場次或至「跨場次數據庫」載入賽事
+          </div>
         </div>
 
         <!-- Tab 2: Umpire Scorecard -->
         <div v-show="activeTab === 'scorecard'">
           <ScorecardSummary 
+            v-if="gameData"
             :metrics="gameData.umpire_metrics"
             :all-pitches="gameData.all_called_pitches"
             :plate-appearances="gameData.plate_appearances"
             :game-info="gameData.game_info"
           />
+          <div v-else class="text-center py-16 text-slate-400 text-sm">
+            請先由上方搜尋場次或至「跨場次數據庫」載入賽事
+          </div>
         </div>
 
         <!-- Tab 3: Multi-Game Database Explorer -->
         <div v-show="activeTab === 'multi-game'">
-          <MultiGameStats @load-game="(id) => loadGame(id)" />
+          <MultiGameStats @load-game="(id) => loadGame(id, 'scorecard')" />
         </div>
       </template>
     </main>
@@ -160,7 +167,7 @@ import ScorecardSummary from './components/ScorecardSummary.vue'
 import MultiGameStats from './components/MultiGameStats.vue'
 import { fetchGame, fetchDefaultGameId, isStaticMode } from './services/dataService'
 
-const activeTab = ref('at-bat')
+const activeTab = ref('multi-game')
 const inputSno = ref(295)
 const defaultGameId = ref(null)
 const gameData = ref(null)
@@ -204,7 +211,10 @@ function decrementSno() {
   }
 }
 
-async function loadGame(gameId) {
+async function loadGame(gameId, targetTab = null) {
+  if (targetTab) {
+    activeTab.value = targetTab
+  }
   isLoading.value = true
   errorMessage.value = ''
   try {
@@ -223,12 +233,12 @@ async function loadGame(gameId) {
 async function loadGameBySno() {
   if (!inputSno.value) return
   const gameId = `2026-A-${inputSno.value}`
-  await loadGame(gameId)
+  await loadGame(gameId, activeTab.value === 'multi-game' ? 'scorecard' : null)
 }
 
 async function loadDefaultGame() {
   if (defaultGameId.value) {
-    await loadGame(defaultGameId.value)
+    await loadGame(defaultGameId.value, 'scorecard')
   }
 }
 
@@ -243,23 +253,19 @@ onMounted(async () => {
     localStorage.setItem('theme', 'light')
   }
 
-  isLoading.value = true
+  // Pre-fetch default game in background so single game views are ready immediately
   try {
     const defId = await fetchDefaultGameId()
     defaultGameId.value = defId
     if (defId) {
-      await loadGame(defId)
-    } else {
-      if (isStatic.value) {
-        errorMessage.value = '目前沒有已發布之賽事資料。'
-      } else {
-        errorMessage.value = '目前本機快取無賽事，請輸入場次編號搜尋或至跨場次數據庫執行批次抓取。'
+      const data = await fetchGame(defId)
+      gameData.value = data
+      if (data?.game_info?.game_sno) {
+        inputSno.value = data.game_info.game_sno
       }
-      isLoading.value = false
     }
   } catch (e) {
-    errorMessage.value = e.message || '載入賽事索引失敗'
-    isLoading.value = false
+    console.warn('Initial game prefetch:', e)
   }
 })
 </script>

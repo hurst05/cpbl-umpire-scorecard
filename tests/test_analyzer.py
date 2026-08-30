@@ -101,6 +101,41 @@ def test_analyze_game_advantage():
     assert metrics["visiting_favored_avg_cm"] > 0
     assert metrics["home_favored_count"] == 0
     assert metrics["home_favored_dist_cm"] == 0.0
+    assert "overall_consistency" in metrics
+    assert "consistency_ratio_str" in metrics
+
+
+def test_calculate_game_consistency():
+    from analyzer import calculate_game_consistency
+
+    # 1. Empty or single pitch
+    assert calculate_game_consistency([])["consistency_rate"] == 100.0
+    assert calculate_game_consistency([{"x": 0.1, "z": 0.6, "called": "STRIKE"}])["consistency_rate"] == 100.0
+
+    # 2. Perfect consistency: 2 nearby pitches both called STRIKE
+    pitches_consistent = [
+        {"pa_index": 1, "pitch_index": 1, "x": 0.10, "z": 0.70, "called": "STRIKE", "sz_top": 0.95, "sz_bottom": 0.48},
+        {"pa_index": 2, "pitch_index": 1, "x": 0.12, "z": 0.71, "called": "STRIKE", "sz_top": 0.95, "sz_bottom": 0.48},
+        {"pa_index": 3, "pitch_index": 1, "x": -0.30, "z": 0.20, "called": "BALL", "sz_top": 0.95, "sz_bottom": 0.48},
+    ]
+    res = calculate_game_consistency(pitches_consistent, radius_cm=8.0)
+    assert res["total_pairs"] == 1
+    assert res["consistent_pairs"] == 1
+    assert res["consistency_rate"] == 100.0
+    assert res["ratio_str"] == "1/1"
+    assert res["conflicting_pitches_count"] == 0
+    assert res["isolated_count"] == 1
+
+    # 3. Conflict: 2 nearby pitches, one STRIKE and one BALL
+    pitches_conflict = [
+        {"pa_index": 1, "pitch_index": 1, "x": 0.10, "z": 0.70, "called": "STRIKE", "sz_top": 0.95, "sz_bottom": 0.48},
+        {"pa_index": 2, "pitch_index": 1, "x": 0.12, "z": 0.71, "called": "BALL", "sz_top": 0.95, "sz_bottom": 0.48},
+    ]
+    res_conflict = calculate_game_consistency(pitches_conflict, radius_cm=8.0)
+    assert res_conflict["total_pairs"] == 1
+    assert res_conflict["consistent_pairs"] == 0
+    assert res_conflict["consistency_rate"] == 0.0
+    assert res_conflict["conflicting_pitches_count"] == 2
 
 
 

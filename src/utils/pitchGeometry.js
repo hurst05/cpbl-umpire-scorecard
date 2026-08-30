@@ -34,6 +34,34 @@ export function calculateDistanceCm(p1, p2, targetZoneHeightM = null) {
 }
 
 /**
+ * 判斷兩顆球記錄是否為同一顆球
+ * @param {object} p1 
+ * @param {object} p2 
+ * @returns {boolean}
+ */
+export function isSamePitch(p1, p2) {
+  if (!p1 || !p2) return false
+  if (p1 === p2) return true
+  const pa1 = p1.pa_index ?? p1.pa_num
+  const pa2 = p2.pa_index ?? p2.pa_num
+  const pIdx1 = p1.pitch_index ?? p1.pitch_num
+  const pIdx2 = p2.pitch_index ?? p2.pitch_num
+  if (pa1 != null && pa2 != null && pa1 === pa2 && pIdx1 != null && pIdx2 != null) {
+    return pIdx1 === pIdx2
+  }
+  if (p1.x != null && p2.x != null && p1.z != null && p2.z != null) {
+    return (
+      Math.abs(p1.x - p2.x) < 0.0005 &&
+      Math.abs(p1.z - p2.z) < 0.0005 &&
+      p1.inning_num === p2.inning_num &&
+      p1.inning_half === p2.inning_half &&
+      p1.called === p2.called
+    )
+  }
+  return false
+}
+
+/**
  * 找出指定目標球在給定半徑內的所有相似判決球
  * @param {object} targetPitch 目標球物件
  * @param {Array<object>} allPitches 候選球清單
@@ -44,21 +72,10 @@ export function findSimilarPitches(targetPitch, allPitches = [], radiusCm = 8.0)
   if (!targetPitch || !Array.isArray(allPitches)) return []
 
   const results = []
-  const targetPa = targetPitch.pa_index ?? targetPitch.pa_num
-  const targetPitchIdx = targetPitch.pitch_index ?? targetPitch.pitch_num
   const targetZoneH = (targetPitch.sz_top && targetPitch.sz_bottom) ? (targetPitch.sz_top - targetPitch.sz_bottom) : null
 
   for (const p of allPitches) {
-    const pPa = p.pa_index ?? p.pa_num
-    const pPitchIdx = p.pitch_index ?? p.pitch_num
-
-    // 排除同一顆球 (若記憶體相同、或 PA 與球數序號皆相同、或座標相同且為同局同打席)
-    const isSamePitch = 
-      p === targetPitch ||
-      (targetPa != null && pPa != null && targetPa === pPa && targetPitchIdx != null && pPitchIdx != null && targetPitchIdx === pPitchIdx) ||
-      (Math.abs(p.x - targetPitch.x) < 0.0005 && Math.abs(p.z - targetPitch.z) < 0.0005 && p.inning_num === targetPitch.inning_num && p.inning_half === targetPitch.inning_half && p.pitcher === targetPitch.pitcher && p.batter === targetPitch.batter && p.called === targetPitch.called)
-
-    if (isSamePitch) continue
+    if (isSamePitch(p, targetPitch)) continue
 
     const distanceCm = calculateDistanceCm(targetPitch, p, targetZoneH)
     if (distanceCm <= radiusCm) {
@@ -150,5 +167,96 @@ export function analyzeConsistency(targetPitch, similarPitches = []) {
     isConflicting,
     diagnosisType,
     diagnosis
+  }
+}
+
+/**
+ * 計算全場判決一致性 (Method A：鄰域球對比對法)
+ * 找出全場所有距離 <= radiusCm 的判決球對，計算判決相同 (同好或同壞) 的比率
+ * @param {Array<object>} allPitches 該場比賽所有判決球
+ * @param {number} radiusCm 鄰近比對半徑 (公分, 預設 8.0)
+ * @returns {{
+ *   consistencyRate: number,
+ *   consistentPairs: number,
+ *   totalPairs: number,
+ *   conflictingPitchesCount: number,
+ *   isolatedCount: number,
+ *   totalPitches: number,
+ *   ratioStr: string
+ * }}
+ */
+export function calculateGameConsistency(allPitches = [], radiusCm = 8.0) {
+  if (!Array.isArray(allPitches) || allPitches.length <= 1) {
+    const total = Array.isArray(allPitches) ? allPitches.length : 0
+    return {
+      consistencyRate: 100.0,
+      consistentPairs: 0,
+      totalPairs: 0,
+      conflictingPitchesCount: 0,
+      isolatedCount: total,
+      totalPitches: total,
+      ratioStr: '0/0'
+    }
+  }
+
+  const validPitches = allPitches.filter(p => p && p.x != null && p.z != null && p.called)
+  const n = validPitches.length
+
+  if (n <= 1) {
+    return {
+      consistencyRate: 100.0,
+      consistentPairs: 0,
+      totalPairs: 0,
+      conflictingPitchesCount: 0,
+      isolatedCount: n,
+      totalPitches: n,
+      ratioStr: '0/0'
+    }
+  }
+
+  let totalPairs = 0
+  let consistentPairs = 0
+  const conflictingPitchesSet = new Set()
+  const hasNeighborSet = new Set()
+
+  for (let i = 0; i < n; i++) {
+    const p1 = validPitches[i]
+    const targetZoneH = (p1.sz_top && p1.sz_bottom && p1.sz_top > p1.sz_bottom)
+      ? (p1.sz_top - p1.sz_bottom)
+      : null
+
+    for (let j = i + 1; j < n; j++) {
+      const p2 = validPitches[j]
+      if (isSamePitch(p1, p2)) continue
+
+      const dist = calculateDistanceCm(p1, p2, targetZoneH)
+      if (dist <= radiusCm) {
+        totalPairs++
+        hasNeighborSet.add(i)
+        hasNeighborSet.add(j)
+
+        if (p1.called === p2.called) {
+          consistentPairs++
+        } else {
+          conflictingPitchesSet.add(i)
+          conflictingPitchesSet.add(j)
+        }
+      }
+    }
+  }
+
+  const isolatedCount = n - hasNeighborSet.size
+  const consistencyRate = totalPairs > 0
+    ? Math.round((consistentPairs / totalPairs) * 1000) / 10
+    : 100.0
+
+  return {
+    consistencyRate,
+    consistentPairs,
+    totalPairs,
+    conflictingPitchesCount: conflictingPitchesSet.size,
+    isolatedCount,
+    totalPitches: n,
+    ratioStr: `${consistentPairs}/${totalPairs}`
   }
 }

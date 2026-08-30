@@ -59,7 +59,7 @@
             :width="szBox.width" 
             :height="szBox.height" 
             class="fill-white/60 dark:fill-slate-900/40 stroke-slate-800 dark:stroke-slate-300" 
-            stroke-width="2.5"
+            stroke-width="1.6"
             rx="2"
           />
 
@@ -155,7 +155,7 @@
             :d="calculateTrajectoryPath(p)"
             fill="none"
             :stroke="getTrajectoryStroke(p)"
-            stroke-width="2.5"
+            stroke-width="1.6"
             stroke-linecap="round"
             :opacity="getPitchOpacity(p)"
           />
@@ -163,64 +163,55 @@
 
         <!-- Pitches Circles -->
         <g v-for="(p, idx) in visiblePitches" :key="'pitch-' + idx">
-          <!-- Outer Halo for Missed Calls -->
+          <!-- Main Pitch Dot (Accurate Physical Ball Radius: 14.6px) -->
           <circle 
-            v-if="p.is_called_pitch && !p.is_correct && !isTarget(p)"
             :cx="mapX(p.x)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
-            r="19"
-            fill="rgba(245, 158, 11, 0.3)"
-            stroke="#f59e0b"
-            stroke-width="2.2"
-            class="animate-pulse"
+            r="14.6"
+            :fill="getPitchColor(p)"
+            :stroke="isHighlighted(p, idx) ? '#ffffff' : (isTarget(p) ? '#b45309' : (p.is_called_pitch && !p.is_correct ? '#ffffff' : (p.is_called_pitch ? '#ffffff' : '#94a3b8')))"
+            :stroke-width="isHighlighted(p, idx) ? 2 : (isTarget(p) ? 2 : 1.5)"
             :opacity="getPitchOpacity(p)"
+            class="cursor-pointer transition-all duration-150 hover:opacity-100 drop-shadow-xs"
+            @mouseenter="hoveredPitch = p"
+            @click="$emit('select-pitch', getPitchNumber(p, idx), p)"
           />
 
-          <!-- Target Pitch Special Halo / Ring (Yellow/Amber) -->
+          <!-- Tight Target Pitch Ring -->
           <circle 
             v-if="isTarget(p)"
             :cx="mapX(p.x)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
-            r="20"
-            fill="rgba(234, 179, 8, 0.25)"
-            stroke="#eab308"
-            stroke-width="2.5"
+            r="17"
+            fill="none"
+            stroke="#d97706"
+            stroke-width="2.2"
+            class="pointer-events-none"
           />
 
-          <!-- Similar Pitch Ring -->
+          <!-- Tight Similar Pitch Ring -->
           <circle 
             v-if="isSimilar(p)"
             :cx="mapX(p.x)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
-            r="17.5"
+            r="16.2"
             fill="none"
-            stroke="#38bdf8"
-            stroke-width="2"
+            stroke="#0284c7"
+            stroke-width="1.5"
+            stroke-dasharray="3 1.5"
+            class="pointer-events-none"
           />
 
-          <!-- Selected / Highlighted ring -->
+          <!-- Sharp Focus / Highlight Ring for Selected Pitch (Rendered on top for clear visibility) -->
           <circle 
-            v-if="highlightedIndex === (p.pitch_num ?? p.pitch_index)"
+            v-if="isHighlighted(p, idx)"
             :cx="mapX(p.x)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
-            r="18"
+            r="15"
             fill="none"
-            stroke="#6366f1"
-            stroke-width="3"
-          />
-
-          <!-- Main Pitch Dot -->
-          <circle 
-            :cx="mapX(p.x)"
-            :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
-            :r="isTarget(p) ? 15.5 : 14"
-            :fill="getPitchColor(p)"
-            :stroke="isTarget(p) ? '#ca8a04' : (p.is_called_pitch ? '#ffffff' : '#94a3b8')"
-            :stroke-width="isTarget(p) ? 2.5 : 1.8"
-            :opacity="getPitchOpacity(p)"
-            class="cursor-pointer transition-all duration-150 hover:opacity-100 shadow-sm"
-            @mouseenter="hoveredPitch = p"
-            @click="$emit('select-pitch', p.pitch_num ?? p.pitch_index, p)"
+            stroke="#2563eb"
+            stroke-width="2.2"
+            class="animate-pulse pointer-events-none"
           />
 
           <!-- Pitch Number / Target Icon Text -->
@@ -239,15 +230,18 @@
           <text 
             v-else-if="showNumbers"
             :x="mapX(p.x)"
-            :y="mapZ(p.z, p.sz_top, p.sz_bottom) + 4.5"
+            :y="mapZ(p.z, p.sz_top, p.sz_bottom) + 4"
             text-anchor="middle"
             font-size="11"
-            font-weight="bold"
+            font-weight="900"
             fill="#ffffff"
+            stroke="rgba(0,0,0,0.55)"
+            stroke-width="0.75"
+            paint-order="stroke fill"
             :opacity="getPitchOpacity(p)"
-            class="pointer-events-none select-none drop-shadow"
+            class="pointer-events-none select-none font-mono"
           >
-            {{ p.pitch_num ?? p.pitch_index ?? (idx + 1) }}
+            {{ getPitchNumber(p, idx) }}
           </text>
         </g>
       </svg>
@@ -260,7 +254,7 @@
       >
         <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-1 mb-1.5 font-bold">
           <span class="text-blue-600 dark:text-blue-400">
-            {{ isTarget(hoveredPitch) ? '🎯 基準誤判球' : `第 ${hoveredPitch.pitch_num ?? hoveredPitch.pitch_index ?? ''} 球` }}
+            {{ isTarget(hoveredPitch) ? (hoveredPitch.is_correct ? '🎯 基準球 (判決正確)' : '🎯 基準誤判球') : `第 ${hoveredPitch.pitch_num ?? hoveredPitch.pitch_index ?? ''} 球` }}
             <span v-if="hoveredPitch.inning_num" class="text-slate-500 text-[10px]">({{ hoveredPitch.inning_num }}局{{ hoveredPitch.inning_half }})</span>
           </span>
           <span class="text-slate-500 dark:text-slate-400 font-mono">{{ hoveredPitch.speed_kmh ? hoveredPitch.speed_kmh + ' km/h' : '' }}</span>
@@ -310,6 +304,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { getTeamColorInfo } from '../utils/teamColors.js'
+import { isSamePitch } from '../utils/pitchGeometry.js'
 
 const props = defineProps({
   pitches: {
@@ -326,6 +321,10 @@ const props = defineProps({
   },
   highlightedIndex: {
     type: Number,
+    default: null
+  },
+  highlightedPitch: {
+    type: Object,
     default: null
   },
   targetPitch: {
@@ -356,7 +355,7 @@ const props = defineProps({
 
 defineEmits(['select-pitch'])
 
-const showTrajectory = ref(true)
+const showTrajectory = ref(false)
 const showNumbers = ref(true)
 const hoveredPitch = ref(null)
 const tooltipPos = ref({ x: 0, y: 0 })
@@ -406,43 +405,41 @@ const radarRadiusPx = computed(() => {
 })
 
 function isTarget(pitch) {
-  if (!props.targetPitch || !pitch) return false
-  if (pitch === props.targetPitch) return true
-  const targetPa = props.targetPitch.pa_index ?? props.targetPitch.pa_num
-  const pPa = pitch.pa_index ?? pitch.pa_num
-  const targetPitchIdx = props.targetPitch.pitch_index ?? props.targetPitch.pitch_num
-  const pPitchIdx = pitch.pitch_index ?? pitch.pitch_num
-
-  if (targetPa != null && pPa != null && targetPa === pPa && targetPitchIdx != null && pPitchIdx != null) {
-    return targetPitchIdx === pPitchIdx
-  }
-
-  return (
-    Math.abs(pitch.x - props.targetPitch.x) < 0.0005 &&
-    Math.abs(pitch.z - props.targetPitch.z) < 0.0005 &&
-    pitch.inning_num === props.targetPitch.inning_num &&
-    pitch.called === props.targetPitch.called
-  )
+  return isSamePitch(pitch, props.targetPitch)
 }
 
 function isSimilar(pitch) {
   if (!props.similarPitches || props.similarPitches.length === 0 || !pitch) return false
-  return props.similarPitches.some(sp => {
-    if (sp === pitch) return true
-    const spPa = sp.pa_index ?? sp.pa_num
-    const pPa = pitch.pa_index ?? pitch.pa_num
-    const spPitchIdx = sp.pitch_index ?? sp.pitch_num
-    const pPitchIdx = pitch.pitch_index ?? pitch.pitch_num
-    if (spPa != null && pPa != null && spPa === pPa && spPitchIdx != null && pPitchIdx != null) {
-      return spPitchIdx === pPitchIdx
+  return props.similarPitches.some(sp => isSamePitch(sp, pitch))
+}
+
+function isHighlighted(pitch, idx) {
+  if (!pitch) return false
+  // 1. 若有傳入精確的 highlightedPitch 物件比對
+  if (props.highlightedPitch) {
+    return isSamePitch(pitch, props.highlightedPitch)
+  }
+  // 2. 若傳入 highlightedIndex
+  if (props.highlightedIndex != null) {
+    if (props.isMissedMode) {
+      return props.highlightedIndex === (idx + 1)
     }
-    return (
-      Math.abs(sp.x - pitch.x) < 0.0005 &&
-      Math.abs(sp.z - pitch.z) < 0.0005 &&
-      sp.inning_num === pitch.inning_num &&
-      sp.called === pitch.called
-    )
-  })
+    if (pitch.pitch_num != null) {
+      return pitch.pitch_num === props.highlightedIndex
+    }
+    return (idx + 1) === props.highlightedIndex
+  }
+  return false
+}
+
+function getPitchNumber(pitch, idx) {
+  if (!pitch) return idx + 1
+  if (pitch.display_number != null) return pitch.display_number
+  // 在誤判模式下，球點上的編號應對應排行榜編號 (1, 2, 3, ...)
+  if (props.isMissedMode) return idx + 1
+  // 在單打席模式 (AtBatViewer) 下顯示該打席內的投球序號
+  if (pitch.pitch_num != null) return pitch.pitch_num
+  return idx + 1
 }
 
 function getPitchOpacity(pitch) {

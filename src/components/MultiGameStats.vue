@@ -132,7 +132,7 @@ import { fetchGameList, fetchManifest, runBatchCollect, isStaticMode } from '../
 
 defineEmits(['load-game'])
 
-const batchDate = ref('2026-08-29')
+const batchDate = ref(new Date().toISOString().slice(0, 10))
 const isCollecting = ref(false)
 const cachedGames = ref([])
 const errorMessage = ref('')
@@ -151,6 +151,16 @@ async function loadCachedGames() {
       }
     } else {
       cachedGames.value = await fetchGameList()
+    }
+
+    if (cachedGames.value.length > 0) {
+      const latestDate = cachedGames.value
+        .map(g => g.game_date)
+        .filter(Boolean)
+        .reduce((max, cur) => (cur > max ? cur : max), '')
+      if (latestDate) {
+        batchDate.value = latestDate
+      }
     }
   } catch (e) {
     errorMessage.value = e.message || '無法取得賽事清單'

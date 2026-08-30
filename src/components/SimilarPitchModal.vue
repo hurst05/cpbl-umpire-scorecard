@@ -55,11 +55,11 @@
                   {{ targetPitch.pitcher }} (投) vs {{ targetPitch.batter }} (打)
                   <span v-if="targetPitch.batter_height" class="text-xs font-normal text-slate-500">({{ targetPitch.batter_height }} cm)</span>
                 </span>
-                <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40">
-                  🎯 基準誤判球 (黃色標示)
+                <span :class="['px-2 py-0.5 rounded text-[11px] font-mono font-bold', targetPitch.is_correct ? 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30' : 'bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40']">
+                  {{ targetPitch.is_correct ? '🎯 基準球 (判決正確)' : '🎯 基準誤判球' }}
                 </span>
-                <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-red-500/10 text-red-700 dark:text-red-300 border border-red-500/20">
-                  誤差 {{ targetPitch.dist_cm }} cm
+                <span :class="['px-2 py-0.5 rounded text-[11px] font-mono font-bold', targetPitch.is_correct ? 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20' : 'bg-red-500/10 text-red-700 dark:text-red-300 border border-red-500/20']">
+                  {{ targetPitch.is_correct ? `距好球帶邊界 ${targetPitch.dist_cm} cm (${targetPitch.true_call === 'STRIKE' ? '帶內' : '帶外'})` : `誤差 ${targetPitch.dist_cm} cm` }}
                 </span>
               </div>
               <span class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
@@ -193,7 +193,7 @@
               <div class="flex items-center gap-1.5 min-w-0">
                 <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
                 <span class="font-bold text-amber-800 dark:text-amber-200 truncate">
-                  原打席：{{ activeInspectedPA.inning }} #{{ activeInspectedPA.batter.uniform_no }} {{ activeInspectedPA.batter.name }} (共 {{ activeInspectedPA.pitches.length }} 球)
+                  該球原打席九宮格：{{ activeInspectedPitch.inning_num }}局{{ activeInspectedPitch.inning_half }} {{ activeInspectedPitch.pitcher }} vs {{ activeInspectedPitch.batter }} (第 {{ activeInspectedPitch.pitch_num ?? activeInspectedPitch.pitch_index }} 球)
                 </span>
               </div>
               <button 
@@ -208,16 +208,17 @@
               class="w-full mb-2 px-1 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between font-medium"
             >
               <span>🎯 類似進壘點比對視角 (半徑 {{ searchRadiusCm }} cm)</span>
-              <span class="text-[11px] text-blue-600 dark:text-blue-400 font-semibold">點擊清單可帶入原打席</span>
+              <span class="text-[11px] text-blue-600 dark:text-blue-400 font-semibold">點擊清單可切換原打席九宮格</span>
             </div>
 
             <StrikeZoneSVG 
               :pitches="displayPitchesForSVG"
               :sz-top="currentSzTop"
               :sz-bottom="currentSzBottom"
-              :target-pitch="targetPitch"
+              :target-pitch="isInspectingPA ? null : targetPitch"
               :similar-pitches="isInspectingPA ? [] : similarPitches"
               :search-radius-cm="isInspectingPA ? null : searchRadiusCm"
+              :highlighted-pitch="activeInspectedPitch"
               :highlighted-index="currentHighlightedIndex"
               @select-pitch="(n, p) => onSVGSelectPitch(p)"
             />
@@ -230,25 +231,15 @@
                 <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                   半徑 {{ searchRadiusCm }} cm 內的判決明細 (由近至遠排序)
                 </h3>
-                <span class="text-[11px] text-slate-400">(點擊任一筆可帶入該打席視角)</span>
+                <span class="text-[11px] text-slate-400">(點擊任一筆切換該球九宮格視角)</span>
               </div>
-              <span class="text-xs text-slate-500 font-mono">共 {{ similarPitches.length }} 顆</span>
+              <span class="text-xs text-slate-500 font-mono">共 {{ listPitches.length }} 顆 (含基準球)</span>
             </div>
 
-            <!-- Empty State -->
-            <div 
-              v-if="similarPitches.length === 0" 
-              class="flex flex-col items-center justify-center py-16 text-center gap-2 text-slate-400 dark:text-slate-500"
-            >
-              <span class="text-3xl">🔍</span>
-              <span class="text-xs">在目前 {{ searchRadiusCm }} cm 半徑範圍內，本場沒有其他進壘判決。</span>
-              <span class="text-[11px] text-slate-400">可嘗試擴大上方搜尋半徑 (例: 12cm 或 16cm)。</span>
-            </div>
-
-            <!-- Pitches List -->
-            <div v-else class="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Pitches List (Includes Target Pitch at top) -->
+            <div class="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
               <div 
-                v-for="(p, idx) in similarPitches" 
+                v-for="(p, idx) in listPitches" 
                 :key="'sim-' + idx"
                 @mouseenter="hoveredListPitchNum = p.pitch_num ?? p.pitch_index"
                 @mouseleave="hoveredListPitchNum = null"
@@ -257,15 +248,28 @@
                   'p-3 rounded-lg border transition-all cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs select-none',
                   isPitchActiveInPA(p)
                     ? 'bg-amber-50/90 dark:bg-amber-950/40 border-amber-500 shadow-sm ring-1 ring-amber-500/40'
-                    : 'bg-slate-50/80 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500'
+                    : p.is_target_pitch
+                      ? 'bg-amber-50/50 dark:bg-amber-950/20 border-amber-300/80 dark:border-amber-600/40 hover:border-amber-400'
+                      : 'bg-slate-50/80 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500'
                 ]"
               >
                 <!-- Left Details -->
                 <div class="flex items-start gap-2.5">
-                  <!-- Distance Badge -->
-                  <div class="flex flex-col items-center justify-center px-2 py-1 rounded bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 text-sky-700 dark:text-sky-300 shrink-0 font-mono">
-                    <span class="text-[10px] text-slate-400">距基準球</span>
-                    <span class="font-bold text-xs">{{ p.distance_to_target_cm }} cm</span>
+                  <!-- Primary Strike Zone Distance Badge -->
+                  <div 
+                    :class="[
+                      'flex flex-col items-center justify-center px-2.5 py-1 rounded shrink-0 font-mono border min-w-[72px]',
+                      !p.is_correct
+                        ? 'bg-red-50 dark:bg-red-950/60 border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
+                        : p.true_call === 'STRIKE'
+                          ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+                          : 'bg-slate-100 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
+                    ]"
+                  >
+                    <span class="text-[10px] whitespace-nowrap">
+                      {{ !p.is_correct ? '! 誤差' : (p.true_call === 'STRIKE' ? '好球帶內' : '好球帶外') }}
+                    </span>
+                    <span class="font-bold text-xs">{{ p.dist_cm != null ? p.dist_cm + ' cm' : '-' }}</span>
                   </div>
 
                   <div class="flex flex-col gap-0.5 min-w-0">
@@ -276,13 +280,18 @@
                       <span class="text-slate-600 dark:text-slate-300">
                         {{ p.pitcher }} (投) vs {{ p.batter }} (打)
                       </span>
+                      <span v-if="p.is_target_pitch" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-400/20 text-amber-700 dark:text-amber-300 border border-amber-400/40">
+                        🎯 基準球
+                      </span>
                     </div>
                     <span class="text-slate-500 dark:text-slate-400 text-[11px]">
                       球數: {{ p.count_b }}-{{ p.count_s }} | {{ p.speed_kmh ? p.speed_kmh + ' km/h' : '' }} {{ p.pitch_type || '快速球' }} | {{ p.content }}
                     </span>
-                    <span class="text-slate-400 dark:text-slate-500 text-[10px] flex items-center gap-2 mt-0.5 font-mono">
+                    <span class="text-slate-400 dark:text-slate-500 text-[10px] flex items-center gap-2 mt-0.5 font-mono flex-wrap">
                       <span>進壘高度: {{ (p.z * 100).toFixed(1) }} cm</span>
-                      <span v-if="p.dist_cm != null">好球帶距離: {{ p.dist_cm }} cm ({{ p.true_call === 'STRIKE' ? '帶內' : '帶外' }})</span>
+                      <span class="text-sky-600 dark:text-sky-400 font-semibold">
+                        距基準球: {{ p.is_target_pitch ? '0.0 cm (基準球)' : p.distance_to_target_cm + ' cm' }}
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -310,7 +319,7 @@
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:bg-blue-600 hover:text-white'
                       ]"
                     >
-                      <span>{{ isPitchActiveInPA(p) ? '✓ 檢視中 (點擊還原)' : '👁️ 原打席視角' }}</span>
+                      <span>{{ isPitchActiveInPA(p) ? '✓ 檢視中 (點擊還原)' : '👁️ 原打席九宮格' }}</span>
                     </button>
                   </div>
                 </div>
@@ -339,7 +348,7 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import StrikeZoneSVG from './StrikeZoneSVG.vue'
-import { findSimilarPitches, analyzeConsistency } from '../utils/pitchGeometry.js'
+import { findSimilarPitches, analyzeConsistency, isSamePitch } from '../utils/pitchGeometry.js'
 
 const props = defineProps({
   isOpen: {
@@ -378,6 +387,16 @@ const similarPitches = computed(() => {
   return findSimilarPitches(props.targetPitch, props.allPitches, searchRadiusCm.value)
 })
 
+const listPitches = computed(() => {
+  if (!props.targetPitch) return []
+  const targetItem = {
+    ...props.targetPitch,
+    distance_to_target_cm: 0.0,
+    is_target_pitch: true
+  }
+  return [targetItem, ...similarPitches.value]
+})
+
 const consistency = computed(() => {
   return analyzeConsistency(props.targetPitch, similarPitches.value)
 })
@@ -393,27 +412,25 @@ const isInspectingPA = computed(() => {
 })
 
 const displayPitchesForSVG = computed(() => {
-  if (isInspectingPA.value && activeInspectedPA.value) {
-    const paPitches = activeInspectedPA.value.pitches || []
-    // Include target pitch (yellow) in the background so user can compare
-    const hasTarget = paPitches.some(p => isSamePitch(p, props.targetPitch))
-    return hasTarget ? paPitches : [...paPitches, props.targetPitch]
+  if (isInspectingPA.value && activeInspectedPitch.value) {
+    // 僅帶入該打席九宮格和該球而已，該打席的其他球數和基準球都不出現
+    return [activeInspectedPitch.value]
   }
-  // Default similarity cluster mode: only display target pitch and similar pitches within radius
+  // 預設類似進壘點集群模式：顯示基準球與半徑內候選球
   if (!props.targetPitch) return []
   return [props.targetPitch, ...similarPitches.value]
 })
 
 const currentSzTop = computed(() => {
-  if (isInspectingPA.value && activeInspectedPA.value?.pitches?.[0]) {
-    return activeInspectedPA.value.pitches[0].sz_top || 0.963
+  if (isInspectingPA.value && activeInspectedPitch.value) {
+    return activeInspectedPitch.value.sz_top || activeInspectedPA.value?.pitches?.[0]?.sz_top || 0.963
   }
   return props.targetPitch?.sz_top || 0.963
 })
 
 const currentSzBottom = computed(() => {
-  if (isInspectingPA.value && activeInspectedPA.value?.pitches?.[0]) {
-    return activeInspectedPA.value.pitches[0].sz_bottom || 0.486
+  if (isInspectingPA.value && activeInspectedPitch.value) {
+    return activeInspectedPitch.value.sz_bottom || activeInspectedPA.value?.pitches?.[0]?.sz_bottom || 0.486
   }
   return props.targetPitch?.sz_bottom || 0.486
 })
@@ -428,19 +445,6 @@ const currentHighlightedIndex = computed(() => {
 function isPitchActiveInPA(p) {
   if (!activeInspectedPitch.value || !p) return false
   return isSamePitch(activeInspectedPitch.value, p)
-}
-
-function isSamePitch(p1, p2) {
-  if (!p1 || !p2) return false
-  if (p1 === p2) return true
-  const pa1 = p1.pa_index ?? p1.pa_num
-  const pa2 = p2.pa_index ?? p2.pa_num
-  const idx1 = p1.pitch_index ?? p1.pitch_num
-  const idx2 = p2.pitch_index ?? p2.pitch_num
-  if (pa1 != null && pa2 != null && pa1 === pa2 && idx1 != null && idx2 != null) {
-    return idx1 === idx2
-  }
-  return Math.abs(p1.x - p2.x) < 0.0005 && Math.abs(p1.z - p2.z) < 0.0005 && p1.inning_num === p2.inning_num
 }
 
 function toggleInspectPitch(pitch) {

@@ -295,6 +295,8 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
         round(visiting_favored_dist / len(visiting_favored_calls), 1) if visiting_favored_calls else 0.0
     )
 
+    game_consistency = calculate_game_consistency(all_called_pitches, radius_cm=8.0)
+
     return {
         "game_info": {
             "game_id": game.get("gameId"),
@@ -317,6 +319,11 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
             "overall_accuracy": overall_acc,
             "ball_accuracy": ball_acc,
             "strike_accuracy": strike_acc,
+            "overall_consistency": game_consistency["consistency_rate"],
+            "consistency_ratio_str": game_consistency["ratio_str"],
+            "consistent_pairs": game_consistency["consistent_pairs"],
+            "total_pairs": game_consistency["total_pairs"],
+            "conflicting_pitches_count": game_consistency["conflicting_pitches_count"],
             "ball_ratio_str": f"{len(true_balls_correct)}/{len(true_balls)}",
             "strike_ratio_str": f"{len(true_strikes_correct)}/{len(true_strikes)}",
             "overall_ratio_str": f"{len(correct_calls)}/{total_calls}",
@@ -365,39 +372,35 @@ def calculate_pitch_distance_cm(p1: dict, p2: dict, target_zone_height_m: float 
     return round(math.sqrt(dx_cm * dx_cm + dz_cm * dz_cm), 1)
 
 
+def is_same_pitch(p1: dict, p2: dict) -> bool:
+    """Check if two pitch dicts represent the exact same pitch."""
+    if p1 is p2:
+        return True
+    pa1 = p1.get("pa_index") or p1.get("pa_num")
+    pa2 = p2.get("pa_index") or p2.get("pa_num")
+    p_idx1 = p1.get("pitch_index") or p1.get("pitch_num")
+    p_idx2 = p2.get("pitch_index") or p2.get("pitch_num")
+    if pa1 is not None and pa2 is not None and pa1 == pa2 and p_idx1 is not None and p_idx2 is not None:
+        return p_idx1 == p_idx2
+
+    return (
+        abs(p1.get("x", 0) - p2.get("x", 0)) < 0.0005
+        and abs(p1.get("z", 0) - p2.get("z", 0)) < 0.0005
+        and p1.get("inning_num") == p2.get("inning_num")
+        and p1.get("inning_half") == p2.get("inning_half")
+        and p1.get("called") == p2.get("called")
+    )
+
+
 def find_similar_pitches(target_pitch: dict, all_pitches: list[dict], radius_cm: float = 8.0) -> list[dict]:
     """Find all called pitches within radius_cm distance from target_pitch using hybrid distance."""
     results = []
-    target_pa = target_pitch.get("pa_index") or target_pitch.get("pa_num")
-    target_p_idx = target_pitch.get("pitch_index") or target_pitch.get("pitch_num")
     target_top = target_pitch.get("sz_top")
     target_bot = target_pitch.get("sz_bottom")
     target_zone_h = (target_top - target_bot) if (target_top and target_bot and target_top > target_bot) else None
 
     for p in all_pitches:
-        p_pa = p.get("pa_index") or p.get("pa_num")
-        p_p_idx = p.get("pitch_index") or p.get("pitch_num")
-        is_same = (
-            p is target_pitch
-            or (
-                target_pa is not None
-                and p_pa is not None
-                and target_pa == p_pa
-                and target_p_idx is not None
-                and p_p_idx is not None
-                and target_p_idx == p_p_idx
-            )
-            or (
-                abs(p.get("x", 0) - target_pitch.get("x", 0)) < 0.0005
-                and abs(p.get("z", 0) - target_pitch.get("z", 0)) < 0.0005
-                and p.get("inning_num") == target_pitch.get("inning_num")
-                and p.get("inning_half") == target_pitch.get("inning_half")
-                and p.get("pitcher") == target_pitch.get("pitcher")
-                and p.get("batter") == target_pitch.get("batter")
-                and p.get("called") == target_pitch.get("called")
-            )
-        )
-        if is_same:
+        if is_same_pitch(target_pitch, p):
             continue
 
         dist = calculate_pitch_distance_cm(target_pitch, p, target_zone_h)
@@ -407,3 +410,63 @@ def find_similar_pitches(target_pitch: dict, all_pitches: list[dict], radius_cm:
             results.append(item)
 
     return sorted(results, key=lambda x: x["distance_to_target_cm"])
+
+
+def calculate_game_consistency(all_called_pitches: list[dict], radius_cm: float = 8.0) -> dict:
+    """Calculate overall game consistency using Method A (Pairwise Neighborhood Consistency)."""
+    valid_pitches = [
+        p for p in all_called_pitches if p.get("x") is not None and p.get("z") is not None and p.get("called")
+    ]
+    n = len(valid_pitches)
+
+    if n <= 1:
+        return {
+            "consistency_rate": 100.0,
+            "consistent_pairs": 0,
+            "total_pairs": 0,
+            "conflicting_pitches_count": 0,
+            "isolated_count": n,
+            "total_pitches": n,
+            "ratio_str": "0/0",
+        }
+
+    total_pairs = 0
+    consistent_pairs = 0
+    conflicting_set = set()
+    has_neighbor_set = set()
+
+    for i in range(n):
+        p1 = valid_pitches[i]
+        top1 = p1.get("sz_top")
+        bot1 = p1.get("sz_bottom")
+        target_zone_h = (top1 - bot1) if (top1 and bot1 and top1 > bot1) else None
+
+        for j in range(i + 1, n):
+            p2 = valid_pitches[j]
+            if is_same_pitch(p1, p2):
+                continue
+
+            dist = calculate_pitch_distance_cm(p1, p2, target_zone_h)
+            if dist <= radius_cm:
+                total_pairs += 1
+                has_neighbor_set.add(i)
+                has_neighbor_set.add(j)
+
+                if p1.get("called") == p2.get("called"):
+                    consistent_pairs += 1
+                else:
+                    conflicting_set.add(i)
+                    conflicting_set.add(j)
+
+    isolated_count = n - len(has_neighbor_set)
+    consistency_rate = round((consistent_pairs / total_pairs * 100), 1) if total_pairs > 0 else 100.0
+
+    return {
+        "consistency_rate": consistency_rate,
+        "consistent_pairs": consistent_pairs,
+        "total_pairs": total_pairs,
+        "conflicting_pitches_count": len(conflicting_set),
+        "isolated_count": isolated_count,
+        "total_pitches": n,
+        "ratio_str": f"{consistent_pairs}/{total_pairs}",
+    }
