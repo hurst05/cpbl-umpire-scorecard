@@ -283,20 +283,14 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
     pitcher_favored_dist = round(sum(p["dist_cm"] for p in pitcher_favored_calls), 1)
     batter_favored_dist = round(sum(p["dist_cm"] for p in batter_favored_calls), 1)
 
-    pitcher_favored_avg = (
-        round(pitcher_favored_dist / len(pitcher_favored_calls), 1) if pitcher_favored_calls else 0.0
-    )
-    batter_favored_avg = (
-        round(batter_favored_dist / len(batter_favored_calls), 1) if batter_favored_calls else 0.0
-    )
+    pitcher_favored_avg = round(pitcher_favored_dist / len(pitcher_favored_calls), 1) if pitcher_favored_calls else 0.0
+    batter_favored_avg = round(batter_favored_dist / len(batter_favored_calls), 1) if batter_favored_calls else 0.0
 
     home_favored_calls = [p for p in missed_calls if p.get("favored_team") == home_team_name]
     visiting_favored_calls = [p for p in missed_calls if p.get("favored_team") == visiting_team_name]
     home_favored_dist = round(sum(p["dist_cm"] for p in home_favored_calls), 1)
     visiting_favored_dist = round(sum(p["dist_cm"] for p in visiting_favored_calls), 1)
-    home_favored_avg = (
-        round(home_favored_dist / len(home_favored_calls), 1) if home_favored_calls else 0.0
-    )
+    home_favored_avg = round(home_favored_dist / len(home_favored_calls), 1) if home_favored_calls else 0.0
     visiting_favored_avg = (
         round(visiting_favored_dist / len(visiting_favored_calls), 1) if visiting_favored_calls else 0.0
     )
@@ -413,6 +407,3 @@ def find_similar_pitches(target_pitch: dict, all_pitches: list[dict], radius_cm:
             results.append(item)
 
     return sorted(results, key=lambda x: x["distance_to_target_cm"])
-
-
-

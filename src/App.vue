@@ -75,13 +75,21 @@
       <!-- Loading State -->
       <div v-if="isLoading" class="flex flex-col items-center justify-center py-24 gap-3">
         <div class="w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">正在直接從 CPBL 官方進階數據網擷取並解析賽事數據...</span>
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">
+          {{ isStatic ? '正在載入已發布賽事數據...' : '正在直接從 CPBL 官方進階數據網擷取並解析賽事數據...' }}
+        </span>
       </div>
 
       <!-- Error State -->
-      <div v-else-if="errorMessage" class="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300 text-sm flex items-center justify-between">
+      <div v-else-if="errorMessage" class="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300 text-sm flex items-center justify-between gap-4">
         <span>{{ errorMessage }}</span>
-        <button @click="loadGame('2026-A-295')" class="underline font-bold">載入 295 場次</button>
+        <button
+          v-if="defaultGameId && gameData?.game_info?.game_id !== defaultGameId"
+          @click="loadDefaultGame"
+          class="underline font-bold shrink-0 hover:text-red-900 dark:hover:text-red-200 cursor-pointer"
+        >
+          返回預設場次 ({{ defaultGameId }})
+        </button>
       </div>
 
       <!-- Loaded Game Content -->
@@ -150,13 +158,16 @@ import { ref, onMounted } from 'vue'
 import AtBatViewer from './components/AtBatViewer.vue'
 import ScorecardSummary from './components/ScorecardSummary.vue'
 import MultiGameStats from './components/MultiGameStats.vue'
+import { fetchGame, fetchDefaultGameId, isStaticMode } from './services/dataService'
 
 const activeTab = ref('at-bat')
 const inputSno = ref(295)
+const defaultGameId = ref(null)
 const gameData = ref(null)
 const isLoading = ref(false)
 const errorMessage = ref('')
 const isDark = ref(false)
+const isStatic = ref(isStaticMode())
 
 function toggleTheme() {
   isDark.value = !isDark.value
@@ -197,17 +208,13 @@ async function loadGame(gameId) {
   isLoading.value = true
   errorMessage.value = ''
   try {
-    const res = await fetch(`/api/game/${gameId}`)
-    if (!res.ok) {
-      throw new Error(`伺服器錯誤: ${res.statusText}`)
-    }
-    gameData.value = await res.json()
-    // Sync inputSno with loaded game
-    if (gameData.value?.game_info?.game_sno) {
-      inputSno.value = gameData.value.game_info.game_sno
+    const data = await fetchGame(gameId)
+    gameData.value = data
+    if (data?.game_info?.game_sno) {
+      inputSno.value = data.game_info.game_sno
     }
   } catch (e) {
-    errorMessage.value = `擷取賽事資料失敗 (${e.message})`
+    errorMessage.value = e.message || `擷取賽事資料失敗 (${gameId})`
   } finally {
     isLoading.value = false
   }
@@ -219,7 +226,13 @@ async function loadGameBySno() {
   await loadGame(gameId)
 }
 
-onMounted(() => {
+async function loadDefaultGame() {
+  if (defaultGameId.value) {
+    await loadGame(defaultGameId.value)
+  }
+}
+
+onMounted(async () => {
   const savedTheme = localStorage.getItem('theme')
   if (savedTheme === 'dark') {
     isDark.value = true
@@ -227,7 +240,26 @@ onMounted(() => {
   } else {
     isDark.value = false
     document.documentElement.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
   }
-  loadGame('2026-A-295')
+
+  isLoading.value = true
+  try {
+    const defId = await fetchDefaultGameId()
+    defaultGameId.value = defId
+    if (defId) {
+      await loadGame(defId)
+    } else {
+      if (isStatic.value) {
+        errorMessage.value = '目前沒有已發布之賽事資料。'
+      } else {
+        errorMessage.value = '目前本機快取無賽事，請輸入場次編號搜尋或至跨場次數據庫執行批次抓取。'
+      }
+      isLoading.value = false
+    }
+  } catch (e) {
+    errorMessage.value = e.message || '載入賽事索引失敗'
+    isLoading.value = false
+  }
 })
 </script>

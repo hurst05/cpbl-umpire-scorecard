@@ -12,7 +12,13 @@
     "start": "uv run uvicorn app:app --app-dir server --host 127.0.0.1 --port 8000",
     "lint:py": "uv run ruff check server",
     "format:py": "uv run ruff format server",
-    "test:backend": "uv run pytest"
+    "test:backend": "uv run pytest",
+    "test:backend-core": "uv run pytest --ignore=tests/test_publish_script.py",
+    "test:frontend": "node --test tests-js/*.test.js",
+    "export:static": "uv run python -m server.export_static",
+    "verify:static": "uv run python -m server.verify_static --input .static-export/data && vite build --mode static",
+    "build:pages": "vite build --mode static",
+    "publish:pages": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-pages.ps1"
   },
   "dependencies": {
     "lucide-vue-next": "^1.0.0",
