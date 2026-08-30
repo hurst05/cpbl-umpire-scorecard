@@ -1,0 +1,7132 @@
+{
+  "game_info": {
+    "game_id": "2026-A-258",
+    "game_sno": 258,
+    "kind_code": "A",
+    "date": "2026-08-12",
+    "field": "台東",
+    "home_team": "統一7-ELEVEn獅",
+    "visiting_team": "樂天桃猿",
+    "home_score": 0,
+    "visiting_score": 4,
+    "hp_umpire": "陳均瑋",
+    "total_pitches": 267
+  },
+  "umpire_metrics": {
+    "hp_umpire": "陳均瑋",
+    "total_called_pitches": 0,
+    "correct_count": 0,
+    "missed_count": 0,
+    "overall_accuracy": 100.0,
+    "ball_accuracy": 100.0,
+    "strike_accuracy": 100.0,
+    "ball_ratio_str": "0/0",
+    "strike_ratio_str": "0/0",
+    "overall_ratio_str": "0/0",
+    "avg_miss_distance_cm": 0.0,
+    "missed_calls": []
+  },
+  "all_called_pitches": [],
+  "plate_appearances": [
+    {
+      "pa_num": 1,
+      "inning": "1局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林立",
+        "uniform_no": "39",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782035718925753/39林立2025.jpg",
+        "height": 182
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "揮棒落空。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 1人出局。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 2,
+      "inning": "1局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "陳晨威",
+        "uniform_no": "98",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835934921596757/98陳晨威2025.jpg",
+        "height": 180
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 3,
+      "inning": "1局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "威克",
+        "uniform_no": "74",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q218521103384893837/威克2026.png",
+        "height": 196
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出界外球。",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出界外球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": " 擦棒被捕球 打者出局-三振出局。 3人出局。",
+          "count_b": 3,
+          "count_s": 3,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": " 擦棒被捕球 打者出局-三振出局。 3人出局。"
+    },
+    {
+      "pa_num": 4,
+      "inning": "1局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "張皓崴",
+        "uniform_no": "38",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616030406783989/38張皓崴2026.jpg",
+        "height": 176
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 1人出局。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 5,
+      "inning": "1局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "朱迦恩",
+        "uniform_no": "8",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088856149799849722/8朱迦恩2026.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "揮棒落空。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出中外野滾地球，一壘安打 。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野滾地球，一壘安打 。"
+    },
+    {
+      "pa_num": 6,
+      "inning": "1局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳傑憲",
+        "uniform_no": "24",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782027721249240/24陳傑憲2026.jpg",
+        "height": 173
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出內野滾地球， 一壘跑者朱迦恩-一壘手  傳游擊手封殺出局 2人出局。趁傳上壘。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 一壘跑者朱迦恩-一壘手  傳游擊手封殺出局 2人出局。趁傳上壘。"
+    },
+    {
+      "pa_num": 7,
+      "inning": "1局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳鏞基",
+        "uniform_no": "13",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782075805688062/13陳鏞基2026.jpg",
+        "height": 179
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。 一壘跑者陳傑憲出局-盜壘刺 3人出局。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。 一壘跑者陳傑憲出局-盜壘刺 3人出局。"
+    },
+    {
+      "pa_num": 8,
+      "inning": "2局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林智平",
+        "uniform_no": "79",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782139873551855/79林智平2025.jpg",
+        "height": 178
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 1人出局。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 9,
+      "inning": "2局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林子偉",
+        "uniform_no": "15",
+        "img": "https://www.cpbl.com.tw/files/atts/0N228626166699407798/15林子偉2025.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出中外野高飛球， 打者-中外野手 飛球接殺出局。 2人出局。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野高飛球， 打者-中外野手 飛球接殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 10,
+      "inning": "2局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "梁家榮",
+        "uniform_no": "5",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070523294404183608/5梁家榮2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "揮棒落空。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出左外野平飛球，一壘安打 。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野平飛球，一壘安打 。"
+    },
+    {
+      "pa_num": 11,
+      "inning": "2局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林政華",
+        "uniform_no": "65",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088833158596417147/65林政華2025.jpg",
+        "height": 173
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。四壞球上壘。 一壘跑者梁家榮 上二壘。",
+          "count_b": 4,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。四壞球上壘。 一壘跑者梁家榮 上二壘。"
+    },
+    {
+      "pa_num": 12,
+      "inning": "2局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "嚴宏鈞",
+        "uniform_no": "62",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782212067088275/62嚴宏鈞2025.jpg",
+        "height": 165
+      },
+      "batting_order": 5,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": true,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出內野滾地球， 打者-一壘手 自踩壘包出局。 3人出局。一、二壘殘壘。\r\n",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-一壘手 自踩壘包出局。 3人出局。一、二壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 13,
+      "inning": "2局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳鏞基",
+        "uniform_no": "13",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782075805688062/13陳鏞基2026.jpg",
+        "height": 179
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "揮棒落空。 打者出局-三振出局。 1人出局。",
+          "count_b": 1,
+          "count_s": 3,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "揮棒落空。 打者出局-三振出局。 1人出局。"
+    },
+    {
+      "pa_num": 14,
+      "inning": "2局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林子豪",
+        "uniform_no": "2",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853140534315264/2林子豪2026.jpg",
+        "height": 185
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出左外野高飛球， 打者-左外野手 飛球接殺出局。 2人出局。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野高飛球， 打者-左外野手 飛球接殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 15,
+      "inning": "2局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "潘傑楷",
+        "uniform_no": "35",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782080976485061/35潘傑楷2026.jpg",
+        "height": 184
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": " 擦棒被捕球 打者出局-三振出局。 3人出局。",
+          "count_b": 2,
+          "count_s": 3,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": " 擦棒被捕球 打者出局-三振出局。 3人出局。"
+    },
+    {
+      "pa_num": 16,
+      "inning": "3局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "馬傑森",
+        "uniform_no": "94",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835065934800145/94馬傑森2025.jpg",
+        "height": 180
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野高飛球， 打者-一壘手 界外飛球接殺出局。 1人出局。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野高飛球， 打者-一壘手 界外飛球接殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 17,
+      "inning": "3局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林立",
+        "uniform_no": "39",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782035718925753/39林立2025.jpg",
+        "height": 182
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出中外野高飛球，一壘安打 。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野高飛球，一壘安打 。"
+    },
+    {
+      "pa_num": 18,
+      "inning": "3局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "陳晨威",
+        "uniform_no": "98",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835934921596757/98陳晨威2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出球(觸擊)， 打者-犧牲短打 三壘手  傳一壘手刺殺出局。 2人出局。 一壘跑者林立 上二壘。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出球(觸擊)， 打者-犧牲短打 三壘手  傳一壘手刺殺出局。 2人出局。 一壘跑者林立 上二壘。"
+    },
+    {
+      "pa_num": 19,
+      "inning": "3局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "威克",
+        "uniform_no": "74",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q218521103384893837/威克2026.png",
+        "height": 196
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "揮棒落空。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出左外野高飛球， 打者-左外野手 飛球接殺出局。 3人出局。二壘殘壘。\r\n",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野高飛球， 打者-左外野手 飛球接殺出局。 3人出局。二壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 20,
+      "inning": "3局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林泓弦",
+        "uniform_no": "67",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616131785517620/67林泓弦.jpg",
+        "height": 176
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。四壞球上壘。",
+          "count_b": 4,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。四壞球上壘。"
+    },
+    {
+      "pa_num": 21,
+      "inning": "3局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林靖凱",
+        "uniform_no": "64",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853465542247023/64林靖凱.jpg",
+        "height": 170
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出左外野滾地球，一壘安打 。 一壘跑者林泓弦 上二壘。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野滾地球，一壘安打 。 一壘跑者林泓弦 上二壘。"
+    },
+    {
+      "pa_num": 22,
+      "inning": "3局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "柯育民",
+        "uniform_no": "36",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782159265124977/柯育民2026.jpg",
+        "height": 175
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": true,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": " 界外球(觸擊)",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野滾地球， 二壘跑者林泓弦 上三壘。 一壘跑者林靖凱-游擊手  傳二壘手封殺出局 1人出局。 打者出局-雙殺打。 2人出局。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 二壘跑者林泓弦 上三壘。 一壘跑者林靖凱-游擊手  傳二壘手封殺出局 1人出局。 打者出局-雙殺打。 2人出局。"
+    },
+    {
+      "pa_num": 23,
+      "inning": "3局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "張皓崴",
+        "uniform_no": "38",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616030406783989/38張皓崴2026.jpg",
+        "height": 176
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": true
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "揮棒落空。 打者出局-三振出局。(統一7-ELEVEn獅重播輔助判決-原判) 3人出局。三壘殘壘。\r\n",
+          "count_b": 1,
+          "count_s": 3,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "揮棒落空。 打者出局-三振出局。(統一7-ELEVEn獅重播輔助判決-原判) 3人出局。三壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 24,
+      "inning": "4局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林智平",
+        "uniform_no": "79",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782139873551855/79林智平2025.jpg",
+        "height": 178
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "揮棒落空。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出中外野高飛球，一壘安打 。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野高飛球，一壘安打 。"
+    },
+    {
+      "pa_num": 25,
+      "inning": "4局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林子偉",
+        "uniform_no": "15",
+        "img": "https://www.cpbl.com.tw/files/atts/0N228626166699407798/15林子偉2025.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 0,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出球(觸擊)， 打者-犧牲短打 三壘手  傳二壘手刺殺出局。 1人出局。 一壘跑者林智平 上二壘。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出球(觸擊)， 打者-犧牲短打 三壘手  傳二壘手刺殺出局。 1人出局。 一壘跑者林智平 上二壘。"
+    },
+    {
+      "pa_num": 26,
+      "inning": "4局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "梁家榮",
+        "uniform_no": "5",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070523294404183608/5梁家榮2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出右外野滾地球，一壘安打 。1分打點。 二壘跑者林智平回本壘得分。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野滾地球，一壘安打 。1分打點。 二壘跑者林智平回本壘得分。"
+    },
+    {
+      "pa_num": 27,
+      "inning": "4局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林政華",
+        "uniform_no": "65",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088833158596417147/65林政華2025.jpg",
+        "height": 173
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": "揮棒落空。 打者出局-三振出局。 2人出局。",
+          "count_b": 2,
+          "count_s": 3,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "揮棒落空。 打者出局-三振出局。 2人出局。"
+    },
+    {
+      "pa_num": 28,
+      "inning": "4局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "嚴宏鈞",
+        "uniform_no": "62",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782212067088275/62嚴宏鈞2025.jpg",
+        "height": 165
+      },
+      "batting_order": 5,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 3人出局。一壘殘壘。\r\n",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 3人出局。一壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 29,
+      "inning": "4局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "朱迦恩",
+        "uniform_no": "8",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088856149799849722/8朱迦恩2026.jpg",
+        "height": 175
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出內野滾地球， 打者-一壘手 自踩壘包出局。 1人出局。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-一壘手 自踩壘包出局。 1人出局。"
+    },
+    {
+      "pa_num": 30,
+      "inning": "4局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳傑憲",
+        "uniform_no": "24",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782027721249240/24陳傑憲2026.jpg",
+        "height": 173
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 31,
+      "inning": "4局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳鏞基",
+        "uniform_no": "13",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782075805688062/13陳鏞基2026.jpg",
+        "height": 179
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。四壞球上壘。",
+          "count_b": 4,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。四壞球上壘。"
+    },
+    {
+      "pa_num": 32,
+      "inning": "4局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林子豪",
+        "uniform_no": "2",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853140534315264/2林子豪2026.jpg",
+        "height": 185
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "揮棒落空。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出中外野高飛球， 打者-中外野手 飛球接殺出局。 3人出局。一壘殘壘。\r\n",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野高飛球， 打者-中外野手 飛球接殺出局。 3人出局。一壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 33,
+      "inning": "5局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "馬傑森",
+        "uniform_no": "94",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835065934800145/94馬傑森2025.jpg",
+        "height": 180
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出左外野高飛球，二壘安打 。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野高飛球，二壘安打 。"
+    },
+    {
+      "pa_num": 34,
+      "inning": "5局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林立",
+        "uniform_no": "39",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782035718925753/39林立2025.jpg",
+        "height": 182
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 1,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出右外野滾地球，一壘安打 。1分打點。 二壘跑者馬傑森回本壘得分。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野滾地球，一壘安打 。1分打點。 二壘跑者馬傑森回本壘得分。"
+    },
+    {
+      "pa_num": 35,
+      "inning": "5局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "陳晨威",
+        "uniform_no": "98",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835934921596757/98陳晨威2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "投手牽制一壘跑者",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。 一壘跑者林立出局-盜壘刺 1人出局。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 2人出局。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 36,
+      "inning": "5局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "威克",
+        "uniform_no": "74",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q218521103384893837/威克2026.png",
+        "height": 196
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "揮棒落空。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出左外野高飛球， 打者-左外野手 飛球接殺出局。 3人出局。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野高飛球， 打者-左外野手 飛球接殺出局。 3人出局。"
+    },
+    {
+      "pa_num": 37,
+      "inning": "5局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "潘傑楷",
+        "uniform_no": "35",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782080976485061/35潘傑楷2026.jpg",
+        "height": 184
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出中外野滾地球，一壘安打 。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野滾地球，一壘安打 。"
+    },
+    {
+      "pa_num": 38,
+      "inning": "5局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林泓弦",
+        "uniform_no": "67",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616131785517620/67林泓弦.jpg",
+        "height": 176
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出內野滾地球， 一壘跑者潘傑楷-一壘手  傳游擊手封殺出局 1人出局。趁傳上壘。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 一壘跑者潘傑楷-一壘手  傳游擊手封殺出局 1人出局。趁傳上壘。"
+    },
+    {
+      "pa_num": 39,
+      "inning": "5局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林靖凱",
+        "uniform_no": "64",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853465542247023/64林靖凱.jpg",
+        "height": 170
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出中外野高飛球，二壘安打 。 一壘跑者林泓弦 上三壘。 三壘跑者林泓弦-中外野手 傳 左外野手 傳 游擊手 傳 捕手 觸殺出局 2人出局。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野高飛球，二壘安打 。 一壘跑者林泓弦 上三壘。 三壘跑者林泓弦-中外野手 傳 左外野手 傳 游擊手 傳 捕手 觸殺出局 2人出局。"
+    },
+    {
+      "pa_num": 40,
+      "inning": "5局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "柯育民",
+        "uniform_no": "36",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782159265124977/柯育民2026.jpg",
+        "height": 175
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "揮棒落空。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "揮棒落空。 打者出局-三振出局。 3人出局。二壘殘壘。\r\n",
+          "count_b": 3,
+          "count_s": 3,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "揮棒落空。 打者出局-三振出局。 3人出局。二壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 41,
+      "inning": "6局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林智平",
+        "uniform_no": "79",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782139873551855/79林智平2025.jpg",
+        "height": 178
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "好球沒揮棒。",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "好球沒揮棒。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "揮棒落空。 打者出局-三振出局。 1人出局。",
+          "count_b": 3,
+          "count_s": 3,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "揮棒落空。 打者出局-三振出局。 1人出局。"
+    },
+    {
+      "pa_num": 42,
+      "inning": "6局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林子偉",
+        "uniform_no": "15",
+        "img": "https://www.cpbl.com.tw/files/atts/0N228626166699407798/15林子偉2025.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 43,
+      "inning": "6局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "梁家榮",
+        "uniform_no": "5",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070523294404183608/5梁家榮2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 3人出局。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 3人出局。"
+    },
+    {
+      "pa_num": 44,
+      "inning": "6局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "張皓崴",
+        "uniform_no": "38",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616030406783989/38張皓崴2026.jpg",
+        "height": 176
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 1人出局。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 45,
+      "inning": "6局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "朱迦恩",
+        "uniform_no": "8",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088856149799849722/8朱迦恩2026.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出右外野高飛球， 打者-右外野手 界外飛球接殺出局。 2人出局。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野高飛球， 打者-右外野手 界外飛球接殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 46,
+      "inning": "6局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳傑憲",
+        "uniform_no": "24",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782027721249240/24陳傑憲2026.jpg",
+        "height": 173
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出內野滾地球， 打者-一壘手 自踩壘包出局。 3人出局。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-一壘手 自踩壘包出局。 3人出局。"
+    },
+    {
+      "pa_num": 47,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "獅帝芬",
+        "uniform_no": "42",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q071654522887973508/獅帝芬2026.jpg"
+      },
+      "batter": {
+        "name": "林政華",
+        "uniform_no": "65",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088833158596417147/65林政華2025.jpg",
+        "height": 173
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換投手：獅帝芬=>鄭澔。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "更換投手：獅帝芬=>鄭澔。\r\n"
+    },
+    {
+      "pa_num": 48,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "鄭澔",
+        "uniform_no": "33",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058615440195839770/33鄭澔2026.jpg"
+      },
+      "batter": {
+        "name": "林政華",
+        "uniform_no": "65",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088833158596417147/65林政華2025.jpg",
+        "height": 173
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。四壞球上壘。",
+          "count_b": 4,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。四壞球上壘。"
+    },
+    {
+      "pa_num": 49,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "鄭澔",
+        "uniform_no": "33",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058615440195839770/33鄭澔2026.jpg"
+      },
+      "batter": {
+        "name": "嚴宏鈞",
+        "uniform_no": "62",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782212067088275/62嚴宏鈞2025.jpg",
+        "height": 165
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 2,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出球(觸擊)， 打者-犧牲短打 一壘手  傳二壘手刺殺出局。 1人出局。 一壘跑者林政華 上二壘。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出球(觸擊)， 打者-犧牲短打 一壘手  傳二壘手刺殺出局。 1人出局。 一壘跑者林政華 上二壘。"
+    },
+    {
+      "pa_num": 50,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "鄭澔",
+        "uniform_no": "33",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058615440195839770/33鄭澔2026.jpg"
+      },
+      "batter": {
+        "name": "馬傑森",
+        "uniform_no": "94",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835065934800145/94馬傑森2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 3,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出左外野高飛球，二壘安打 。1分打點。 二壘跑者林政華回本壘得分。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出左外野高飛球，二壘安打 。1分打點。 二壘跑者林政華回本壘得分。"
+    },
+    {
+      "pa_num": 51,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "王鏡銘",
+        "uniform_no": "41",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782138225368340/41王鏡銘2026.jpg"
+      },
+      "batter": {
+        "name": "林立",
+        "uniform_no": "39",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782035718925753/39林立2025.jpg",
+        "height": 182
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 3,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換投手：鄭澔=>王鏡銘。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出右外野滾地球，一壘安打 。1分打點。 二壘跑者馬傑森回本壘得分。(統一7-ELEVEn獅重播輔助判決-原判) 一壘跑者林立 趁傳進壘上二壘。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野滾地球，一壘安打 。1分打點。 二壘跑者馬傑森回本壘得分。(統一7-ELEVEn獅重播輔助判決-原判) 一壘跑者林立 趁傳進壘上二壘。"
+    },
+    {
+      "pa_num": 52,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "王鏡銘",
+        "uniform_no": "41",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782138225368340/41王鏡銘2026.jpg"
+      },
+      "batter": {
+        "name": "陳晨威",
+        "uniform_no": "98",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835934921596757/98陳晨威2025.jpg",
+        "height": 180
+      },
+      "batting_order": 5,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "好球沒揮棒。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 2人出局。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 53,
+      "inning": "7局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "王鏡銘",
+        "uniform_no": "41",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782138225368340/41王鏡銘2026.jpg"
+      },
+      "batter": {
+        "name": "威克",
+        "uniform_no": "74",
+        "img": "https://www.cpbl.com.tw/files/atts/0Q218521103384893837/威克2026.png",
+        "height": 196
+      },
+      "batting_order": 6,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出內野高飛球， 打者-三壘手 飛球接殺出局。 3人出局。二壘殘壘。\r\n",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 1.0486,
+          "sz_bottom": 0.5292,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野高飛球， 打者-三壘手 飛球接殺出局。 3人出局。二壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 54,
+      "inning": "7局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "陳鏞基",
+        "uniform_no": "13",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782075805688062/13陳鏞基2026.jpg",
+        "height": 179
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 1人出局。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 55,
+      "inning": "7局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林子豪",
+        "uniform_no": "2",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853140534315264/2林子豪2026.jpg",
+        "height": 185
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出中外野高飛球， 打者-中外野手 飛球接殺出局。 2人出局。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野高飛球， 打者-中外野手 飛球接殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 56,
+      "inning": "7局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "潘傑楷",
+        "uniform_no": "35",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782080976485061/35潘傑楷2026.jpg",
+        "height": 184
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出右外野平飛球，二壘安打 。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9844,
+          "sz_bottom": 0.4968,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野平飛球，二壘安打 。"
+    },
+    {
+      "pa_num": 57,
+      "inning": "7局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳克羿",
+        "uniform_no": "19",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835829014133216/19陳克羿2025.jpg"
+      },
+      "batter": {
+        "name": "林泓弦",
+        "uniform_no": "67",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616131785517620/67林泓弦.jpg",
+        "height": 176
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "教練暫停",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 3人出局。二壘殘壘。\r\n",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 3人出局。二壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 58,
+      "inning": "8局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "王鏡銘",
+        "uniform_no": "41",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782138225368340/41王鏡銘2026.jpg"
+      },
+      "batter": {
+        "name": "林智平",
+        "uniform_no": "79",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782139873551855/79林智平2025.jpg",
+        "height": 178
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換投手：王鏡銘=>吳承諭。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "更換投手：王鏡銘=>吳承諭。\r\n"
+    },
+    {
+      "pa_num": 59,
+      "inning": "8局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "吳承諭",
+        "uniform_no": "57",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088851757722450956/57吳承諭.jpg"
+      },
+      "batter": {
+        "name": "林智平",
+        "uniform_no": "79",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782139873551855/79林智平2025.jpg",
+        "height": 178
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出內野高飛球， 打者-二壘手 飛球接殺出局。 1人出局。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9523,
+          "sz_bottom": 0.4806,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野高飛球， 打者-二壘手 飛球接殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 60,
+      "inning": "8局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "吳承諭",
+        "uniform_no": "57",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088851757722450956/57吳承諭.jpg"
+      },
+      "batter": {
+        "name": "林子偉",
+        "uniform_no": "15",
+        "img": "https://www.cpbl.com.tw/files/atts/0N228626166699407798/15林子偉2025.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出中外野滾地球，一壘安打 。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出中外野滾地球，一壘安打 。"
+    },
+    {
+      "pa_num": 61,
+      "inning": "8局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "吳承諭",
+        "uniform_no": "57",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088851757722450956/57吳承諭.jpg"
+      },
+      "batter": {
+        "name": "梁家榮",
+        "uniform_no": "5",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070523294404183608/5梁家榮2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。 一壘跑者林子偉 盜壘上二壘。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "好球沒揮棒。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 8,
+          "content": "擊出界外球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 9,
+          "content": "壞球。四壞球上壘。",
+          "count_b": 4,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。四壞球上壘。"
+    },
+    {
+      "pa_num": 62,
+      "inning": "8局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "吳承諭",
+        "uniform_no": "57",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088851757722450956/57吳承諭.jpg"
+      },
+      "batter": {
+        "name": "林政華",
+        "uniform_no": "65",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088833158596417147/65林政華2025.jpg",
+        "height": 173
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": true,
+          "2B": true,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "教練暫停",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "更換代跑：梁家榮=>許賀捷。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出球(觸擊)， 打者-犧牲短打 三壘手  傳一壘手刺殺出局。 2人出局。 一壘跑者許賀捷 上二壘。 二壘跑者林子偉 上三壘。",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出球(觸擊)， 打者-犧牲短打 三壘手  傳一壘手刺殺出局。 2人出局。 一壘跑者許賀捷 上二壘。 二壘跑者林子偉 上三壘。"
+    },
+    {
+      "pa_num": 63,
+      "inning": "8局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "吳承諭",
+        "uniform_no": "57",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088851757722450956/57吳承諭.jpg"
+      },
+      "batter": {
+        "name": "嚴宏鈞",
+        "uniform_no": "62",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782212067088275/62嚴宏鈞2025.jpg",
+        "height": 165
+      },
+      "batting_order": 5,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": true,
+          "3B": true
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 3人出局。二、三壘殘壘。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.88275,
+          "sz_bottom": 0.4455,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-二壘手  傳一壘手刺殺出局。 3人出局。二、三壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 64,
+      "inning": "8局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "呂詠臻",
+        "uniform_no": "48",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070528313067299981/48呂詠臻2025.jpg"
+      },
+      "batter": {
+        "name": "林靖凱",
+        "uniform_no": "64",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853465542247023/64林靖凱.jpg",
+        "height": 170
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換守備：林子偉-二壘手=>三壘手。\r\n更換守備：許賀捷-=>二壘手。\r\n更換選手：游擊手-馬傑森=>游擊手-余德龍。\r\n更換投手：陳克羿=>呂詠臻。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": "好球沒揮棒。 打者出局-三振出局。 1人出局。",
+          "count_b": 2,
+          "count_s": 3,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9095,
+          "sz_bottom": 0.459,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "好球沒揮棒。 打者出局-三振出局。 1人出局。"
+    },
+    {
+      "pa_num": 65,
+      "inning": "8局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "呂詠臻",
+        "uniform_no": "48",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070528313067299981/48呂詠臻2025.jpg"
+      },
+      "batter": {
+        "name": "田子杰",
+        "uniform_no": "49",
+        "img": "https://www.cpbl.com.tw/files/atts/0N066408920456141073/49田子杰.jpg",
+        "height": 175
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換代打：柯育民=>田子杰。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "揮棒落空。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手接球觸殺出局。 2人出局。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手接球觸殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 66,
+      "inning": "8局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "呂詠臻",
+        "uniform_no": "48",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070528313067299981/48呂詠臻2025.jpg"
+      },
+      "batter": {
+        "name": "張皓崴",
+        "uniform_no": "38",
+        "img": "https://www.cpbl.com.tw/files/atts/0O058616030406783989/38張皓崴2026.jpg",
+        "height": 176
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "壞球。四壞球上壘。",
+          "count_b": 4,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9416,
+          "sz_bottom": 0.4752,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "壞球。四壞球上壘。"
+    },
+    {
+      "pa_num": 67,
+      "inning": "8局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "呂詠臻",
+        "uniform_no": "48",
+        "img": "https://www.cpbl.com.tw/files/atts/0P070528313067299981/48呂詠臻2025.jpg"
+      },
+      "batter": {
+        "name": "朱迦恩",
+        "uniform_no": "8",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088856149799849722/8朱迦恩2026.jpg",
+        "height": 175
+      },
+      "batting_order": 4,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": true,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "教練暫停",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 5,
+          "content": "壞球。",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 6,
+          "content": "更換投手：呂詠臻=>蘇俊璋。\r\n",
+          "count_b": 3,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 7,
+          "content": "好球沒揮棒。",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 8,
+          "content": "擊出內野高飛球， 打者-捕手 飛球接殺出局。 3人出局。一壘殘壘。\r\n",
+          "count_b": 3,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.93625,
+          "sz_bottom": 0.4725,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野高飛球， 打者-捕手 飛球接殺出局。 3人出局。一壘殘壘。\r\n"
+    },
+    {
+      "pa_num": 68,
+      "inning": "9局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "江承峰",
+        "uniform_no": "95",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782152636134454/95江承峰.jpg"
+      },
+      "batter": {
+        "name": "余德龍",
+        "uniform_no": "36",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782143005578924/36余德龍2025.jpg",
+        "height": 180
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換選手：右外野手-朱迦恩=>捕手-陳重羽。\r\n更換守備：田子杰-=>右外野手。\r\n更換投手：吳承諭=>江承峰。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野滾地球， 打者-三壘手  傳一壘手刺殺出局。 1人出局。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-三壘手  傳一壘手刺殺出局。 1人出局。"
+    },
+    {
+      "pa_num": 69,
+      "inning": "9局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "江承峰",
+        "uniform_no": "95",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782152636134454/95江承峰.jpg"
+      },
+      "batter": {
+        "name": "林立",
+        "uniform_no": "39",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782035718925753/39林立2025.jpg",
+        "height": 182
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.9737,
+          "sz_bottom": 0.4914,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-游擊手  傳一壘手刺殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 70,
+      "inning": "9局上",
+      "batting_team": "樂天桃猿",
+      "fielding_team": "統一7-ELEVEn獅",
+      "pitcher": {
+        "name": "江承峰",
+        "uniform_no": "95",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782152636134454/95江承峰.jpg"
+      },
+      "batter": {
+        "name": "陳晨威",
+        "uniform_no": "98",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088835934921596757/98陳晨威2025.jpg",
+        "height": 180
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 3人出局。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.963,
+          "sz_bottom": 0.486,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出右外野高飛球， 打者-右外野手 飛球接殺出局。 3人出局。"
+    },
+    {
+      "pa_num": 71,
+      "inning": "9局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "蘇俊璋",
+        "uniform_no": "00",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088837090977697776/00蘇俊璋2025.jpg"
+      },
+      "batter": {
+        "name": "陳傑憲",
+        "uniform_no": "24",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782027721249240/24陳傑憲2026.jpg",
+        "height": 173
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "更換投手：蘇俊璋=>陳冠宇。\r\n",
+          "count_b": 0,
+          "count_s": 0,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "更換投手：蘇俊璋=>陳冠宇。\r\n"
+    },
+    {
+      "pa_num": 72,
+      "inning": "9局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳冠宇",
+        "uniform_no": "17",
+        "img": "https://www.cpbl.com.tw/files/atts/0L235603319457569957/17陳冠宇2025.jpg"
+      },
+      "batter": {
+        "name": "陳傑憲",
+        "uniform_no": "24",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782027721249240/24陳傑憲2026.jpg",
+        "height": 173
+      },
+      "batting_order": 1,
+      "game_state": {
+        "outs": 0,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 1,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 1,
+          "count_s": 2,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "好球沒揮棒。 打者出局-三振出局。 1人出局。",
+          "count_b": 1,
+          "count_s": 3,
+          "out_cnt": 0,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.92555,
+          "sz_bottom": 0.4671,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "好球沒揮棒。 打者出局-三振出局。 1人出局。"
+    },
+    {
+      "pa_num": 73,
+      "inning": "9局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳冠宇",
+        "uniform_no": "17",
+        "img": "https://www.cpbl.com.tw/files/atts/0L235603319457569957/17陳冠宇2025.jpg"
+      },
+      "batter": {
+        "name": "陳鏞基",
+        "uniform_no": "13",
+        "img": "https://www.cpbl.com.tw/files/atts/0L087782075805688062/13陳鏞基2026.jpg",
+        "height": 179
+      },
+      "batting_order": 2,
+      "game_state": {
+        "outs": 1,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "壞球。",
+          "count_b": 1,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "壞球。",
+          "count_b": 2,
+          "count_s": 0,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出界外球。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "擊出內野滾地球， 打者-三壘手  傳一壘手刺殺出局。 2人出局。",
+          "count_b": 2,
+          "count_s": 1,
+          "out_cnt": 1,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.95765,
+          "sz_bottom": 0.4833,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "擊出內野滾地球， 打者-三壘手  傳一壘手刺殺出局。 2人出局。"
+    },
+    {
+      "pa_num": 74,
+      "inning": "9局下",
+      "batting_team": "統一7-ELEVEn獅",
+      "fielding_team": "樂天桃猿",
+      "pitcher": {
+        "name": "陳冠宇",
+        "uniform_no": "17",
+        "img": "https://www.cpbl.com.tw/files/atts/0L235603319457569957/17陳冠宇2025.jpg"
+      },
+      "batter": {
+        "name": "林子豪",
+        "uniform_no": "2",
+        "img": "https://www.cpbl.com.tw/files/atts/0L088853140534315264/2林子豪2026.jpg",
+        "height": 185
+      },
+      "batting_order": 3,
+      "game_state": {
+        "outs": 2,
+        "bases": {
+          "1B": false,
+          "2B": false,
+          "3B": false
+        },
+        "score_visiting": 4,
+        "score_home": 0
+      },
+      "pitches": [
+        {
+          "pitch_num": 1,
+          "content": "好球沒揮棒。",
+          "count_b": 0,
+          "count_s": 1,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 2,
+          "content": "擊出界外球。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 3,
+          "content": "擊出內野滾地球， 打者-投手  傳一壘手刺殺出局。 3人出局。",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        },
+        {
+          "pitch_num": 4,
+          "content": "比賽結束",
+          "count_b": 0,
+          "count_s": 2,
+          "out_cnt": 2,
+          "pitch_type": "快速球",
+          "speed_kmh": null,
+          "x": null,
+          "z": null,
+          "sz_top": 0.98975,
+          "sz_bottom": 0.4995,
+          "is_called_pitch": false,
+          "called": null,
+          "true_call": null,
+          "is_correct": null,
+          "dist_cm": null
+        }
+      ],
+      "outcome": "比賽結束"
+    }
+  ]
+}
