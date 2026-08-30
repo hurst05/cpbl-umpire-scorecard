@@ -253,6 +253,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-pages.ps1 -D
 
 建議第一次上線及修改發布流程後都先執行 dry-run。
 
+Windows 環境也可以直接雙擊或執行 `publish.bat`：它會先自動執行 dry-run 驗證，全部通過後再提示確認是否正式發布。
+
 ### 正式發布
 
 ```powershell
