@@ -1,0 +1,35 @@
+{
+  "name": "cpbl-umpire-scorecard",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "type": "module",
+  "scripts": {
+    "setup": "pnpm install && uv sync",
+    "dev:backend": "uv run uvicorn app:app --app-dir server --host 127.0.0.1 --port 8000 --reload",
+    "dev:frontend": "vite --port 5173",
+    "dev": "concurrently -n BACKEND,FRONTEND -c blue,green \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
+    "start": "uv run uvicorn app:app --app-dir server --host 127.0.0.1 --port 8000",
+    "lint:py": "uv run ruff check server",
+    "format:py": "uv run ruff format server",
+    "test:backend": "uv run pytest"
+  },
+  "dependencies": {
+    "lucide-vue-next": "^1.0.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^10.9.1",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.11.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.1.0"
+  },
+  "onlyBuiltDependencies": [
+    "esbuild"
+  ]
+}
