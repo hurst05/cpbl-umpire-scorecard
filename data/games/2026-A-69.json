@@ -10,7 +10,8 @@
     "home_score": 2,
     "visiting_score": 2,
     "hp_umpire": "林金達",
-    "total_pitches": 258
+    "total_pitches": 258,
+    "game_duration_minutes": 147
   },
   "umpire_metrics": {
     "hp_umpire": "林金達",

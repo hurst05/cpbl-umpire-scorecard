@@ -10,7 +10,8 @@
     "home_score": 3,
     "visiting_score": 1,
     "hp_umpire": "羅鈞鴻",
-    "total_pitches": 263
+    "total_pitches": 263,
+    "game_duration_minutes": 224
   },
   "umpire_metrics": {
     "hp_umpire": "羅鈞鴻",

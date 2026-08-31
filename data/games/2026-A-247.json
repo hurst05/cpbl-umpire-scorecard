@@ -10,7 +10,8 @@
     "home_score": 2,
     "visiting_score": 5,
     "hp_umpire": "邱景彥",
-    "total_pitches": 271
+    "total_pitches": 271,
+    "game_duration_minutes": 167
   },
   "umpire_metrics": {
     "hp_umpire": "邱景彥",

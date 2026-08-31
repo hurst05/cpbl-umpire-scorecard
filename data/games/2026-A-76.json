@@ -10,7 +10,8 @@
     "home_score": 4,
     "visiting_score": 5,
     "hp_umpire": "蔡豐澤",
-    "total_pitches": 292
+    "total_pitches": 292,
+    "game_duration_minutes": 194
   },
   "umpire_metrics": {
     "hp_umpire": "蔡豐澤",

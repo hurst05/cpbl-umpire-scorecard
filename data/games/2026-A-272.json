@@ -10,7 +10,8 @@
     "home_score": 0,
     "visiting_score": 5,
     "hp_umpire": "陳均瑋",
-    "total_pitches": 315
+    "total_pitches": 315,
+    "game_duration_minutes": 179
   },
   "umpire_metrics": {
     "hp_umpire": "陳均瑋",

@@ -10,7 +10,8 @@
     "home_score": 3,
     "visiting_score": 1,
     "hp_umpire": "王俊宏",
-    "total_pitches": 262
+    "total_pitches": 262,
+    "game_duration_minutes": 152
   },
   "umpire_metrics": {
     "hp_umpire": "王俊宏",

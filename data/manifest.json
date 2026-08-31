@@ -1,7 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T00:15:24.333650+08:00",
+  "generated_at": "2026-09-01T00:49:50.415901+08:00",
   "default_game_id": "2026-A-300",
+  "available_years": [
+    2026
+  ],
   "games": [
     {
       "game_id": "2026-A-300",
@@ -16,7 +19,8 @@
       "overall_acc": 89.3,
       "ball_acc": 90.8,
       "strike_acc": 86.4,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 176
     },
     {
       "game_id": "2026-A-299",
@@ -31,7 +35,8 @@
       "overall_acc": 89.6,
       "ball_acc": 88.8,
       "strike_acc": 91.9,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 176
     },
     {
       "game_id": "2026-A-298",
@@ -46,7 +51,8 @@
       "overall_acc": 91.2,
       "ball_acc": 88.9,
       "strike_acc": 97.5,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 176
     },
     {
       "game_id": "2026-A-297",
@@ -61,7 +67,8 @@
       "overall_acc": 90.3,
       "ball_acc": 90.6,
       "strike_acc": 89.5,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 202
     },
     {
       "game_id": "2026-A-296",
@@ -76,7 +83,8 @@
       "overall_acc": 93.2,
       "ball_acc": 96.4,
       "strike_acc": 85.7,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 202
     },
     {
       "game_id": "2026-A-295",
@@ -91,7 +99,8 @@
       "overall_acc": 86.5,
       "ball_acc": 87.5,
       "strike_acc": 83.9,
-      "missed_count": 26
+      "missed_count": 26,
+      "game_duration_minutes": 202
     },
     {
       "game_id": "2026-A-294",
@@ -106,7 +115,8 @@
       "overall_acc": 90.8,
       "ball_acc": 90.7,
       "strike_acc": 91.4,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 215
     },
     {
       "game_id": "2026-A-293",
@@ -121,7 +131,8 @@
       "overall_acc": 91.6,
       "ball_acc": 91.9,
       "strike_acc": 91.1,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 215
     },
     {
       "game_id": "2026-A-292",
@@ -136,7 +147,8 @@
       "overall_acc": 91.8,
       "ball_acc": 92.9,
       "strike_acc": 89.1,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 215
     },
     {
       "game_id": "2026-A-291",
@@ -151,7 +163,8 @@
       "overall_acc": 89.4,
       "ball_acc": 89.5,
       "strike_acc": 89.2,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 178
     },
     {
       "game_id": "2026-A-290",
@@ -166,7 +179,8 @@
       "overall_acc": 91.9,
       "ball_acc": 90.6,
       "strike_acc": 95.7,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 154
     },
     {
       "game_id": "2026-A-289",
@@ -181,7 +195,8 @@
       "overall_acc": 89.2,
       "ball_acc": 93.3,
       "strike_acc": 76.3,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 154
     },
     {
       "game_id": "2026-A-288",
@@ -196,7 +211,8 @@
       "overall_acc": 92.2,
       "ball_acc": 95.2,
       "strike_acc": 86.4,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 154
     },
     {
       "game_id": "2026-A-286",
@@ -211,7 +227,8 @@
       "overall_acc": 92.0,
       "ball_acc": 91.5,
       "strike_acc": 93.0,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 176
     },
     {
       "game_id": "2026-A-285",
@@ -226,7 +243,8 @@
       "overall_acc": 90.7,
       "ball_acc": 90.6,
       "strike_acc": 90.9,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": null
     },
     {
       "game_id": "2026-A-272",
@@ -241,7 +259,8 @@
       "overall_acc": 88.7,
       "ball_acc": 88.1,
       "strike_acc": 90.6,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-269",
@@ -256,7 +275,8 @@
       "overall_acc": 92.3,
       "ball_acc": 93.4,
       "strike_acc": 89.8,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 196
     },
     {
       "game_id": "2026-A-267",
@@ -271,7 +291,8 @@
       "overall_acc": 94.4,
       "ball_acc": 93.5,
       "strike_acc": 96.3,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 198
     },
     {
       "game_id": "2026-A-265",
@@ -286,7 +307,8 @@
       "overall_acc": 88.0,
       "ball_acc": 90.5,
       "strike_acc": 81.6,
-      "missed_count": 21
+      "missed_count": 21,
+      "game_duration_minutes": 198
     },
     {
       "game_id": "2026-A-264",
@@ -301,7 +323,8 @@
       "overall_acc": 91.9,
       "ball_acc": 93.3,
       "strike_acc": 88.9,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 187
     },
     {
       "game_id": "2026-A-262",
@@ -316,7 +339,8 @@
       "overall_acc": 84.4,
       "ball_acc": 86.0,
       "strike_acc": 80.9,
-      "missed_count": 24
+      "missed_count": 24,
+      "game_duration_minutes": 187
     },
     {
       "game_id": "2026-A-261",
@@ -331,7 +355,8 @@
       "overall_acc": 89.3,
       "ball_acc": 90.8,
       "strike_acc": 84.6,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 220
     },
     {
       "game_id": "2026-A-260",
@@ -346,7 +371,8 @@
       "overall_acc": 94.0,
       "ball_acc": 94.6,
       "strike_acc": 92.9,
-      "missed_count": 7
+      "missed_count": 7,
+      "game_duration_minutes": 167
     },
     {
       "game_id": "2026-A-259",
@@ -361,7 +387,8 @@
       "overall_acc": 89.4,
       "ball_acc": 91.1,
       "strike_acc": 86.0,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 167
     },
     {
       "game_id": "2026-A-257",
@@ -376,7 +403,8 @@
       "overall_acc": 89.6,
       "ball_acc": 89.6,
       "strike_acc": 89.7,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-253",
@@ -391,7 +419,8 @@
       "overall_acc": 87.9,
       "ball_acc": 91.9,
       "strike_acc": 81.5,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 157
     },
     {
       "game_id": "2026-A-250",
@@ -406,7 +435,8 @@
       "overall_acc": 90.2,
       "ball_acc": 89.3,
       "strike_acc": 92.9,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 189
     },
     {
       "game_id": "2026-A-249",
@@ -421,7 +451,8 @@
       "overall_acc": 92.2,
       "ball_acc": 90.0,
       "strike_acc": 97.4,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 167
     },
     {
       "game_id": "2026-A-248",
@@ -436,7 +467,8 @@
       "overall_acc": 93.5,
       "ball_acc": 92.8,
       "strike_acc": 94.7,
-      "missed_count": 7
+      "missed_count": 7,
+      "game_duration_minutes": 167
     },
     {
       "game_id": "2026-A-247",
@@ -451,7 +483,8 @@
       "overall_acc": 88.4,
       "ball_acc": 87.0,
       "strike_acc": 91.9,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 167
     },
     {
       "game_id": "2026-A-246",
@@ -466,7 +499,8 @@
       "overall_acc": 95.2,
       "ball_acc": 95.8,
       "strike_acc": 93.5,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 185
     },
     {
       "game_id": "2026-A-245",
@@ -481,7 +515,8 @@
       "overall_acc": 88.3,
       "ball_acc": 87.4,
       "strike_acc": 90.2,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-244",
@@ -496,7 +531,8 @@
       "overall_acc": 89.1,
       "ball_acc": 90.0,
       "strike_acc": 87.5,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-243",
@@ -511,7 +547,8 @@
       "overall_acc": 94.0,
       "ball_acc": 96.9,
       "strike_acc": 88.5,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-242",
@@ -526,7 +563,8 @@
       "overall_acc": 89.7,
       "ball_acc": 86.4,
       "strike_acc": 95.6,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 189
     },
     {
       "game_id": "2026-A-240",
@@ -541,7 +579,8 @@
       "overall_acc": 88.8,
       "ball_acc": 89.7,
       "strike_acc": 86.3,
-      "missed_count": 22
+      "missed_count": 22,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-239",
@@ -556,7 +595,8 @@
       "overall_acc": 84.7,
       "ball_acc": 80.8,
       "strike_acc": 94.7,
-      "missed_count": 21
+      "missed_count": 21,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-236",
@@ -571,7 +611,8 @@
       "overall_acc": 92.9,
       "ball_acc": 92.0,
       "strike_acc": 94.7,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 201
     },
     {
       "game_id": "2026-A-235",
@@ -586,7 +627,8 @@
       "overall_acc": 90.2,
       "ball_acc": 86.8,
       "strike_acc": 98.0,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 201
     },
     {
       "game_id": "2026-A-234",
@@ -601,7 +643,8 @@
       "overall_acc": 90.2,
       "ball_acc": 91.9,
       "strike_acc": 87.8,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 235
     },
     {
       "game_id": "2026-A-232",
@@ -616,7 +659,8 @@
       "overall_acc": 86.5,
       "ball_acc": 88.9,
       "strike_acc": 80.6,
-      "missed_count": 29
+      "missed_count": 29,
+      "game_duration_minutes": 235
     },
     {
       "game_id": "2026-A-231",
@@ -631,7 +675,8 @@
       "overall_acc": 88.0,
       "ball_acc": 91.1,
       "strike_acc": 81.7,
-      "missed_count": 22
+      "missed_count": 22,
+      "game_duration_minutes": 205
     },
     {
       "game_id": "2026-A-230",
@@ -646,7 +691,8 @@
       "overall_acc": 88.3,
       "ball_acc": 91.1,
       "strike_acc": 82.1,
-      "missed_count": 21
+      "missed_count": 21,
+      "game_duration_minutes": 184
     },
     {
       "game_id": "2026-A-229",
@@ -661,7 +707,8 @@
       "overall_acc": 93.9,
       "ball_acc": 93.8,
       "strike_acc": 94.2,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 184
     },
     {
       "game_id": "2026-A-227",
@@ -676,7 +723,8 @@
       "overall_acc": 90.0,
       "ball_acc": 91.6,
       "strike_acc": 86.8,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-224",
@@ -691,7 +739,8 @@
       "overall_acc": 91.2,
       "ball_acc": 92.6,
       "strike_acc": 87.2,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 172
     },
     {
       "game_id": "2026-A-223",
@@ -706,7 +755,8 @@
       "overall_acc": 95.5,
       "ball_acc": 96.6,
       "strike_acc": 93.0,
-      "missed_count": 6
+      "missed_count": 6,
+      "game_duration_minutes": 172
     },
     {
       "game_id": "2026-A-221",
@@ -721,7 +771,8 @@
       "overall_acc": 94.1,
       "ball_acc": 91.0,
       "strike_acc": 100.0,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 175
     },
     {
       "game_id": "2026-A-220",
@@ -736,7 +787,8 @@
       "overall_acc": 90.4,
       "ball_acc": 96.6,
       "strike_acc": 81.4,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 175
     },
     {
       "game_id": "2026-A-218",
@@ -751,7 +803,8 @@
       "overall_acc": 93.2,
       "ball_acc": 97.3,
       "strike_acc": 83.3,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 172
     },
     {
       "game_id": "2026-A-217",
@@ -766,7 +819,8 @@
       "overall_acc": 90.9,
       "ball_acc": 89.7,
       "strike_acc": 95.0,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 172
     },
     {
       "game_id": "2026-A-216",
@@ -781,7 +835,8 @@
       "overall_acc": 92.8,
       "ball_acc": 92.6,
       "strike_acc": 93.2,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 168
     },
     {
       "game_id": "2026-A-215",
@@ -796,7 +851,8 @@
       "overall_acc": 89.6,
       "ball_acc": 90.7,
       "strike_acc": 87.5,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 209
     },
     {
       "game_id": "2026-A-213",
@@ -811,7 +867,8 @@
       "overall_acc": 94.6,
       "ball_acc": 94.5,
       "strike_acc": 94.7,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 209
     },
     {
       "game_id": "2026-A-211",
@@ -826,7 +883,8 @@
       "overall_acc": 93.5,
       "ball_acc": 92.4,
       "strike_acc": 96.3,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 212
     },
     {
       "game_id": "2026-A-210",
@@ -841,7 +899,8 @@
       "overall_acc": 90.8,
       "ball_acc": 90.0,
       "strike_acc": 92.3,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 146
     },
     {
       "game_id": "2026-A-209",
@@ -856,7 +915,8 @@
       "overall_acc": 91.5,
       "ball_acc": 93.6,
       "strike_acc": 87.3,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 170
     },
     {
       "game_id": "2026-A-204",
@@ -871,7 +931,8 @@
       "overall_acc": 83.9,
       "ball_acc": 86.2,
       "strike_acc": 79.1,
-      "missed_count": 22
+      "missed_count": 22,
+      "game_duration_minutes": 212
     },
     {
       "game_id": "2026-A-203",
@@ -886,7 +947,8 @@
       "overall_acc": 89.0,
       "ball_acc": 91.7,
       "strike_acc": 83.3,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 212
     },
     {
       "game_id": "2026-A-202",
@@ -901,7 +963,8 @@
       "overall_acc": 87.4,
       "ball_acc": 86.0,
       "strike_acc": 91.8,
-      "missed_count": 25
+      "missed_count": 25,
+      "game_duration_minutes": 212
     },
     {
       "game_id": "2026-A-198",
@@ -916,7 +979,8 @@
       "overall_acc": 85.4,
       "ball_acc": 88.6,
       "strike_acc": 78.0,
-      "missed_count": 29
+      "missed_count": 29,
+      "game_duration_minutes": null
     },
     {
       "game_id": "2026-A-195",
@@ -931,7 +995,8 @@
       "overall_acc": 92.9,
       "ball_acc": 96.2,
       "strike_acc": 86.0,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 164
     },
     {
       "game_id": "2026-A-194",
@@ -946,7 +1011,8 @@
       "overall_acc": 93.5,
       "ball_acc": 92.9,
       "strike_acc": 95.0,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 156
     },
     {
       "game_id": "2026-A-193",
@@ -961,7 +1027,8 @@
       "overall_acc": 87.3,
       "ball_acc": 88.8,
       "strike_acc": 85.0,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 156
     },
     {
       "game_id": "2026-A-192",
@@ -976,7 +1043,8 @@
       "overall_acc": 90.9,
       "ball_acc": 89.9,
       "strike_acc": 93.9,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 156
     },
     {
       "game_id": "2026-A-191",
@@ -991,7 +1059,8 @@
       "overall_acc": 85.1,
       "ball_acc": 91.7,
       "strike_acc": 73.3,
-      "missed_count": 25
+      "missed_count": 25,
+      "game_duration_minutes": 197
     },
     {
       "game_id": "2026-A-190",
@@ -1006,7 +1075,8 @@
       "overall_acc": 94.0,
       "ball_acc": 92.2,
       "strike_acc": 98.1,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 197
     },
     {
       "game_id": "2026-A-189",
@@ -1021,7 +1091,8 @@
       "overall_acc": 87.8,
       "ball_acc": 87.0,
       "strike_acc": 89.6,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-188",
@@ -1036,7 +1107,8 @@
       "overall_acc": 92.8,
       "ball_acc": 92.4,
       "strike_acc": 93.9,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-187",
@@ -1051,7 +1123,8 @@
       "overall_acc": 84.4,
       "ball_acc": 83.5,
       "strike_acc": 86.3,
-      "missed_count": 25
+      "missed_count": 25,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-186",
@@ -1066,7 +1139,8 @@
       "overall_acc": 91.3,
       "ball_acc": 91.8,
       "strike_acc": 90.2,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-185",
@@ -1081,7 +1155,8 @@
       "overall_acc": 94.7,
       "ball_acc": 95.9,
       "strike_acc": 91.8,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-184",
@@ -1096,7 +1171,8 @@
       "overall_acc": 88.9,
       "ball_acc": 88.3,
       "strike_acc": 90.4,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-183",
@@ -1111,7 +1187,8 @@
       "overall_acc": 93.7,
       "ball_acc": 94.2,
       "strike_acc": 92.7,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 186
     },
     {
       "game_id": "2026-A-182",
@@ -1126,7 +1203,8 @@
       "overall_acc": 93.7,
       "ball_acc": 91.7,
       "strike_acc": 97.8,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 186
     },
     {
       "game_id": "2026-A-181",
@@ -1141,7 +1219,8 @@
       "overall_acc": 84.2,
       "ball_acc": 84.1,
       "strike_acc": 84.4,
-      "missed_count": 27
+      "missed_count": 27,
+      "game_duration_minutes": 186
     },
     {
       "game_id": "2026-A-165",
@@ -1156,7 +1235,8 @@
       "overall_acc": 87.3,
       "ball_acc": 91.2,
       "strike_acc": 80.6,
-      "missed_count": 23
+      "missed_count": 23,
+      "game_duration_minutes": 194
     },
     {
       "game_id": "2026-A-167",
@@ -1171,7 +1251,8 @@
       "overall_acc": 87.4,
       "ball_acc": 92.2,
       "strike_acc": 80.0,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 143
     },
     {
       "game_id": "2026-A-158",
@@ -1186,7 +1267,8 @@
       "overall_acc": 91.8,
       "ball_acc": 90.8,
       "strike_acc": 94.3,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-157",
@@ -1201,7 +1283,8 @@
       "overall_acc": 90.9,
       "ball_acc": 90.2,
       "strike_acc": 92.7,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-151",
@@ -1216,7 +1299,8 @@
       "overall_acc": 91.3,
       "ball_acc": 93.5,
       "strike_acc": 84.6,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 142
     },
     {
       "game_id": "2026-A-150",
@@ -1231,7 +1315,8 @@
       "overall_acc": 89.2,
       "ball_acc": 90.6,
       "strike_acc": 85.7,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 142
     },
     {
       "game_id": "2026-A-15",
@@ -1246,7 +1331,8 @@
       "overall_acc": 88.4,
       "ball_acc": 89.6,
       "strike_acc": 86.0,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": null
     },
     {
       "game_id": "2026-A-152",
@@ -1261,7 +1347,8 @@
       "overall_acc": 91.5,
       "ball_acc": 89.6,
       "strike_acc": 94.2,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 103
     },
     {
       "game_id": "2026-A-80",
@@ -1276,7 +1363,8 @@
       "overall_acc": 85.5,
       "ball_acc": 84.7,
       "strike_acc": 87.5,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 103
     },
     {
       "game_id": "2026-A-141",
@@ -1291,7 +1379,8 @@
       "overall_acc": 85.0,
       "ball_acc": 84.3,
       "strike_acc": 86.3,
-      "missed_count": 23
+      "missed_count": 23,
+      "game_duration_minutes": 171
     },
     {
       "game_id": "2026-A-58",
@@ -1306,7 +1395,8 @@
       "overall_acc": 88.0,
       "ball_acc": 91.9,
       "strike_acc": 80.9,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 171
     },
     {
       "game_id": "2026-A-153",
@@ -1321,7 +1411,8 @@
       "overall_acc": 89.5,
       "ball_acc": 89.6,
       "strike_acc": 89.2,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 185
     },
     {
       "game_id": "2026-A-144",
@@ -1336,7 +1427,8 @@
       "overall_acc": 91.0,
       "ball_acc": 91.6,
       "strike_acc": 89.8,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 185
     },
     {
       "game_id": "2026-A-57",
@@ -1351,7 +1443,8 @@
       "overall_acc": 91.0,
       "ball_acc": 90.1,
       "strike_acc": 94.1,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 185
     },
     {
       "game_id": "2026-A-180",
@@ -1366,7 +1459,8 @@
       "overall_acc": 90.0,
       "ball_acc": 91.8,
       "strike_acc": 87.2,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 191
     },
     {
       "game_id": "2026-A-179",
@@ -1381,7 +1475,8 @@
       "overall_acc": 92.4,
       "ball_acc": 93.1,
       "strike_acc": 91.0,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 191
     },
     {
       "game_id": "2026-A-178",
@@ -1396,7 +1491,8 @@
       "overall_acc": 91.6,
       "ball_acc": 92.1,
       "strike_acc": 90.6,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 191
     },
     {
       "game_id": "2026-A-177",
@@ -1411,7 +1507,8 @@
       "overall_acc": 93.5,
       "ball_acc": 92.9,
       "strike_acc": 94.9,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 159
     },
     {
       "game_id": "2026-A-176",
@@ -1426,7 +1523,8 @@
       "overall_acc": 89.1,
       "ball_acc": 91.5,
       "strike_acc": 84.8,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 159
     },
     {
       "game_id": "2026-A-175",
@@ -1441,7 +1539,8 @@
       "overall_acc": 89.1,
       "ball_acc": 86.6,
       "strike_acc": 93.6,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 159
     },
     {
       "game_id": "2026-A-174",
@@ -1456,7 +1555,8 @@
       "overall_acc": 91.7,
       "ball_acc": 94.1,
       "strike_acc": 87.1,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 168
     },
     {
       "game_id": "2026-A-173",
@@ -1471,7 +1571,8 @@
       "overall_acc": 92.4,
       "ball_acc": 91.3,
       "strike_acc": 94.7,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 168
     },
     {
       "game_id": "2026-A-172",
@@ -1486,7 +1587,8 @@
       "overall_acc": 87.1,
       "ball_acc": 90.7,
       "strike_acc": 77.5,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 168
     },
     {
       "game_id": "2026-A-171",
@@ -1501,7 +1603,8 @@
       "overall_acc": 89.1,
       "ball_acc": 93.6,
       "strike_acc": 80.4,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-170",
@@ -1516,7 +1619,8 @@
       "overall_acc": 87.3,
       "ball_acc": 85.3,
       "strike_acc": 92.7,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-169",
@@ -1531,7 +1635,8 @@
       "overall_acc": 93.5,
       "ball_acc": 95.2,
       "strike_acc": 89.8,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-168",
@@ -1546,7 +1651,8 @@
       "overall_acc": 91.2,
       "ball_acc": 88.3,
       "strike_acc": 97.6,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 224
     },
     {
       "game_id": "2026-A-156",
@@ -1561,7 +1667,8 @@
       "overall_acc": 91.3,
       "ball_acc": 92.1,
       "strike_acc": 90.0,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 224
     },
     {
       "game_id": "2026-A-166",
@@ -1576,7 +1683,8 @@
       "overall_acc": 83.7,
       "ball_acc": 87.6,
       "strike_acc": 75.0,
-      "missed_count": 25
+      "missed_count": 25,
+      "game_duration_minutes": 155
     },
     {
       "game_id": "2026-A-164",
@@ -1591,7 +1699,8 @@
       "overall_acc": 93.3,
       "ball_acc": 93.1,
       "strike_acc": 93.8,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 174
     },
     {
       "game_id": "2026-A-163",
@@ -1606,7 +1715,8 @@
       "overall_acc": 92.1,
       "ball_acc": 95.0,
       "strike_acc": 86.3,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 174
     },
     {
       "game_id": "2026-A-162",
@@ -1621,7 +1731,8 @@
       "overall_acc": 94.4,
       "ball_acc": 94.1,
       "strike_acc": 95.1,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-161",
@@ -1636,7 +1747,8 @@
       "overall_acc": 87.7,
       "ball_acc": 86.1,
       "strike_acc": 91.3,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-160",
@@ -1651,7 +1763,8 @@
       "overall_acc": 86.8,
       "ball_acc": 88.8,
       "strike_acc": 83.0,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-159",
@@ -1666,7 +1779,8 @@
       "overall_acc": 90.0,
       "ball_acc": 91.5,
       "strike_acc": 86.0,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": null
     },
     {
       "game_id": "2026-A-155",
@@ -1681,7 +1795,8 @@
       "overall_acc": 89.4,
       "ball_acc": 91.9,
       "strike_acc": 84.0,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 204
     },
     {
       "game_id": "2026-A-154",
@@ -1696,7 +1811,8 @@
       "overall_acc": 95.3,
       "ball_acc": 95.2,
       "strike_acc": 95.7,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 204
     },
     {
       "game_id": "2026-A-149",
@@ -1711,7 +1827,8 @@
       "overall_acc": 85.7,
       "ball_acc": 88.9,
       "strike_acc": 78.0,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 188
     },
     {
       "game_id": "2026-A-147",
@@ -1726,7 +1843,8 @@
       "overall_acc": 90.5,
       "ball_acc": 91.6,
       "strike_acc": 88.0,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 189
     },
     {
       "game_id": "2026-A-146",
@@ -1741,7 +1859,8 @@
       "overall_acc": 89.6,
       "ball_acc": 90.9,
       "strike_acc": 87.0,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 189
     },
     {
       "game_id": "2026-A-142",
@@ -1756,7 +1875,8 @@
       "overall_acc": 94.1,
       "ball_acc": 97.0,
       "strike_acc": 89.0,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 224
     },
     {
       "game_id": "2026-A-140",
@@ -1771,7 +1891,8 @@
       "overall_acc": 82.9,
       "ball_acc": 85.0,
       "strike_acc": 78.3,
-      "missed_count": 32
+      "missed_count": 32,
+      "game_duration_minutes": 150
     },
     {
       "game_id": "2026-A-139",
@@ -1786,7 +1907,8 @@
       "overall_acc": 91.4,
       "ball_acc": 93.8,
       "strike_acc": 85.7,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 150
     },
     {
       "game_id": "2026-A-24",
@@ -1801,7 +1923,8 @@
       "overall_acc": 89.9,
       "ball_acc": 88.0,
       "strike_acc": 95.1,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-136",
@@ -1816,7 +1939,8 @@
       "overall_acc": 89.8,
       "ball_acc": 90.8,
       "strike_acc": 87.7,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 160
     },
     {
       "game_id": "2026-A-134",
@@ -1831,7 +1955,8 @@
       "overall_acc": 91.9,
       "ball_acc": 89.9,
       "strike_acc": 95.7,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 160
     },
     {
       "game_id": "2026-A-133",
@@ -1846,7 +1971,8 @@
       "overall_acc": 89.7,
       "ball_acc": 89.5,
       "strike_acc": 90.2,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 140
     },
     {
       "game_id": "2026-A-131",
@@ -1861,7 +1987,8 @@
       "overall_acc": 86.4,
       "ball_acc": 85.9,
       "strike_acc": 87.2,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 140
     },
     {
       "game_id": "2026-A-130",
@@ -1876,7 +2003,8 @@
       "overall_acc": 86.8,
       "ball_acc": 87.0,
       "strike_acc": 86.3,
-      "missed_count": 24
+      "missed_count": 24,
+      "game_duration_minutes": 187
     },
     {
       "game_id": "2026-A-128",
@@ -1891,7 +2019,8 @@
       "overall_acc": 90.9,
       "ball_acc": 90.8,
       "strike_acc": 90.9,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 187
     },
     {
       "game_id": "2026-A-127",
@@ -1906,7 +2035,8 @@
       "overall_acc": 95.7,
       "ball_acc": 96.9,
       "strike_acc": 92.7,
-      "missed_count": 6
+      "missed_count": 6,
+      "game_duration_minutes": 169
     },
     {
       "game_id": "2026-A-126",
@@ -1921,7 +2051,8 @@
       "overall_acc": 87.0,
       "ball_acc": 89.7,
       "strike_acc": 80.4,
-      "missed_count": 23
+      "missed_count": 23,
+      "game_duration_minutes": 185
     },
     {
       "game_id": "2026-A-121",
@@ -1936,7 +2067,8 @@
       "overall_acc": 90.0,
       "ball_acc": 88.2,
       "strike_acc": 93.8,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-120",
@@ -1951,7 +2083,8 @@
       "overall_acc": 85.0,
       "ball_acc": 88.5,
       "strike_acc": 77.2,
-      "missed_count": 28
+      "missed_count": 28,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-117",
@@ -1966,7 +2099,8 @@
       "overall_acc": 89.8,
       "ball_acc": 92.9,
       "strike_acc": 83.7,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 122
     },
     {
       "game_id": "2026-A-116",
@@ -1981,7 +2115,8 @@
       "overall_acc": 92.7,
       "ball_acc": 92.9,
       "strike_acc": 92.3,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 122
     },
     {
       "game_id": "2026-A-115",
@@ -1996,7 +2131,8 @@
       "overall_acc": 87.3,
       "ball_acc": 89.2,
       "strike_acc": 82.5,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-113",
@@ -2011,7 +2147,8 @@
       "overall_acc": 88.7,
       "ball_acc": 87.4,
       "strike_acc": 92.3,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-112",
@@ -2026,7 +2163,8 @@
       "overall_acc": 91.8,
       "ball_acc": 93.7,
       "strike_acc": 86.0,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 180
     },
     {
       "game_id": "2026-A-111",
@@ -2041,7 +2179,8 @@
       "overall_acc": 89.7,
       "ball_acc": 90.3,
       "strike_acc": 88.4,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 172
     },
     {
       "game_id": "2026-A-110",
@@ -2056,7 +2195,8 @@
       "overall_acc": 90.6,
       "ball_acc": 94.3,
       "strike_acc": 82.5,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 172
     },
     {
       "game_id": "2026-A-107",
@@ -2071,7 +2211,8 @@
       "overall_acc": 90.1,
       "ball_acc": 93.5,
       "strike_acc": 81.6,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 180
     },
     {
       "game_id": "2026-A-106",
@@ -2086,7 +2227,8 @@
       "overall_acc": 87.9,
       "ball_acc": 89.8,
       "strike_acc": 85.4,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 180
     },
     {
       "game_id": "2026-A-105",
@@ -2101,7 +2243,8 @@
       "overall_acc": 87.6,
       "ball_acc": 90.2,
       "strike_acc": 82.4,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 180
     },
     {
       "game_id": "2026-A-103",
@@ -2116,7 +2259,8 @@
       "overall_acc": 91.8,
       "ball_acc": 96.3,
       "strike_acc": 82.9,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 144
     },
     {
       "game_id": "2026-A-102",
@@ -2131,7 +2275,8 @@
       "overall_acc": 86.4,
       "ball_acc": 89.7,
       "strike_acc": 81.0,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 144
     },
     {
       "game_id": "2026-A-100",
@@ -2146,7 +2291,8 @@
       "overall_acc": 92.0,
       "ball_acc": 93.1,
       "strike_acc": 89.8,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 195
     },
     {
       "game_id": "2026-A-99",
@@ -2161,7 +2307,8 @@
       "overall_acc": 91.7,
       "ball_acc": 93.2,
       "strike_acc": 89.1,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 195
     },
     {
       "game_id": "2026-A-98",
@@ -2176,7 +2323,8 @@
       "overall_acc": 88.5,
       "ball_acc": 89.5,
       "strike_acc": 86.1,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 173
     },
     {
       "game_id": "2026-A-96",
@@ -2191,7 +2339,8 @@
       "overall_acc": 91.8,
       "ball_acc": 95.6,
       "strike_acc": 83.1,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-95",
@@ -2206,7 +2355,8 @@
       "overall_acc": 86.7,
       "ball_acc": 89.9,
       "strike_acc": 80.5,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-94",
@@ -2221,7 +2371,8 @@
       "overall_acc": 89.2,
       "ball_acc": 93.1,
       "strike_acc": 78.6,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 155
     },
     {
       "game_id": "2026-A-25",
@@ -2236,7 +2387,8 @@
       "overall_acc": 91.7,
       "ball_acc": 92.9,
       "strike_acc": 89.1,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 155
     },
     {
       "game_id": "2026-A-93",
@@ -2251,7 +2403,8 @@
       "overall_acc": 91.9,
       "ball_acc": 95.2,
       "strike_acc": 84.7,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 213
     },
     {
       "game_id": "2026-A-92",
@@ -2266,7 +2419,8 @@
       "overall_acc": 86.3,
       "ball_acc": 91.2,
       "strike_acc": 77.1,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 213
     },
     {
       "game_id": "2026-A-91",
@@ -2281,7 +2435,8 @@
       "overall_acc": 89.5,
       "ball_acc": 89.2,
       "strike_acc": 90.2,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 213
     },
     {
       "game_id": "2026-A-90",
@@ -2296,7 +2451,8 @@
       "overall_acc": 94.2,
       "ball_acc": 95.2,
       "strike_acc": 92.2,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 217
     },
     {
       "game_id": "2026-A-89",
@@ -2311,7 +2467,8 @@
       "overall_acc": 90.1,
       "ball_acc": 91.8,
       "strike_acc": 87.5,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 217
     },
     {
       "game_id": "2026-A-88",
@@ -2326,7 +2483,8 @@
       "overall_acc": 86.3,
       "ball_acc": 90.3,
       "strike_acc": 76.5,
-      "missed_count": 24
+      "missed_count": 24,
+      "game_duration_minutes": 217
     },
     {
       "game_id": "2026-A-87",
@@ -2341,7 +2499,8 @@
       "overall_acc": 89.5,
       "ball_acc": 89.7,
       "strike_acc": 89.1,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 155
     },
     {
       "game_id": "2026-A-86",
@@ -2356,7 +2515,8 @@
       "overall_acc": 88.1,
       "ball_acc": 87.4,
       "strike_acc": 89.6,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 155
     },
     {
       "game_id": "2026-A-85",
@@ -2371,7 +2531,8 @@
       "overall_acc": 94.1,
       "ball_acc": 96.2,
       "strike_acc": 90.0,
-      "missed_count": 7
+      "missed_count": 7,
+      "game_duration_minutes": 155
     },
     {
       "game_id": "2026-A-83",
@@ -2386,7 +2547,8 @@
       "overall_acc": 90.6,
       "ball_acc": 91.9,
       "strike_acc": 87.5,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-82",
@@ -2401,7 +2563,8 @@
       "overall_acc": 91.0,
       "ball_acc": 89.9,
       "strike_acc": 94.4,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-81",
@@ -2416,7 +2579,8 @@
       "overall_acc": 92.8,
       "ball_acc": 93.5,
       "strike_acc": 91.1,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": null
     },
     {
       "game_id": "2026-A-79",
@@ -2431,7 +2595,8 @@
       "overall_acc": 90.3,
       "ball_acc": 90.3,
       "strike_acc": 90.6,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-78",
@@ -2446,7 +2611,8 @@
       "overall_acc": 85.3,
       "ball_acc": 84.9,
       "strike_acc": 86.1,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-77",
@@ -2461,7 +2627,8 @@
       "overall_acc": 91.2,
       "ball_acc": 92.3,
       "strike_acc": 88.9,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-76",
@@ -2476,7 +2643,8 @@
       "overall_acc": 92.7,
       "ball_acc": 94.1,
       "strike_acc": 88.6,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 194
     },
     {
       "game_id": "2026-A-75",
@@ -2491,7 +2659,8 @@
       "overall_acc": 93.2,
       "ball_acc": 92.3,
       "strike_acc": 95.1,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 194
     },
     {
       "game_id": "2026-A-74",
@@ -2506,7 +2675,8 @@
       "overall_acc": 88.2,
       "ball_acc": 94.6,
       "strike_acc": 74.0,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 194
     },
     {
       "game_id": "2026-A-73",
@@ -2521,7 +2691,8 @@
       "overall_acc": 88.4,
       "ball_acc": 89.0,
       "strike_acc": 87.0,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 132
     },
     {
       "game_id": "2026-A-71",
@@ -2536,7 +2707,8 @@
       "overall_acc": 87.3,
       "ball_acc": 89.3,
       "strike_acc": 83.7,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 132
     },
     {
       "game_id": "2026-A-70",
@@ -2551,7 +2723,8 @@
       "overall_acc": 88.5,
       "ball_acc": 93.7,
       "strike_acc": 82.0,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 142
     },
     {
       "game_id": "2026-A-69",
@@ -2566,7 +2739,8 @@
       "overall_acc": 91.9,
       "ball_acc": 89.9,
       "strike_acc": 97.2,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 147
     },
     {
       "game_id": "2026-A-68",
@@ -2581,7 +2755,8 @@
       "overall_acc": 90.1,
       "ball_acc": 88.4,
       "strike_acc": 94.4,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 147
     },
     {
       "game_id": "2026-A-67",
@@ -2596,7 +2771,8 @@
       "overall_acc": 86.4,
       "ball_acc": 86.0,
       "strike_acc": 87.5,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 147
     },
     {
       "game_id": "2026-A-66",
@@ -2611,7 +2787,8 @@
       "overall_acc": 92.5,
       "ball_acc": 91.1,
       "strike_acc": 95.3,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 157
     },
     {
       "game_id": "2026-A-65",
@@ -2626,7 +2803,8 @@
       "overall_acc": 89.0,
       "ball_acc": 90.8,
       "strike_acc": 85.4,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 157
     },
     {
       "game_id": "2026-A-64",
@@ -2641,7 +2819,8 @@
       "overall_acc": 89.7,
       "ball_acc": 93.3,
       "strike_acc": 83.0,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 196
     },
     {
       "game_id": "2026-A-63",
@@ -2656,7 +2835,8 @@
       "overall_acc": 89.8,
       "ball_acc": 90.3,
       "strike_acc": 88.4,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 196
     },
     {
       "game_id": "2026-A-61",
@@ -2671,7 +2851,8 @@
       "overall_acc": 91.1,
       "ball_acc": 88.2,
       "strike_acc": 100.0,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-60",
@@ -2686,7 +2867,8 @@
       "overall_acc": 88.7,
       "ball_acc": 89.8,
       "strike_acc": 86.1,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 165
     },
     {
       "game_id": "2026-A-55",
@@ -2701,7 +2883,8 @@
       "overall_acc": 89.8,
       "ball_acc": 92.6,
       "strike_acc": 83.7,
-      "missed_count": 14
+      "missed_count": 14,
+      "game_duration_minutes": 167
     },
     {
       "game_id": "2026-A-53",
@@ -2716,7 +2899,8 @@
       "overall_acc": 92.6,
       "ball_acc": 91.5,
       "strike_acc": 94.6,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 166
     },
     {
       "game_id": "2026-A-51",
@@ -2731,7 +2915,8 @@
       "overall_acc": 94.4,
       "ball_acc": 94.4,
       "strike_acc": 94.6,
-      "missed_count": 6
+      "missed_count": 6,
+      "game_duration_minutes": 141
     },
     {
       "game_id": "2026-A-49",
@@ -2746,7 +2931,8 @@
       "overall_acc": 87.7,
       "ball_acc": 89.4,
       "strike_acc": 83.3,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-48",
@@ -2761,7 +2947,8 @@
       "overall_acc": 88.9,
       "ball_acc": 88.6,
       "strike_acc": 89.7,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-47",
@@ -2776,7 +2963,8 @@
       "overall_acc": 86.3,
       "ball_acc": 86.9,
       "strike_acc": 85.1,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 183
     },
     {
       "game_id": "2026-A-46",
@@ -2791,7 +2979,8 @@
       "overall_acc": 90.0,
       "ball_acc": 91.6,
       "strike_acc": 86.3,
-      "missed_count": 17
+      "missed_count": 17,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-45",
@@ -2806,7 +2995,8 @@
       "overall_acc": 89.3,
       "ball_acc": 90.1,
       "strike_acc": 87.1,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-44",
@@ -2821,7 +3011,8 @@
       "overall_acc": 89.5,
       "ball_acc": 90.1,
       "strike_acc": 87.9,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-43",
@@ -2836,7 +3027,8 @@
       "overall_acc": 88.3,
       "ball_acc": 87.4,
       "strike_acc": 90.7,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-42",
@@ -2851,7 +3043,8 @@
       "overall_acc": 89.0,
       "ball_acc": 91.0,
       "strike_acc": 84.8,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-41",
@@ -2866,7 +3059,8 @@
       "overall_acc": 92.9,
       "ball_acc": 95.2,
       "strike_acc": 85.7,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-40",
@@ -2881,7 +3075,8 @@
       "overall_acc": 89.6,
       "ball_acc": 92.0,
       "strike_acc": 83.3,
-      "missed_count": 16
+      "missed_count": 16,
+      "game_duration_minutes": 196
     },
     {
       "game_id": "2026-A-39",
@@ -2896,7 +3091,8 @@
       "overall_acc": 87.1,
       "ball_acc": 86.9,
       "strike_acc": 87.5,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-38",
@@ -2911,7 +3107,8 @@
       "overall_acc": 91.0,
       "ball_acc": 92.6,
       "strike_acc": 86.5,
-      "missed_count": 13
+      "missed_count": 13,
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-37",
@@ -2926,7 +3123,8 @@
       "overall_acc": 93.1,
       "ball_acc": 94.9,
       "strike_acc": 88.4,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-36",
@@ -2941,7 +3139,8 @@
       "overall_acc": 87.6,
       "ball_acc": 91.1,
       "strike_acc": 80.0,
-      "missed_count": 22
+      "missed_count": 22,
+      "game_duration_minutes": 175
     },
     {
       "game_id": "2026-A-32",
@@ -2956,7 +3155,8 @@
       "overall_acc": 89.0,
       "ball_acc": 90.8,
       "strike_acc": 84.1,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 204
     },
     {
       "game_id": "2026-A-31",
@@ -2971,7 +3171,8 @@
       "overall_acc": 91.7,
       "ball_acc": 88.5,
       "strike_acc": 97.8,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 170
     },
     {
       "game_id": "2026-A-29",
@@ -2986,7 +3187,8 @@
       "overall_acc": 87.0,
       "ball_acc": 90.1,
       "strike_acc": 78.4,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 170
     },
     {
       "game_id": "2026-A-28",
@@ -3001,7 +3203,8 @@
       "overall_acc": 92.9,
       "ball_acc": 91.6,
       "strike_acc": 95.6,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 191
     },
     {
       "game_id": "2026-A-26",
@@ -3016,7 +3219,8 @@
       "overall_acc": 84.2,
       "ball_acc": 90.7,
       "strike_acc": 68.2,
-      "missed_count": 24
+      "missed_count": 24,
+      "game_duration_minutes": 191
     },
     {
       "game_id": "2026-A-23",
@@ -3031,7 +3235,8 @@
       "overall_acc": 82.4,
       "ball_acc": 85.1,
       "strike_acc": 75.0,
-      "missed_count": 18
+      "missed_count": 18,
+      "game_duration_minutes": 124
     },
     {
       "game_id": "2026-A-22",
@@ -3046,7 +3251,8 @@
       "overall_acc": 94.0,
       "ball_acc": 94.2,
       "strike_acc": 93.6,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 157
     },
     {
       "game_id": "2026-A-21",
@@ -3061,7 +3267,8 @@
       "overall_acc": 91.7,
       "ball_acc": 93.6,
       "strike_acc": 86.7,
-      "missed_count": 9
+      "missed_count": 9,
+      "game_duration_minutes": 157
     },
     {
       "game_id": "2026-A-20",
@@ -3076,7 +3283,8 @@
       "overall_acc": 82.8,
       "ball_acc": 89.0,
       "strike_acc": 70.4,
-      "missed_count": 28
+      "missed_count": 28,
+      "game_duration_minutes": 157
     },
     {
       "game_id": "2026-A-19",
@@ -3091,7 +3299,8 @@
       "overall_acc": 90.2,
       "ball_acc": 89.9,
       "strike_acc": 90.7,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 144
     },
     {
       "game_id": "2026-A-18",
@@ -3106,7 +3315,8 @@
       "overall_acc": 82.7,
       "ball_acc": 87.2,
       "strike_acc": 69.6,
-      "missed_count": 31
+      "missed_count": 31,
+      "game_duration_minutes": 144
     },
     {
       "game_id": "2026-A-17",
@@ -3121,7 +3331,8 @@
       "overall_acc": 94.4,
       "ball_acc": 95.8,
       "strike_acc": 91.9,
-      "missed_count": 6
+      "missed_count": 6,
+      "game_duration_minutes": 144
     },
     {
       "game_id": "2026-A-16",
@@ -3136,7 +3347,8 @@
       "overall_acc": 88.4,
       "ball_acc": 92.7,
       "strike_acc": 78.0,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": null
     },
     {
       "game_id": "2026-A-13",
@@ -3151,7 +3363,8 @@
       "overall_acc": 93.7,
       "ball_acc": 94.2,
       "strike_acc": 92.6,
-      "missed_count": 11
+      "missed_count": 11,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-12",
@@ -3166,7 +3379,8 @@
       "overall_acc": 94.4,
       "ball_acc": 94.9,
       "strike_acc": 93.5,
-      "missed_count": 8
+      "missed_count": 8,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-11",
@@ -3181,7 +3395,8 @@
       "overall_acc": 86.6,
       "ball_acc": 90.0,
       "strike_acc": 80.7,
-      "missed_count": 21
+      "missed_count": 21,
+      "game_duration_minutes": 177
     },
     {
       "game_id": "2026-A-10",
@@ -3196,7 +3411,8 @@
       "overall_acc": 85.6,
       "ball_acc": 87.0,
       "strike_acc": 81.1,
-      "missed_count": 23
+      "missed_count": 23,
+      "game_duration_minutes": 193
     },
     {
       "game_id": "2026-A-9",
@@ -3211,7 +3427,8 @@
       "overall_acc": 88.5,
       "ball_acc": 88.5,
       "strike_acc": 88.5,
-      "missed_count": 19
+      "missed_count": 19,
+      "game_duration_minutes": 193
     },
     {
       "game_id": "2026-A-8",
@@ -3226,7 +3443,8 @@
       "overall_acc": 84.5,
       "ball_acc": 89.9,
       "strike_acc": 69.2,
-      "missed_count": 23
+      "missed_count": 23,
+      "game_duration_minutes": 193
     },
     {
       "game_id": "2026-A-7",
@@ -3241,7 +3459,8 @@
       "overall_acc": 82.6,
       "ball_acc": 85.7,
       "strike_acc": 76.5,
-      "missed_count": 26
+      "missed_count": 26,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-6",
@@ -3256,7 +3475,8 @@
       "overall_acc": 89.7,
       "ball_acc": 91.7,
       "strike_acc": 85.7,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-5",
@@ -3271,7 +3491,8 @@
       "overall_acc": 89.3,
       "ball_acc": 97.3,
       "strike_acc": 73.0,
-      "missed_count": 12
+      "missed_count": 12,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-4",
@@ -3286,7 +3507,8 @@
       "overall_acc": 91.1,
       "ball_acc": 90.2,
       "strike_acc": 94.6,
-      "missed_count": 15
+      "missed_count": 15,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-3",
@@ -3301,7 +3523,8 @@
       "overall_acc": 86.4,
       "ball_acc": 89.8,
       "strike_acc": 79.6,
-      "missed_count": 20
+      "missed_count": 20,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-2",
@@ -3316,7 +3539,8 @@
       "overall_acc": 83.5,
       "ball_acc": 85.6,
       "strike_acc": 77.8,
-      "missed_count": 22
+      "missed_count": 22,
+      "game_duration_minutes": 152
     },
     {
       "game_id": "2026-A-1",
@@ -3331,7 +3555,8 @@
       "overall_acc": 92.9,
       "ball_acc": 92.8,
       "strike_acc": 93.2,
-      "missed_count": 10
+      "missed_count": 10,
+      "game_duration_minutes": 176
     }
   ]
 }

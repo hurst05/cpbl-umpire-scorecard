@@ -10,7 +10,8 @@
     "home_score": 3,
     "visiting_score": 5,
     "hp_umpire": "木內九二生",
-    "total_pitches": 302
+    "total_pitches": 302,
+    "game_duration_minutes": 177
   },
   "umpire_metrics": {
     "hp_umpire": "木內九二生",
