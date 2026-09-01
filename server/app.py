@@ -76,9 +76,24 @@ def get_game_by_sno(sno: int, year: int = 2026, kind_code: str = "A", force_refr
     return get_game_analysis(game_id, force_refresh)
 
 
+@app.get("/api/seasons")
+def get_seasons():
+    """Get list of available seasons/years."""
+    years = db.list_available_years()
+    return {"seasons": years}
+
+
+@app.get("/api/stats/season/{year}")
+def get_season_statistics(year: str):
+    """Get aggregated statistics for a specific year (or 'all')."""
+    target_year = None if year.lower() in ("all", "全部") else year
+    return db.get_season_stats(target_year)
+
+
 @app.get("/api/games/cached")
-def get_cached_games():
-    return db.list_cached_games()
+def get_cached_games(year: str = Query(None, description="Filter by year (e.g. 2026)")):
+    target_year = None if (not year or year.lower() in ("all", "全部")) else year
+    return db.list_cached_games(target_year)
 
 
 @app.post("/api/batch-collect")

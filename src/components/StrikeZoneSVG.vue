@@ -19,7 +19,8 @@
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-500"></span> 好球
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 ml-1.5"></span> 壞球
         <span class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/30 dark:border-amber-500/40 ml-1.5 font-bold">! 誤判</span>
-        <span v-if="targetPitch" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-400/20 text-amber-700 dark:text-amber-300 border border-amber-400/40 ml-1.5 font-bold">🎯 基準球 (黃色)</span>
+        <span v-if="targetPitch" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-400/20 text-amber-700 dark:text-amber-300 border border-amber-400/40 ml-1.5 font-bold">🎯 基準球</span>
+        <span v-if="hasMirroredPitches" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 ml-1.5 font-bold">🔀 鏡像對比</span>
       </div>
 
       <div class="flex items-center gap-2">
@@ -35,7 +36,12 @@
     </div>
 
     <!-- SVG Container -->
-    <div class="relative flex justify-center items-center w-[360px] h-[400px] bg-slate-100/70 dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden shadow-inner transition-colors">
+    <div 
+      :class="[
+        'relative flex justify-center items-center bg-slate-100/70 dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden shadow-inner transition-all',
+        compact ? 'w-[290px] sm:w-[320px] h-[325px] sm:h-[355px]' : 'w-[330px] sm:w-[360px] h-[370px] sm:h-[400px]'
+      ]"
+    >
       <svg 
         class="w-full h-full"
         viewBox="0 0 400 450"
@@ -147,6 +153,90 @@
           </text>
         </g>
 
+        <!-- Batter Boxes Indicators (Catcher View: Left side is Right Batter Box, Right side is Left Batter Box) -->
+        <g id="batter-boxes" class="pointer-events-none opacity-40 dark:opacity-30">
+          <!-- Right Batter Box (Catcher's left, 3B side, x > 0) -->
+          <rect x="22" y="80" width="76" height="280" rx="6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4,4" class="text-slate-400 dark:text-slate-600" />
+          <text x="60" y="225" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor" class="text-slate-400 dark:text-slate-500 select-none">右打區 (R)</text>
+
+          <!-- Left Batter Box (Catcher's right, 1B side, x < 0) -->
+          <rect x="302" y="80" width="76" height="280" rx="6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4,4" class="text-slate-400 dark:text-slate-600" />
+          <text x="340" y="225" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor" class="text-slate-400 dark:text-slate-500 select-none">左打區 (L)</text>
+        </g>
+
+        <!-- Mirrored Comparison Link Lines & Original Positions (for batter_relative mode) -->
+        <g v-if="viewMode === 'batter_relative'" id="mirrored-comparison-links">
+          <template v-for="(p, idx) in visiblePitches" :key="'mirror-group-' + idx">
+            <g v-if="p.is_mirrored">
+              <!-- Connecting Mirror Dashed Line -->
+              <line 
+                :x1="mapX(p.x)" 
+                :y1="mapZ(p.z, p.sz_top, p.sz_bottom)" 
+                :x2="mapPitchX(p)" 
+                :y2="mapZ(p.z, p.sz_top, p.sz_bottom)"
+                stroke="#f59e0b" 
+                stroke-width="1.6" 
+                stroke-dasharray="4 3" 
+                opacity="0.8"
+                class="pointer-events-none"
+              />
+
+              <!-- Mirror Tag in the middle of line -->
+              <text 
+                :x="(mapX(p.x) + mapPitchX(p)) / 2" 
+                :y="mapZ(p.z, p.sz_top, p.sz_bottom) - 6" 
+                text-anchor="middle" 
+                font-size="9" 
+                font-weight="900" 
+                fill="#d97706" 
+                class="pointer-events-none select-none font-mono drop-shadow-2xs"
+              >
+                🔀 鏡像
+              </text>
+
+              <!-- Original Physical Pitch Ghost Dot (at mapX(p.x)) -->
+              <g 
+                class="cursor-pointer transition-all duration-150 hover:opacity-100"
+                @mouseenter="hoveredPitch = p"
+                @click="$emit('select-pitch', getPitchNumber(p, idx), p)"
+              >
+                <circle 
+                  :cx="mapX(p.x)" 
+                  :cy="mapZ(p.z, p.sz_top, p.sz_bottom)" 
+                  r="14.6" 
+                  :fill="getPitchColor(p)" 
+                  fill-opacity="0.25"
+                  stroke="#f59e0b" 
+                  stroke-width="1.8" 
+                  stroke-dasharray="3 2" 
+                />
+                <text 
+                  :x="mapX(p.x)" 
+                  :y="mapZ(p.z, p.sz_top, p.sz_bottom) + 3.5" 
+                  text-anchor="middle" 
+                  font-size="10" 
+                  font-weight="bold" 
+                  fill="#d97706" 
+                  class="pointer-events-none select-none font-mono"
+                >
+                  {{ getPitchNumber(p, idx) }}
+                </text>
+                <text 
+                  :x="mapX(p.x)" 
+                  :y="mapZ(p.z, p.sz_top, p.sz_bottom) + 21" 
+                  text-anchor="middle" 
+                  font-size="8.5" 
+                  font-weight="bold" 
+                  fill="#d97706" 
+                  class="pointer-events-none select-none font-sans"
+                >
+                  (實際原位)
+                </text>
+              </g>
+            </g>
+          </template>
+        </g>
+
         <!-- Trajectory Arcs (if enabled) -->
         <g v-if="showTrajectory">
           <path 
@@ -165,7 +255,7 @@
         <g v-for="(p, idx) in visiblePitches" :key="'pitch-' + idx">
           <!-- Main Pitch Dot (Accurate Physical Ball Radius: 14.6px) -->
           <circle 
-            :cx="mapX(p.x)"
+            :cx="mapPitchX(p)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
             r="14.6"
             :fill="getPitchColor(p)"
@@ -180,7 +270,7 @@
           <!-- Tight Target Pitch Ring -->
           <circle 
             v-if="isTarget(p)"
-            :cx="mapX(p.x)"
+            :cx="mapPitchX(p)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
             r="17"
             fill="none"
@@ -192,20 +282,20 @@
           <!-- Tight Similar Pitch Ring -->
           <circle 
             v-if="isSimilar(p)"
-            :cx="mapX(p.x)"
+            :cx="mapPitchX(p)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
             r="16.2"
             fill="none"
-            stroke="#0284c7"
+            :stroke="p.is_mirrored ? '#f59e0b' : '#0284c7'"
             stroke-width="1.5"
-            stroke-dasharray="3 1.5"
+            :stroke-dasharray="p.is_mirrored ? '4 2' : '3 1.5'"
             class="pointer-events-none"
           />
 
           <!-- Sharp Focus / Highlight Ring for Selected Pitch (Rendered on top for clear visibility) -->
           <circle 
             v-if="isHighlighted(p, idx)"
-            :cx="mapX(p.x)"
+            :cx="mapPitchX(p)"
             :cy="mapZ(p.z, p.sz_top, p.sz_bottom)"
             r="15"
             fill="none"
@@ -217,7 +307,7 @@
           <!-- Pitch Number / Target Icon Text -->
           <text 
             v-if="isTarget(p)"
-            :x="mapX(p.x)"
+            :x="mapPitchX(p)"
             :y="mapZ(p.z, p.sz_top, p.sz_bottom) + 4.5"
             text-anchor="middle"
             font-size="12"
@@ -229,7 +319,7 @@
           </text>
           <text 
             v-else-if="showNumbers"
-            :x="mapX(p.x)"
+            :x="mapPitchX(p)"
             :y="mapZ(p.z, p.sz_top, p.sz_bottom) + 4"
             text-anchor="middle"
             font-size="11"
@@ -262,6 +352,13 @@
 
         <div v-if="hoveredPitch.pitcher || hoveredPitch.batter" class="text-slate-600 dark:text-slate-300 text-[11px] mb-1">
           對戰：<span class="text-slate-900 dark:text-white font-medium">{{ hoveredPitch.pitcher }} vs {{ hoveredPitch.batter }}</span>
+          <span class="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            {{ getBatterBatsLabel(hoveredPitch) }}
+          </span>
+        </div>
+
+        <div v-if="hoveredPitch.is_mirrored" class="text-amber-600 dark:text-amber-400 text-[10px] font-bold mb-1">
+          🔀 異側打者鏡像比對點 (原進壘點: {{ hoveredPitch.x > 0 ? '捕手左/右打內角' : '捕手右/左打外角' }} {{ (Math.abs(hoveredPitch.x) * 100).toFixed(1) }} cm)
         </div>
 
         <div class="text-slate-600 dark:text-slate-300 text-[11px] mb-1">
@@ -305,6 +402,7 @@
 import { ref, computed } from 'vue'
 import { getTeamColorInfo } from '../utils/teamColors.js'
 import { isSamePitch } from '../utils/pitchGeometry.js'
+import { getBatterBatsLabel } from '../utils/playerProfiles.js'
 
 const props = defineProps({
   pitches: {
@@ -343,6 +441,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  viewMode: {
+    type: String,
+    default: 'absolute'
+  },
   homeTeam: {
     type: String,
     default: '主隊'
@@ -350,6 +452,10 @@ const props = defineProps({
   visitingTeam: {
     type: String,
     default: '客隊'
+  },
+  compact: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -385,6 +491,10 @@ const szBox = computed(() => {
 
 const visiblePitches = computed(() => {
   return props.pitches.filter(p => p.x !== null && p.z !== null)
+})
+
+const hasMirroredPitches = computed(() => {
+  return props.viewMode === 'batter_relative' && visiblePitches.value.some(p => p.is_mirrored)
 })
 
 const targetCenter = computed(() => {
@@ -451,6 +561,18 @@ function getPitchOpacity(pitch) {
     return 0.25
   }
   return 1.0
+}
+
+function getPitchX(pitch) {
+  if (!pitch) return 0
+  if (props.viewMode === 'batter_relative' && pitch.effective_x != null) {
+    return pitch.effective_x
+  }
+  return pitch.x
+}
+
+function mapPitchX(pitch) {
+  return mapX(getPitchX(pitch))
 }
 
 function mapX(x) {

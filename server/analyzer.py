@@ -310,6 +310,7 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
             "visiting_score": game.get("visiting", {}).get("score", 0),
             "hp_umpire": hp_umpire,
             "total_pitches": len(live_log),
+            "game_duration_minutes": game.get("game_duration_minutes") or raw_game_data.get("game_duration_minutes"),
         },
         "umpire_metrics": {
             "hp_umpire": hp_umpire,

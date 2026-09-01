@@ -12,6 +12,7 @@ from pathlib import Path
 # Ensure server directory is in sys.path when running directly
 sys.path.insert(0, os.path.dirname(__file__))
 import db  # noqa: E402
+from stats import calculate_season_stats  # noqa: E402
 from verify_static import GAME_ID_PATTERN, verify_static_snapshot  # noqa: E402
 
 DEFAULT_OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".static-export", "data"))
@@ -19,7 +20,7 @@ DEFAULT_OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..
 
 def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None) -> dict:
     """
-    Export manifest.json and games/{game_id}.json from SQLite into output_dir.
+    Export manifest.json, stats/*.json, and games/{game_id}.json from SQLite into output_dir.
     1. Validates game ID format and data_json integrity BEFORE writing files or building paths.
     2. Writes to an isolated UUID staging directory.
     3. Runs verify_static_snapshot on the staging directory.
@@ -42,11 +43,16 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute("PRAGMA table_info(games)")
+    columns = [col["name"] for col in cursor.fetchall()]
+    has_duration_col = "game_duration_minutes" in columns
+
+    dur_col_clause = "game_duration_minutes," if has_duration_col else ""
+    cursor.execute(f"""
         SELECT game_id, game_sno, kind_code, game_date, field,
                home_team, visiting_team, home_score, visiting_score,
                hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
-               data_json
+               {dur_col_clause} data_json
         FROM games
         ORDER BY game_date DESC, game_sno DESC
     """)
@@ -81,6 +87,12 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
 
         games_detail[gid] = detail
 
+        dur_val = None
+        if has_duration_col and row["game_duration_minutes"] is not None:
+            dur_val = int(row["game_duration_minutes"])
+        elif "game_duration_minutes" in detail.get("game_info", {}):
+            dur_val = detail["game_info"]["game_duration_minutes"]
+
         summary_item = {
             "game_id": gid,
             "game_sno": int(row["game_sno"]) if row["game_sno"] is not None else 0,
@@ -95,15 +107,21 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
             "ball_acc": float(row["ball_acc"]) if row["ball_acc"] is not None else 0.0,
             "strike_acc": float(row["strike_acc"]) if row["strike_acc"] is not None else 0.0,
             "missed_count": int(row["missed_count"]) if row["missed_count"] is not None else 0,
+            "game_duration_minutes": dur_val,
         }
         games_summary.append(summary_item)
 
     default_game_id = games_summary[0]["game_id"] if games_summary else None
+    available_years = sorted(
+        list({int(g["game_date"][:4]) for g in games_summary if g.get("game_date") and len(g["game_date"]) >= 4}),
+        reverse=True,
+    )
 
     manifest = {
         "schema_version": 1,
         "generated_at": datetime.now(UTC).astimezone().isoformat(),
         "default_game_id": default_game_id,
+        "available_years": available_years,
         "games": games_summary,
     }
 
@@ -118,11 +136,25 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
         shutil.rmtree(temp_dir)
     staging_games_dir = temp_dir / "games"
     staging_games_dir.mkdir(parents=True, exist_ok=True)
+    staging_stats_dir = temp_dir / "stats"
+    staging_stats_dir.mkdir(parents=True, exist_ok=True)
 
     try:
         # Write manifest to staging
         manifest_path = temp_dir / "manifest.json"
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
+
+        # Write yearly stats to staging
+        all_stats = calculate_season_stats(games_summary, "全部")
+        (staging_stats_dir / "all.json").write_text(
+            json.dumps(all_stats, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
+        )
+        for yr in available_years:
+            yr_games = [g for g in games_summary if g["game_date"].startswith(str(yr))]
+            yr_stats = calculate_season_stats(yr_games, yr)
+            (staging_stats_dir / f"{yr}.json").write_text(
+                json.dumps(yr_stats, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
+            )
 
         # Write game details to staging
         resolved_staging_games = staging_games_dir.resolve()

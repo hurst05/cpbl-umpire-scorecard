@@ -2,6 +2,8 @@ import json
 import os
 import sqlite3
 
+from stats import calculate_season_stats
+
 DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "cpbl_scorecard.db")
 
 
@@ -31,10 +33,18 @@ def init_db():
             ball_acc REAL,
             strike_acc REAL,
             missed_count INTEGER,
+            game_duration_minutes INTEGER,
             data_json TEXT,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
+
+    # Check if game_duration_minutes column exists, add if missing
+    cursor.execute("PRAGMA table_info(games)")
+    columns = [col["name"] for col in cursor.fetchall()]
+    if "game_duration_minutes" not in columns:
+        cursor.execute("ALTER TABLE games ADD COLUMN game_duration_minutes INTEGER")
+
     conn.commit()
     conn.close()
 
@@ -58,8 +68,8 @@ def save_game(game_id: str, analyzed_data: dict):
             game_id, game_sno, kind_code, game_date, field,
             home_team, visiting_team, home_score, visiting_score,
             hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
-            data_json
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            game_duration_minutes, data_json
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """,
         (
             game_id,
@@ -76,6 +86,7 @@ def save_game(game_id: str, analyzed_data: dict):
             metrics.get("ball_accuracy"),
             metrics.get("strike_accuracy"),
             metrics.get("missed_count"),
+            info.get("game_duration_minutes"),
             json.dumps(analyzed_data, ensure_ascii=False),
         ),
     )
@@ -94,20 +105,58 @@ def get_game(game_id: str) -> dict:
     return None
 
 
-def list_cached_games() -> list:
+def list_available_years() -> list[int]:
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT game_id, game_sno, kind_code, game_date, field,
-               home_team, visiting_team, home_score, visiting_score,
-               hp_umpire, overall_acc, ball_acc, strike_acc, missed_count, updated_at
+        SELECT DISTINCT CAST(substr(game_date, 1, 4) AS INTEGER) as year
         FROM games
-        WHERE kind_code = 'A'
-        ORDER BY game_date DESC, game_sno DESC
+        WHERE kind_code = 'A' AND game_date IS NOT NULL AND game_date != ''
+        ORDER BY year DESC
     """)
     rows = cursor.fetchall()
     conn.close()
+    return [r["year"] for r in rows if r["year"]]
+
+
+def list_cached_games(year: int | str = None) -> list:
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("PRAGMA table_info(games)")
+    columns = [col["name"] for col in cursor.fetchall()]
+    dur_col = "game_duration_minutes," if "game_duration_minutes" in columns else ""
+
+    if year:
+        cursor.execute(
+            f"""
+            SELECT game_id, game_sno, kind_code, game_date, field,
+                   home_team, visiting_team, home_score, visiting_score,
+                   hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
+                   {dur_col} updated_at
+            FROM games
+            WHERE kind_code = 'A' AND substr(game_date, 1, 4) = ?
+            ORDER BY game_date DESC, game_sno DESC
+        """,
+            (str(year),),
+        )
+    else:
+        cursor.execute(f"""
+            SELECT game_id, game_sno, kind_code, game_date, field,
+                   home_team, visiting_team, home_score, visiting_score,
+                   hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
+                   {dur_col} updated_at
+            FROM games
+            WHERE kind_code = 'A'
+            ORDER BY game_date DESC, game_sno DESC
+        """)
+    rows = cursor.fetchall()
+    conn.close()
     return [dict(r) for r in rows]
+
+
+def get_season_stats(year: int | str = None) -> dict:
+    games = list_cached_games(year)
+    return calculate_season_stats(games, year)
 
 
 init_db()

@@ -123,6 +123,46 @@ def fetch_schedule_by_date(date_str: str) -> list:
     return games_list
 
 
+def parse_duration_str(dur_str: str | None) -> int | None:
+    """Parse CPBL duration string (e.g. '025600' -> 176 mins)."""
+    if not dur_str or not isinstance(dur_str, str):
+        return None
+    cleaned = dur_str.strip()
+    if len(cleaned) >= 4 and cleaned.isdigit():
+        hrs = int(cleaned[:2])
+        mins = int(cleaned[2:4])
+        return hrs * 60 + mins
+    return None
+
+
+def fetch_game_duration(game_id: str) -> int | None:
+    """Fetch duration in minutes from CPBL live box if available."""
+    try:
+        parts = game_id.split("-")
+        if len(parts) != 3:
+            return None
+        year, kind_code, sno = parts[0], parts[1], parts[2]
+        data = urllib.parse.urlencode({"year": year, "kindCode": kind_code, "gameSno": sno}).encode("utf-8")
+        req = urllib.request.Request(
+            "https://www.cpbl.com.tw/box/getlive",
+            data=data,
+            headers={
+                "User-Agent": CPBL_HEADERS["User-Agent"],
+                "Accept-Language": "zh-TW,zh;q=0.9",
+                "X-Requested-With": "XMLHttpRequest",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            res = json.loads(resp.read().decode("utf-8"))
+            if res.get("GameDetailJson"):
+                gd = json.loads(res["GameDetailJson"])
+                if gd:
+                    return parse_duration_str(gd[0].get("GameDuringTime"))
+    except Exception:
+        pass
+    return None
+
+
 def fetch_game_detail(game_id: str) -> dict:
     """Fetch raw game detail JSON directly from CPBL website."""
     url = f"https://stats.cpbl.com.tw/schedule/{game_id}"
@@ -135,7 +175,12 @@ def fetch_game_detail(game_id: str) -> dict:
     if not data or "game" not in data:
         raise ValueError(f"Could not find game data for {game_id}")
 
-    return {"game": data["game"], "players": players_dict}
+    duration_mins = fetch_game_duration(game_id)
+    game_obj = data["game"]
+    if duration_mins:
+        game_obj["game_duration_minutes"] = duration_mins
+
+    return {"game": game_obj, "players": players_dict, "game_duration_minutes": duration_mins}
 
 
 def find_game_id_by_sno(sno: int, year: int = 2026, kind_code: str = "A") -> str:

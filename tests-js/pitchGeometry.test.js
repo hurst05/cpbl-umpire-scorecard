@@ -5,7 +5,8 @@ import {
   isSamePitch,
   findSimilarPitches,
   analyzeConsistency,
-  calculateGameConsistency
+  calculateGameConsistency,
+  isPitchHorizontalDeviation
 } from '../src/utils/pitchGeometry.js'
 
 describe('pitchGeometry utilities', () => {
@@ -34,6 +35,9 @@ describe('pitchGeometry utilities', () => {
 
     const diag = analyzeConsistency(target, sim)
     assert.equal(diag.diagnosisType, 'generous')
+    assert.equal(diag.totalCount, 2)
+    assert.equal(diag.strikeCount, 2)
+    assert.equal(diag.ballCount, 0)
   })
 
   test('calculateGameConsistency handles empty and single pitch inputs', () => {
@@ -64,5 +68,42 @@ describe('pitchGeometry utilities', () => {
     assert.equal(res2.consistentPairs, 0)
     assert.equal(res2.consistencyRate, 0.0)
     assert.equal(res2.conflictingPitchesCount, 2)
+  })
+  test('isPitchHorizontalDeviation correctly identifies left/right edge pitches', () => {
+    const horizontalOut = { x: 0.28, z: 0.70, sz_top: 0.95, sz_bottom: 0.48 }
+    const verticalOut = { x: 0.05, z: 1.10, sz_top: 0.95, sz_bottom: 0.48 }
+    const horizontalIn = { x: 0.20, z: 0.70, sz_top: 0.95, sz_bottom: 0.48 }
+    const verticalIn = { x: 0.05, z: 0.93, sz_top: 0.95, sz_bottom: 0.48 }
+
+    assert.equal(isPitchHorizontalDeviation(horizontalOut), true)
+    assert.equal(isPitchHorizontalDeviation(verticalOut), false)
+    assert.equal(isPitchHorizontalDeviation(horizontalIn), true)
+    assert.equal(isPitchHorizontalDeviation(verticalIn), false)
+  })
+
+  test('findSimilarPitches supports batter_relative view mode with horizontal mirroring', () => {
+    // Target: Left-handed batter near left edge (x = 0.23, z = 0.70)
+    const targetLeft = { pa_index: 1, pitch_index: 1, batter: '邱智呈', bats: 'L', x: 0.23, z: 0.70, called: 'STRIKE', sz_top: 0.95, sz_bottom: 0.48 }
+    // Candidate 1: Left-handed batter also near left edge (x = 0.24, z = 0.70) -> same physical side
+    const sameSideLeft = { pa_index: 2, pitch_index: 1, batter: '陳傑憲', bats: 'L', x: 0.24, z: 0.70, called: 'STRIKE', sz_top: 0.95, sz_bottom: 0.48 }
+    // Candidate 2: Right-handed batter near right edge (x = -0.23, z = 0.70) -> opposite side, mirrored to +0.23!
+    const mirroredRight = { pa_index: 3, pitch_index: 1, batter: '林立', bats: 'R', x: -0.23, z: 0.70, called: 'STRIKE', sz_top: 0.95, sz_bottom: 0.48 }
+    // Candidate 3: Right-handed batter at left edge (x = 0.23, z = 0.70) -> mirrored to -0.23 (far from +0.23 in batter relative view)
+    const nonMirroredRight = { pa_index: 4, pitch_index: 1, batter: '詹子賢', bats: 'R', x: 0.23, z: 0.70, called: 'STRIKE', sz_top: 0.95, sz_bottom: 0.48 }
+
+    const all = [targetLeft, sameSideLeft, mirroredRight, nonMirroredRight]
+
+    // 1. Absolute view: matches same physical location (sameSideLeft and nonMirroredRight)
+    const absResults = findSimilarPitches(targetLeft, all, 7.5, { viewMode: 'absolute' })
+    assert.equal(absResults.length, 2)
+    assert.ok(absResults.some(p => p.pa_index === 2))
+    assert.ok(absResults.some(p => p.pa_index === 4))
+
+    // 2. Batter relative view: matches same relative location (sameSideLeft and mirroredRight)
+    const relResults = findSimilarPitches(targetLeft, all, 7.5, { viewMode: 'batter_relative' })
+    assert.equal(relResults.length, 2)
+    assert.ok(relResults.some(p => p.pa_index === 2 && !p.is_mirrored))
+    assert.ok(relResults.some(p => p.pa_index === 3 && p.is_mirrored))
+    assert.ok(!relResults.some(p => p.pa_index === 4))
   })
 })

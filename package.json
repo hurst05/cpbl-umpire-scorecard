@@ -1,6 +1,7 @@
 {
   "name": "cpbl-umpire-scorecard",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "packageManager": "pnpm@11.9.0",
   "type": "module",
@@ -18,7 +19,8 @@
     "export:static": "uv run python -m server.export_static",
     "verify:static": "uv run python -m server.verify_static --input .static-export/data && vite build --mode static",
     "build:pages": "vite build --mode static",
-    "publish:pages": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-pages.ps1"
+    "publish:pages": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-pages.ps1",
+    "publish:cf": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-cloudflare.ps1"
   },
   "dependencies": {
     "lucide-vue-next": "^1.0.0",

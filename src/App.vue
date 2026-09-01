@@ -56,6 +56,12 @@
           跨場次數據庫
         </button>
         <button 
+          @click="activeTab = 'season-stats'"
+          :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer', activeTab === 'season-stats' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
+        >
+          年度數據統計
+        </button>
+        <button 
           @click="activeTab = 'scorecard'"
           :class="['px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer', activeTab === 'scorecard' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white']"
         >
@@ -73,7 +79,7 @@
     <!-- Main Body -->
     <main class="flex-1 max-w-[1440px] w-full mx-auto p-4 lg:p-6 flex flex-col gap-5">
       <!-- Loading State for Single Game Views -->
-      <div v-if="isLoading && activeTab !== 'multi-game'" class="flex flex-col items-center justify-center py-24 gap-3">
+      <div v-if="isLoading && isSingleGameTab" class="flex flex-col items-center justify-center py-24 gap-3">
         <div class="w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         <span class="text-sm font-medium text-slate-500 dark:text-slate-400">
           {{ isStatic ? '正在載入已發布賽事數據...' : '正在直接從 CPBL 官方進階數據網擷取並解析賽事數據...' }}
@@ -81,7 +87,7 @@
       </div>
 
       <!-- Error State for Single Game Views -->
-      <div v-else-if="errorMessage && activeTab !== 'multi-game'" class="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300 text-sm flex items-center justify-between gap-4">
+      <div v-else-if="errorMessage && isSingleGameTab" class="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300 text-sm flex items-center justify-between gap-4">
         <span>{{ errorMessage }}</span>
         <button
           v-if="defaultGameId && gameData?.game_info?.game_id !== defaultGameId"
@@ -94,7 +100,7 @@
 
       <template v-else>
         <!-- Game Summary Banner (Shown on Single Game tabs: scorecard / at-bat) -->
-        <div v-if="gameData && activeTab !== 'multi-game'" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-xs dark:shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
+        <div v-if="gameData && isSingleGameTab" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-xs dark:shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
           <div class="flex flex-wrap items-center gap-3">
             <span class="px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 text-xs font-mono font-bold">
               例行賽 第 {{ gameData.game_info.game_sno }} 場
@@ -104,6 +110,9 @@
             </span>
             <span class="text-xs text-slate-600 dark:text-slate-400">
               主審：<strong class="text-amber-600 dark:text-amber-400">{{ gameData.game_info.hp_umpire }}</strong>
+            </span>
+            <span v-if="gameData.game_info.game_duration_minutes" class="text-xs text-slate-600 dark:text-slate-400">
+              比賽時間：<strong class="text-blue-600 dark:text-blue-400 font-mono">{{ formatMinutes(gameData.game_info.game_duration_minutes) }}</strong>
             </span>
           </div>
 
@@ -153,7 +162,17 @@
 
         <!-- Tab 3: Multi-Game Database Explorer -->
         <div v-show="activeTab === 'multi-game'">
-          <MultiGameStats @load-game="(id) => loadGame(id, 'scorecard')" />
+          <MultiGameStats 
+            @load-game="(id) => loadGame(id, 'scorecard')" 
+            @view-season-stats="handleViewSeasonStats"
+          />
+        </div>
+
+        <!-- Tab 4: Yearly Season Stats Explorer -->
+        <div v-show="activeTab === 'season-stats'">
+          <SeasonStatsView 
+            @load-game="(id) => loadGame(id, 'scorecard')" 
+          />
         </div>
       </template>
     </main>
@@ -161,10 +180,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import AtBatViewer from './components/AtBatViewer.vue'
 import ScorecardSummary from './components/ScorecardSummary.vue'
 import MultiGameStats from './components/MultiGameStats.vue'
+import SeasonStatsView from './components/SeasonStatsView.vue'
 import { fetchGame, fetchDefaultGameId, isStaticMode } from './services/dataService'
 
 const activeTab = ref('multi-game')
@@ -175,6 +195,19 @@ const isLoading = ref(false)
 const errorMessage = ref('')
 const isDark = ref(false)
 const isStatic = ref(isStaticMode())
+
+const isSingleGameTab = computed(() => activeTab.value === 'scorecard' || activeTab.value === 'at-bat')
+
+function formatMinutes(mins) {
+  if (!mins) return '-'
+  const h = Math.floor(mins / 60)
+  const m = mins % 60
+  return h > 0 ? `${h}小時 ${m}分` : `${m}分`
+}
+
+function handleViewSeasonStats() {
+  activeTab.value = 'season-stats'
+}
 
 function toggleTheme() {
   isDark.value = !isDark.value

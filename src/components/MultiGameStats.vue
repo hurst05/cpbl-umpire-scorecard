@@ -41,8 +41,58 @@
       </div>
       <div v-else class="flex items-center gap-3">
         <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
-          已發布：<strong class="text-slate-900 dark:text-white">{{ cachedGames.length }}</strong> 場
+          已收錄總計：<strong class="text-slate-900 dark:text-white">{{ cachedGames.length }}</strong> 場
         </span>
+      </div>
+    </div>
+
+    <!-- Year Filter & Quick Stats Summary Strip -->
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 transition-colors">
+      <!-- Year Filter Pills -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+        <span class="text-xs font-bold text-slate-500 dark:text-slate-400 mr-1 shrink-0">年度篩選:</span>
+        <button
+          v-for="yr in yearFilterOptions"
+          :key="yr.value"
+          @click="selectedYearFilter = yr.value"
+          :class="[
+            'px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer',
+            selectedYearFilter === yr.value
+              ? 'bg-blue-600 text-white shadow-xs'
+              : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+          ]"
+        >
+          {{ yr.label }}
+        </button>
+      </div>
+
+      <!-- Quick Metrics Summary & Direct Link -->
+      <div class="flex flex-wrap items-center gap-4 text-xs">
+        <div class="flex items-center gap-3 font-mono">
+          <span class="text-slate-600 dark:text-slate-400">
+            場次: <strong class="text-slate-900 dark:text-white">{{ filteredGames.length }}</strong>
+          </span>
+          <span class="text-slate-300 dark:text-slate-700">|</span>
+          <span class="text-slate-600 dark:text-slate-400">
+            均時: <strong class="text-slate-900 dark:text-white">{{ quickStats.avgDuration }}</strong>
+          </span>
+          <span class="text-slate-300 dark:text-slate-700">|</span>
+          <span class="text-slate-600 dark:text-slate-400">
+            分差: <strong class="text-slate-900 dark:text-white">{{ quickStats.avgMargin }}分</strong>
+          </span>
+          <span class="text-slate-300 dark:text-slate-700">|</span>
+          <span class="text-slate-600 dark:text-slate-400">
+            勝得分: <strong class="text-emerald-600 dark:text-emerald-400">{{ quickStats.avgWinnerScore }}分</strong>
+          </span>
+        </div>
+
+        <button
+          @click="$emit('view-season-stats', selectedYearFilter)"
+          class="px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/50 hover:bg-blue-100 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-700/50 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
+        >
+          <span>📊</span>
+          <span>查看完整年度統計</span>
+        </button>
       </div>
     </div>
 
@@ -60,16 +110,18 @@
     <!-- Cached Games Table -->
     <div v-else class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm dark:shadow-xl flex flex-col gap-4 transition-colors">
       <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-        <h3 class="text-sm font-bold text-slate-900 dark:text-white">已儲存賽事清單 ({{ cachedGames.length }} 場)</h3>
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white">
+          {{ selectedYearFilter === 'all' ? '全部已儲存賽事' : `${selectedYearFilter} 年度賽事清單` }} ({{ filteredGames.length }} 場)
+        </h3>
         <div class="flex items-center gap-2">
           <button 
-            @click="exportAllJSON"
+            @click="exportFilteredJSON"
             class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all border border-slate-200 dark:border-slate-700 cursor-pointer"
           >
-            匯出全場次 JSON
+            匯出 JSON
           </button>
           <button 
-            @click="exportAllCSV"
+            @click="exportFilteredCSV"
             class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all border border-slate-200 dark:border-slate-700 cursor-pointer"
           >
             匯出 CSV 統計表
@@ -86,6 +138,7 @@
               <th class="p-3">球場</th>
               <th class="p-3">對戰隊伍</th>
               <th class="p-3">比分</th>
+              <th class="p-3">比賽時間</th>
               <th class="p-3">主審</th>
               <th class="p-3">整體準確率</th>
               <th class="p-3">壞球準確率</th>
@@ -96,7 +149,7 @@
           </thead>
           <tbody class="divide-y divide-slate-200 dark:divide-slate-800/80">
             <tr 
-              v-for="g in cachedGames" 
+              v-for="g in filteredGames" 
               :key="g.game_id"
               class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all font-medium"
             >
@@ -105,6 +158,9 @@
               <td class="p-3 text-slate-600 dark:text-slate-300">{{ g.field }}</td>
               <td class="p-3 text-slate-900 dark:text-white font-bold">{{ g.visiting_team }} vs {{ g.home_team }}</td>
               <td class="p-3 font-mono font-bold text-slate-800 dark:text-slate-100">{{ g.visiting_score }} : {{ g.home_score }}</td>
+              <td class="p-3 font-mono text-slate-600 dark:text-slate-300">
+                {{ formatGameDuration(g.game_duration_minutes) }}
+              </td>
               <td class="p-3 text-amber-600 dark:text-amber-300 font-bold">{{ g.hp_umpire }}</td>
               <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">{{ g.overall_acc }}%</td>
               <td class="p-3 font-mono text-slate-600 dark:text-slate-300">{{ g.ball_acc }}%</td>
@@ -127,10 +183,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { fetchGameList, fetchManifest, runBatchCollect, isStaticMode } from '../services/dataService'
 
-defineEmits(['load-game'])
+defineEmits(['load-game', 'view-season-stats'])
 
 const batchDate = ref(new Date().toISOString().slice(0, 10))
 const isCollecting = ref(false)
@@ -138,6 +194,69 @@ const cachedGames = ref([])
 const errorMessage = ref('')
 const generatedAtStr = ref('')
 const isStatic = ref(isStaticMode())
+const selectedYearFilter = ref('2026')
+
+const yearFilterOptions = computed(() => {
+  const years = Array.from(
+    new Set(
+      cachedGames.value
+        .map(g => (g.game_date ? g.game_date.slice(0, 4) : ''))
+        .filter(Boolean)
+    )
+  ).sort((a, b) => b - a)
+
+  const opts = years.map(y => ({ label: `${y} 年度`, value: String(y) }))
+  opts.push({ label: '全部年度', value: 'all' })
+  return opts
+})
+
+const filteredGames = computed(() => {
+  if (selectedYearFilter.value === 'all') {
+    return cachedGames.value
+  }
+  return cachedGames.value.filter(g => g.game_date && g.game_date.startsWith(selectedYearFilter.value))
+})
+
+const quickStats = computed(() => {
+  const list = filteredGames.value
+  if (!list || list.length === 0) {
+    return { avgDuration: '無資料', avgMargin: '0.0', avgWinnerScore: '0.0', avgAcc: '0.0' }
+  }
+
+  const durs = list.map(g => g.game_duration_minutes).filter(d => d && d > 0)
+  let avgDurStr = '無資料'
+  if (durs.length > 0) {
+    const avgM = Math.round(durs.reduce((a, b) => a + b, 0) / durs.length)
+    const h = Math.floor(avgM / 60)
+    const m = avgM % 60
+    avgDurStr = h > 0 ? `${h}時${m}分` : `${m}分`
+  }
+
+  let totalMargin = 0
+  let totalWinner = 0
+  let totalAcc = 0
+  list.forEach(g => {
+    const hs = Number(g.home_score) || 0
+    const vs = Number(g.visiting_score) || 0
+    totalMargin += Math.abs(hs - vs)
+    totalWinner += Math.max(hs, vs)
+    totalAcc += Number(g.overall_acc) || 0
+  })
+
+  return {
+    avgDuration: avgDurStr,
+    avgMargin: (totalMargin / list.length).toFixed(2),
+    avgWinnerScore: (totalWinner / list.length).toFixed(2),
+    avgAcc: (totalAcc / list.length).toFixed(1)
+  }
+})
+
+function formatGameDuration(minutes) {
+  if (!minutes || minutes <= 0) return '-'
+  const h = Math.floor(minutes / 60)
+  const m = Math.round(minutes % 60)
+  return h > 0 ? `${h}時 ${m}分` : `${m}分`
+}
 
 async function loadCachedGames() {
   errorMessage.value = ''
@@ -181,22 +300,23 @@ async function handleBatchCollect() {
   }
 }
 
-function exportAllJSON() {
-  const blob = new Blob([JSON.stringify(cachedGames.value, null, 2)], { type: 'application/json' })
+function exportFilteredJSON() {
+  const blob = new Blob([JSON.stringify(filteredGames.value, null, 2)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `cpbl_scorecard_games_${new Date().toISOString().slice(0, 10)}.json`
+  a.download = `cpbl_scorecard_${selectedYearFilter.value}_${new Date().toISOString().slice(0, 10)}.json`
   a.click()
 }
 
-function exportAllCSV() {
-  const headers = ['game_id', 'game_sno', 'game_date', 'field', 'visiting_team', 'visiting_score', 'home_team', 'home_score', 'hp_umpire', 'overall_acc', 'ball_acc', 'strike_acc', 'missed_count']
+function exportFilteredCSV() {
+  const headers = ['game_id', 'game_sno', 'game_date', 'field', 'visiting_team', 'visiting_score', 'home_team', 'home_score', 'game_duration_minutes', 'hp_umpire', 'overall_acc', 'ball_acc', 'strike_acc', 'missed_count']
   const csvRows = [headers.join(',')]
-  cachedGames.value.forEach(g => {
+  filteredGames.value.forEach(g => {
     csvRows.push([
       g.game_id, g.game_sno, g.game_date, g.field,
       g.visiting_team, g.visiting_score, g.home_team, g.home_score,
+      g.game_duration_minutes || '',
       g.hp_umpire, g.overall_acc, g.ball_acc, g.strike_acc, g.missed_count
     ].join(','))
   })
@@ -204,7 +324,7 @@ function exportAllCSV() {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `cpbl_scorecard_summary_${new Date().toISOString().slice(0, 10)}.csv`
+  a.download = `cpbl_scorecard_${selectedYearFilter.value}_${new Date().toISOString().slice(0, 10)}.csv`
   a.click()
 }
 
@@ -212,3 +332,4 @@ onMounted(() => {
   loadCachedGames()
 })
 </script>
+

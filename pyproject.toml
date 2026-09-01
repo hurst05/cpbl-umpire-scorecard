@@ -1,6 +1,7 @@
 [project]
 name = "cpbl-umpire-scorecard"
 version = "0.1.0"
+license = "MIT"
 description = "CPBL Pitch-by-Pitch Tracking & Umpire Scorecard Analytics System"
 readme = "README.md"
 requires-python = ">=3.12"

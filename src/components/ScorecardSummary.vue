@@ -146,13 +146,13 @@
               <span class="font-mono text-[10px] text-slate-400">{{ effectiveGameConsistency.ratioStr }} 球對</span>
             </div>
             <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">
-              採身高校正幾何混合距離，比對 8cm 內相近進壘點是否維持同判好或同判壞（衡量是否雙標）。
+              採身高校正幾何混合距離，比對 7.5cm（標準球徑）內相近進壘點是否維持同判好或同判壞（衡量是否雙標）。
             </p>
             <div class="mt-1.5 p-1.5 rounded bg-indigo-950/60 border border-indigo-500/30 text-[10px] text-indigo-200 leading-normal">
-              💡 <strong>重要說明</strong>：本指標衡量「球與球之間」的相對矛盾，<strong>不受官方好球帶邊界容錯範圍影響</strong>（其判定基準為 8cm 進壘點鄰域半徑，而非好球帶邊界距離）。
+              💡 <strong>重要說明</strong>：本指標衡量「球與球之間」的相對矛盾，<strong>不受官方好球帶邊界容錯範圍影響</strong>（其判定基準為 7.5cm 進壘點鄰域半徑，而非好球帶邊界距離）。
             </div>
             <div class="mt-2 pt-1.5 border-t border-slate-700/80 text-[10px] text-indigo-300 font-mono bg-indigo-950/40 p-1.5 rounded">
-              計算：(8cm 內判決相同球對數 / 總鄰近球對數) × 100%
+              計算：(7.5cm 內判決相同球對數 / 總鄰近球對數) × 100%
             </div>
           </div>
         </div>
@@ -423,10 +423,10 @@
             <div class="flex items-center justify-between pt-2 border-t border-slate-200/70 dark:border-slate-800/80 text-[11px]">
               <div class="group/neartip relative cursor-help">
                 <span class="text-slate-500 dark:text-slate-400 border-b border-dotted border-slate-300 dark:border-slate-700">
-                  附近判決：<strong class="text-blue-600 dark:text-blue-400 font-mono font-bold">{{ getNearbyCount(mc) }}</strong> 顆 (8cm半徑)
+                  附近判決：<strong class="text-blue-600 dark:text-blue-400 font-mono font-bold">{{ getNearbyCount(mc) }}</strong> 顆 ({{ selectedSearchRadiusCm }}cm半徑)
                 </span>
                 <div class="absolute bottom-full left-0 mb-1 hidden group-hover/neartip:flex flex-col w-56 p-2 bg-slate-900 dark:bg-slate-800 text-white rounded-lg shadow-xl border border-slate-700 z-50 pointer-events-none text-[10px]">
-                  經打者身高校正後，在 8.0 cm 混合幾何距離內的同場判決球數。
+                  經打者身高校正後，在 {{ selectedSearchRadiusCm }} cm 混合幾何距離內的同場判決球數。
                 </div>
               </div>
               <button 
@@ -447,6 +447,7 @@
       :target-pitch="activeTargetPitch"
       :all-pitches="allPitches"
       :plate-appearances="plateAppearances"
+      v-model:search-radius="selectedSearchRadiusCm"
       @close="isSimilarModalOpen = false"
     />
   </div>
@@ -518,6 +519,8 @@ watch([toleranceCm, showOnlyMissed], () => {
   }
 })
 
+const selectedSearchRadiusCm = ref(7.5)
+
 function openSimilarPitchModal(pitch) {
   activeTargetPitch.value = pitch
   isSimilarModalOpen.value = true
@@ -525,7 +528,7 @@ function openSimilarPitchModal(pitch) {
 
 function getNearbyCount(pitch) {
   if (!pitch || !props.allPitches.length) return 0
-  return findSimilarPitches(pitch, props.allPitches, 8.0).length
+  return findSimilarPitches(pitch, props.allPitches, selectedSearchRadiusCm.value).length
 }
 
 const teamNames = computed(() => {
@@ -610,7 +613,7 @@ const effectiveStrikeAcc = computed(() => {
 
 // --- 全場判決一致性（Method A 鄰域球對比對法） ---
 const effectiveGameConsistency = computed(() => {
-  return calculateGameConsistency(props.allPitches, 8.0)
+  return calculateGameConsistency(props.allPitches, 7.5)
 })
 
 // --- 客隊得利統計（容錯範圍後） ---
