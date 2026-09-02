@@ -350,7 +350,12 @@
         "pitch_type": "變化球",
         "speed_kmh": 116.4
       }
-    ]
+    ],
+    "overall_consistency": 81.5,
+    "consistency_ratio_str": "145/178",
+    "consistent_pairs": 145,
+    "total_pairs": 178,
+    "conflicting_pitches_count": 34
   },
   "all_called_pitches": [
     {

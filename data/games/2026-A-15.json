@@ -10,7 +10,8 @@
     "home_score": 9,
     "visiting_score": 2,
     "hp_umpire": "范元淦",
-    "total_pitches": 298
+    "total_pitches": 298,
+    "game_duration_minutes": 176
   },
   "umpire_metrics": {
     "hp_umpire": "范元淦",

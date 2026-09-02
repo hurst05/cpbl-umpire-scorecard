@@ -10,7 +10,8 @@
     "home_score": 2,
     "visiting_score": 3,
     "hp_umpire": "劉世偉",
-    "total_pitches": 325
+    "total_pitches": 325,
+    "game_duration_minutes": 194
   },
   "umpire_metrics": {
     "hp_umpire": "劉世偉",
@@ -403,7 +404,12 @@
         "pitch_type": "變化球",
         "speed_kmh": 131.0
       }
-    ]
+    ],
+    "overall_consistency": 72.7,
+    "consistency_ratio_str": "101/139",
+    "consistent_pairs": 101,
+    "total_pairs": 139,
+    "conflicting_pitches_count": 37
   },
   "all_called_pitches": [
     {

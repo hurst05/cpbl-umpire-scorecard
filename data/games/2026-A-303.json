@@ -11,7 +11,7 @@
     "visiting_score": 6,
     "hp_umpire": "王俊宏",
     "total_pitches": 319,
-    "game_duration_minutes": null
+    "game_duration_minutes": 218
   },
   "umpire_metrics": {
     "hp_umpire": "王俊宏",
@@ -21,11 +21,11 @@
     "overall_accuracy": 88.0,
     "ball_accuracy": 87.4,
     "strike_accuracy": 89.4,
-    "overall_consistency": 84.6,
-    "consistency_ratio_str": "193/228",
-    "consistent_pairs": 193,
-    "total_pairs": 228,
-    "conflicting_pitches_count": 37,
+    "overall_consistency": 85.0,
+    "consistency_ratio_str": "170/200",
+    "consistent_pairs": 170,
+    "total_pairs": 200,
+    "conflicting_pitches_count": 31,
     "ball_ratio_str": "104/119",
     "strike_ratio_str": "42/47",
     "overall_ratio_str": "146/166",

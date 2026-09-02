@@ -404,7 +404,12 @@
         "pitch_type": "快速球",
         "speed_kmh": 140.6
       }
-    ]
+    ],
+    "overall_consistency": 84.8,
+    "consistency_ratio_str": "196/231",
+    "consistent_pairs": 196,
+    "total_pairs": 231,
+    "conflicting_pitches_count": 38
   },
   "all_called_pitches": [
     {

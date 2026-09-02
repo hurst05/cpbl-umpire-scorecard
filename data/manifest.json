@@ -1,11 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T22:15:43.001025+08:00",
-  "default_game_id": "2026-A-303",
+  "generated_at": "2026-09-02T22:47:41.579950+08:00",
+  "default_game_id": "2026-A-305",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-A-305",
+      "game_sno": 305,
+      "game_date": "2026-09-02",
+      "field": "樂天桃園",
+      "visiting_team": "味全龍",
+      "home_team": "樂天桃猿",
+      "visiting_score": 4,
+      "home_score": 5,
+      "hp_umpire": "鄭惟丞",
+      "overall_acc": 89.5,
+      "ball_acc": 92.0,
+      "strike_acc": 83.7,
+      "overall_consistency": 81.8,
+      "missed_count": 15,
+      "game_duration_minutes": 185
+    },
     {
       "game_id": "2026-A-303",
       "game_sno": 303,
@@ -19,8 +36,9 @@
       "overall_acc": 88.0,
       "ball_acc": 87.4,
       "strike_acc": 89.4,
+      "overall_consistency": 85.0,
       "missed_count": 20,
-      "game_duration_minutes": null
+      "game_duration_minutes": 218
     },
     {
       "game_id": "2026-A-301",
@@ -35,8 +53,9 @@
       "overall_acc": 90.8,
       "ball_acc": 94.3,
       "strike_acc": 83.9,
+      "overall_consistency": 79.9,
       "missed_count": 17,
-      "game_duration_minutes": null
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-300",
@@ -51,6 +70,7 @@
       "overall_acc": 89.3,
       "ball_acc": 90.8,
       "strike_acc": 86.4,
+      "overall_consistency": 82.4,
       "missed_count": 18,
       "game_duration_minutes": 176
     },
@@ -67,6 +87,7 @@
       "overall_acc": 89.6,
       "ball_acc": 88.8,
       "strike_acc": 91.9,
+      "overall_consistency": 79.4,
       "missed_count": 14,
       "game_duration_minutes": 176
     },
@@ -83,6 +104,7 @@
       "overall_acc": 91.2,
       "ball_acc": 88.9,
       "strike_acc": 97.5,
+      "overall_consistency": 82.8,
       "missed_count": 13,
       "game_duration_minutes": 176
     },
@@ -99,6 +121,7 @@
       "overall_acc": 90.3,
       "ball_acc": 90.6,
       "strike_acc": 89.5,
+      "overall_consistency": 85.8,
       "missed_count": 13,
       "game_duration_minutes": 202
     },
@@ -115,6 +138,7 @@
       "overall_acc": 93.2,
       "ball_acc": 96.4,
       "strike_acc": 85.7,
+      "overall_consistency": 89.1,
       "missed_count": 11,
       "game_duration_minutes": 202
     },
@@ -131,6 +155,7 @@
       "overall_acc": 86.5,
       "ball_acc": 87.5,
       "strike_acc": 83.9,
+      "overall_consistency": 77.4,
       "missed_count": 26,
       "game_duration_minutes": 202
     },
@@ -147,6 +172,7 @@
       "overall_acc": 90.8,
       "ball_acc": 90.7,
       "strike_acc": 91.4,
+      "overall_consistency": 87.0,
       "missed_count": 13,
       "game_duration_minutes": 215
     },
@@ -163,6 +189,7 @@
       "overall_acc": 91.6,
       "ball_acc": 91.9,
       "strike_acc": 91.1,
+      "overall_consistency": 76.3,
       "missed_count": 11,
       "game_duration_minutes": 215
     },
@@ -179,6 +206,7 @@
       "overall_acc": 91.8,
       "ball_acc": 92.9,
       "strike_acc": 89.1,
+      "overall_consistency": 88.2,
       "missed_count": 13,
       "game_duration_minutes": 215
     },
@@ -195,6 +223,7 @@
       "overall_acc": 89.4,
       "ball_acc": 89.5,
       "strike_acc": 89.2,
+      "overall_consistency": 84.5,
       "missed_count": 16,
       "game_duration_minutes": 178
     },
@@ -211,6 +240,7 @@
       "overall_acc": 91.9,
       "ball_acc": 90.6,
       "strike_acc": 95.7,
+      "overall_consistency": 80.8,
       "missed_count": 14,
       "game_duration_minutes": 154
     },
@@ -227,6 +257,7 @@
       "overall_acc": 89.2,
       "ball_acc": 93.3,
       "strike_acc": 76.3,
+      "overall_consistency": 85.8,
       "missed_count": 17,
       "game_duration_minutes": 154
     },
@@ -243,6 +274,7 @@
       "overall_acc": 92.2,
       "ball_acc": 95.2,
       "strike_acc": 86.4,
+      "overall_consistency": 89.0,
       "missed_count": 10,
       "game_duration_minutes": 154
     },
@@ -259,6 +291,7 @@
       "overall_acc": 92.0,
       "ball_acc": 91.5,
       "strike_acc": 93.0,
+      "overall_consistency": 84.9,
       "missed_count": 14,
       "game_duration_minutes": 176
     },
@@ -275,8 +308,9 @@
       "overall_acc": 90.7,
       "ball_acc": 90.6,
       "strike_acc": 90.9,
+      "overall_consistency": 72.7,
       "missed_count": 14,
-      "game_duration_minutes": null
+      "game_duration_minutes": 194
     },
     {
       "game_id": "2026-A-272",
@@ -291,6 +325,7 @@
       "overall_acc": 88.7,
       "ball_acc": 88.1,
       "strike_acc": 90.6,
+      "overall_consistency": 80.6,
       "missed_count": 15,
       "game_duration_minutes": 179
     },
@@ -307,6 +342,7 @@
       "overall_acc": 92.3,
       "ball_acc": 93.4,
       "strike_acc": 89.8,
+      "overall_consistency": 84.8,
       "missed_count": 14,
       "game_duration_minutes": 196
     },
@@ -323,6 +359,7 @@
       "overall_acc": 94.4,
       "ball_acc": 93.5,
       "strike_acc": 96.3,
+      "overall_consistency": 89.2,
       "missed_count": 10,
       "game_duration_minutes": 198
     },
@@ -339,6 +376,7 @@
       "overall_acc": 88.0,
       "ball_acc": 90.5,
       "strike_acc": 81.6,
+      "overall_consistency": 85.6,
       "missed_count": 21,
       "game_duration_minutes": 198
     },
@@ -355,6 +393,7 @@
       "overall_acc": 91.9,
       "ball_acc": 93.3,
       "strike_acc": 88.9,
+      "overall_consistency": 81.5,
       "missed_count": 12,
       "game_duration_minutes": 187
     },
@@ -371,6 +410,7 @@
       "overall_acc": 84.4,
       "ball_acc": 86.0,
       "strike_acc": 80.9,
+      "overall_consistency": 86.5,
       "missed_count": 24,
       "game_duration_minutes": 187
     },
@@ -387,6 +427,7 @@
       "overall_acc": 89.3,
       "ball_acc": 90.8,
       "strike_acc": 84.6,
+      "overall_consistency": 83.0,
       "missed_count": 17,
       "game_duration_minutes": 220
     },
@@ -403,6 +444,7 @@
       "overall_acc": 94.0,
       "ball_acc": 94.6,
       "strike_acc": 92.9,
+      "overall_consistency": 94.9,
       "missed_count": 7,
       "game_duration_minutes": 167
     },
@@ -419,6 +461,7 @@
       "overall_acc": 89.4,
       "ball_acc": 91.1,
       "strike_acc": 86.0,
+      "overall_consistency": 81.3,
       "missed_count": 16,
       "game_duration_minutes": 167
     },
@@ -435,6 +478,7 @@
       "overall_acc": 89.6,
       "ball_acc": 89.6,
       "strike_acc": 89.7,
+      "overall_consistency": 81.3,
       "missed_count": 14,
       "game_duration_minutes": 165
     },
@@ -451,6 +495,7 @@
       "overall_acc": 87.9,
       "ball_acc": 91.9,
       "strike_acc": 81.5,
+      "overall_consistency": 81.7,
       "missed_count": 17,
       "game_duration_minutes": 157
     },
@@ -467,6 +512,7 @@
       "overall_acc": 90.2,
       "ball_acc": 89.3,
       "strike_acc": 92.9,
+      "overall_consistency": 87.9,
       "missed_count": 16,
       "game_duration_minutes": 189
     },
@@ -483,6 +529,7 @@
       "overall_acc": 92.2,
       "ball_acc": 90.0,
       "strike_acc": 97.4,
+      "overall_consistency": 86.7,
       "missed_count": 10,
       "game_duration_minutes": 167
     },
@@ -499,6 +546,7 @@
       "overall_acc": 93.5,
       "ball_acc": 92.8,
       "strike_acc": 94.7,
+      "overall_consistency": 93.0,
       "missed_count": 7,
       "game_duration_minutes": 167
     },
@@ -515,6 +563,7 @@
       "overall_acc": 88.4,
       "ball_acc": 87.0,
       "strike_acc": 91.9,
+      "overall_consistency": 86.6,
       "missed_count": 15,
       "game_duration_minutes": 167
     },
@@ -531,6 +580,7 @@
       "overall_acc": 95.2,
       "ball_acc": 95.8,
       "strike_acc": 93.5,
+      "overall_consistency": 87.1,
       "missed_count": 8,
       "game_duration_minutes": 185
     },
@@ -547,6 +597,7 @@
       "overall_acc": 88.3,
       "ball_acc": 87.4,
       "strike_acc": 90.2,
+      "overall_consistency": 88.4,
       "missed_count": 18,
       "game_duration_minutes": 203
     },
@@ -563,6 +614,7 @@
       "overall_acc": 89.1,
       "ball_acc": 90.0,
       "strike_acc": 87.5,
+      "overall_consistency": 77.6,
       "missed_count": 15,
       "game_duration_minutes": 203
     },
@@ -579,6 +631,7 @@
       "overall_acc": 94.0,
       "ball_acc": 96.9,
       "strike_acc": 88.5,
+      "overall_consistency": 86.4,
       "missed_count": 9,
       "game_duration_minutes": 203
     },
@@ -595,6 +648,7 @@
       "overall_acc": 89.7,
       "ball_acc": 86.4,
       "strike_acc": 95.6,
+      "overall_consistency": 85.6,
       "missed_count": 13,
       "game_duration_minutes": 189
     },
@@ -611,6 +665,7 @@
       "overall_acc": 88.8,
       "ball_acc": 89.7,
       "strike_acc": 86.3,
+      "overall_consistency": 81.2,
       "missed_count": 22,
       "game_duration_minutes": 179
     },
@@ -627,6 +682,7 @@
       "overall_acc": 84.7,
       "ball_acc": 80.8,
       "strike_acc": 94.7,
+      "overall_consistency": 81.9,
       "missed_count": 21,
       "game_duration_minutes": 179
     },
@@ -643,6 +699,7 @@
       "overall_acc": 92.9,
       "ball_acc": 92.0,
       "strike_acc": 94.7,
+      "overall_consistency": 77.8,
       "missed_count": 9,
       "game_duration_minutes": 201
     },
@@ -659,6 +716,7 @@
       "overall_acc": 90.2,
       "ball_acc": 86.8,
       "strike_acc": 98.0,
+      "overall_consistency": 85.4,
       "missed_count": 16,
       "game_duration_minutes": 201
     },
@@ -675,6 +733,7 @@
       "overall_acc": 90.2,
       "ball_acc": 91.9,
       "strike_acc": 87.8,
+      "overall_consistency": 82.8,
       "missed_count": 12,
       "game_duration_minutes": 235
     },
@@ -691,6 +750,7 @@
       "overall_acc": 86.5,
       "ball_acc": 88.9,
       "strike_acc": 80.6,
+      "overall_consistency": 77.6,
       "missed_count": 29,
       "game_duration_minutes": 235
     },
@@ -707,6 +767,7 @@
       "overall_acc": 88.0,
       "ball_acc": 91.1,
       "strike_acc": 81.7,
+      "overall_consistency": 82.2,
       "missed_count": 22,
       "game_duration_minutes": 205
     },
@@ -723,6 +784,7 @@
       "overall_acc": 88.3,
       "ball_acc": 91.1,
       "strike_acc": 82.1,
+      "overall_consistency": 79.2,
       "missed_count": 21,
       "game_duration_minutes": 184
     },
@@ -739,6 +801,7 @@
       "overall_acc": 93.9,
       "ball_acc": 93.8,
       "strike_acc": 94.2,
+      "overall_consistency": 86.1,
       "missed_count": 11,
       "game_duration_minutes": 184
     },
@@ -755,6 +818,7 @@
       "overall_acc": 90.0,
       "ball_acc": 91.6,
       "strike_acc": 86.8,
+      "overall_consistency": 85.1,
       "missed_count": 16,
       "game_duration_minutes": 177
     },
@@ -771,6 +835,7 @@
       "overall_acc": 91.2,
       "ball_acc": 92.6,
       "strike_acc": 87.2,
+      "overall_consistency": 82.3,
       "missed_count": 13,
       "game_duration_minutes": 172
     },
@@ -787,6 +852,7 @@
       "overall_acc": 95.5,
       "ball_acc": 96.6,
       "strike_acc": 93.0,
+      "overall_consistency": 91.9,
       "missed_count": 6,
       "game_duration_minutes": 172
     },
@@ -803,6 +869,7 @@
       "overall_acc": 94.1,
       "ball_acc": 91.0,
       "strike_acc": 100.0,
+      "overall_consistency": 89.1,
       "missed_count": 8,
       "game_duration_minutes": 175
     },
@@ -819,6 +886,7 @@
       "overall_acc": 90.4,
       "ball_acc": 96.6,
       "strike_acc": 81.4,
+      "overall_consistency": 86.1,
       "missed_count": 14,
       "game_duration_minutes": 175
     },
@@ -835,6 +903,7 @@
       "overall_acc": 93.2,
       "ball_acc": 97.3,
       "strike_acc": 83.3,
+      "overall_consistency": 86.1,
       "missed_count": 11,
       "game_duration_minutes": 172
     },
@@ -851,6 +920,7 @@
       "overall_acc": 90.9,
       "ball_acc": 89.7,
       "strike_acc": 95.0,
+      "overall_consistency": 83.0,
       "missed_count": 16,
       "game_duration_minutes": 172
     },
@@ -867,6 +937,7 @@
       "overall_acc": 92.8,
       "ball_acc": 92.6,
       "strike_acc": 93.2,
+      "overall_consistency": 86.3,
       "missed_count": 10,
       "game_duration_minutes": 168
     },
@@ -883,6 +954,7 @@
       "overall_acc": 89.6,
       "ball_acc": 90.7,
       "strike_acc": 87.5,
+      "overall_consistency": 87.5,
       "missed_count": 17,
       "game_duration_minutes": 209
     },
@@ -899,6 +971,7 @@
       "overall_acc": 94.6,
       "ball_acc": 94.5,
       "strike_acc": 94.7,
+      "overall_consistency": 84.1,
       "missed_count": 9,
       "game_duration_minutes": 209
     },
@@ -915,6 +988,7 @@
       "overall_acc": 93.5,
       "ball_acc": 92.4,
       "strike_acc": 96.3,
+      "overall_consistency": 82.6,
       "missed_count": 13,
       "game_duration_minutes": 212
     },
@@ -931,6 +1005,7 @@
       "overall_acc": 90.8,
       "ball_acc": 90.0,
       "strike_acc": 92.3,
+      "overall_consistency": 83.0,
       "missed_count": 10,
       "game_duration_minutes": 146
     },
@@ -947,6 +1022,7 @@
       "overall_acc": 91.5,
       "ball_acc": 93.6,
       "strike_acc": 87.3,
+      "overall_consistency": 89.4,
       "missed_count": 16,
       "game_duration_minutes": 170
     },
@@ -963,6 +1039,7 @@
       "overall_acc": 83.9,
       "ball_acc": 86.2,
       "strike_acc": 79.1,
+      "overall_consistency": 72.9,
       "missed_count": 22,
       "game_duration_minutes": 212
     },
@@ -979,6 +1056,7 @@
       "overall_acc": 89.0,
       "ball_acc": 91.7,
       "strike_acc": 83.3,
+      "overall_consistency": 83.7,
       "missed_count": 20,
       "game_duration_minutes": 212
     },
@@ -995,6 +1073,7 @@
       "overall_acc": 87.4,
       "ball_acc": 86.0,
       "strike_acc": 91.8,
+      "overall_consistency": 82.6,
       "missed_count": 25,
       "game_duration_minutes": 212
     },
@@ -1011,8 +1090,9 @@
       "overall_acc": 85.4,
       "ball_acc": 88.6,
       "strike_acc": 78.0,
+      "overall_consistency": 81.1,
       "missed_count": 29,
-      "game_duration_minutes": null
+      "game_duration_minutes": 214
     },
     {
       "game_id": "2026-A-195",
@@ -1027,6 +1107,7 @@
       "overall_acc": 92.9,
       "ball_acc": 96.2,
       "strike_acc": 86.0,
+      "overall_consistency": 81.0,
       "missed_count": 11,
       "game_duration_minutes": 164
     },
@@ -1043,6 +1124,7 @@
       "overall_acc": 93.5,
       "ball_acc": 92.9,
       "strike_acc": 95.0,
+      "overall_consistency": 88.3,
       "missed_count": 10,
       "game_duration_minutes": 156
     },
@@ -1059,6 +1141,7 @@
       "overall_acc": 87.3,
       "ball_acc": 88.8,
       "strike_acc": 85.0,
+      "overall_consistency": 82.8,
       "missed_count": 20,
       "game_duration_minutes": 156
     },
@@ -1075,6 +1158,7 @@
       "overall_acc": 90.9,
       "ball_acc": 89.9,
       "strike_acc": 93.9,
+      "overall_consistency": 88.8,
       "missed_count": 12,
       "game_duration_minutes": 156
     },
@@ -1091,6 +1175,7 @@
       "overall_acc": 85.1,
       "ball_acc": 91.7,
       "strike_acc": 73.3,
+      "overall_consistency": 90.9,
       "missed_count": 25,
       "game_duration_minutes": 197
     },
@@ -1107,6 +1192,7 @@
       "overall_acc": 94.0,
       "ball_acc": 92.2,
       "strike_acc": 98.1,
+      "overall_consistency": 83.9,
       "missed_count": 10,
       "game_duration_minutes": 197
     },
@@ -1123,6 +1209,7 @@
       "overall_acc": 87.8,
       "ball_acc": 87.0,
       "strike_acc": 89.6,
+      "overall_consistency": 85.3,
       "missed_count": 18,
       "game_duration_minutes": 183
     },
@@ -1139,6 +1226,7 @@
       "overall_acc": 92.8,
       "ball_acc": 92.4,
       "strike_acc": 93.9,
+      "overall_consistency": 78.2,
       "missed_count": 9,
       "game_duration_minutes": 183
     },
@@ -1155,6 +1243,7 @@
       "overall_acc": 84.4,
       "ball_acc": 83.5,
       "strike_acc": 86.3,
+      "overall_consistency": 82.8,
       "missed_count": 25,
       "game_duration_minutes": 183
     },
@@ -1171,6 +1260,7 @@
       "overall_acc": 91.3,
       "ball_acc": 91.8,
       "strike_acc": 90.2,
+      "overall_consistency": 88.7,
       "missed_count": 13,
       "game_duration_minutes": 179
     },
@@ -1187,6 +1277,7 @@
       "overall_acc": 94.7,
       "ball_acc": 95.9,
       "strike_acc": 91.8,
+      "overall_consistency": 90.6,
       "missed_count": 9,
       "game_duration_minutes": 179
     },
@@ -1203,6 +1294,7 @@
       "overall_acc": 88.9,
       "ball_acc": 88.3,
       "strike_acc": 90.4,
+      "overall_consistency": 81.9,
       "missed_count": 20,
       "game_duration_minutes": 179
     },
@@ -1219,6 +1311,7 @@
       "overall_acc": 93.7,
       "ball_acc": 94.2,
       "strike_acc": 92.7,
+      "overall_consistency": 85.4,
       "missed_count": 8,
       "game_duration_minutes": 186
     },
@@ -1235,6 +1328,7 @@
       "overall_acc": 93.7,
       "ball_acc": 91.7,
       "strike_acc": 97.8,
+      "overall_consistency": 89.5,
       "missed_count": 9,
       "game_duration_minutes": 186
     },
@@ -1251,6 +1345,7 @@
       "overall_acc": 84.2,
       "ball_acc": 84.1,
       "strike_acc": 84.4,
+      "overall_consistency": 80.3,
       "missed_count": 27,
       "game_duration_minutes": 186
     },
@@ -1267,6 +1362,7 @@
       "overall_acc": 87.3,
       "ball_acc": 91.2,
       "strike_acc": 80.6,
+      "overall_consistency": 78.4,
       "missed_count": 23,
       "game_duration_minutes": 194
     },
@@ -1283,6 +1379,7 @@
       "overall_acc": 87.4,
       "ball_acc": 92.2,
       "strike_acc": 80.0,
+      "overall_consistency": 88.3,
       "missed_count": 16,
       "game_duration_minutes": 143
     },
@@ -1299,6 +1396,7 @@
       "overall_acc": 91.8,
       "ball_acc": 90.8,
       "strike_acc": 94.3,
+      "overall_consistency": 82.7,
       "missed_count": 15,
       "game_duration_minutes": 183
     },
@@ -1315,6 +1413,7 @@
       "overall_acc": 90.9,
       "ball_acc": 90.2,
       "strike_acc": 92.7,
+      "overall_consistency": 80.8,
       "missed_count": 13,
       "game_duration_minutes": 183
     },
@@ -1331,6 +1430,7 @@
       "overall_acc": 91.3,
       "ball_acc": 93.5,
       "strike_acc": 84.6,
+      "overall_consistency": 78.7,
       "missed_count": 9,
       "game_duration_minutes": 142
     },
@@ -1347,6 +1447,7 @@
       "overall_acc": 89.2,
       "ball_acc": 90.6,
       "strike_acc": 85.7,
+      "overall_consistency": 90.6,
       "missed_count": 8,
       "game_duration_minutes": 142
     },
@@ -1363,8 +1464,9 @@
       "overall_acc": 88.4,
       "ball_acc": 89.6,
       "strike_acc": 86.0,
+      "overall_consistency": 76.3,
       "missed_count": 17,
-      "game_duration_minutes": null
+      "game_duration_minutes": 176
     },
     {
       "game_id": "2026-A-152",
@@ -1379,6 +1481,7 @@
       "overall_acc": 91.5,
       "ball_acc": 89.6,
       "strike_acc": 94.2,
+      "overall_consistency": 85.9,
       "missed_count": 11,
       "game_duration_minutes": 103
     },
@@ -1395,6 +1498,7 @@
       "overall_acc": 85.5,
       "ball_acc": 84.7,
       "strike_acc": 87.5,
+      "overall_consistency": 79.2,
       "missed_count": 12,
       "game_duration_minutes": 103
     },
@@ -1411,6 +1515,7 @@
       "overall_acc": 85.0,
       "ball_acc": 84.3,
       "strike_acc": 86.3,
+      "overall_consistency": 82.7,
       "missed_count": 23,
       "game_duration_minutes": 171
     },
@@ -1427,6 +1532,7 @@
       "overall_acc": 88.0,
       "ball_acc": 91.9,
       "strike_acc": 80.9,
+      "overall_consistency": 75.3,
       "missed_count": 16,
       "game_duration_minutes": 171
     },
@@ -1443,6 +1549,7 @@
       "overall_acc": 89.5,
       "ball_acc": 89.6,
       "strike_acc": 89.2,
+      "overall_consistency": 82.5,
       "missed_count": 14,
       "game_duration_minutes": 185
     },
@@ -1459,6 +1566,7 @@
       "overall_acc": 91.0,
       "ball_acc": 91.6,
       "strike_acc": 89.8,
+      "overall_consistency": 96.0,
       "missed_count": 13,
       "game_duration_minutes": 185
     },
@@ -1475,6 +1583,7 @@
       "overall_acc": 91.0,
       "ball_acc": 90.1,
       "strike_acc": 94.1,
+      "overall_consistency": 81.0,
       "missed_count": 13,
       "game_duration_minutes": 185
     },
@@ -1491,6 +1600,7 @@
       "overall_acc": 90.0,
       "ball_acc": 91.8,
       "strike_acc": 87.2,
+      "overall_consistency": 80.0,
       "missed_count": 12,
       "game_duration_minutes": 191
     },
@@ -1507,6 +1617,7 @@
       "overall_acc": 92.4,
       "ball_acc": 93.1,
       "strike_acc": 91.0,
+      "overall_consistency": 86.0,
       "missed_count": 15,
       "game_duration_minutes": 191
     },
@@ -1523,6 +1634,7 @@
       "overall_acc": 91.6,
       "ball_acc": 92.1,
       "strike_acc": 90.6,
+      "overall_consistency": 84.5,
       "missed_count": 15,
       "game_duration_minutes": 191
     },
@@ -1539,6 +1651,7 @@
       "overall_acc": 93.5,
       "ball_acc": 92.9,
       "strike_acc": 94.9,
+      "overall_consistency": 84.3,
       "missed_count": 8,
       "game_duration_minutes": 159
     },
@@ -1555,6 +1668,7 @@
       "overall_acc": 89.1,
       "ball_acc": 91.5,
       "strike_acc": 84.8,
+      "overall_consistency": 93.7,
       "missed_count": 14,
       "game_duration_minutes": 159
     },
@@ -1571,6 +1685,7 @@
       "overall_acc": 89.1,
       "ball_acc": 86.6,
       "strike_acc": 93.6,
+      "overall_consistency": 79.3,
       "missed_count": 14,
       "game_duration_minutes": 159
     },
@@ -1587,6 +1702,7 @@
       "overall_acc": 91.7,
       "ball_acc": 94.1,
       "strike_acc": 87.1,
+      "overall_consistency": 87.3,
       "missed_count": 15,
       "game_duration_minutes": 168
     },
@@ -1603,6 +1719,7 @@
       "overall_acc": 92.4,
       "ball_acc": 91.3,
       "strike_acc": 94.7,
+      "overall_consistency": 88.9,
       "missed_count": 14,
       "game_duration_minutes": 168
     },
@@ -1619,6 +1736,7 @@
       "overall_acc": 87.1,
       "ball_acc": 90.7,
       "strike_acc": 77.5,
+      "overall_consistency": 82.4,
       "missed_count": 19,
       "game_duration_minutes": 168
     },
@@ -1635,6 +1753,7 @@
       "overall_acc": 89.1,
       "ball_acc": 93.6,
       "strike_acc": 80.4,
+      "overall_consistency": 79.8,
       "missed_count": 18,
       "game_duration_minutes": 183
     },
@@ -1651,6 +1770,7 @@
       "overall_acc": 87.3,
       "ball_acc": 85.3,
       "strike_acc": 92.7,
+      "overall_consistency": 88.2,
       "missed_count": 19,
       "game_duration_minutes": 183
     },
@@ -1667,6 +1787,7 @@
       "overall_acc": 93.5,
       "ball_acc": 95.2,
       "strike_acc": 89.8,
+      "overall_consistency": 93.2,
       "missed_count": 10,
       "game_duration_minutes": 183
     },
@@ -1683,6 +1804,7 @@
       "overall_acc": 91.2,
       "ball_acc": 88.3,
       "strike_acc": 97.6,
+      "overall_consistency": 88.8,
       "missed_count": 12,
       "game_duration_minutes": 224
     },
@@ -1699,6 +1821,7 @@
       "overall_acc": 91.3,
       "ball_acc": 92.1,
       "strike_acc": 90.0,
+      "overall_consistency": 82.9,
       "missed_count": 14,
       "game_duration_minutes": 224
     },
@@ -1715,6 +1838,7 @@
       "overall_acc": 83.7,
       "ball_acc": 87.6,
       "strike_acc": 75.0,
+      "overall_consistency": 85.3,
       "missed_count": 25,
       "game_duration_minutes": 155
     },
@@ -1731,6 +1855,7 @@
       "overall_acc": 93.3,
       "ball_acc": 93.1,
       "strike_acc": 93.8,
+      "overall_consistency": 84.5,
       "missed_count": 12,
       "game_duration_minutes": 174
     },
@@ -1747,6 +1872,7 @@
       "overall_acc": 92.1,
       "ball_acc": 95.0,
       "strike_acc": 86.3,
+      "overall_consistency": 84.8,
       "missed_count": 12,
       "game_duration_minutes": 174
     },
@@ -1763,6 +1889,7 @@
       "overall_acc": 94.4,
       "ball_acc": 94.1,
       "strike_acc": 95.1,
+      "overall_consistency": 85.4,
       "missed_count": 13,
       "game_duration_minutes": 177
     },
@@ -1779,6 +1906,7 @@
       "overall_acc": 87.7,
       "ball_acc": 86.1,
       "strike_acc": 91.3,
+      "overall_consistency": 81.6,
       "missed_count": 19,
       "game_duration_minutes": 177
     },
@@ -1795,6 +1923,7 @@
       "overall_acc": 86.8,
       "ball_acc": 88.8,
       "strike_acc": 83.0,
+      "overall_consistency": 82.1,
       "missed_count": 20,
       "game_duration_minutes": 177
     },
@@ -1811,8 +1940,9 @@
       "overall_acc": 90.0,
       "ball_acc": 91.5,
       "strike_acc": 86.0,
+      "overall_consistency": 85.5,
       "missed_count": 16,
-      "game_duration_minutes": null
+      "game_duration_minutes": 194
     },
     {
       "game_id": "2026-A-155",
@@ -1827,6 +1957,7 @@
       "overall_acc": 89.4,
       "ball_acc": 91.9,
       "strike_acc": 84.0,
+      "overall_consistency": 76.7,
       "missed_count": 17,
       "game_duration_minutes": 204
     },
@@ -1843,6 +1974,7 @@
       "overall_acc": 95.3,
       "ball_acc": 95.2,
       "strike_acc": 95.7,
+      "overall_consistency": 88.0,
       "missed_count": 8,
       "game_duration_minutes": 204
     },
@@ -1859,6 +1991,7 @@
       "overall_acc": 85.7,
       "ball_acc": 88.9,
       "strike_acc": 78.0,
+      "overall_consistency": 80.0,
       "missed_count": 20,
       "game_duration_minutes": 188
     },
@@ -1875,6 +2008,7 @@
       "overall_acc": 90.5,
       "ball_acc": 91.6,
       "strike_acc": 88.0,
+      "overall_consistency": 82.9,
       "missed_count": 16,
       "game_duration_minutes": 189
     },
@@ -1891,6 +2025,7 @@
       "overall_acc": 89.6,
       "ball_acc": 90.9,
       "strike_acc": 87.0,
+      "overall_consistency": 80.9,
       "missed_count": 14,
       "game_duration_minutes": 189
     },
@@ -1907,6 +2042,7 @@
       "overall_acc": 94.1,
       "ball_acc": 97.0,
       "strike_acc": 89.0,
+      "overall_consistency": 84.8,
       "missed_count": 12,
       "game_duration_minutes": 224
     },
@@ -1923,6 +2059,7 @@
       "overall_acc": 82.9,
       "ball_acc": 85.0,
       "strike_acc": 78.3,
+      "overall_consistency": 82.2,
       "missed_count": 32,
       "game_duration_minutes": 150
     },
@@ -1939,6 +2076,7 @@
       "overall_acc": 91.4,
       "ball_acc": 93.8,
       "strike_acc": 85.7,
+      "overall_consistency": 81.3,
       "missed_count": 14,
       "game_duration_minutes": 150
     },
@@ -1955,6 +2093,7 @@
       "overall_acc": 89.9,
       "ball_acc": 88.0,
       "strike_acc": 95.1,
+      "overall_consistency": 83.9,
       "missed_count": 16,
       "game_duration_minutes": 179
     },
@@ -1971,6 +2110,7 @@
       "overall_acc": 89.8,
       "ball_acc": 90.8,
       "strike_acc": 87.7,
+      "overall_consistency": 82.1,
       "missed_count": 19,
       "game_duration_minutes": 160
     },
@@ -1987,6 +2127,7 @@
       "overall_acc": 91.9,
       "ball_acc": 89.9,
       "strike_acc": 95.7,
+      "overall_consistency": 91.3,
       "missed_count": 11,
       "game_duration_minutes": 160
     },
@@ -2003,6 +2144,7 @@
       "overall_acc": 89.7,
       "ball_acc": 89.5,
       "strike_acc": 90.2,
+      "overall_consistency": 82.3,
       "missed_count": 20,
       "game_duration_minutes": 140
     },
@@ -2019,6 +2161,7 @@
       "overall_acc": 86.4,
       "ball_acc": 85.9,
       "strike_acc": 87.2,
+      "overall_consistency": 84.8,
       "missed_count": 18,
       "game_duration_minutes": 140
     },
@@ -2035,6 +2178,7 @@
       "overall_acc": 86.8,
       "ball_acc": 87.0,
       "strike_acc": 86.3,
+      "overall_consistency": 89.7,
       "missed_count": 24,
       "game_duration_minutes": 187
     },
@@ -2051,6 +2195,7 @@
       "overall_acc": 90.9,
       "ball_acc": 90.8,
       "strike_acc": 90.9,
+      "overall_consistency": 75.5,
       "missed_count": 16,
       "game_duration_minutes": 187
     },
@@ -2067,6 +2212,7 @@
       "overall_acc": 95.7,
       "ball_acc": 96.9,
       "strike_acc": 92.7,
+      "overall_consistency": 97.4,
       "missed_count": 6,
       "game_duration_minutes": 169
     },
@@ -2083,6 +2229,7 @@
       "overall_acc": 87.0,
       "ball_acc": 89.7,
       "strike_acc": 80.4,
+      "overall_consistency": 81.9,
       "missed_count": 23,
       "game_duration_minutes": 185
     },
@@ -2099,6 +2246,7 @@
       "overall_acc": 90.0,
       "ball_acc": 88.2,
       "strike_acc": 93.8,
+      "overall_consistency": 80.5,
       "missed_count": 15,
       "game_duration_minutes": 165
     },
@@ -2115,6 +2263,7 @@
       "overall_acc": 85.0,
       "ball_acc": 88.5,
       "strike_acc": 77.2,
+      "overall_consistency": 82.1,
       "missed_count": 28,
       "game_duration_minutes": 165
     },
@@ -2131,6 +2280,7 @@
       "overall_acc": 89.8,
       "ball_acc": 92.9,
       "strike_acc": 83.7,
+      "overall_consistency": 85.4,
       "missed_count": 13,
       "game_duration_minutes": 122
     },
@@ -2147,6 +2297,7 @@
       "overall_acc": 92.7,
       "ball_acc": 92.9,
       "strike_acc": 92.3,
+      "overall_consistency": 90.1,
       "missed_count": 8,
       "game_duration_minutes": 122
     },
@@ -2163,6 +2314,7 @@
       "overall_acc": 87.3,
       "ball_acc": 89.2,
       "strike_acc": 82.5,
+      "overall_consistency": 75.0,
       "missed_count": 18,
       "game_duration_minutes": 165
     },
@@ -2179,6 +2331,7 @@
       "overall_acc": 88.7,
       "ball_acc": 87.4,
       "strike_acc": 92.3,
+      "overall_consistency": 87.4,
       "missed_count": 16,
       "game_duration_minutes": 165
     },
@@ -2195,6 +2348,7 @@
       "overall_acc": 91.8,
       "ball_acc": 93.7,
       "strike_acc": 86.0,
+      "overall_consistency": 81.0,
       "missed_count": 14,
       "game_duration_minutes": 180
     },
@@ -2211,6 +2365,7 @@
       "overall_acc": 89.7,
       "ball_acc": 90.3,
       "strike_acc": 88.4,
+      "overall_consistency": 78.0,
       "missed_count": 14,
       "game_duration_minutes": 172
     },
@@ -2227,6 +2382,7 @@
       "overall_acc": 90.6,
       "ball_acc": 94.3,
       "strike_acc": 82.5,
+      "overall_consistency": 82.2,
       "missed_count": 17,
       "game_duration_minutes": 172
     },
@@ -2243,6 +2399,7 @@
       "overall_acc": 90.1,
       "ball_acc": 93.5,
       "strike_acc": 81.6,
+      "overall_consistency": 83.2,
       "missed_count": 17,
       "game_duration_minutes": 180
     },
@@ -2259,6 +2416,7 @@
       "overall_acc": 87.9,
       "ball_acc": 89.8,
       "strike_acc": 85.4,
+      "overall_consistency": 76.3,
       "missed_count": 13,
       "game_duration_minutes": 180
     },
@@ -2275,6 +2433,7 @@
       "overall_acc": 87.6,
       "ball_acc": 90.2,
       "strike_acc": 82.4,
+      "overall_consistency": 92.0,
       "missed_count": 19,
       "game_duration_minutes": 180
     },
@@ -2291,6 +2450,7 @@
       "overall_acc": 91.8,
       "ball_acc": 96.3,
       "strike_acc": 82.9,
+      "overall_consistency": 83.9,
       "missed_count": 10,
       "game_duration_minutes": 144
     },
@@ -2307,6 +2467,7 @@
       "overall_acc": 86.4,
       "ball_acc": 89.7,
       "strike_acc": 81.0,
+      "overall_consistency": 76.8,
       "missed_count": 15,
       "game_duration_minutes": 144
     },
@@ -2323,6 +2484,7 @@
       "overall_acc": 92.0,
       "ball_acc": 93.1,
       "strike_acc": 89.8,
+      "overall_consistency": 86.6,
       "missed_count": 12,
       "game_duration_minutes": 195
     },
@@ -2339,6 +2501,7 @@
       "overall_acc": 91.7,
       "ball_acc": 93.2,
       "strike_acc": 89.1,
+      "overall_consistency": 91.7,
       "missed_count": 15,
       "game_duration_minutes": 195
     },
@@ -2355,6 +2518,7 @@
       "overall_acc": 88.5,
       "ball_acc": 89.5,
       "strike_acc": 86.1,
+      "overall_consistency": 82.2,
       "missed_count": 15,
       "game_duration_minutes": 173
     },
@@ -2371,6 +2535,7 @@
       "overall_acc": 91.8,
       "ball_acc": 95.6,
       "strike_acc": 83.1,
+      "overall_consistency": 85.5,
       "missed_count": 16,
       "game_duration_minutes": 152
     },
@@ -2387,6 +2552,7 @@
       "overall_acc": 86.7,
       "ball_acc": 89.9,
       "strike_acc": 80.5,
+      "overall_consistency": 83.0,
       "missed_count": 16,
       "game_duration_minutes": 152
     },
@@ -2403,6 +2569,7 @@
       "overall_acc": 89.2,
       "ball_acc": 93.1,
       "strike_acc": 78.6,
+      "overall_consistency": 88.5,
       "missed_count": 17,
       "game_duration_minutes": 155
     },
@@ -2419,6 +2586,7 @@
       "overall_acc": 91.7,
       "ball_acc": 92.9,
       "strike_acc": 89.1,
+      "overall_consistency": 91.6,
       "missed_count": 12,
       "game_duration_minutes": 155
     },
@@ -2435,6 +2603,7 @@
       "overall_acc": 91.9,
       "ball_acc": 95.2,
       "strike_acc": 84.7,
+      "overall_consistency": 82.9,
       "missed_count": 15,
       "game_duration_minutes": 213
     },
@@ -2451,6 +2620,7 @@
       "overall_acc": 86.3,
       "ball_acc": 91.2,
       "strike_acc": 77.1,
+      "overall_consistency": 82.9,
       "missed_count": 19,
       "game_duration_minutes": 213
     },
@@ -2467,6 +2637,7 @@
       "overall_acc": 89.5,
       "ball_acc": 89.2,
       "strike_acc": 90.2,
+      "overall_consistency": 85.2,
       "missed_count": 15,
       "game_duration_minutes": 213
     },
@@ -2483,6 +2654,7 @@
       "overall_acc": 94.2,
       "ball_acc": 95.2,
       "strike_acc": 92.2,
+      "overall_consistency": 88.5,
       "missed_count": 9,
       "game_duration_minutes": 217
     },
@@ -2499,6 +2671,7 @@
       "overall_acc": 90.1,
       "ball_acc": 91.8,
       "strike_acc": 87.5,
+      "overall_consistency": 86.0,
       "missed_count": 10,
       "game_duration_minutes": 217
     },
@@ -2515,6 +2688,7 @@
       "overall_acc": 86.3,
       "ball_acc": 90.3,
       "strike_acc": 76.5,
+      "overall_consistency": 78.6,
       "missed_count": 24,
       "game_duration_minutes": 217
     },
@@ -2531,6 +2705,7 @@
       "overall_acc": 89.5,
       "ball_acc": 89.7,
       "strike_acc": 89.1,
+      "overall_consistency": 79.5,
       "missed_count": 18,
       "game_duration_minutes": 155
     },
@@ -2547,6 +2722,7 @@
       "overall_acc": 88.1,
       "ball_acc": 87.4,
       "strike_acc": 89.6,
+      "overall_consistency": 82.3,
       "missed_count": 16,
       "game_duration_minutes": 155
     },
@@ -2563,6 +2739,7 @@
       "overall_acc": 94.1,
       "ball_acc": 96.2,
       "strike_acc": 90.0,
+      "overall_consistency": 84.4,
       "missed_count": 7,
       "game_duration_minutes": 155
     },
@@ -2579,6 +2756,7 @@
       "overall_acc": 90.6,
       "ball_acc": 91.9,
       "strike_acc": 87.5,
+      "overall_consistency": 87.3,
       "missed_count": 17,
       "game_duration_minutes": 179
     },
@@ -2595,6 +2773,7 @@
       "overall_acc": 91.0,
       "ball_acc": 89.9,
       "strike_acc": 94.4,
+      "overall_consistency": 90.9,
       "missed_count": 14,
       "game_duration_minutes": 179
     },
@@ -2611,8 +2790,9 @@
       "overall_acc": 92.8,
       "ball_acc": 93.5,
       "strike_acc": 91.1,
+      "overall_consistency": 80.4,
       "missed_count": 13,
-      "game_duration_minutes": null
+      "game_duration_minutes": 203
     },
     {
       "game_id": "2026-A-79",
@@ -2627,6 +2807,7 @@
       "overall_acc": 90.3,
       "ball_acc": 90.3,
       "strike_acc": 90.6,
+      "overall_consistency": 83.2,
       "missed_count": 14,
       "game_duration_minutes": 165
     },
@@ -2643,6 +2824,7 @@
       "overall_acc": 85.3,
       "ball_acc": 84.9,
       "strike_acc": 86.1,
+      "overall_consistency": 78.8,
       "missed_count": 19,
       "game_duration_minutes": 165
     },
@@ -2659,6 +2841,7 @@
       "overall_acc": 91.2,
       "ball_acc": 92.3,
       "strike_acc": 88.9,
+      "overall_consistency": 80.0,
       "missed_count": 15,
       "game_duration_minutes": 165
     },
@@ -2675,6 +2858,7 @@
       "overall_acc": 92.7,
       "ball_acc": 94.1,
       "strike_acc": 88.6,
+      "overall_consistency": 85.4,
       "missed_count": 10,
       "game_duration_minutes": 194
     },
@@ -2691,6 +2875,7 @@
       "overall_acc": 93.2,
       "ball_acc": 92.3,
       "strike_acc": 95.1,
+      "overall_consistency": 85.3,
       "missed_count": 9,
       "game_duration_minutes": 194
     },
@@ -2707,6 +2892,7 @@
       "overall_acc": 88.2,
       "ball_acc": 94.6,
       "strike_acc": 74.0,
+      "overall_consistency": 85.7,
       "missed_count": 19,
       "game_duration_minutes": 194
     },
@@ -2723,6 +2909,7 @@
       "overall_acc": 88.4,
       "ball_acc": 89.0,
       "strike_acc": 87.0,
+      "overall_consistency": 85.4,
       "missed_count": 17,
       "game_duration_minutes": 132
     },
@@ -2739,6 +2926,7 @@
       "overall_acc": 87.3,
       "ball_acc": 89.3,
       "strike_acc": 83.7,
+      "overall_consistency": 82.9,
       "missed_count": 15,
       "game_duration_minutes": 132
     },
@@ -2755,6 +2943,7 @@
       "overall_acc": 88.5,
       "ball_acc": 93.7,
       "strike_acc": 82.0,
+      "overall_consistency": 90.2,
       "missed_count": 13,
       "game_duration_minutes": 142
     },
@@ -2771,6 +2960,7 @@
       "overall_acc": 91.9,
       "ball_acc": 89.9,
       "strike_acc": 97.2,
+      "overall_consistency": 92.6,
       "missed_count": 11,
       "game_duration_minutes": 147
     },
@@ -2787,6 +2977,7 @@
       "overall_acc": 90.1,
       "ball_acc": 88.4,
       "strike_acc": 94.4,
+      "overall_consistency": 82.8,
       "missed_count": 13,
       "game_duration_minutes": 147
     },
@@ -2803,6 +2994,7 @@
       "overall_acc": 86.4,
       "ball_acc": 86.0,
       "strike_acc": 87.5,
+      "overall_consistency": 78.6,
       "missed_count": 18,
       "game_duration_minutes": 147
     },
@@ -2819,6 +3011,7 @@
       "overall_acc": 92.5,
       "ball_acc": 91.1,
       "strike_acc": 95.3,
+      "overall_consistency": 83.8,
       "missed_count": 10,
       "game_duration_minutes": 157
     },
@@ -2835,6 +3028,7 @@
       "overall_acc": 89.0,
       "ball_acc": 90.8,
       "strike_acc": 85.4,
+      "overall_consistency": 89.8,
       "missed_count": 16,
       "game_duration_minutes": 157
     },
@@ -2851,6 +3045,7 @@
       "overall_acc": 89.7,
       "ball_acc": 93.3,
       "strike_acc": 83.0,
+      "overall_consistency": 89.6,
       "missed_count": 14,
       "game_duration_minutes": 196
     },
@@ -2867,6 +3062,7 @@
       "overall_acc": 89.8,
       "ball_acc": 90.3,
       "strike_acc": 88.4,
+      "overall_consistency": 83.6,
       "missed_count": 19,
       "game_duration_minutes": 196
     },
@@ -2883,6 +3079,7 @@
       "overall_acc": 91.1,
       "ball_acc": 88.2,
       "strike_acc": 100.0,
+      "overall_consistency": 91.6,
       "missed_count": 11,
       "game_duration_minutes": 165
     },
@@ -2899,6 +3096,7 @@
       "overall_acc": 88.7,
       "ball_acc": 89.8,
       "strike_acc": 86.1,
+      "overall_consistency": 80.0,
       "missed_count": 14,
       "game_duration_minutes": 165
     },
@@ -2915,6 +3113,7 @@
       "overall_acc": 89.8,
       "ball_acc": 92.6,
       "strike_acc": 83.7,
+      "overall_consistency": 77.2,
       "missed_count": 14,
       "game_duration_minutes": 167
     },
@@ -2931,6 +3130,7 @@
       "overall_acc": 92.6,
       "ball_acc": 91.5,
       "strike_acc": 94.6,
+      "overall_consistency": 92.5,
       "missed_count": 8,
       "game_duration_minutes": 166
     },
@@ -2947,6 +3147,7 @@
       "overall_acc": 94.4,
       "ball_acc": 94.4,
       "strike_acc": 94.6,
+      "overall_consistency": 79.8,
       "missed_count": 6,
       "game_duration_minutes": 141
     },
@@ -2963,6 +3164,7 @@
       "overall_acc": 87.7,
       "ball_acc": 89.4,
       "strike_acc": 83.3,
+      "overall_consistency": 85.1,
       "missed_count": 18,
       "game_duration_minutes": 183
     },
@@ -2979,6 +3181,7 @@
       "overall_acc": 88.9,
       "ball_acc": 88.6,
       "strike_acc": 89.7,
+      "overall_consistency": 81.2,
       "missed_count": 17,
       "game_duration_minutes": 183
     },
@@ -2995,6 +3198,7 @@
       "overall_acc": 86.3,
       "ball_acc": 86.9,
       "strike_acc": 85.1,
+      "overall_consistency": 82.1,
       "missed_count": 20,
       "game_duration_minutes": 183
     },
@@ -3011,6 +3215,7 @@
       "overall_acc": 90.0,
       "ball_acc": 91.6,
       "strike_acc": 86.3,
+      "overall_consistency": 83.9,
       "missed_count": 17,
       "game_duration_minutes": 152
     },
@@ -3027,6 +3232,7 @@
       "overall_acc": 89.3,
       "ball_acc": 90.1,
       "strike_acc": 87.1,
+      "overall_consistency": 83.1,
       "missed_count": 13,
       "game_duration_minutes": 152
     },
@@ -3043,6 +3249,7 @@
       "overall_acc": 89.5,
       "ball_acc": 90.1,
       "strike_acc": 87.9,
+      "overall_consistency": 86.8,
       "missed_count": 13,
       "game_duration_minutes": 152
     },
@@ -3059,6 +3266,7 @@
       "overall_acc": 88.3,
       "ball_acc": 87.4,
       "strike_acc": 90.7,
+      "overall_consistency": 77.1,
       "missed_count": 18,
       "game_duration_minutes": 177
     },
@@ -3075,6 +3283,7 @@
       "overall_acc": 89.0,
       "ball_acc": 91.0,
       "strike_acc": 84.8,
+      "overall_consistency": 83.9,
       "missed_count": 16,
       "game_duration_minutes": 177
     },
@@ -3091,6 +3300,7 @@
       "overall_acc": 92.9,
       "ball_acc": 95.2,
       "strike_acc": 85.7,
+      "overall_consistency": 85.5,
       "missed_count": 10,
       "game_duration_minutes": 177
     },
@@ -3107,6 +3317,7 @@
       "overall_acc": 89.6,
       "ball_acc": 92.0,
       "strike_acc": 83.3,
+      "overall_consistency": 86.9,
       "missed_count": 16,
       "game_duration_minutes": 196
     },
@@ -3123,6 +3334,7 @@
       "overall_acc": 87.1,
       "ball_acc": 86.9,
       "strike_acc": 87.5,
+      "overall_consistency": 87.5,
       "missed_count": 20,
       "game_duration_minutes": 203
     },
@@ -3139,6 +3351,7 @@
       "overall_acc": 91.0,
       "ball_acc": 92.6,
       "strike_acc": 86.5,
+      "overall_consistency": 79.5,
       "missed_count": 13,
       "game_duration_minutes": 203
     },
@@ -3155,6 +3368,7 @@
       "overall_acc": 93.1,
       "ball_acc": 94.9,
       "strike_acc": 88.4,
+      "overall_consistency": 87.5,
       "missed_count": 11,
       "game_duration_minutes": 203
     },
@@ -3171,6 +3385,7 @@
       "overall_acc": 87.6,
       "ball_acc": 91.1,
       "strike_acc": 80.0,
+      "overall_consistency": 77.5,
       "missed_count": 22,
       "game_duration_minutes": 175
     },
@@ -3187,6 +3402,7 @@
       "overall_acc": 89.0,
       "ball_acc": 90.8,
       "strike_acc": 84.1,
+      "overall_consistency": 79.6,
       "missed_count": 18,
       "game_duration_minutes": 204
     },
@@ -3203,6 +3419,7 @@
       "overall_acc": 91.7,
       "ball_acc": 88.5,
       "strike_acc": 97.8,
+      "overall_consistency": 93.7,
       "missed_count": 11,
       "game_duration_minutes": 170
     },
@@ -3219,6 +3436,7 @@
       "overall_acc": 87.0,
       "ball_acc": 90.1,
       "strike_acc": 78.4,
+      "overall_consistency": 90.4,
       "missed_count": 18,
       "game_duration_minutes": 170
     },
@@ -3235,6 +3453,7 @@
       "overall_acc": 92.9,
       "ball_acc": 91.6,
       "strike_acc": 95.6,
+      "overall_consistency": 87.5,
       "missed_count": 10,
       "game_duration_minutes": 191
     },
@@ -3251,6 +3470,7 @@
       "overall_acc": 84.2,
       "ball_acc": 90.7,
       "strike_acc": 68.2,
+      "overall_consistency": 78.3,
       "missed_count": 24,
       "game_duration_minutes": 191
     },
@@ -3267,6 +3487,7 @@
       "overall_acc": 82.4,
       "ball_acc": 85.1,
       "strike_acc": 75.0,
+      "overall_consistency": 87.3,
       "missed_count": 18,
       "game_duration_minutes": 124
     },
@@ -3283,6 +3504,7 @@
       "overall_acc": 94.0,
       "ball_acc": 94.2,
       "strike_acc": 93.6,
+      "overall_consistency": 88.2,
       "missed_count": 10,
       "game_duration_minutes": 157
     },
@@ -3299,6 +3521,7 @@
       "overall_acc": 91.7,
       "ball_acc": 93.6,
       "strike_acc": 86.7,
+      "overall_consistency": 85.9,
       "missed_count": 9,
       "game_duration_minutes": 157
     },
@@ -3315,6 +3538,7 @@
       "overall_acc": 82.8,
       "ball_acc": 89.0,
       "strike_acc": 70.4,
+      "overall_consistency": 85.3,
       "missed_count": 28,
       "game_duration_minutes": 157
     },
@@ -3331,6 +3555,7 @@
       "overall_acc": 90.2,
       "ball_acc": 89.9,
       "strike_acc": 90.7,
+      "overall_consistency": 84.4,
       "missed_count": 15,
       "game_duration_minutes": 144
     },
@@ -3347,6 +3572,7 @@
       "overall_acc": 82.7,
       "ball_acc": 87.2,
       "strike_acc": 69.6,
+      "overall_consistency": 82.8,
       "missed_count": 31,
       "game_duration_minutes": 144
     },
@@ -3363,6 +3589,7 @@
       "overall_acc": 94.4,
       "ball_acc": 95.8,
       "strike_acc": 91.9,
+      "overall_consistency": 79.8,
       "missed_count": 6,
       "game_duration_minutes": 144
     },
@@ -3379,8 +3606,9 @@
       "overall_acc": 88.4,
       "ball_acc": 92.7,
       "strike_acc": 78.0,
+      "overall_consistency": 83.0,
       "missed_count": 20,
-      "game_duration_minutes": null
+      "game_duration_minutes": 190
     },
     {
       "game_id": "2026-A-13",
@@ -3395,6 +3623,7 @@
       "overall_acc": 93.7,
       "ball_acc": 94.2,
       "strike_acc": 92.6,
+      "overall_consistency": 87.5,
       "missed_count": 11,
       "game_duration_minutes": 177
     },
@@ -3411,6 +3640,7 @@
       "overall_acc": 94.4,
       "ball_acc": 94.9,
       "strike_acc": 93.5,
+      "overall_consistency": 88.1,
       "missed_count": 8,
       "game_duration_minutes": 177
     },
@@ -3427,6 +3657,7 @@
       "overall_acc": 86.6,
       "ball_acc": 90.0,
       "strike_acc": 80.7,
+      "overall_consistency": 84.0,
       "missed_count": 21,
       "game_duration_minutes": 177
     },
@@ -3443,6 +3674,7 @@
       "overall_acc": 85.6,
       "ball_acc": 87.0,
       "strike_acc": 81.1,
+      "overall_consistency": 85.6,
       "missed_count": 23,
       "game_duration_minutes": 193
     },
@@ -3459,6 +3691,7 @@
       "overall_acc": 88.5,
       "ball_acc": 88.5,
       "strike_acc": 88.5,
+      "overall_consistency": 75.3,
       "missed_count": 19,
       "game_duration_minutes": 193
     },
@@ -3475,6 +3708,7 @@
       "overall_acc": 84.5,
       "ball_acc": 89.9,
       "strike_acc": 69.2,
+      "overall_consistency": 80.5,
       "missed_count": 23,
       "game_duration_minutes": 193
     },
@@ -3491,6 +3725,7 @@
       "overall_acc": 82.6,
       "ball_acc": 85.7,
       "strike_acc": 76.5,
+      "overall_consistency": 75.4,
       "missed_count": 26,
       "game_duration_minutes": 152
     },
@@ -3507,6 +3742,7 @@
       "overall_acc": 89.7,
       "ball_acc": 91.7,
       "strike_acc": 85.7,
+      "overall_consistency": 77.8,
       "missed_count": 15,
       "game_duration_minutes": 152
     },
@@ -3523,6 +3759,7 @@
       "overall_acc": 89.3,
       "ball_acc": 97.3,
       "strike_acc": 73.0,
+      "overall_consistency": 91.0,
       "missed_count": 12,
       "game_duration_minutes": 152
     },
@@ -3539,6 +3776,7 @@
       "overall_acc": 91.1,
       "ball_acc": 90.2,
       "strike_acc": 94.6,
+      "overall_consistency": 88.8,
       "missed_count": 15,
       "game_duration_minutes": 152
     },
@@ -3555,6 +3793,7 @@
       "overall_acc": 86.4,
       "ball_acc": 89.8,
       "strike_acc": 79.6,
+      "overall_consistency": 78.2,
       "missed_count": 20,
       "game_duration_minutes": 152
     },
@@ -3571,6 +3810,7 @@
       "overall_acc": 83.5,
       "ball_acc": 85.6,
       "strike_acc": 77.8,
+      "overall_consistency": 79.4,
       "missed_count": 22,
       "game_duration_minutes": 152
     },
@@ -3587,6 +3827,7 @@
       "overall_acc": 92.9,
       "ball_acc": 92.8,
       "strike_acc": 93.2,
+      "overall_consistency": 82.9,
       "missed_count": 10,
       "game_duration_minutes": 176
     }
