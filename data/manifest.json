@@ -1,11 +1,27 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T01:20:53.427382+08:00",
-  "default_game_id": "2026-A-301",
+  "generated_at": "2026-09-02T22:15:43.001025+08:00",
+  "default_game_id": "2026-A-303",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-A-303",
+      "game_sno": 303,
+      "game_date": "2026-09-02",
+      "field": "大巨蛋",
+      "visiting_team": "統一7-ELEVEn獅",
+      "home_team": "富邦悍將",
+      "visiting_score": 6,
+      "home_score": 1,
+      "hp_umpire": "王俊宏",
+      "overall_acc": 88.0,
+      "ball_acc": 87.4,
+      "strike_acc": 89.4,
+      "missed_count": 20,
+      "game_duration_minutes": null
+    },
     {
       "game_id": "2026-A-301",
       "game_sno": 301,
