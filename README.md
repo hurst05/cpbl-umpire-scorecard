@@ -391,6 +391,7 @@ git remote -v
 - [靜態 JSON 上雲規格](docs/spec-static-json-cloud.md)
 - [第一輪實作計畫](docs/plan-static-json-cloud-remediation.md)
 - [上線後強化任務](docs/task-static-json-cloud-post-launch-hardening.md)
+- [CPBL 比賽時間抓取機制與 CDN 308 重定向異常記錄](docs/troubleshooting-cpbl-duration-cdn-redirect.md)
 
 ## 注意事項
 

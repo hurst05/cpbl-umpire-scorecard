@@ -1,6 +1,11 @@
 import json
+import logging
 import re
 import urllib.request
+
+import httpx
+
+logger = logging.getLogger(__name__)
 
 CPBL_HEADERS = {
     "User-Agent": (
@@ -142,24 +147,26 @@ def fetch_game_duration(game_id: str) -> int | None:
         if len(parts) != 3:
             return None
         year, kind_code, sno = parts[0], parts[1], parts[2]
-        data = urllib.parse.urlencode({"year": year, "kindCode": kind_code, "gameSno": sno}).encode("utf-8")
-        req = urllib.request.Request(
-            "https://www.cpbl.com.tw/box/getlive",
-            data=data,
-            headers={
-                "User-Agent": CPBL_HEADERS["User-Agent"],
-                "Accept-Language": "zh-TW,zh;q=0.9",
-                "X-Requested-With": "XMLHttpRequest",
-            },
-        )
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            res = json.loads(resp.read().decode("utf-8"))
-            if res.get("GameDetailJson"):
-                gd = json.loads(res["GameDetailJson"])
-                if gd:
-                    return parse_duration_str(gd[0].get("GameDuringTime"))
-    except Exception:
-        pass
+        with httpx.Client(headers=CPBL_HEADERS, follow_redirects=True, timeout=10) as client:
+            resp = client.post(
+                "https://www.cpbl.com.tw/box/getlive",
+                data={"year": year, "kindCode": kind_code, "gameSno": sno},
+                headers={"X-Requested-With": "XMLHttpRequest"},
+            )
+            if resp.status_code == 200:
+                res = resp.json()
+                if res.get("GameDetailJson"):
+                    gd = json.loads(res["GameDetailJson"])
+                    if isinstance(gd, list):
+                        # CPBL may return multiple entries for postponed/doubleheaders.
+                        # Traverse in reverse to find the finished/active game with valid duration.
+                        for item in reversed(gd):
+                            dur_str = item.get("GameDuringTime")
+                            dur_mins = parse_duration_str(dur_str)
+                            if dur_mins is not None:
+                                return dur_mins
+    except Exception as e:
+        logger.warning("Failed to fetch game duration for %s: %s", game_id, e)
     return None
 
 

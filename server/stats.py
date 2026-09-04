@@ -51,6 +51,7 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
                 "avg_overall_acc": 0.0,
                 "avg_ball_acc": 0.0,
                 "avg_strike_acc": 0.0,
+                "avg_consistency": 0.0,
                 "avg_missed_calls": 0.0,
                 "total_missed_calls": 0,
                 "highest_acc_game": None,
@@ -116,6 +117,8 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
     total_overall_acc = 0.0
     total_ball_acc = 0.0
     total_strike_acc = 0.0
+    total_consistency = 0.0
+    valid_consistency_count = 0
     total_missed = 0
 
     # Team aggregation
@@ -140,6 +143,8 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
         ball_acc = float(g.get("ball_acc") or 0.0)
         strike_acc = float(g.get("strike_acc") or 0.0)
         missed = int(g.get("missed_count") or 0)
+        consistency_raw = g.get("overall_consistency")
+        consistency = float(consistency_raw) if consistency_raw is not None else None
 
         # Margins and scores
         margin = abs(h_score - v_score)
@@ -176,6 +181,9 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
         total_ball_acc += ball_acc
         total_strike_acc += strike_acc
         total_missed += missed
+        if consistency is not None:
+            total_consistency += consistency
+            valid_consistency_count += 1
 
         game_acc_info = {
             "game_id": g.get("game_id"),
@@ -199,6 +207,8 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
                 "total_overall_acc": 0.0,
                 "total_ball_acc": 0.0,
                 "total_strike_acc": 0.0,
+                "total_consistency": 0.0,
+                "valid_consistency_games": 0,
                 "total_missed": 0,
             }
         u_entry = umpire_map[umpire]
@@ -207,6 +217,9 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
         u_entry["total_ball_acc"] += ball_acc
         u_entry["total_strike_acc"] += strike_acc
         u_entry["total_missed"] += missed
+        if consistency is not None:
+            u_entry["total_consistency"] += consistency
+            u_entry["valid_consistency_games"] += 1
 
         # Team stats
         for team, is_home, scored, allowed in [
@@ -287,6 +300,11 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
     avg_overall_acc = round(total_overall_acc / total_games, 2) if total_games > 0 else 0.0
     avg_ball_acc = round(total_ball_acc / total_games, 2) if total_games > 0 else 0.0
     avg_strike_acc = round(total_strike_acc / total_games, 2) if total_games > 0 else 0.0
+    avg_consistency = (
+        round(total_consistency / valid_consistency_count, 2)
+        if valid_consistency_count > 0
+        else 0.0
+    )
     avg_missed_calls = round(total_missed / total_games, 1) if total_games > 0 else 0.0
 
     # Build Umpire Leaderboard
@@ -297,6 +315,11 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
         u_ball = round(u["total_ball_acc"] / u_games, 2) if u_games > 0 else 0.0
         u_strike = round(u["total_strike_acc"] / u_games, 2) if u_games > 0 else 0.0
         u_missed_avg = round(u["total_missed"] / u_games, 1) if u_games > 0 else 0.0
+        u_consistency = (
+            round(u["total_consistency"] / u["valid_consistency_games"], 2)
+            if u.get("valid_consistency_games", 0) > 0
+            else None
+        )
         umpire_leaderboard.append(
             {
                 "hp_umpire": u["name"],
@@ -306,6 +329,7 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
                 "strike_acc": u_strike,
                 "total_missed": u["total_missed"],
                 "missed_per_game": u_missed_avg,
+                "consistency": u_consistency,
             }
         )
     # Sort leaderboard by games DESC then overall_acc DESC
@@ -400,6 +424,7 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
             "avg_overall_acc": avg_overall_acc,
             "avg_ball_acc": avg_ball_acc,
             "avg_strike_acc": avg_strike_acc,
+            "avg_consistency": avg_consistency,
             "avg_missed_calls": avg_missed_calls,
             "total_missed_calls": total_missed,
             "highest_acc_game": highest_acc_game,

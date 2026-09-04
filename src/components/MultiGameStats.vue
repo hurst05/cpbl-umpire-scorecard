@@ -133,23 +133,144 @@
         <table class="w-full text-left text-xs">
           <thead class="text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950/60 uppercase font-mono border-b border-slate-200 dark:border-slate-800">
             <tr>
-              <th class="p-3">場次</th>
-              <th class="p-3">日期</th>
-              <th class="p-3">球場</th>
-              <th class="p-3">對戰隊伍</th>
-              <th class="p-3">比分</th>
-              <th class="p-3">比賽時間</th>
-              <th class="p-3">主審</th>
-              <th class="p-3">整體準確率</th>
-              <th class="p-3">壞球準確率</th>
-              <th class="p-3">好球準確率</th>
-              <th class="p-3">誤判數</th>
-              <th class="p-3 text-right">操作</th>
+              <th
+                @click="toggleSort('game_sno')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'game_sno' }"
+                title="點擊切換場次排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>場次</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'game_sno' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'game_sno' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('game_date')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'game_date' }"
+                title="點擊切換日期排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>日期</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'game_date' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'game_date' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('field')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'field' }"
+                title="點擊切換球場排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>球場</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'field' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'field' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th class="p-3 whitespace-nowrap">對戰隊伍</th>
+              <th class="p-3 whitespace-nowrap">比分</th>
+              <th
+                @click="toggleSort('game_duration_minutes')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'game_duration_minutes' }"
+                title="點擊切換比賽時間排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>比賽時間</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'game_duration_minutes' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'game_duration_minutes' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('hp_umpire')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'hp_umpire' }"
+                title="點擊切換主審排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>主審</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'hp_umpire' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'hp_umpire' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('missed_count')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'missed_count' }"
+                title="點擊切換誤判數排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>誤判數</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'missed_count' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'missed_count' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('overall_acc')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'overall_acc' }"
+                title="點擊切換整體準確率排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>整體準確率</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'overall_acc' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'overall_acc' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('ball_acc')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'ball_acc' }"
+                title="點擊切換壞球準確率排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>壞球準確率</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'ball_acc' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'ball_acc' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('strike_acc')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'strike_acc' }"
+                title="點擊切換好球準確率排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>好球準確率</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'strike_acc' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'strike_acc' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th
+                @click="toggleSort('consistency')"
+                class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                :class="{ 'text-blue-600 dark:text-blue-400 font-bold': sortKey === 'consistency' }"
+                title="點擊切換判決一致性排序"
+              >
+                <div class="flex items-center gap-1.5">
+                  <span>判決一致性</span>
+                  <span class="text-[10px] font-mono" :class="sortKey === 'consistency' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                    {{ sortKey === 'consistency' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                  </span>
+                </div>
+              </th>
+              <th class="p-3 text-right whitespace-nowrap">操作</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200 dark:divide-slate-800/80">
             <tr 
-              v-for="g in filteredGames" 
+              v-for="g in sortedGames" 
               :key="g.game_id"
               class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all font-medium"
             >
@@ -162,10 +283,13 @@
                 {{ formatGameDuration(g.game_duration_minutes) }}
               </td>
               <td class="p-3 text-amber-600 dark:text-amber-300 font-bold">{{ g.hp_umpire }}</td>
+              <td class="p-3 font-mono text-amber-600 dark:text-amber-400 font-bold">{{ g.missed_count }}</td>
               <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">{{ g.overall_acc }}%</td>
               <td class="p-3 font-mono text-slate-600 dark:text-slate-300">{{ g.ball_acc }}%</td>
               <td class="p-3 font-mono text-slate-600 dark:text-slate-300">{{ g.strike_acc }}%</td>
-              <td class="p-3 font-mono text-amber-600 dark:text-amber-400 font-bold">{{ g.missed_count }}</td>
+              <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                {{ (g.overall_consistency != null ? g.overall_consistency : g.consistency_rate) != null ? `${g.overall_consistency ?? g.consistency_rate}%` : '-' }}
+              </td>
               <td class="p-3 text-right">
                 <button 
                   @click="$emit('load-game', g.game_id)"
@@ -196,6 +320,23 @@ const generatedAtStr = ref('')
 const isStatic = ref(isStaticMode())
 const selectedYearFilter = ref('2026')
 
+// 排序狀態：預設場次降冪排序 (game_sno desc)
+const sortKey = ref('game_sno')
+const sortOrder = ref('desc')
+
+function toggleSort(key) {
+  if (sortKey.value === key) {
+    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc'
+  } else {
+    sortKey.value = key
+    if (key === 'game_date' || key === 'field' || key === 'hp_umpire') {
+      sortOrder.value = 'asc'
+    } else {
+      sortOrder.value = 'desc'
+    }
+  }
+}
+
 const yearFilterOptions = computed(() => {
   const years = Array.from(
     new Set(
@@ -215,6 +356,40 @@ const filteredGames = computed(() => {
     return cachedGames.value
   }
   return cachedGames.value.filter(g => g.game_date && g.game_date.startsWith(selectedYearFilter.value))
+})
+
+const sortedGames = computed(() => {
+  const list = [...filteredGames.value]
+  const key = sortKey.value
+  const order = sortOrder.value === 'asc' ? 1 : -1
+
+  return list.sort((a, b) => {
+    let res
+    if (key === 'game_sno') {
+      res = (Number(a.game_sno) || 0) - (Number(b.game_sno) || 0)
+    } else if (key === 'game_date') {
+      res = (a.game_date || '').localeCompare(b.game_date || '')
+    } else if (key === 'field') {
+      res = (a.field || '').localeCompare(b.field || '', 'zh-Hant')
+    } else if (key === 'hp_umpire') {
+      res = (a.hp_umpire || '').localeCompare(b.hp_umpire || '', 'zh-Hant')
+    } else if (key === 'consistency') {
+      const valA = Number(a.overall_consistency ?? a.consistency_rate) || 0
+      const valB = Number(b.overall_consistency ?? b.consistency_rate) || 0
+      res = valA - valB
+    } else if (key === 'game_duration_minutes') {
+      res = (Number(a.game_duration_minutes) || 0) - (Number(b.game_duration_minutes) || 0)
+    } else {
+      const valA = Number(a[key]) || 0
+      const valB = Number(b[key]) || 0
+      res = valA - valB
+    }
+
+    if (res !== 0) {
+      return res * order
+    }
+    return (Number(b.game_sno) || 0) - (Number(a.game_sno) || 0)
+  })
 })
 
 const quickStats = computed(() => {
@@ -301,7 +476,7 @@ async function handleBatchCollect() {
 }
 
 function exportFilteredJSON() {
-  const blob = new Blob([JSON.stringify(filteredGames.value, null, 2)], { type: 'application/json' })
+  const blob = new Blob([JSON.stringify(sortedGames.value, null, 2)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
@@ -310,14 +485,15 @@ function exportFilteredJSON() {
 }
 
 function exportFilteredCSV() {
-  const headers = ['game_id', 'game_sno', 'game_date', 'field', 'visiting_team', 'visiting_score', 'home_team', 'home_score', 'game_duration_minutes', 'hp_umpire', 'overall_acc', 'ball_acc', 'strike_acc', 'missed_count']
+  const headers = ['game_id', 'game_sno', 'game_date', 'field', 'visiting_team', 'visiting_score', 'home_team', 'home_score', 'game_duration_minutes', 'hp_umpire', 'missed_count', 'overall_acc', 'ball_acc', 'strike_acc', 'overall_consistency']
   const csvRows = [headers.join(',')]
-  filteredGames.value.forEach(g => {
+  sortedGames.value.forEach(g => {
     csvRows.push([
       g.game_id, g.game_sno, g.game_date, g.field,
       g.visiting_team, g.visiting_score, g.home_team, g.home_score,
       g.game_duration_minutes || '',
-      g.hp_umpire, g.overall_acc, g.ball_acc, g.strike_acc, g.missed_count
+      g.hp_umpire, g.missed_count, g.overall_acc, g.ball_acc, g.strike_acc,
+      (g.overall_consistency ?? g.consistency_rate ?? '')
     ].join(','))
   })
   const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' })

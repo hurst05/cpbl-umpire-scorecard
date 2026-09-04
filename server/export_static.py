@@ -46,12 +46,14 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
     cursor.execute("PRAGMA table_info(games)")
     columns = [col["name"] for col in cursor.fetchall()]
     has_duration_col = "game_duration_minutes" in columns
+    has_consistency_col = "overall_consistency" in columns
 
     dur_col_clause = "game_duration_minutes," if has_duration_col else ""
+    consistency_col_clause = "overall_consistency," if has_consistency_col else ""
     cursor.execute(f"""
         SELECT game_id, game_sno, kind_code, game_date, field,
                home_team, visiting_team, home_score, visiting_score,
-               hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
+               hp_umpire, overall_acc, ball_acc, strike_acc, {consistency_col_clause} missed_count,
                {dur_col_clause} data_json
         FROM games
         ORDER BY game_date DESC, game_sno DESC
@@ -93,6 +95,15 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
         elif "game_duration_minutes" in detail.get("game_info", {}):
             dur_val = detail["game_info"]["game_duration_minutes"]
 
+        consistency_val = None
+        if has_consistency_col and row["overall_consistency"] is not None:
+            consistency_val = float(row["overall_consistency"])
+        elif "overall_consistency" in detail.get("umpire_metrics", {}):
+            consistency_val = detail["umpire_metrics"]["overall_consistency"]
+        elif detail.get("all_called_pitches"):
+            from analyzer import calculate_game_consistency
+            consistency_val = calculate_game_consistency(detail["all_called_pitches"])["consistency_rate"]
+
         summary_item = {
             "game_id": gid,
             "game_sno": int(row["game_sno"]) if row["game_sno"] is not None else 0,
@@ -106,6 +117,7 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
             "overall_acc": float(row["overall_acc"]) if row["overall_acc"] is not None else 0.0,
             "ball_acc": float(row["ball_acc"]) if row["ball_acc"] is not None else 0.0,
             "strike_acc": float(row["strike_acc"]) if row["strike_acc"] is not None else 0.0,
+            "overall_consistency": consistency_val,
             "missed_count": int(row["missed_count"]) if row["missed_count"] is not None else 0,
             "game_duration_minutes": dur_val,
         }

@@ -295,7 +295,7 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
         round(visiting_favored_dist / len(visiting_favored_calls), 1) if visiting_favored_calls else 0.0
     )
 
-    game_consistency = calculate_game_consistency(all_called_pitches, radius_cm=8.0)
+    game_consistency = calculate_game_consistency(all_called_pitches, radius_cm=7.5)
 
     return {
         "game_info": {
@@ -413,7 +413,7 @@ def find_similar_pitches(target_pitch: dict, all_pitches: list[dict], radius_cm:
     return sorted(results, key=lambda x: x["distance_to_target_cm"])
 
 
-def calculate_game_consistency(all_called_pitches: list[dict], radius_cm: float = 8.0) -> dict:
+def calculate_game_consistency(all_called_pitches: list[dict], radius_cm: float = 7.5) -> dict:
     """Calculate overall game consistency using Method A (Pairwise Neighborhood Consistency)."""
     valid_pitches = [
         p for p in all_called_pitches if p.get("x") is not None and p.get("z") is not None and p.get("called")

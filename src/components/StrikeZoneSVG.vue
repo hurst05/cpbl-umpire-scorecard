@@ -107,6 +107,37 @@
             stroke-width="1.2" 
             stroke-dasharray="3,3"
           />
+
+          <!-- Subtle Height Labels for Strike Zone Top & Bottom -->
+          <g id="strike-zone-height-labels" class="pointer-events-none select-none">
+            <!-- Top Edge Height Label -->
+            <text 
+              v-if="topHeightCm" 
+              :x="szBox.x + szBox.width" 
+              :y="szBox.y - 4" 
+              text-anchor="end" 
+              font-size="14" 
+              font-weight="500" 
+              fill="currentColor" 
+              class="text-slate-400 dark:text-slate-500 font-mono tracking-tight opacity-75"
+            >
+              {{ topHeightCm }} cm
+            </text>
+
+            <!-- Bottom Edge Height Label -->
+            <text 
+              v-if="bottomHeightCm" 
+              :x="szBox.x + szBox.width" 
+              :y="szBox.y + szBox.height + 12" 
+              text-anchor="end" 
+              font-size="14" 
+              font-weight="500" 
+              fill="currentColor" 
+              class="text-slate-400 dark:text-slate-500 font-mono tracking-tight opacity-75"
+            >
+              {{ bottomHeightCm }} cm
+            </text>
+          </g>
         </g>
 
         <!-- Radar Search Radius Circle around Target Pitch -->
@@ -487,6 +518,18 @@ const szBox = computed(() => {
     width: rightX - leftX,
     height: bottomY - topY
   }
+})
+
+const topHeightCm = computed(() => {
+  if (props.szTop == null || isNaN(props.szTop)) return null
+  const val = props.szTop > 10 ? props.szTop : props.szTop * 100
+  return val.toFixed(1)
+})
+
+const bottomHeightCm = computed(() => {
+  if (props.szBottom == null || isNaN(props.szBottom)) return null
+  const val = props.szBottom > 10 ? props.szBottom : props.szBottom * 100
+  return val.toFixed(1)
 })
 
 const visiblePitches = computed(() => {

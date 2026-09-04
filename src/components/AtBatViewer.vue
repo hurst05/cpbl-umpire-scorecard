@@ -153,8 +153,8 @@
       <div v-if="activePA" class="lg:col-span-4 flex flex-col items-center">
         <StrikeZoneSVG 
           :pitches="activePA.pitches"
-          :sz-top="activePA.pitches[0]?.sz_top || 0.95"
-          :sz-bottom="activePA.pitches[0]?.sz_bottom || 0.48"
+          :sz-top="activePASzTop"
+          :sz-bottom="activePASzBottom"
           :highlighted-index="highlightedPitchNum"
           @select-pitch="(n) => highlightedPitchNum = n"
         />
@@ -238,6 +238,18 @@ const filteredPAs = computed(() => {
 
 const activePA = computed(() => {
   return props.plateAppearances.find(pa => pa.pa_num === activePANum.value) || props.plateAppearances[0]
+})
+
+const activePASzTop = computed(() => {
+  if (activePA.value?.pitches?.[0]?.sz_top) return activePA.value.pitches[0].sz_top
+  if (activePA.value?.batter?.height) return Number((activePA.value.batter.height * 0.00535).toFixed(4))
+  return 0.963
+})
+
+const activePASzBottom = computed(() => {
+  if (activePA.value?.pitches?.[0]?.sz_bottom) return activePA.value.pitches[0].sz_bottom
+  if (activePA.value?.batter?.height) return Number((activePA.value.batter.height * 0.00270).toFixed(4))
+  return 0.486
 })
 
 function hasMissedCall(pa) {

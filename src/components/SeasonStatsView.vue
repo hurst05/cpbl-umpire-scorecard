@@ -159,7 +159,7 @@
             </div>
           </div>
           <div class="text-[10px] text-slate-500 dark:text-slate-400">
-            執法主審數: {{ statsData.umpire_leaderboard.length }} 位
+            平均一致性: {{ statsData.umpire_summary.avg_consistency || 0 }}% | 主審: {{ statsData.umpire_leaderboard.length }} 位
           </div>
         </div>
 
@@ -472,6 +472,19 @@
                   </div>
                 </th>
                 <th
+                  @click="toggleUmpireSort('consistency')"
+                  class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+                  :class="{ 'text-blue-600 dark:text-blue-400 font-bold': umpireSortKey === 'consistency' }"
+                  title="點擊切換判決一致性排序"
+                >
+                  <div class="flex items-center gap-1.5">
+                    <span>判決一致性</span>
+                    <span class="text-[10px] font-mono" :class="umpireSortKey === 'consistency' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-300 dark:text-slate-600'">
+                      {{ umpireSortKey === 'consistency' ? (umpireSortOrder === 'asc' ? '▲' : '▼') : '↕' }}
+                    </span>
+                  </div>
+                </th>
+                <th
                   @click="toggleUmpireSort('overall_acc')"
                   class="p-3 cursor-pointer select-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
                   :class="{ 'text-blue-600 dark:text-blue-400 font-bold': umpireSortKey === 'overall_acc' }"
@@ -502,6 +515,9 @@
                 <td class="p-3 font-mono text-slate-600 dark:text-slate-300">{{ u.ball_acc }}%</td>
                 <td class="p-3 font-mono text-slate-600 dark:text-slate-400">{{ u.total_missed }} 球</td>
                 <td class="p-3 font-mono font-bold text-amber-600 dark:text-amber-400">{{ u.missed_per_game }} 次</td>
+                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                  {{ u.consistency != null ? `${u.consistency}%` : '-' }}
+                </td>
                 <td class="p-3">
                   <span
                     :class="[

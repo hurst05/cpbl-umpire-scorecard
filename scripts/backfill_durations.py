@@ -1,54 +1,35 @@
 import json
 import os
-import sqlite3
 import sys
-import time
-import urllib.parse
-import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import httpx
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "server"))
 import db
 from collector import CPBL_HEADERS, parse_duration_str
 
 
-import http.cookiejar
-
-# Create shared cookie jar and opener
-cj = http.cookiejar.CookieJar()
-opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-opener.addheaders = [
-    ("User-Agent", CPBL_HEADERS["User-Agent"]),
-    ("Accept-Language", "zh-TW,zh;q=0.9"),
-    ("X-Requested-With", "XMLHttpRequest"),
-]
-
-# Initialize cookie by hitting home page
-try:
-    opener.open("https://www.cpbl.com.tw/", timeout=10)
-    print("已成功建立 CPBL 連線 Session。")
-except Exception as e:
-    print(f"初始化 CPBL 連線失敗: {e}")
-
-
 def fetch_duration_worker(item):
     game_id, year, kind_code, sno = item
     try:
-        data = urllib.parse.urlencode({"year": str(year), "kindCode": str(kind_code), "gameSno": str(sno)}).encode(
-            "utf-8"
-        )
-        req = urllib.request.Request(
-            "https://www.cpbl.com.tw/box/getlive",
-            data=data,
-        )
-        with opener.open(req, timeout=10) as resp:
-            res = json.loads(resp.read().decode("utf-8"))
-            if res.get("GameDetailJson"):
-                gd = json.loads(res["GameDetailJson"])
-                if gd:
-                    dur_str = gd[0].get("GameDuringTime")
-                    minutes = parse_duration_str(dur_str)
-                    return game_id, minutes
+        with httpx.Client(headers=CPBL_HEADERS, follow_redirects=True, timeout=10) as client:
+            resp = client.post(
+                "https://www.cpbl.com.tw/box/getlive",
+                data={"year": str(year), "kindCode": str(kind_code), "gameSno": str(sno)},
+                headers={"X-Requested-With": "XMLHttpRequest"},
+            )
+            if resp.status_code == 200:
+                res = resp.json()
+                if res.get("GameDetailJson"):
+                    gd = json.loads(res["GameDetailJson"])
+                    if isinstance(gd, list):
+                        # Check reversed to get finished game or valid duration
+                        for g_item in reversed(gd):
+                            dur_str = g_item.get("GameDuringTime")
+                            minutes = parse_duration_str(dur_str)
+                            if minutes is not None:
+                                return game_id, minutes
     except Exception as e:
         print(f"Error fetching duration for {game_id}: {e}")
     return game_id, None

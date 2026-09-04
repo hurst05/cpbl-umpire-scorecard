@@ -41,6 +41,7 @@ def test_calculate_season_stats_metrics():
             "overall_acc": 92.0,
             "ball_acc": 90.0,
             "strike_acc": 94.0,
+            "overall_consistency": 86.0,
             "missed_count": 8,
             "game_duration_minutes": 180,
         },
@@ -57,6 +58,7 @@ def test_calculate_season_stats_metrics():
             "overall_acc": 90.0,
             "ball_acc": 88.0,
             "strike_acc": 92.0,
+            "overall_consistency": 84.0,
             "missed_count": 12,
             "game_duration_minutes": 160,
         },
@@ -73,6 +75,7 @@ def test_calculate_season_stats_metrics():
             "overall_acc": 94.0,
             "ball_acc": 92.0,
             "strike_acc": 96.0,
+            "overall_consistency": 90.0,
             "missed_count": 6,
             "game_duration_minutes": 200,
         },
@@ -111,7 +114,8 @@ def test_calculate_season_stats_metrics():
     assert stats["home_away"]["visiting_wins"] == 1
     assert stats["home_away"]["home_win_pct"] == 66.7
 
-    # 4. Umpire Leaderboard
+    # 4. Umpire Leaderboard & Summary
+    assert stats["umpire_summary"]["avg_consistency"] == 86.67
     assert len(stats["umpire_leaderboard"]) == 2
     top_ump = stats["umpire_leaderboard"][0]
     assert top_ump["hp_umpire"] == "張展榮"
@@ -119,6 +123,7 @@ def test_calculate_season_stats_metrics():
     assert top_ump["overall_acc"] == 91.0
     assert top_ump["total_missed"] == 20
     assert top_ump["missed_per_game"] == 10.0
+    assert top_ump["consistency"] == 85.0
 
     # 5. Team Standings
     # 樂天桃猿: Game 1 won (5-2), Game 2 won (4-3) -> 2-0 (1.000)
