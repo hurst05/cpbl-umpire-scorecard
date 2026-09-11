@@ -1,11 +1,45 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T00:07:15.601960+08:00",
-  "default_game_id": "2026-A-321",
+  "generated_at": "2026-09-12T00:08:47.988467+08:00",
+  "default_game_id": "2026-A-323",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-A-323",
+      "game_sno": 323,
+      "game_date": "2026-09-11",
+      "field": "樂天桃園",
+      "visiting_team": "中信兄弟",
+      "home_team": "樂天桃猿",
+      "visiting_score": 3,
+      "home_score": 5,
+      "hp_umpire": "尤志欽",
+      "overall_acc": 92.1,
+      "ball_acc": 96.7,
+      "strike_acc": 84.0,
+      "overall_consistency": 87.0,
+      "missed_count": 11,
+      "game_duration_minutes": null
+    },
+    {
+      "game_id": "2026-A-322",
+      "game_sno": 322,
+      "game_date": "2026-09-11",
+      "field": "天母",
+      "visiting_team": "統一7-ELEVEn獅",
+      "home_team": "味全龍",
+      "visiting_score": 3,
+      "home_score": 2,
+      "hp_umpire": "楊崇煇",
+      "overall_acc": 90.2,
+      "ball_acc": 91.0,
+      "strike_acc": 88.5,
+      "overall_consistency": 82.7,
+      "missed_count": 16,
+      "game_duration_minutes": null
+    },
     {
       "game_id": "2026-A-321",
       "game_sno": 321,
