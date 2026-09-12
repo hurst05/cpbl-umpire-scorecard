@@ -1,11 +1,45 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T00:08:47.988467+08:00",
-  "default_game_id": "2026-A-323",
+  "generated_at": "2026-09-12T23:32:34.225497+08:00",
+  "default_game_id": "2026-A-327",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-A-327",
+      "game_sno": 327,
+      "game_date": "2026-09-12",
+      "field": "樂天桃園",
+      "visiting_team": "中信兄弟",
+      "home_team": "樂天桃猿",
+      "visiting_score": 6,
+      "home_score": 0,
+      "hp_umpire": "紀華文",
+      "overall_acc": 92.3,
+      "ball_acc": 92.1,
+      "strike_acc": 92.5,
+      "overall_consistency": 86.3,
+      "missed_count": 11,
+      "game_duration_minutes": 163
+    },
+    {
+      "game_id": "2026-A-325",
+      "game_sno": 325,
+      "game_date": "2026-09-12",
+      "field": "澄清湖",
+      "visiting_team": "富邦悍將",
+      "home_team": "台鋼雄鷹",
+      "visiting_score": 3,
+      "home_score": 8,
+      "hp_umpire": "羅鈞鴻",
+      "overall_acc": 94.2,
+      "ball_acc": 96.3,
+      "strike_acc": 89.1,
+      "overall_consistency": 89.2,
+      "missed_count": 9,
+      "game_duration_minutes": 185
+    },
     {
       "game_id": "2026-A-323",
       "game_sno": 323,
@@ -21,7 +55,7 @@
       "strike_acc": 84.0,
       "overall_consistency": 87.0,
       "missed_count": 11,
-      "game_duration_minutes": null
+      "game_duration_minutes": 179
     },
     {
       "game_id": "2026-A-322",
@@ -38,7 +72,7 @@
       "strike_acc": 88.5,
       "overall_consistency": 82.7,
       "missed_count": 16,
-      "game_duration_minutes": null
+      "game_duration_minutes": 184
     },
     {
       "game_id": "2026-A-321",
