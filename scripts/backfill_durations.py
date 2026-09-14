@@ -3,33 +3,17 @@ import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-import httpx
-
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "server"))
 import db
-from collector import CPBL_HEADERS, parse_duration_str
+from collector import fetch_game_duration
 
 
 def fetch_duration_worker(item):
     game_id, year, kind_code, sno = item
     try:
-        with httpx.Client(headers=CPBL_HEADERS, follow_redirects=True, timeout=10) as client:
-            resp = client.post(
-                "https://www.cpbl.com.tw/box/getlive",
-                data={"year": str(year), "kindCode": str(kind_code), "gameSno": str(sno)},
-                headers={"X-Requested-With": "XMLHttpRequest"},
-            )
-            if resp.status_code == 200:
-                res = resp.json()
-                if res.get("GameDetailJson"):
-                    gd = json.loads(res["GameDetailJson"])
-                    if isinstance(gd, list):
-                        # Check reversed to get finished game or valid duration
-                        for g_item in reversed(gd):
-                            dur_str = g_item.get("GameDuringTime")
-                            minutes = parse_duration_str(dur_str)
-                            if minutes is not None:
-                                return game_id, minutes
+        minutes = fetch_game_duration(game_id)
+        if minutes is not None:
+            return game_id, minutes
     except Exception as e:
         print(f"Error fetching duration for {game_id}: {e}")
     return game_id, None

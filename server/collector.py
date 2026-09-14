@@ -140,6 +140,27 @@ def parse_duration_str(dur_str: str | None) -> int | None:
     return None
 
 
+BOX_GETLIVE_URLS = [
+    "https://cpbl.com.tw/box/getlive",
+    "https://www.cpbl.com.tw/box/getlive",
+]
+
+
+def calculate_duration_from_times(start_str: str | None, end_str: str | None) -> int | None:
+    """Calculate duration in minutes from start and end ISO datetime strings."""
+    if not start_str or not end_str:
+        return None
+    try:
+        from datetime import datetime
+
+        dt_s = datetime.fromisoformat(start_str)
+        dt_e = datetime.fromisoformat(end_str)
+        diff_mins = int((dt_e - dt_s).total_seconds() // 60)
+        return diff_mins if diff_mins > 0 else None
+    except Exception:
+        return None
+
+
 def fetch_game_duration(game_id: str) -> int | None:
     """Fetch duration in minutes from CPBL live box if available."""
     try:
@@ -148,23 +169,48 @@ def fetch_game_duration(game_id: str) -> int | None:
             return None
         year, kind_code, sno = parts[0], parts[1], parts[2]
         with httpx.Client(headers=CPBL_HEADERS, follow_redirects=True, timeout=10) as client:
-            resp = client.post(
-                "https://www.cpbl.com.tw/box/getlive",
-                data={"year": year, "kindCode": kind_code, "gameSno": sno},
-                headers={"X-Requested-With": "XMLHttpRequest"},
-            )
-            if resp.status_code == 200:
-                res = resp.json()
-                if res.get("GameDetailJson"):
-                    gd = json.loads(res["GameDetailJson"])
-                    if isinstance(gd, list):
-                        # CPBL may return multiple entries for postponed/doubleheaders.
-                        # Traverse in reverse to find the finished/active game with valid duration.
-                        for item in reversed(gd):
-                            dur_str = item.get("GameDuringTime")
-                            dur_mins = parse_duration_str(dur_str)
+            for url in BOX_GETLIVE_URLS:
+                try:
+                    resp = client.post(
+                        url,
+                        data={"year": year, "kindCode": kind_code, "gameSno": sno},
+                        headers={"X-Requested-With": "XMLHttpRequest"},
+                    )
+                    if resp.status_code != 200:
+                        continue
+                    res = resp.json()
+
+                    # 1. Match specific gameSno from GameDetailJson array
+                    if res.get("GameDetailJson"):
+                        gd = json.loads(res["GameDetailJson"])
+                        if isinstance(gd, list):
+                            matching_items = [it for it in gd if str(it.get("GameSno")) == str(sno)]
+                            for item in reversed(matching_items):
+                                dur_str = item.get("GameDuringTime")
+                                dur_mins = parse_duration_str(dur_str)
+                                if dur_mins is not None:
+                                    return dur_mins
+                                time_diff = calculate_duration_from_times(
+                                    item.get("GameDateTimeS"), item.get("GameDateTimeE")
+                                )
+                                if time_diff is not None:
+                                    return time_diff
+
+                    # 2. Check CurtGameDetailJson if it matches sno
+                    if res.get("CurtGameDetailJson"):
+                        curt = json.loads(res["CurtGameDetailJson"])
+                        if isinstance(curt, dict) and str(curt.get("GameSno")) == str(sno):
+                            dur_mins = parse_duration_str(curt.get("GameDuringTime"))
                             if dur_mins is not None:
                                 return dur_mins
+                            time_diff = calculate_duration_from_times(
+                                curt.get("GameDateTimeS"), curt.get("GameDateTimeE")
+                            )
+                            if time_diff is not None:
+                                return time_diff
+                except Exception as req_err:
+                    logger.debug("Failed fetching duration from %s for %s: %s", url, game_id, req_err)
+                    continue
     except Exception as e:
         logger.warning("Failed to fetch game duration for %s: %s", game_id, e)
     return None
