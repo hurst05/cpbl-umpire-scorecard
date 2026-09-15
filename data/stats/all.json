@@ -1,10 +1,10 @@
 {
   "year": "全部",
-  "total_games": 250,
+  "total_games": 252,
   "duration": {
-    "avg_minutes": 177.6,
+    "avg_minutes": 177.5,
     "formatted_avg": "2小時 58分",
-    "valid_games_count": 250,
+    "valid_games_count": 252,
     "shortest_game": {
       "game_id": "2026-A-152",
       "game_sno": 152,
@@ -23,37 +23,37 @@
     }
   },
   "scores": {
-    "avg_margin": 3.34,
-    "avg_winner_score": 5.42,
-    "avg_loser_score": 2.07,
-    "avg_total_runs": 7.49,
-    "total_runs": 1872,
+    "avg_margin": 3.35,
+    "avg_winner_score": 5.4,
+    "avg_loser_score": 2.06,
+    "avg_total_runs": 7.46,
+    "total_runs": 1881,
     "one_run_games_count": 72,
-    "one_run_games_pct": 28.8,
+    "one_run_games_pct": 28.6,
     "blowout_games_count": 71,
-    "blowout_games_pct": 28.4,
+    "blowout_games_pct": 28.2,
     "tie_games_count": 3,
     "margin_distribution": {
       "1": 72,
       "2": 57,
-      "3-4": 47,
+      "3-4": 49,
       "5+": 71
     }
   },
   "home_away": {
     "home_wins": 128,
-    "visiting_wins": 119,
+    "visiting_wins": 121,
     "ties": 3,
-    "home_win_pct": 51.8,
-    "visiting_win_pct": 48.2
+    "home_win_pct": 51.4,
+    "visiting_win_pct": 48.6
   },
   "umpire_summary": {
-    "avg_overall_acc": 90.11,
-    "avg_ball_acc": 91.25,
-    "avg_strike_acc": 87.71,
-    "avg_consistency": 84.3,
+    "avg_overall_acc": 90.13,
+    "avg_ball_acc": 91.27,
+    "avg_strike_acc": 87.74,
+    "avg_consistency": 84.31,
     "avg_missed_calls": 14.9,
-    "total_missed_calls": 3732,
+    "total_missed_calls": 3752,
     "highest_acc_game": {
       "game_id": "2026-A-308",
       "game_sno": 308,
@@ -156,13 +156,13 @@
     },
     {
       "hp_umpire": "吳家維",
-      "games": 15,
-      "overall_acc": 90.39,
-      "ball_acc": 91.75,
-      "strike_acc": 87.69,
-      "total_missed": 223,
-      "missed_per_game": 14.9,
-      "consistency": 84.83
+      "games": 16,
+      "overall_acc": 90.56,
+      "ball_acc": 91.88,
+      "strike_acc": 87.92,
+      "total_missed": 233,
+      "missed_per_game": 14.6,
+      "consistency": 85.44
     },
     {
       "hp_umpire": "蔡豐澤",
@@ -195,6 +195,16 @@
       "consistency": 83.02
     },
     {
+      "hp_umpire": "范元淦",
+      "games": 11,
+      "overall_acc": 89.65,
+      "ball_acc": 91.56,
+      "strike_acc": 85.57,
+      "total_missed": 173,
+      "missed_per_game": 15.7,
+      "consistency": 82.13
+    },
+    {
       "hp_umpire": "林金達",
       "games": 11,
       "overall_acc": 88.55,
@@ -203,16 +213,6 @@
       "total_missed": 197,
       "missed_per_game": 17.9,
       "consistency": 85.29
-    },
-    {
-      "hp_umpire": "范元淦",
-      "games": 10,
-      "overall_acc": 89.29,
-      "ball_acc": 91.22,
-      "strike_acc": 85.19,
-      "total_missed": 163,
-      "missed_per_game": 16.3,
-      "consistency": 82.7
     },
     {
       "hp_umpire": "王俊宏",
@@ -276,56 +276,56 @@
     },
     {
       "team": "台鋼雄鷹",
-      "games": 87,
+      "games": 88,
       "wins": 46,
-      "losses": 40,
+      "losses": 41,
       "ties": 1,
-      "win_rate": 0.535,
-      "win_rate_str": ".535",
-      "runs_scored": 349,
-      "runs_allowed": 332,
-      "run_diff": 17,
-      "avg_runs_scored": 4.01,
-      "avg_runs_allowed": 3.82,
+      "win_rate": 0.529,
+      "win_rate_str": ".529",
+      "runs_scored": 350,
+      "runs_allowed": 337,
+      "run_diff": 13,
+      "avg_runs_scored": 3.98,
+      "avg_runs_allowed": 3.83,
       "one_run_record": "14勝-11敗",
       "one_run_win_rate": 0.56,
-      "home_record": "24勝-19敗",
+      "home_record": "24勝-20敗",
       "away_record": "22勝-22敗"
     },
     {
       "team": "味全龍",
-      "games": 77,
-      "wins": 40,
+      "games": 78,
+      "wins": 41,
       "losses": 37,
       "ties": 0,
-      "win_rate": 0.519,
-      "win_rate_str": ".519",
-      "runs_scored": 284,
+      "win_rate": 0.526,
+      "win_rate_str": ".526",
+      "runs_scored": 287,
       "runs_allowed": 260,
-      "run_diff": 24,
-      "avg_runs_scored": 3.69,
-      "avg_runs_allowed": 3.38,
+      "run_diff": 27,
+      "avg_runs_scored": 3.68,
+      "avg_runs_allowed": 3.33,
       "one_run_record": "12勝-16敗",
       "one_run_win_rate": 0.429,
       "home_record": "22勝-18敗",
-      "away_record": "18勝-19敗"
+      "away_record": "19勝-19敗"
     },
     {
       "team": "富邦悍將",
-      "games": 84,
+      "games": 85,
       "wins": 43,
-      "losses": 41,
+      "losses": 42,
       "ties": 0,
-      "win_rate": 0.512,
-      "win_rate_str": ".512",
+      "win_rate": 0.506,
+      "win_rate_str": ".506",
       "runs_scored": 332,
-      "runs_allowed": 332,
-      "run_diff": 0,
-      "avg_runs_scored": 3.95,
-      "avg_runs_allowed": 3.95,
+      "runs_allowed": 335,
+      "run_diff": -3,
+      "avg_runs_scored": 3.91,
+      "avg_runs_allowed": 3.94,
       "one_run_record": "11勝-9敗",
       "one_run_win_rate": 0.55,
-      "home_record": "22勝-19敗",
+      "home_record": "22勝-20敗",
       "away_record": "21勝-22敗"
     },
     {
@@ -348,21 +348,21 @@
     },
     {
       "team": "中信兄弟",
-      "games": 83,
-      "wins": 34,
+      "games": 84,
+      "wins": 35,
       "losses": 47,
       "ties": 2,
-      "win_rate": 0.42,
-      "win_rate_str": ".420",
-      "runs_scored": 333,
-      "runs_allowed": 382,
-      "run_diff": -49,
-      "avg_runs_scored": 4.01,
-      "avg_runs_allowed": 4.6,
+      "win_rate": 0.427,
+      "win_rate_str": ".427",
+      "runs_scored": 338,
+      "runs_allowed": 383,
+      "run_diff": -45,
+      "avg_runs_scored": 4.02,
+      "avg_runs_allowed": 4.56,
       "one_run_record": "8勝-11敗",
       "one_run_win_rate": 0.421,
       "home_record": "18勝-28敗",
-      "away_record": "16勝-21敗"
+      "away_record": "17勝-21敗"
     }
   ],
   "stadium_stats": [
@@ -376,11 +376,11 @@
     },
     {
       "field": "澄清湖",
-      "games": 41,
-      "avg_duration_minutes": 174.0,
+      "games": 42,
+      "avg_duration_minutes": 173.8,
       "formatted_avg_duration": "2小時 54分",
-      "avg_total_runs": 8.2,
-      "avg_accuracy": 89.06
+      "avg_total_runs": 8.14,
+      "avg_accuracy": 89.15
     },
     {
       "field": "樂天桃園",
@@ -392,11 +392,11 @@
     },
     {
       "field": "新莊",
-      "games": 36,
-      "avg_duration_minutes": 176.9,
+      "games": 37,
+      "avg_duration_minutes": 176.8,
       "formatted_avg_duration": "2小時 57分",
-      "avg_total_runs": 7.47,
-      "avg_accuracy": 90.6
+      "avg_total_runs": 7.35,
+      "avg_accuracy": 90.67
     },
     {
       "field": "天母",
