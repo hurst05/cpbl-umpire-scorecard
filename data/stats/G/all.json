@@ -1,0 +1,50 @@
+{
+  "year": "全部",
+  "kind_code": "G",
+  "total_games": 0,
+  "duration": {
+    "avg_minutes": 0,
+    "formatted_avg": "無資料",
+    "valid_games_count": 0,
+    "shortest_game": null,
+    "longest_game": null
+  },
+  "scores": {
+    "avg_margin": 0.0,
+    "avg_winner_score": 0.0,
+    "avg_loser_score": 0.0,
+    "avg_total_runs": 0.0,
+    "total_runs": 0,
+    "one_run_games_count": 0,
+    "one_run_games_pct": 0.0,
+    "blowout_games_count": 0,
+    "blowout_games_pct": 0.0,
+    "tie_games_count": 0,
+    "margin_distribution": {
+      "1": 0,
+      "2": 0,
+      "3-4": 0,
+      "5+": 0
+    }
+  },
+  "home_away": {
+    "home_wins": 0,
+    "visiting_wins": 0,
+    "ties": 0,
+    "home_win_pct": 0.0,
+    "visiting_win_pct": 0.0
+  },
+  "umpire_summary": {
+    "avg_overall_acc": 0.0,
+    "avg_ball_acc": 0.0,
+    "avg_strike_acc": 0.0,
+    "avg_consistency": 0.0,
+    "avg_missed_calls": 0.0,
+    "total_missed_calls": 0,
+    "highest_acc_game": null,
+    "lowest_acc_game": null
+  },
+  "umpire_leaderboard": [],
+  "team_standings": [],
+  "stadium_stats": []
+}
