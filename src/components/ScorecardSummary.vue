@@ -11,11 +11,11 @@
           <!-- Total called pitches -->
           <div class="group/sumtip relative cursor-help flex items-center gap-1">
             <span class="border-b border-dashed border-slate-400/60 dark:border-slate-500/60">
-              本場總判決數：<strong class="font-mono text-slate-800 dark:text-slate-200">{{ metrics.total_called_pitches }}</strong> 顆
+              {{ inningRangeLabel }}判決數：<strong class="font-mono text-slate-800 dark:text-slate-200">{{ inningPitches.length }}</strong> 顆
             </span>
             <div class="absolute bottom-full left-0 mb-2 hidden group-hover/sumtip:flex flex-col w-56 p-2.5 bg-slate-900 dark:bg-slate-800 text-white text-xs rounded-lg shadow-xl z-50 pointer-events-none border border-slate-700">
-              <span class="font-bold text-blue-400 mb-0.5">本場總判決數</span>
-              <p class="text-[11px] text-slate-300 leading-relaxed">全場所有打者未出棒（Called Strike / Ball）且具有完整 Trackman 座標的判決球總數。</p>
+              <span class="font-bold text-blue-400 mb-0.5">{{ inningRangeLabel }}判決數</span>
+              <p class="text-[11px] text-slate-300 leading-relaxed">所選局數範圍內，所有打者未出棒（Called Strike / Ball）且具有完整 Trackman 座標的判決球總數。</p>
             </div>
           </div>
           <span>|</span>
@@ -56,16 +56,16 @@
             <span class="absolute font-bold text-sm text-slate-900 dark:text-white font-mono">{{ effectiveOverallAcc }}%</span>
           </div>
           <span class="text-xs font-bold text-slate-700 dark:text-slate-300 mt-1 border-b border-dotted border-slate-400 dark:border-slate-500">整體準確率</span>
-          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{{ effectiveCorrectCount }}/{{ metrics.total_called_pitches }}</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{{ effectiveCorrectCount }}/{{ inningPitches.length }}</span>
 
           <!-- Tooltip -->
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 hidden group-hover/ring:flex flex-col w-64 p-3 bg-slate-900 dark:bg-slate-800 text-white rounded-xl shadow-2xl border border-slate-700 z-50 pointer-events-none text-left">
             <div class="flex items-center justify-between pb-1 border-b border-slate-700">
               <span class="font-bold text-blue-400 text-xs">整體準確率 (Accuracy)</span>
-              <span class="font-mono text-[10px] text-slate-400">{{ effectiveCorrectCount }}/{{ metrics.total_called_pitches }}</span>
+              <span class="font-mono text-[10px] text-slate-400">{{ effectiveCorrectCount }}/{{ inningPitches.length }}</span>
             </div>
             <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">
-              衡量全場判決符合官方規則好球帶（計入當前容錯範圍）之比率。
+              衡量所選局數範圍內判決符合官方規則好球帶（計入當前容錯範圍）之比率。
             </p>
             <div class="mt-2 pt-1.5 border-t border-slate-700/80 text-[10px] text-blue-300 font-mono bg-blue-950/40 p-1.5 rounded">
               計算：(有效正確數 / 總判決數) × 100%
@@ -83,13 +83,13 @@
             <span class="absolute font-bold text-sm text-slate-900 dark:text-white font-mono">{{ effectiveBallAcc }}%</span>
           </div>
           <span class="text-xs font-bold text-slate-700 dark:text-slate-300 mt-1 border-b border-dotted border-slate-400 dark:border-slate-500">壞球準確率</span>
-          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{{ metrics.ball_ratio_str }}</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{{ correctBalls.length }}/{{ trueBalls.length }}</span>
 
           <!-- Tooltip -->
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 hidden group-hover/ring:flex flex-col w-64 p-3 bg-slate-900 dark:bg-slate-800 text-white rounded-xl shadow-2xl border border-slate-700 z-50 pointer-events-none text-left">
             <div class="flex items-center justify-between pb-1 border-b border-slate-700">
               <span class="font-bold text-emerald-400 text-xs">壞球準確率 (Ball Accuracy)</span>
-              <span class="font-mono text-[10px] text-slate-400">{{ metrics.ball_ratio_str }}</span>
+              <span class="font-mono text-[10px] text-slate-400">{{ correctBalls.length }}/{{ trueBalls.length }}</span>
             </div>
             <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">
               實際落在官方好球帶外的球中，主審正確判定為壞球之比率。
@@ -110,13 +110,13 @@
             <span class="absolute font-bold text-sm text-slate-900 dark:text-white font-mono">{{ effectiveStrikeAcc }}%</span>
           </div>
           <span class="text-xs font-bold text-slate-700 dark:text-slate-300 mt-1 border-b border-dotted border-slate-400 dark:border-slate-500">好球準確率</span>
-          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{{ metrics.strike_ratio_str }}</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{{ correctStrikes.length }}/{{ trueStrikes.length }}</span>
 
           <!-- Tooltip -->
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 hidden group-hover/ring:flex flex-col w-64 p-3 bg-slate-900 dark:bg-slate-800 text-white rounded-xl shadow-2xl border border-slate-700 z-50 pointer-events-none text-left">
             <div class="flex items-center justify-between pb-1 border-b border-slate-700">
               <span class="font-bold text-red-400 text-xs">好球準確率 (Strike Accuracy)</span>
-              <span class="font-mono text-[10px] text-slate-400">{{ metrics.strike_ratio_str }}</span>
+              <span class="font-mono text-[10px] text-slate-400">{{ correctStrikes.length }}/{{ trueStrikes.length }}</span>
             </div>
             <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">
               實際落在官方好球帶內的球中，主審正確判定為好球之比率。
@@ -259,10 +259,10 @@
         <div>
           <div class="flex items-center justify-between">
             <div class="group/tip relative cursor-help flex items-center gap-1">
-              <span class="text-xs font-bold text-slate-700 dark:text-slate-300 border-b border-dotted border-slate-400">⚖️ 全場裁決偏向 (Net Favor)</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300 border-b border-dotted border-slate-400">⚖️ {{ inningRangeLabel }}裁決偏向 (Net Favor)</span>
               <div class="absolute top-full left-0 mt-1.5 hidden group-hover/tip:flex flex-col w-60 p-2.5 bg-slate-900 dark:bg-slate-800 text-white rounded-lg shadow-xl border border-slate-700 z-40 pointer-events-none text-[11px]">
-                <span class="font-bold text-blue-400 mb-0.5">全場裁決偏向</span>
-                <p class="text-slate-300 leading-relaxed">比對兩隊在實質誤判中的得利球數與累積距離淨差額，判定全場裁判尺度對哪隊實質有利。</p>
+                <span class="font-bold text-blue-400 mb-0.5">{{ inningRangeLabel }}裁決偏向</span>
+                <p class="text-slate-300 leading-relaxed">比對所選局數範圍內兩隊在實質誤判中的得利球數與累積距離淨差額，判定裁判尺度對哪隊實質有利。</p>
               </div>
             </div>
             <span 
@@ -298,9 +298,9 @@
       </div>
     </div>
 
-    <!-- Interactive Tolerance Slider & Filter Bar -->
-    <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm dark:shadow-none flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors">
-      <div class="flex items-center gap-3">
+    <!-- Interactive Inning / Tolerance Sliders & Filter Bar -->
+    <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm dark:shadow-none flex flex-col xl:flex-row items-center justify-between gap-4 transition-colors">
+      <div class="flex flex-wrap items-center justify-center gap-3">
         <span class="text-xs font-bold text-slate-700 dark:text-slate-300">顯示模式:</span>
         <button 
           @click="showOnlyMissed = true"
@@ -312,28 +312,53 @@
           @click="showOnlyMissed = false"
           :class="['px-3 py-1.5 rounded-lg text-xs font-bold transition-all border', !showOnlyMissed ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white']"
         >
-          顯示全部判決 ({{ allPitches.length }})
+          顯示全部判決 ({{ inningPitches.length }})
         </button>
       </div>
 
-      <!-- Dynamic Tolerance Slider -->
-      <div class="flex items-center gap-3 group/toltip relative cursor-help">
-        <label class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2 border-b border-dotted border-slate-400">
-          容錯範圍: <span class="font-mono text-amber-600 dark:text-amber-400 font-bold">{{ toleranceCm.toFixed(1) }} cm</span>
-        </label>
-        <input 
-          type="range" 
-          min="0" 
-          max="10" 
-          step="0.1" 
-          v-model.number="toleranceCm"
-          class="w-32 accent-blue-600 cursor-pointer"
-        />
-        <div class="absolute bottom-full right-0 mb-2 hidden group-hover/toltip:flex flex-col w-72 p-2.5 bg-slate-900 dark:bg-slate-800 text-white text-xs rounded-lg shadow-xl z-50 pointer-events-none border border-slate-700 text-left">
-          <span class="font-bold text-amber-400 mb-0.5">邊界容錯範圍 (Tolerance)</span>
-          <p class="text-[11px] text-slate-300 leading-relaxed">進壘點距離官方好球帶邊界在此設定值（cm）以內的判決將視為主審視覺極限容許值，不計為實質誤判。</p>
-          <div class="mt-1.5 p-1.5 rounded bg-amber-950/50 border border-amber-500/30 text-[10px] text-amber-200 leading-normal">
-            💡 <strong>影響範圍</strong>：僅影響「準確率」與「球隊得利」計算；<strong>不影響「判決一致性」</strong>（一致性衡量球與球之間的相對雙標，無關官方邊界）。
+      <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full xl:w-auto">
+        <div class="flex flex-col gap-1.5 w-full sm:w-64">
+          <label for="scorecard-inning" class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between gap-2">
+            判決範圍:
+            <span class="font-mono text-blue-600 dark:text-blue-400">{{ selectedInning === finalInning ? '比賽結束' : inningRangeLabel }}</span>
+          </label>
+          <input
+            id="scorecard-inning"
+            type="range"
+            min="1"
+            :max="finalInning"
+            step="1"
+            v-model.number="selectedInning"
+            :aria-valuetext="selectedInning === finalInning ? '比賽結束' : inningRangeLabel"
+            :disabled="finalInning === 1"
+            class="w-full accent-blue-600 cursor-pointer disabled:opacity-50 disabled:cursor-default"
+          />
+          <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400">
+            <span>第一局</span>
+            <span>比賽結束 (第 {{ finalInning }} 局)</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Tolerance Slider -->
+        <div class="flex items-center gap-3 group/toltip relative cursor-help">
+          <label for="scorecard-tolerance" class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2 border-b border-dotted border-slate-400">
+            容錯範圍: <span class="font-mono text-amber-600 dark:text-amber-400 font-bold">{{ toleranceCm.toFixed(1) }} cm</span>
+          </label>
+          <input
+            id="scorecard-tolerance"
+            type="range"
+            min="0"
+            max="10"
+            step="0.1"
+            v-model.number="toleranceCm"
+            class="w-32 accent-blue-600 cursor-pointer"
+          />
+          <div class="absolute bottom-full right-0 mb-2 hidden group-hover/toltip:flex flex-col w-72 p-2.5 bg-slate-900 dark:bg-slate-800 text-white text-xs rounded-lg shadow-xl z-50 pointer-events-none border border-slate-700 text-left">
+            <span class="font-bold text-amber-400 mb-0.5">邊界容錯範圍 (Tolerance)</span>
+            <p class="text-[11px] text-slate-300 leading-relaxed">進壘點距離官方好球帶邊界在此設定值（cm）以內的判決將視為主審視覺極限容許值，不計為實質誤判。</p>
+            <div class="mt-1.5 p-1.5 rounded bg-amber-950/50 border border-amber-500/30 text-[10px] text-amber-200 leading-normal">
+              💡 <strong>影響範圍</strong>：僅影響「準確率」與「球隊得利」計算；<strong>不影響「判決一致性」</strong>（一致性衡量球與球之間的相對雙標，無關官方邊界）。
+            </div>
           </div>
         </div>
       </div>
@@ -344,7 +369,7 @@
       <!-- Strike Zone Visualizer (lg:col-span-6) -->
       <div class="lg:col-span-6 flex flex-col items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm dark:shadow-none">
         <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3">
-          {{ showOnlyMissed ? '全場誤判球點分佈 (依得利隊伍配色)' : '全場所有判決球點分佈' }}
+          {{ inningRangeLabel }}{{ showOnlyMissed ? '誤判球點分佈 (依得利隊伍配色)' : '所有判決球點分佈' }}
         </h3>
         <StrikeZoneSVG 
           :pitches="displayPitches"
@@ -445,7 +470,7 @@
     <SimilarPitchModal 
       :is-open="isSimilarModalOpen"
       :target-pitch="activeTargetPitch"
-      :all-pitches="allPitches"
+      :all-pitches="inningPitches"
       :plate-appearances="plateAppearances"
       v-model:search-radius="selectedSearchRadiusCm"
       @close="isSimilarModalOpen = false"
@@ -483,6 +508,25 @@ const toleranceCm = ref(0)
 const showOnlyMissed = ref(true)
 const selectedPitchObject = ref(null)
 
+const finalInning = computed(() => Math.max(
+  1,
+  ...props.allPitches.map(p => p.inning_num || 1),
+  ...props.plateAppearances.map(pa => parseInt(pa.inning, 10) || 1)
+))
+const selectedInning = ref(finalInning.value)
+const inningRangeLabel = computed(() => {
+  if (selectedInning.value === finalInning.value) return '全場'
+  return selectedInning.value === 1 ? '第一局' : `第 1～${selectedInning.value} 局`
+})
+const inningPitches = computed(() => selectedInning.value === finalInning.value
+  ? props.allPitches
+  : props.allPitches.filter(p => p.inning_num <= selectedInning.value)
+)
+
+watch(() => props.gameInfo.game_id, () => {
+  selectedInning.value = finalInning.value
+})
+
 const isSimilarModalOpen = ref(false)
 const activeTargetPitch = ref(null)
 
@@ -510,7 +554,7 @@ function onSelectPitchFromSVG(rankNum, pitch) {
   }
 }
 
-watch([toleranceCm, showOnlyMissed], () => {
+watch([toleranceCm, showOnlyMissed, inningPitches], () => {
   if (selectedPitchObject.value) {
     const stillExists = displayPitches.value.some(p => isSamePitch(p, selectedPitchObject.value))
     if (!stillExists) {
@@ -527,8 +571,8 @@ function openSimilarPitchModal(pitch) {
 }
 
 function getNearbyCount(pitch) {
-  if (!pitch || !props.allPitches.length) return 0
-  return findSimilarPitches(pitch, props.allPitches, selectedSearchRadiusCm.value).length
+  if (!pitch || !inningPitches.value.length) return 0
+  return findSimilarPitches(pitch, inningPitches.value, selectedSearchRadiusCm.value).length
 }
 
 const teamNames = computed(() => {
@@ -576,7 +620,9 @@ function getTeamBadgeStyle(teamName) {
 // 容錯範圍後之實質誤判清單
 const effectiveMissedCalls = computed(() => {
   const list = props.metrics.missed_calls || []
-  return list.filter(p => p.dist_cm >= toleranceCm.value)
+  return list.filter(p => p.dist_cm >= toleranceCm.value && (
+    selectedInning.value === finalInning.value || p.inning_num <= selectedInning.value
+  ))
 })
 
 const effectiveAvgMissDist = computed(() => {
@@ -587,33 +633,34 @@ const effectiveAvgMissDist = computed(() => {
 })
 
 const effectiveCorrectCount = computed(() => {
-  const total = props.metrics.total_called_pitches || 0
+  const total = inningPitches.value.length
   return total - effectiveMissedCalls.value.length
 })
 
 const effectiveOverallAcc = computed(() => {
-  const total = props.metrics.total_called_pitches || 0
+  const total = inningPitches.value.length
   if (total === 0) return 100.0
   return ((effectiveCorrectCount.value / total) * 100).toFixed(1)
 })
 
-const effectiveBallAcc = computed(() => {
-  const trueBalls = props.allPitches.filter(p => p.true_call === 'BALL')
-  if (trueBalls.length === 0) return 100.0
-  const correct = trueBalls.filter(p => p.called === 'BALL' || p.dist_cm < toleranceCm.value)
-  return ((correct.length / trueBalls.length) * 100).toFixed(1)
-})
+const trueBalls = computed(() => inningPitches.value.filter(p => p.true_call === 'BALL'))
+const correctBalls = computed(() => trueBalls.value.filter(p => p.called === 'BALL' || p.dist_cm < toleranceCm.value))
+const trueStrikes = computed(() => inningPitches.value.filter(p => p.true_call === 'STRIKE'))
+const correctStrikes = computed(() => trueStrikes.value.filter(p => p.called === 'STRIKE' || p.dist_cm < toleranceCm.value))
 
-const effectiveStrikeAcc = computed(() => {
-  const trueStrikes = props.allPitches.filter(p => p.true_call === 'STRIKE')
-  if (trueStrikes.length === 0) return 100.0
-  const correct = trueStrikes.filter(p => p.called === 'STRIKE' || p.dist_cm < toleranceCm.value)
-  return ((correct.length / trueStrikes.length) * 100).toFixed(1)
-})
+const effectiveBallAcc = computed(() => trueBalls.value.length === 0
+  ? 100.0
+  : ((correctBalls.value.length / trueBalls.value.length) * 100).toFixed(1)
+)
 
-// --- 全場判決一致性（Method A 鄰域球對比對法） ---
+const effectiveStrikeAcc = computed(() => trueStrikes.value.length === 0
+  ? 100.0
+  : ((correctStrikes.value.length / trueStrikes.value.length) * 100).toFixed(1)
+)
+
+// --- 所選局數判決一致性（Method A 鄰域球對比對法） ---
 const effectiveGameConsistency = computed(() => {
-  return calculateGameConsistency(props.allPitches, 7.5)
+  return calculateGameConsistency(inningPitches.value, 7.5)
 })
 
 // --- 客隊得利統計（容錯範圍後） ---
@@ -723,7 +770,7 @@ const displayPitches = computed(() => {
   if (showOnlyMissed.value) {
     return effectiveMissedCalls.value
   }
-  return props.allPitches
+  return inningPitches.value
 })
 </script>
 
