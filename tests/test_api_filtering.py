@@ -132,7 +132,12 @@ def test_batch_collect_skips_non_tier1_and_zero_calls(client, monkeypatch):
                             "content": "壞球",
                             "trackman": {
                                 "play": {"pitchTag": {"pitchCall": "BallCalled"}},
-                                "pitch": {"location": {"plateLocSide": 0.5, "plateLocHeight": 0.5}},
+                                "pitch": {
+                                    "location": {"zoneTime": 0.4, "plateLocSide": 0.5, "plateLocHeight": 0.5},
+                                    "flight": {"polyFit": {"pitchTrajectory": {
+                                        "x": [16.0, -40.0, 0.0], "y": [0.5, 0.0, 0.0], "z": [0.0, 0.0, 0.0],
+                                    }}},
+                                },
                             },
                         }
                     ],

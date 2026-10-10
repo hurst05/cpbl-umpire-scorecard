@@ -508,8 +508,8 @@ const visitingTeamColor = computed(() => getTeamColorInfo(props.visitingTeam).pi
 const homeTeamColor = computed(() => getTeamColorInfo(props.homeTeam).pitchColor)
 
 const szBox = computed(() => {
-  const leftX = mapX(0.22)
-  const rightX = mapX(-0.22)
+  const leftX = mapX(0.2158)
+  const rightX = mapX(-0.2158)
   const topY = mapZ(props.szTop, props.szTop, props.szBottom)
   const bottomY = mapZ(props.szBottom, props.szTop, props.szBottom)
   return {

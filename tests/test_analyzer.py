@@ -65,7 +65,12 @@ def test_analyze_game_advantage():
                     "content": "壞球",
                     "trackman": {
                         "play": {"pitchTag": {"pitchCall": "BallCalled", "taggedPitchType": "Fastball"}},
-                        "pitch": {"location": {"plateLocSide": 0.0, "plateLocHeight": 0.70}},
+                        "pitch": {
+                            "location": {"zoneTime": 0.4, "plateLocSide": 0.0, "plateLocHeight": 0.70},
+                            "flight": {"polyFit": {"pitchTrajectory": {
+                                "x": [16.0, -40.0, 0.0], "y": [0.7, 0.0, 0.0], "z": [0.0, 0.0, 0.0],
+                            }}},
+                        },
                     },
                 },
                 # Pitch 2: 1局下, Ball called strike -> Pitcher favors (統一獅 / Visiting defense)
@@ -83,7 +88,12 @@ def test_analyze_game_advantage():
                     "content": "好球沒揮棒",
                     "trackman": {
                         "play": {"pitchTag": {"pitchCall": "StrikeCalled", "taggedPitchType": "Slider"}},
-                        "pitch": {"location": {"plateLocSide": 0.35, "plateLocHeight": 0.70}},
+                        "pitch": {
+                            "location": {"zoneTime": 0.4, "plateLocSide": 0.35, "plateLocHeight": 0.70},
+                            "flight": {"polyFit": {"pitchTrajectory": {
+                                "x": [16.0, -40.0, 0.0], "y": [0.7, 0.0, 0.0], "z": [0.0, 0.0, 0.0],
+                            }}},
+                        },
                     },
                 },
             ],

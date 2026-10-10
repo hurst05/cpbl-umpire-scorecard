@@ -1,8 +1,8 @@
 import math
 
-# Standard baseball and strike zone geometry constants
-PLATE_WIDTH_M = 0.44  # 44 cm (Home plate width 17 in)
-W_HALF = 0.22  # 22 cm half width (x in [-0.22, 0.22] m)
+# Match the official CPBL chart's geometry.
+PLATE_WIDTH_M = 0.4316
+W_HALF = PLATE_WIDTH_M / 2
 BALL_RADIUS_M = 0.0369  # 3.69 cm baseball radius
 
 # Height proportions for top/bottom of strike zone
@@ -30,6 +30,54 @@ def calculate_strike_zone(batter_height_cm: int | None) -> tuple[float, float]:
     sz_top = round(h * SZ_TOP_RATIO, 5)
     sz_bottom = round(h * SZ_BOTTOM_RATIO, 5)
     return sz_top, sz_bottom
+
+
+def calculate_plate_middle_position(location: dict, flight: dict) -> tuple[float, float] | None:
+    """Match CPBL's computePlateMiddlePosition, calibrated against the front-plane location."""
+    if not isinstance(location, dict) or not isinstance(flight, dict):
+        return None
+    poly_fit = flight.get("polyFit")
+    if not isinstance(poly_fit, dict):
+        return None
+    trajectory = poly_fit.get("pitchTrajectory")
+    if not isinstance(trajectory, dict) or any(
+        not isinstance(trajectory.get(axis), list) or len(trajectory[axis]) != 3 for axis in ("x", "y", "z")
+    ):
+        return None
+    values = [location.get(key) for key in ("zoneTime", "plateLocSide", "plateLocHeight")]
+    values.extend(value for axis in ("x", "y", "z") for value in trajectory[axis])
+    if any(type(value) not in (int, float) or not math.isfinite(value) for value in values):
+        return None
+
+    def time_at_plane(target: float) -> float | None:
+        a, b, c = trajectory["x"]
+        offset = a - target
+        if offset <= 0:
+            return None
+        if c == 0:
+            t = -offset / b if b < 0 else None
+            return t if t is not None and math.isfinite(t) and t > 0 else None
+        discriminant = b * b - 4 * c * offset
+        if not math.isfinite(discriminant) or discriminant < 0:
+            return None
+        root = math.sqrt(discriminant)
+        q = -0.5 * (b + math.copysign(root, b or 1.0))
+        roots = [q / c, offset / q] if q != 0 else [(-b + root) / (2 * c), (-b - root) / (2 * c)]
+        approaching = [t for t in roots if math.isfinite(t) and t > 0 and b + 2 * c * t < 0]
+        return min(approaching) if approaching else None
+
+    front_time = time_at_plane(0.4318)
+    middle_time = time_at_plane(0.2159)
+    if front_time is None or middle_time is None or front_time >= middle_time:
+        return None
+
+    def position(axis: str, t: float) -> float:
+        a, b, c = trajectory[axis]
+        return a + b * t + c * t * t
+
+    x = location["plateLocSide"] - (position("z", middle_time) - position("z", front_time))
+    z = location["plateLocHeight"] + (position("y", middle_time) - position("y", front_time))
+    return (x, z) if math.isfinite(x) and math.isfinite(z) else None
 
 
 def evaluate_pitch_call(x: float, z: float, sz_top: float, sz_bottom: float, called_str: str) -> dict:
@@ -138,8 +186,9 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
             tm = pitch_evt.get("trackman") or {}
             play = tm.get("play") or {}
             pitch_tag = play.get("pitchTag") or {}
-            pitch_loc = tm.get("pitch", {}).get("location") or {}
-            pitch_rel = tm.get("pitch", {}).get("release") or {}
+            pitch = tm.get("pitch") or {}
+            pitch_loc = pitch.get("location") or {}
+            pitch_rel = pitch.get("release") or {}
 
             pitch_call_tag = pitch_tag.get("pitchCall", "")
             raw_pitch_type = pitch_tag.get("taggedPitchType") or pitch_tag.get("autoPitchType") or ""
@@ -152,8 +201,8 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
                 else (round(pitch_loc.get("zoneSpeed", 0), 1) if pitch_loc.get("zoneSpeed") else None)
             )
 
-            x = pitch_loc.get("plateLocSide")
-            z = pitch_loc.get("plateLocHeight")
+            position = calculate_plate_middle_position(pitch_loc, pitch.get("flight"))
+            x, z = position if position is not None else (None, None)
 
             is_called_strike = (pitch_call_tag == "StrikeCalled") or ("好球沒揮棒" in content)
             is_called_ball = (pitch_call_tag == "BallCalled") or (

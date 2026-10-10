@@ -73,7 +73,7 @@ export function isSamePitch(p1, p2) {
  */
 export function isPitchHorizontalDeviation(pitch) {
   if (!pitch || pitch.x == null || pitch.z == null) return false
-  const wHalf = 0.22
+  const wHalf = 0.2158
   const szTop = pitch.sz_top || 0.963
   const szBot = pitch.sz_bottom || 0.486
   const absX = Math.abs(pitch.x)

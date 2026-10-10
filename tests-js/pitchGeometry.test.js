@@ -81,6 +81,12 @@ describe('pitchGeometry utilities', () => {
     assert.equal(isPitchHorizontalDeviation(verticalIn), false)
   })
 
+  test('isPitchHorizontalDeviation uses the official zone width near a corner', () => {
+    // Only the official 21.58 cm half width makes the horizontal gap larger.
+    const pitch = { x: 0.218, z: 0.479, sz_top: 0.95, sz_bottom: 0.48 }
+    assert.equal(isPitchHorizontalDeviation(pitch), true)
+  })
+
   test('findSimilarPitches supports batter_relative view mode with horizontal mirroring', () => {
     // Target: Left-handed batter near left edge (x = 0.23, z = 0.70)
     const targetLeft = { pa_index: 1, pitch_index: 1, batter: '邱智呈', bats: 'L', x: 0.23, z: 0.70, called: 'STRIKE', sz_top: 0.95, sz_bottom: 0.48 }
