@@ -1,3 +1,6 @@
+from game_types import get_game_kind
+
+
 def format_duration(minutes: float | None) -> str:
     """Format duration in minutes to 'X小時 Y分' string."""
     if minutes is None or minutes <= 0:
@@ -10,15 +13,17 @@ def format_duration(minutes: float | None) -> str:
     return f"{mins}分"
 
 
-def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
+def calculate_season_stats(games: list[dict], year: int | str = None, kind_code: str = "A") -> dict:
     """
     Calculate comprehensive season statistics from a list of game dictionaries.
     Handles game duration, run differentials, winning/losing team scores,
     umpire metrics, team standings, and stadium breakdowns.
     """
+    games = [g for g in games if get_game_kind(g) == kind_code]
     if not games:
         return {
             "year": str(year) if year else "全部",
+            "kind_code": kind_code,
             "total_games": 0,
             "duration": {
                 "avg_minutes": 0,
@@ -300,11 +305,7 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
     avg_overall_acc = round(total_overall_acc / total_games, 2) if total_games > 0 else 0.0
     avg_ball_acc = round(total_ball_acc / total_games, 2) if total_games > 0 else 0.0
     avg_strike_acc = round(total_strike_acc / total_games, 2) if total_games > 0 else 0.0
-    avg_consistency = (
-        round(total_consistency / valid_consistency_count, 2)
-        if valid_consistency_count > 0
-        else 0.0
-    )
+    avg_consistency = round(total_consistency / valid_consistency_count, 2) if valid_consistency_count > 0 else 0.0
     avg_missed_calls = round(total_missed / total_games, 1) if total_games > 0 else 0.0
 
     # Build Umpire Leaderboard
@@ -392,6 +393,7 @@ def calculate_season_stats(games: list[dict], year: int | str = None) -> dict:
 
     return {
         "year": str(year) if year else "全部",
+        "kind_code": kind_code,
         "total_games": total_games,
         "duration": {
             "avg_minutes": avg_dur_mins,

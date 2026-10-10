@@ -12,6 +12,7 @@ from pathlib import Path
 # Ensure server directory is in sys.path when running directly
 sys.path.insert(0, os.path.dirname(__file__))
 import db  # noqa: E402
+from game_types import SUPPORTED_KIND_CODES  # noqa: E402
 from stats import calculate_season_stats  # noqa: E402
 from verify_static import GAME_ID_PATTERN, verify_static_snapshot  # noqa: E402
 
@@ -68,6 +69,9 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
         gid = row["game_id"]
         if not gid or not isinstance(gid, str) or not GAME_ID_PATTERN.match(gid):
             raise ValueError(f"無效的賽事 ID 格式: {gid}")
+        kind_code = gid.split("-")[1]
+        if row["kind_code"] and row["kind_code"] != kind_code:
+            raise ValueError(f"賽事 {gid} 的 kind_code 與 ID 不符")
 
         raw_json = row["data_json"]
         if not raw_json:
@@ -102,10 +106,12 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
             consistency_val = detail["umpire_metrics"]["overall_consistency"]
         elif detail.get("all_called_pitches"):
             from analyzer import calculate_game_consistency
+
             consistency_val = calculate_game_consistency(detail["all_called_pitches"])["consistency_rate"]
 
         summary_item = {
             "game_id": gid,
+            "kind_code": kind_code,
             "game_sno": int(row["game_sno"]) if row["game_sno"] is not None else 0,
             "game_date": str(row["game_date"]),
             "field": str(row["field"] or ""),
@@ -156,17 +162,18 @@ def export_all(output_dir: str = DEFAULT_OUTPUT_DIR, custom_db_path: str = None)
         manifest_path = temp_dir / "manifest.json"
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
 
-        # Write yearly stats to staging
-        all_stats = calculate_season_stats(games_summary, "全部")
-        (staging_stats_dir / "all.json").write_text(
-            json.dumps(all_stats, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
-        )
-        for yr in available_years:
-            yr_games = [g for g in games_summary if g["game_date"].startswith(str(yr))]
-            yr_stats = calculate_season_stats(yr_games, yr)
-            (staging_stats_dir / f"{yr}.json").write_text(
-                json.dumps(yr_stats, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
-            )
+        # 保留例行賽舊路徑；其他類型的各年度與跨年度統計使用獨立目錄。
+        for kind_code in SUPPORTED_KIND_CODES:
+            stats_dir = staging_stats_dir if kind_code == "A" else staging_stats_dir / kind_code
+            stats_dir.mkdir(exist_ok=True)
+            for yr in ["all", *available_years]:
+                yr_games = (
+                    games_summary if yr == "all" else [g for g in games_summary if g["game_date"].startswith(str(yr))]
+                )
+                stats = calculate_season_stats(yr_games, "全部" if yr == "all" else yr, kind_code)
+                (stats_dir / f"{yr}.json").write_text(
+                    json.dumps(stats, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
+                )
 
         # Write game details to staging
         resolved_staging_games = staging_games_dir.resolve()

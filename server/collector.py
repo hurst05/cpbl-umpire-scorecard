@@ -2,8 +2,10 @@ import json
 import logging
 import re
 import urllib.request
+from datetime import date
 
 import httpx
+from game_types import SUPPORTED_KIND_CODES
 
 logger = logging.getLogger(__name__)
 
@@ -85,44 +87,46 @@ def fetch_players_dict(html_text: str = None) -> dict:
     return players_by_acnt
 
 
-def fetch_schedule_by_date(date_str: str) -> list:
+def fetch_schedule_by_date(date_str: str, kind_code: str = "A") -> list:
     """Fetch schedule of games on a given date (YYYY-MM-DD)."""
-    url = f"https://stats.cpbl.com.tw/schedule?date={date_str}"
-    html = fetch_cpbl_url(url)
-    rsc = extract_rsc_payload(html)
-
-    data = extract_query_data(rsc, f'["game","list","{date_str}"]')
-    if not data:
-        data = extract_query_data(rsc, '"game"')
-
-    if not data or "games" not in data:
-        return []
+    target_date = date.fromisoformat(date_str)
+    if kind_code not in SUPPORTED_KIND_CODES:
+        raise ValueError(f"不支援的賽事類型: {kind_code}")
+    # 賽程 HTML 固定預載當月例行賽；使用官方頁面相同的 API 查詢指定類型與月份。
+    url = (
+        "https://stats.cpbl.com.tw/api/proxy/v1/games/schedule"
+        f"?kindCode={kind_code}&year={target_date.year}&month={target_date.month}"
+    )
+    payload = json.loads(fetch_cpbl_url(url))
+    data = payload.get("Data", {})
+    if not isinstance(data, dict) or not isinstance(data.get("Games"), list):
+        raise ValueError("官方賽程資料缺少 Data.Games")
 
     games_list = []
-    for g in data.get("games", []):
-        g_date = g.get("preExeDate", "")[:10]
+    for g in data["Games"]:
+        g_date = g.get("PreExeDate", "")[:10]
         if date_str and g_date != date_str:
             continue
-        if g.get("kindCode") != "A":
+        if g.get("KindCode") != kind_code:
             continue
-        visiting = g.get("visiting", {})
-        home = g.get("home", {})
+        visiting = g.get("Visiting", {})
+        home = g.get("Home", {})
         games_list.append(
             {
-                "game_id": g.get("gameId"),
-                "game_sno": g.get("gameSno"),
-                "kind_code": g.get("kindCode"),
+                "game_id": g.get("GameId"),
+                "game_sno": g.get("GameSno"),
+                "kind_code": g.get("KindCode"),
                 "date": g_date,
-                "time": g.get("preExeDate", "")[11:16] if g.get("preExeDate") else "",
-                "status": g.get("gameStatus"),
-                "field": g.get("field", {}).get("abbe", ""),
-                "visiting_team": visiting.get("team", {}).get("name", ""),
-                "visiting_score": visiting.get("score"),
-                "visiting_logo": visiting.get("team", {}).get("smallLogoUrl", ""),
-                "home_team": home.get("team", {}).get("name", ""),
-                "home_score": home.get("score"),
-                "home_logo": home.get("team", {}).get("smallLogoUrl", ""),
-                "has_trackman": not g.get("skipTrackman", False),
+                "time": g.get("PreExeDate", "")[11:16] if g.get("PreExeDate") else "",
+                "status": g.get("GameStatus"),
+                "field": g.get("Field", {}).get("Abbe", ""),
+                "visiting_team": visiting.get("Team", {}).get("Name", ""),
+                "visiting_score": visiting.get("Score"),
+                "visiting_logo": visiting.get("Team", {}).get("SmallLogoUrl", ""),
+                "home_team": home.get("Team", {}).get("Name", ""),
+                "home_score": home.get("Score"),
+                "home_logo": home.get("Team", {}).get("SmallLogoUrl", ""),
+                "has_trackman": not g.get("SkipTrackman", False),
             }
         )
     return games_list

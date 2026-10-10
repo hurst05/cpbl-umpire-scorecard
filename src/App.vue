@@ -17,6 +17,13 @@
 
       <!-- Quick Search Bar with Keyboard +/- Support and Clean Styling -->
       <div class="flex items-center gap-2 shrink-0">
+        <select
+          v-model="selectedKindCode"
+          aria-label="賽事類型"
+          class="px-2 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
+        >
+          <option v-for="(label, code) in GAME_TYPES" :key="code" :value="code">{{ label }}</option>
+        </select>
         <div class="relative flex items-center">
           <input 
             type="number"
@@ -103,7 +110,7 @@
         <div v-if="gameData && isSingleGameTab" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-xs dark:shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
           <div class="flex flex-wrap items-center gap-3">
             <span class="px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 text-xs font-mono font-bold">
-              例行賽 第 {{ gameData.game_info.game_sno }} 場
+              {{ GAME_TYPES[getGameKindCode(gameData.game_info)] }} 第 {{ gameData.game_info.game_sno }} 場
             </span>
             <span class="text-xs text-slate-600 dark:text-slate-400">
               日期：<strong class="text-slate-900 dark:text-white">{{ gameData.game_info.date }}</strong> | 地點：<strong class="text-slate-900 dark:text-white">{{ gameData.game_info.field }}</strong>
@@ -163,6 +170,8 @@
         <!-- Tab 3: Multi-Game Database Explorer -->
         <div v-show="activeTab === 'multi-game'">
           <MultiGameStats 
+            :key="selectedKindCode"
+            :kind-code="selectedKindCode"
             @load-game="(id) => loadGame(id, 'scorecard')" 
             @view-season-stats="handleViewSeasonStats"
           />
@@ -170,7 +179,9 @@
 
         <!-- Tab 4: Yearly Season Stats Explorer -->
         <div v-show="activeTab === 'season-stats'">
-          <SeasonStatsView 
+          <SeasonStatsView
+            :key="selectedKindCode"
+            :kind-code="selectedKindCode"
             @load-game="(id) => loadGame(id, 'scorecard')" 
           />
         </div>
@@ -180,14 +191,17 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import AtBatViewer from './components/AtBatViewer.vue'
 import ScorecardSummary from './components/ScorecardSummary.vue'
 import MultiGameStats from './components/MultiGameStats.vue'
 import SeasonStatsView from './components/SeasonStatsView.vue'
 import { fetchGame, fetchDefaultGameId, isStaticMode } from './services/dataService'
+import { GAME_TYPES, getGameKindCode } from './utils/gameTypes.js'
 
 const activeTab = ref('multi-game')
+const selectedKindCode = ref('A')
+let gameRequestId = 0
 const inputSno = ref(295)
 const defaultGameId = ref(null)
 const gameData = ref(null)
@@ -197,6 +211,15 @@ const isDark = ref(false)
 const isStatic = ref(isStaticMode())
 
 const isSingleGameTab = computed(() => activeTab.value === 'scorecard' || activeTab.value === 'at-bat')
+
+watch(selectedKindCode, () => {
+  gameRequestId += 1
+  gameData.value = null
+  defaultGameId.value = null
+  errorMessage.value = ''
+  isLoading.value = false
+  inputSno.value = 1
+}, { flush: 'sync' })
 
 function formatMinutes(mins) {
   if (!mins) return '-'
@@ -245,6 +268,8 @@ function decrementSno() {
 }
 
 async function loadGame(gameId, targetTab = null) {
+  selectedKindCode.value = getGameKindCode({ game_id: gameId })
+  const requestId = ++gameRequestId
   if (targetTab) {
     activeTab.value = targetTab
   }
@@ -252,20 +277,22 @@ async function loadGame(gameId, targetTab = null) {
   errorMessage.value = ''
   try {
     const data = await fetchGame(gameId)
+    if (requestId !== gameRequestId) return
     gameData.value = data
     if (data?.game_info?.game_sno) {
       inputSno.value = data.game_info.game_sno
     }
   } catch (e) {
+    if (requestId !== gameRequestId) return
     errorMessage.value = e.message || `擷取賽事資料失敗 (${gameId})`
   } finally {
-    isLoading.value = false
+    if (requestId === gameRequestId) isLoading.value = false
   }
 }
 
 async function loadGameBySno() {
   if (!inputSno.value) return
-  const gameId = `2026-A-${inputSno.value}`
+  const gameId = `2026-${selectedKindCode.value}-${inputSno.value}`
   await loadGame(gameId, activeTab.value === 'multi-game' ? 'scorecard' : null)
 }
 
@@ -288,14 +315,12 @@ onMounted(async () => {
 
   // Pre-fetch default game in background so single game views are ready immediately
   try {
-    const defId = await fetchDefaultGameId()
+    const initialRequestId = gameRequestId
+    const defId = await fetchDefaultGameId(selectedKindCode.value)
+    if (initialRequestId !== gameRequestId) return
     defaultGameId.value = defId
     if (defId) {
-      const data = await fetchGame(defId)
-      gameData.value = data
-      if (data?.game_info?.game_sno) {
-        inputSno.value = data.game_info.game_sno
-      }
+      await loadGame(defId)
     }
   } catch (e) {
     console.warn('Initial game prefetch:', e)

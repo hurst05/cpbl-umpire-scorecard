@@ -2,6 +2,7 @@ import json
 import os
 import sqlite3
 
+from game_types import SUPPORTED_KIND_CODES, get_game_kind
 from stats import calculate_season_stats
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "cpbl_scorecard.db")
@@ -84,12 +85,13 @@ def init_db():
 def save_game(game_id: str, analyzed_data: dict):
     info = analyzed_data.get("game_info", {})
     metrics = analyzed_data.get("umpire_metrics", {})
-    kind_code = info.get("kind_code")
+    kind_code = get_game_kind(info) or get_game_kind({"game_id": game_id})
     total_calls = metrics.get("total_called_pitches", 0)
 
-    # 只取一軍比賽且判決數大於 0 時才儲存
-    if (kind_code and kind_code != "A") or total_calls == 0:
+    if kind_code not in SUPPORTED_KIND_CODES or total_calls == 0:
         return
+    if kind_code != get_game_kind({"game_id": game_id}):
+        raise ValueError(f"賽事 {game_id} 的類型與資料不符: {kind_code}")
 
     conn = get_db()
     cursor = conn.cursor()
@@ -111,7 +113,7 @@ def save_game(game_id: str, analyzed_data: dict):
             (
                 game_id,
                 info.get("game_sno"),
-                info.get("kind_code"),
+                kind_code,
                 info.get("date"),
                 info.get("field"),
                 info.get("home_team"),
@@ -141,7 +143,7 @@ def save_game(game_id: str, analyzed_data: dict):
             (
                 game_id,
                 info.get("game_sno"),
-                info.get("kind_code"),
+                kind_code,
                 info.get("date"),
                 info.get("field"),
                 info.get("home_team"),
@@ -172,21 +174,24 @@ def get_game(game_id: str) -> dict:
     return None
 
 
-def list_available_years() -> list[int]:
+def list_available_years(kind_code: str = "A") -> list[int]:
     conn = get_db()
     cursor = conn.cursor()
-    cursor.execute("""
+    cursor.execute(
+        """
         SELECT DISTINCT CAST(substr(game_date, 1, 4) AS INTEGER) as year
         FROM games
-        WHERE kind_code = 'A' AND game_date IS NOT NULL AND game_date != ''
+        WHERE kind_code = ? AND game_date IS NOT NULL AND game_date != ''
         ORDER BY year DESC
-    """)
+    """,
+        (kind_code,),
+    )
     rows = cursor.fetchall()
     conn.close()
     return [r["year"] for r in rows if r["year"]]
 
 
-def list_cached_games(year: int | str = None) -> list:
+def list_cached_games(year: int | str = None, kind_code: str = "A") -> list:
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("PRAGMA table_info(games)")
@@ -202,29 +207,32 @@ def list_cached_games(year: int | str = None) -> list:
                    hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
                    {consistency_col} {dur_col} updated_at
             FROM games
-            WHERE kind_code = 'A' AND substr(game_date, 1, 4) = ?
+            WHERE kind_code = ? AND substr(game_date, 1, 4) = ?
             ORDER BY game_date DESC, game_sno DESC
         """,
-            (str(year),),
+            (kind_code, str(year)),
         )
     else:
-        cursor.execute(f"""
+        cursor.execute(
+            f"""
             SELECT game_id, game_sno, kind_code, game_date, field,
                    home_team, visiting_team, home_score, visiting_score,
                    hp_umpire, overall_acc, ball_acc, strike_acc, missed_count,
                    {consistency_col} {dur_col} updated_at
             FROM games
-            WHERE kind_code = 'A'
+            WHERE kind_code = ?
             ORDER BY game_date DESC, game_sno DESC
-        """)
+        """,
+            (kind_code,),
+        )
     rows = cursor.fetchall()
     conn.close()
     return [dict(r) for r in rows]
 
 
-def get_season_stats(year: int | str = None) -> dict:
-    games = list_cached_games(year)
-    return calculate_season_stats(games, year)
+def get_season_stats(year: int | str = None, kind_code: str = "A") -> dict:
+    games = list_cached_games(year, kind_code)
+    return calculate_season_stats(games, year, kind_code)
 
 
 init_db()

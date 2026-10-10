@@ -28,24 +28,17 @@ def client(monkeypatch):
 
 
 def test_fetch_schedule_filters_tier1_only(monkeypatch):
-    inner_json = json.dumps({
-        "state": {
-            "data": {
-                "data": {
-                    "games": [
-                        {"gameId": "2026-A-001", "gameSno": 1, "kindCode": "A", "preExeDate": "2026-08-30T17:05:00"},
-                        {"gameId": "2026-B-001", "gameSno": 1, "kindCode": "B", "preExeDate": "2026-08-30T13:00:00"},
-                        {"gameId": "2026-D-001", "gameSno": 1, "kindCode": "D", "preExeDate": "2026-08-30T14:00:00"},
-                    ]
-                }
-            }
-        },
-        "queryKey": ["game", "list", "2026-08-30"]
+    sample_json = json.dumps({
+        "Data": {
+            "Games": [
+                {"GameId": "2026-A-001", "GameSno": 1, "KindCode": "A", "PreExeDate": "2026-08-30T17:05:00"},
+                {"GameId": "2026-B-001", "GameSno": 1, "KindCode": "B", "PreExeDate": "2026-08-30T13:00:00"},
+                {"GameId": "2026-D-001", "GameSno": 1, "KindCode": "D", "PreExeDate": "2026-08-30T14:00:00"},
+            ]
+        }
     })
-    escaped_json = inner_json.replace('"', '\\"')
-    sample_rsc = f'self.__next_f.push([1,"{escaped_json}"]);'
 
-    monkeypatch.setattr(collector, "fetch_cpbl_url", lambda url: sample_rsc)
+    monkeypatch.setattr(collector, "fetch_cpbl_url", lambda url: sample_json)
     games = collector.fetch_schedule_by_date("2026-08-30")
     assert len(games) == 1
     assert games[0]["game_id"] == "2026-A-001"
@@ -114,7 +107,7 @@ def test_api_game_analysis_rejects_zero_calls(client, monkeypatch):
 
 
 def test_batch_collect_skips_non_tier1_and_zero_calls(client, monkeypatch):
-    def mock_schedule(date_str):
+    def mock_schedule(date_str, kind_code="A"):
         return [
             {"game_id": "2026-B-001", "kind_code": "B", "has_trackman": True, "status": "FINISHED"},
             {"game_id": "2026-A-002", "kind_code": "A", "has_trackman": True, "status": "FINISHED"},

@@ -6,7 +6,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-GAME_ID_PATTERN = re.compile(r"^2026-A-[1-9]\d*$")
+sys.path.insert(0, os.path.dirname(__file__))
+from game_types import SUPPORTED_KIND_CODES  # noqa: E402
+
+GAME_ID_PATTERN = re.compile(rf"^2026-({'|'.join(SUPPORTED_KIND_CODES)})-[1-9]\d*$")
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 FORBIDDEN_EXTENSIONS = {".db", ".sqlite", ".sqlite3", ".wal", ".shm", ".py", ".env", ".key", ".pem"}
@@ -119,6 +122,8 @@ def verify_static_snapshot(snapshot_dir: str | Path) -> dict:
         gid = g["game_id"]
         if not isinstance(gid, str) or not GAME_ID_PATTERN.match(gid):
             raise VerificationError(f"games[{idx}].game_id 格式無效: {gid} (預期如 2026-A-295)")
+        if g.get("kind_code", gid.split("-")[1]) != gid.split("-")[1]:
+            raise VerificationError(f"games[{idx}].kind_code 與 game_id 不符: {gid}")
 
         if gid in seen_ids:
             raise VerificationError(f"manifest.json 存在重複的 game_id: {gid}")
@@ -144,10 +149,9 @@ def verify_static_snapshot(snapshot_dir: str | Path) -> dict:
 
         # Check sorting: game_date DESC, game_sno DESC
         current_sort_key = (gdate, sno)
-        if prev_sort_key is not None and current_sort_key >= prev_sort_key:
+        if prev_sort_key is not None and current_sort_key > prev_sort_key:
             raise VerificationError(
-                f"games 清單未按 (game_date DESC, game_sno DESC) 排序: "
-                f"前項 {prev_sort_key} <= 當前項 {current_sort_key}"
+                f"games 清單未按 (game_date DESC, game_sno DESC) 排序: 前項 {prev_sort_key} < 當前項 {current_sort_key}"
             )
         prev_sort_key = current_sort_key
 
@@ -178,6 +182,8 @@ def verify_static_snapshot(snapshot_dir: str | Path) -> dict:
 
         if not isinstance(detail["game_info"], dict):
             raise VerificationError(f"{game_file.name} game_info 必須為物件")
+        if detail["game_info"].get("kind_code", gid.split("-")[1]) != gid.split("-")[1]:
+            raise VerificationError(f"{game_file.name} game_info.kind_code 與 game_id 不符")
         if not isinstance(detail["umpire_metrics"], dict):
             raise VerificationError(f"{game_file.name} umpire_metrics 必須為物件")
         if not isinstance(detail["plate_appearances"], list):

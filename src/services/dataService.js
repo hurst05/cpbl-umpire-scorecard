@@ -6,6 +6,7 @@
  */
 
 import { isGameInManifest, validateGameDetail } from './staticDataValidation'
+import { filterGamesByKind } from '../utils/gameTypes.js'
 
 const dataMode = import.meta.env.VITE_DATA_MODE || (import.meta.env.DEV ? 'api' : 'static')
 
@@ -92,23 +93,10 @@ export async function fetchManifest() {
 /**
  * Fetch available years / seasons
  */
-export async function fetchAvailableYears() {
-  if (isStaticMode()) {
-    const manifest = await fetchManifest()
-    if (manifest.available_years && manifest.available_years.length > 0) {
-      return manifest.available_years
-    }
-    const years = Array.from(
-      new Set(
-        (manifest.games || [])
-          .map(g => (g.game_date ? g.game_date.slice(0, 4) : ''))
-          .filter(Boolean)
-      )
-    ).map(Number).sort((a, b) => b - a)
-    return years
-  } else {
+export async function fetchAvailableYears(kindCode = 'A') {
+  if (!isStaticMode()) {
     try {
-      const res = await fetch('/api/seasons')
+      const res = await fetch(`/api/seasons?kind_code=${encodeURIComponent(kindCode)}`)
       if (!res.ok) {
         throw new Error(`無法取得年度清單 (${res.statusText})`)
       }
@@ -116,35 +104,28 @@ export async function fetchAvailableYears() {
       return data.seasons || []
     } catch (e) {
       console.warn('[dataService] Failed to load /api/seasons, fallback:', e)
-      const games = await fetchGameList()
-      const years = Array.from(
-        new Set(
-          games
-            .map(g => (g.game_date ? g.game_date.slice(0, 4) : ''))
-            .filter(Boolean)
-        )
-      ).map(Number).sort((a, b) => b - a)
-      return years
     }
   }
+  const games = await fetchGameList(null, kindCode)
+  return Array.from(new Set(games.map(g => g.game_date?.slice(0, 4)).filter(Boolean)))
+    .map(Number).sort((a, b) => b - a)
 }
 
 /**
  * Fetch all available / cached games summary list with optional year filter
  */
-export async function fetchGameList(year = null) {
+export async function fetchGameList(year = null, kindCode = 'A') {
   const targetYear = (!year || year === 'all' || year === '全部') ? null : String(year)
   if (isStaticMode()) {
     const manifest = await fetchManifest()
-    const allGames = manifest.games || []
+    const allGames = filterGamesByKind(manifest.games || [], kindCode)
     if (!targetYear) {
       return allGames
     }
     return allGames.filter(g => g.game_date && g.game_date.startsWith(targetYear))
   } else {
-    const url = targetYear
-      ? `/api/games/cached?year=${encodeURIComponent(targetYear)}`
-      : '/api/games/cached'
+    const url = `/api/games/cached?kind_code=${encodeURIComponent(kindCode)}`
+      + (targetYear ? `&year=${encodeURIComponent(targetYear)}` : '')
     const res = await fetch(url)
     if (!res.ok) {
       throw new Error(`無法取得本機快取賽事 (${res.statusText})`)
@@ -156,28 +137,29 @@ export async function fetchGameList(year = null) {
 /**
  * Fetch aggregated season stats for a given year (or 'all')
  */
-export async function fetchSeasonStats(year = '2026') {
+export async function fetchSeasonStats(year = '2026', kindCode = 'A') {
   const targetYear = (!year || year === 'all' || year === '全部') ? 'all' : String(year)
   if (isStaticMode()) {
     const baseUrl = getBaseUrl()
-    const url = `${baseUrl}data/stats/${encodeURIComponent(targetYear)}.json`
+    const kindPath = kindCode === 'A' ? '' : `${encodeURIComponent(kindCode)}/`
+    const url = `${baseUrl}data/stats/${kindPath}${encodeURIComponent(targetYear)}.json`
     try {
       const res = await fetch(url)
       if (res.ok) {
-        return await res.json()
+        const stats = await res.json()
+        if (stats.kind_code === kindCode || (kindCode === 'A' && !stats.kind_code)) {
+          return stats
+        }
       }
     } catch (e) {
       console.warn(`[dataService] Static stats ${targetYear}.json not found, computing on client...`, e)
     }
 
     // Fallback: Compute stats directly from manifest games on client
-    const manifest = await fetchManifest()
-    const games = targetYear === 'all'
-      ? (manifest.games || [])
-      : (manifest.games || []).filter(g => g.game_date && g.game_date.startsWith(targetYear))
-    return computeStatsFromGames(games, targetYear === 'all' ? '全部' : targetYear)
+    const games = await fetchGameList(targetYear, kindCode)
+    return computeStatsFromGames(games, targetYear === 'all' ? '全部' : targetYear, kindCode)
   } else {
-    const res = await fetch(`/api/stats/season/${encodeURIComponent(targetYear)}`)
+    const res = await fetch(`/api/stats/season/${encodeURIComponent(targetYear)}?kind_code=${encodeURIComponent(kindCode)}`)
     if (!res.ok) {
       throw new Error(`無法取得年度統計數據 (${res.statusText})`)
     }
@@ -188,10 +170,12 @@ export async function fetchSeasonStats(year = '2026') {
 /**
  * Client-side calculation helper for season statistics
  */
-function computeStatsFromGames(games, yearLabel) {
+function computeStatsFromGames(games, yearLabel, kindCode = 'A') {
+  games = filterGamesByKind(games || [], kindCode)
   if (!games || games.length === 0) {
     return {
       year: yearLabel,
+      kind_code: kindCode,
       total_games: 0,
       duration: { avg_minutes: 0, formatted_avg: '無資料', valid_games_count: 0, shortest_game: null, longest_game: null },
       scores: {
@@ -409,6 +393,7 @@ function computeStatsFromGames(games, yearLabel) {
 
   return {
     year: yearLabel,
+    kind_code: kindCode,
     total_games: totalGames,
     duration: {
       avg_minutes: avgDurMins,
@@ -455,22 +440,13 @@ function computeStatsFromGames(games, yearLabel) {
 /**
  * Get the default initial game ID to load
  */
-export async function fetchDefaultGameId() {
-  if (isStaticMode()) {
-    const manifest = await fetchManifest()
-    return manifest.default_game_id || null
-  } else {
-    try {
-      const res = await fetch('/api/games/cached')
-      if (res.ok) {
-        const games = await res.json()
-        if (games && games.length > 0) {
-          return games[0].game_id
-        }
-      }
-    } catch (e) {
-      console.warn('[dataService] Failed to load cached games for default ID:', e)
-    }
+export async function fetchDefaultGameId(kindCode = 'A') {
+  try {
+    const games = await fetchGameList(null, kindCode)
+    return games[0]?.game_id || null
+  } catch (e) {
+    if (isStaticMode()) throw e
+    console.warn('[dataService] Failed to load cached games for default ID:', e)
     return null
   }
 }
@@ -543,11 +519,11 @@ export async function fetchGameBySno(sno, year = 2026, kindCode = 'A') {
 /**
  * Run batch collect for a given date (Local API mode only)
  */
-export async function runBatchCollect(dateStr) {
+export async function runBatchCollect(dateStr, kindCode = 'A') {
   if (isStaticMode()) {
     throw new Error('線上靜態模式不支援即時批次抓取，請於本機執行。')
   }
-  const res = await fetch(`/api/batch-collect?date=${encodeURIComponent(dateStr)}`, {
+  const res = await fetch(`/api/batch-collect?date=${encodeURIComponent(dateStr)}&kind_code=${encodeURIComponent(kindCode)}`, {
     method: 'POST'
   })
   if (!res.ok) {

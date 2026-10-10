@@ -1,4 +1,6 @@
 import os
+from datetime import date as Date
+from typing import Annotated
 
 import db
 import uvicorn
@@ -7,6 +9,7 @@ from collector import fetch_game_detail, fetch_schedule_by_date, find_game_id_by
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from game_types import SUPPORTED_KIND_CODES, GameKind, get_game_kind
 
 app = FastAPI(title="CPBL Umpire Scorecard & Pitch Analyzer API")
 
@@ -25,22 +28,25 @@ def health_check():
 
 
 @app.get("/api/schedule")
-def get_schedule(date: str = Query(..., description="Date YYYY-MM-DD")):
+def get_schedule(date: Annotated[Date, Query(description="Date YYYY-MM-DD")], kind_code: GameKind = "A"):
     try:
-        games = fetch_schedule_by_date(date)
-        return {"date": date, "games": games}
+        games = fetch_schedule_by_date(date.isoformat(), kind_code)
+        return {"date": date.isoformat(), "kind_code": kind_code, "games": games}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/api/game/{game_id}")
 def get_game_analysis(game_id: str, force_refresh: bool = False):
+    requested_kind = get_game_kind({"game_id": game_id})
+    if requested_kind not in SUPPORTED_KIND_CODES:
+        raise HTTPException(status_code=400, detail=f"賽事 {game_id} 非一軍支援賽事，略過載入分析")
     if not force_refresh:
         cached = db.get_game(game_id)
         if cached:
             total_calls = cached.get("umpire_metrics", {}).get("total_called_pitches", 0)
-            kind_code = cached.get("game_info", {}).get("kind_code")
-            if (kind_code and kind_code != "A") or total_calls == 0:
+            kind_code = get_game_kind(cached.get("game_info", {}))
+            if kind_code != requested_kind or total_calls == 0:
                 pass  # 快取為無效資料，繼續向下重新抓取
             else:
                 return cached
@@ -48,12 +54,14 @@ def get_game_analysis(game_id: str, force_refresh: bool = False):
     try:
         raw_data = fetch_game_detail(game_id)
         game_raw = raw_data.get("game", {})
-        kind_code = game_raw.get("kindCode")
-        if kind_code and kind_code != "A":
+        kind_code = game_raw.get("kindCode") or requested_kind
+        if kind_code not in SUPPORTED_KIND_CODES:
             raise HTTPException(
                 status_code=400,
                 detail=f"賽事 {game_id} 非一軍比賽 (kindCode={kind_code})，略過載入分析",
             )
+        if kind_code != requested_kind:
+            raise HTTPException(status_code=400, detail=f"賽事 {game_id} 的類型與資料不符: {kind_code}")
 
         analyzed = analyze_game(game_raw, raw_data.get("players", {}))
         total_calls = analyzed.get("umpire_metrics", {}).get("total_called_pitches", 0)
@@ -69,49 +77,46 @@ def get_game_analysis(game_id: str, force_refresh: bool = False):
 
 
 @app.get("/api/game/sno/{sno}")
-def get_game_by_sno(sno: int, year: int = 2026, kind_code: str = "A", force_refresh: bool = False):
-    if kind_code != "A":
-        raise HTTPException(status_code=400, detail=f"僅支援一軍比賽 (kind_code={kind_code})")
+def get_game_by_sno(sno: int, year: int = 2026, kind_code: GameKind = "A", force_refresh: bool = False):
     game_id = find_game_id_by_sno(sno, year, kind_code)
     return get_game_analysis(game_id, force_refresh)
 
 
 @app.get("/api/seasons")
-def get_seasons():
+def get_seasons(kind_code: GameKind = "A"):
     """Get list of available seasons/years."""
-    years = db.list_available_years()
+    years = db.list_available_years(kind_code)
     return {"seasons": years}
 
 
 @app.get("/api/stats/season/{year}")
-def get_season_statistics(year: str):
+def get_season_statistics(year: str, kind_code: GameKind = "A"):
     """Get aggregated statistics for a specific year (or 'all')."""
     target_year = None if year.lower() in ("all", "全部") else year
-    return db.get_season_stats(target_year)
+    return db.get_season_stats(target_year, kind_code)
 
 
 @app.get("/api/games/cached")
-def get_cached_games(year: str = Query(None, description="Filter by year (e.g. 2026)")):
+def get_cached_games(year: str = Query(None, description="Filter by year (e.g. 2026)"), kind_code: GameKind = "A"):
     target_year = None if (not year or year.lower() in ("all", "全部")) else year
-    return db.list_cached_games(target_year)
+    return db.list_cached_games(target_year, kind_code)
 
 
 @app.post("/api/batch-collect")
-def batch_collect_date(date: str):
-    games = fetch_schedule_by_date(date)
+def batch_collect_date(date: Date, kind_code: GameKind = "A"):
+    games = fetch_schedule_by_date(date.isoformat(), kind_code)
     results = []
     for g in games:
         gid = g.get("game_id")
-        kind_code = g.get("kind_code")
-        if kind_code and kind_code != "A":
-            results.append({"game_id": gid, "status": "skipped", "reason": "非一軍賽事"})
+        if get_game_kind(g) != kind_code:
+            results.append({"game_id": gid, "status": "skipped", "reason": "非一軍選定類型賽事"})
             continue
         if gid and g.get("has_trackman") and g.get("status") == "FINISHED":
             try:
                 raw_data = fetch_game_detail(gid)
                 game_raw = raw_data.get("game", {})
-                if game_raw.get("kindCode") and game_raw.get("kindCode") != "A":
-                    results.append({"game_id": gid, "status": "skipped", "reason": "非一軍賽事"})
+                if game_raw.get("kindCode", get_game_kind({"game_id": gid})) != kind_code:
+                    results.append({"game_id": gid, "status": "skipped", "reason": "非一軍選定類型賽事"})
                     continue
                 analyzed = analyze_game(game_raw, raw_data.get("players", {}))
                 total_calls = analyzed.get("umpire_metrics", {}).get("total_called_pitches", 0)

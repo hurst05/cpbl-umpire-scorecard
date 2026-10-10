@@ -18,8 +18,8 @@
         </div>
         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
           {{ isStatic
-              ? `目前為線上靜態展示模式，已收錄 ${cachedGames.length} 場賽事。${generatedAtStr ? `(資料產生於: ${generatedAtStr})` : ''}`
-              : '從 CPBL 官方進階數據網抓取指定日期的全部完賽比賽並自動完成主審好球帶分析。' }}
+              ? `${GAME_TYPES[kindCode]}已收錄 ${cachedGames.length} 場賽事。${generatedAtStr ? `(資料產生於: ${generatedAtStr})` : ''}`
+              : `抓取指定日期的${GAME_TYPES[kindCode]}完賽比賽，並自動完成主審好球帶分析。` }}
         </p>
       </div>
 
@@ -309,6 +309,9 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { fetchGameList, fetchManifest, runBatchCollect, isStaticMode } from '../services/dataService'
+import { GAME_TYPES, filterGamesByKind } from '../utils/gameTypes.js'
+
+const props = defineProps({ kindCode: { type: String, default: 'A' } })
 
 defineEmits(['load-game', 'view-season-stats'])
 
@@ -438,13 +441,13 @@ async function loadCachedGames() {
   try {
     if (isStatic.value) {
       const manifest = await fetchManifest()
-      cachedGames.value = manifest.games || []
+      cachedGames.value = filterGamesByKind(manifest.games || [], props.kindCode)
       if (manifest.generated_at) {
         const d = new Date(manifest.generated_at)
         generatedAtStr.value = d.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false })
       }
     } else {
-      cachedGames.value = await fetchGameList()
+      cachedGames.value = await fetchGameList(null, props.kindCode)
     }
 
     if (cachedGames.value.length > 0) {
@@ -466,7 +469,7 @@ async function handleBatchCollect() {
   isCollecting.value = true
   errorMessage.value = ''
   try {
-    await runBatchCollect(batchDate.value)
+    await runBatchCollect(batchDate.value, props.kindCode)
     await loadCachedGames()
   } catch (e) {
     errorMessage.value = e.message || '批次抓取發生錯誤'
@@ -480,16 +483,16 @@ function exportFilteredJSON() {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `cpbl_scorecard_${selectedYearFilter.value}_${new Date().toISOString().slice(0, 10)}.json`
+  a.download = `cpbl_scorecard_${props.kindCode}_${selectedYearFilter.value}_${new Date().toISOString().slice(0, 10)}.json`
   a.click()
 }
 
 function exportFilteredCSV() {
-  const headers = ['game_id', 'game_sno', 'game_date', 'field', 'visiting_team', 'visiting_score', 'home_team', 'home_score', 'game_duration_minutes', 'hp_umpire', 'missed_count', 'overall_acc', 'ball_acc', 'strike_acc', 'overall_consistency']
+  const headers = ['game_id', 'kind_code', 'game_sno', 'game_date', 'field', 'visiting_team', 'visiting_score', 'home_team', 'home_score', 'game_duration_minutes', 'hp_umpire', 'missed_count', 'overall_acc', 'ball_acc', 'strike_acc', 'overall_consistency']
   const csvRows = [headers.join(',')]
   sortedGames.value.forEach(g => {
     csvRows.push([
-      g.game_id, g.game_sno, g.game_date, g.field,
+      g.game_id, props.kindCode, g.game_sno, g.game_date, g.field,
       g.visiting_team, g.visiting_score, g.home_team, g.home_score,
       g.game_duration_minutes || '',
       g.hp_umpire, g.missed_count, g.overall_acc, g.ball_acc, g.strike_acc,
@@ -500,7 +503,7 @@ function exportFilteredCSV() {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `cpbl_scorecard_${selectedYearFilter.value}_${new Date().toISOString().slice(0, 10)}.csv`
+  a.download = `cpbl_scorecard_${props.kindCode}_${selectedYearFilter.value}_${new Date().toISOString().slice(0, 10)}.csv`
   a.click()
 }
 

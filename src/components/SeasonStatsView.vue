@@ -12,7 +12,7 @@
               {{ selectedYear === 'all' ? '跨年度賽事統計總覽' : `${selectedYear} 年度賽事統計分析` }}
             </h2>
             <span class="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-700/50">
-              例行賽一軍
+              {{ GAME_TYPES[kindCode] }}
             </span>
           </div>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -860,6 +860,9 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { fetchAvailableYears, fetchSeasonStats } from '../services/dataService'
+import { GAME_TYPES } from '../utils/gameTypes.js'
+
+const props = defineProps({ kindCode: { type: String, default: 'A' } })
 
 defineEmits(['load-game'])
 
@@ -1018,12 +1021,14 @@ function getAccColor(acc) {
 
 async function loadYears() {
   try {
-    const years = await fetchAvailableYears()
+    const years = await fetchAvailableYears(props.kindCode)
+    availableYears.value = years
     if (years && years.length > 0) {
-      availableYears.value = years
       if (!years.map(String).includes(selectedYear.value)) {
         selectedYear.value = String(years[0])
       }
+    } else {
+      selectedYear.value = 'all'
     }
   } catch (e) {
     console.warn('Failed to load available years:', e)
@@ -1034,7 +1039,7 @@ async function loadStats() {
   isLoading.value = true
   errorMessage.value = ''
   try {
-    statsData.value = await fetchSeasonStats(selectedYear.value)
+    statsData.value = await fetchSeasonStats(selectedYear.value, props.kindCode)
   } catch (e) {
     errorMessage.value = e.message || '無法取得年度統計資料'
   } finally {
