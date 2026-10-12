@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T20:41:17.457984+08:00",
+  "generated_at": "2026-10-12T23:14:28.967972+08:00",
   "default_game_id": "2026-E-4",
   "available_years": [
     2026
@@ -14,15 +14,15 @@
       "field": "洲際",
       "visiting_team": "統一7-ELEVEn獅",
       "home_team": "中信兄弟",
-      "visiting_score": 0,
-      "home_score": 4,
+      "visiting_score": 2,
+      "home_score": 8,
       "hp_umpire": "紀華文",
-      "overall_acc": 89.9,
-      "ball_acc": 93.9,
-      "strike_acc": 81.1,
-      "overall_consistency": 82.8,
-      "missed_count": 12,
-      "game_duration_minutes": null
+      "overall_acc": 92.3,
+      "ball_acc": 96.2,
+      "strike_acc": 84.1,
+      "overall_consistency": 84.7,
+      "missed_count": 15,
+      "game_duration_minutes": 207
     },
     {
       "game_id": "2026-E-3",
