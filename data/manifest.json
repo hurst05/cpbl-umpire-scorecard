@@ -1,11 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T00:29:32.577514+08:00",
-  "default_game_id": "2026-E-2",
+  "generated_at": "2026-10-12T20:41:17.457984+08:00",
+  "default_game_id": "2026-E-4",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-E-4",
+      "kind_code": "E",
+      "game_sno": 4,
+      "game_date": "2026-10-12",
+      "field": "洲際",
+      "visiting_team": "統一7-ELEVEn獅",
+      "home_team": "中信兄弟",
+      "visiting_score": 0,
+      "home_score": 4,
+      "hp_umpire": "紀華文",
+      "overall_acc": 89.9,
+      "ball_acc": 93.9,
+      "strike_acc": 81.1,
+      "overall_consistency": 82.8,
+      "missed_count": 12,
+      "game_duration_minutes": null
+    },
+    {
+      "game_id": "2026-E-3",
+      "kind_code": "E",
+      "game_sno": 3,
+      "game_date": "2026-10-11",
+      "field": "洲際",
+      "visiting_team": "統一7-ELEVEn獅",
+      "home_team": "中信兄弟",
+      "visiting_score": 4,
+      "home_score": 2,
+      "hp_umpire": "尤志欽",
+      "overall_acc": 94.7,
+      "ball_acc": 97.1,
+      "strike_acc": 89.1,
+      "overall_consistency": 91.3,
+      "missed_count": 8,
+      "game_duration_minutes": 185
+    },
     {
       "game_id": "2026-E-2",
       "kind_code": "E",
