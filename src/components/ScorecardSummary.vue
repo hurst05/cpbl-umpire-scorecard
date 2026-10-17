@@ -168,7 +168,7 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <span 
-                class="text-xs px-2 py-0.5 rounded font-bold border transition-colors"
+                class="text-xs px-2 py-0.5 rounded font-bold border transition-colors whitespace-nowrap"
                 :style="{ backgroundColor: visitingColorInfo.badgeBg, color: visitingColorInfo.primary, borderColor: visitingColorInfo.badgeBorder }"
               >
                 客隊
@@ -214,7 +214,7 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <span 
-                class="text-xs px-2 py-0.5 rounded font-bold border transition-colors"
+                class="text-xs px-2 py-0.5 rounded font-bold border transition-colors whitespace-nowrap"
                 :style="{ backgroundColor: homeColorInfo.badgeBg, color: homeColorInfo.primary, borderColor: homeColorInfo.badgeBorder }"
               >
                 主隊
@@ -266,7 +266,7 @@
               </div>
             </div>
             <span 
-              class="text-[10px] px-2 py-0.5 rounded font-mono font-bold border"
+              class="text-[10px] px-2 py-0.5 rounded font-mono font-bold border whitespace-nowrap"
               :style="{ backgroundColor: netFavorBadgeStyle.bg, color: netFavorBadgeStyle.color, borderColor: netFavorBadgeStyle.border }"
             >
               {{ netFavorStatusText }}
@@ -304,13 +304,13 @@
         <span class="text-xs font-bold text-slate-700 dark:text-slate-300">顯示模式:</span>
         <button 
           @click="showOnlyMissed = true"
-          :class="['px-3 py-1.5 rounded-lg text-xs font-bold transition-all border', showOnlyMissed ? 'bg-amber-500 text-white border-amber-500 shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white']"
+          :class="['px-3 py-1.5 rounded-lg text-xs font-bold transition-all border whitespace-nowrap', showOnlyMissed ? 'bg-amber-500 text-white border-amber-500 shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white']"
         >
           僅顯示誤判 ({{ effectiveMissedCalls.length }})
         </button>
         <button 
           @click="showOnlyMissed = false"
-          :class="['px-3 py-1.5 rounded-lg text-xs font-bold transition-all border', !showOnlyMissed ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white']"
+          :class="['px-3 py-1.5 rounded-lg text-xs font-bold transition-all border whitespace-nowrap', !showOnlyMissed ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white']"
         >
           顯示全部判決 ({{ inningPitches.length }})
         </button>
@@ -320,7 +320,7 @@
         <div class="flex flex-col gap-1.5 w-full sm:w-64">
           <label for="scorecard-inning" class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between gap-2">
             判決範圍:
-            <span class="font-mono text-blue-600 dark:text-blue-400">{{ selectedInning === finalInning ? '比賽結束' : inningRangeLabel }}</span>
+            <span class="font-mono text-blue-600 dark:text-blue-400">{{ selectedInning === finalInning ? lastInningLabel : inningRangeLabel }}</span>
           </label>
           <input
             id="scorecard-inning"
@@ -329,13 +329,13 @@
             :max="finalInning"
             step="1"
             v-model.number="selectedInning"
-            :aria-valuetext="selectedInning === finalInning ? '比賽結束' : inningRangeLabel"
+            :aria-valuetext="selectedInning === finalInning ? lastInningLabel : inningRangeLabel"
             :disabled="finalInning === 1"
             class="w-full accent-blue-600 cursor-pointer disabled:opacity-50 disabled:cursor-default"
           />
           <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400">
             <span>第一局</span>
-            <span>比賽結束 (第 {{ finalInning }} 局)</span>
+            <span>{{ lastInningLabel }} (第 {{ finalInning }} 局)</span>
           </div>
         </div>
 
@@ -416,7 +416,7 @@
                     <!-- Favored Team badge with Team representative color -->
                     <span 
                       v-if="getPitchFavoredTeam(mc)" 
-                      class="px-2 py-0.5 rounded border text-[10px] font-bold shrink-0 transition-colors"
+                      class="px-2 py-0.5 rounded border text-[10px] font-bold shrink-0 transition-colors whitespace-nowrap"
                       :style="getTeamBadgeStyle(getPitchFavoredTeam(mc))"
                     >
                       {{ getPitchFavoredTeam(mc) }}得利
@@ -431,7 +431,7 @@
               <!-- Call badges -->
               <div class="flex flex-col items-end gap-1 shrink-0">
                 <div class="group/errtip relative cursor-help">
-                  <span class="px-2 py-0.5 rounded bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/20 dark:border-red-500/30 font-bold font-mono inline-block">
+                  <span class="px-2 py-0.5 rounded bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/20 dark:border-red-500/30 font-bold font-mono inline-block whitespace-nowrap">
                     誤差 {{ mc.dist_cm }} cm
                   </span>
                   <div class="absolute bottom-full right-0 mb-1 hidden group-hover/errtip:flex flex-col w-52 p-2 bg-slate-900 dark:bg-slate-800 text-white rounded-lg shadow-xl border border-slate-700 z-50 pointer-events-none text-[10px]">
@@ -456,7 +456,7 @@
               </div>
               <button 
                 @click.stop="openSimilarPitchModal(mc)"
-                class="px-2.5 py-1 rounded bg-blue-600/10 hover:bg-blue-600 text-blue-700 hover:text-white dark:bg-blue-500/20 dark:hover:bg-blue-600 dark:text-blue-300 dark:hover:text-white font-bold transition-all border border-blue-200 dark:border-blue-500/30 flex items-center gap-1 cursor-pointer"
+                class="px-2.5 py-1 rounded bg-blue-600/10 hover:bg-blue-600 text-blue-700 hover:text-white dark:bg-blue-500/20 dark:hover:bg-blue-600 dark:text-blue-300 dark:hover:text-white font-bold transition-all border border-blue-200 dark:border-blue-500/30 flex items-center gap-1 cursor-pointer whitespace-nowrap"
               >
                 <span>📍 類似進壘點分析</span>
               </button>
@@ -514,8 +514,9 @@ const finalInning = computed(() => Math.max(
   ...props.plateAppearances.map(pa => parseInt(pa.inning, 10) || 1)
 ))
 const selectedInning = ref(finalInning.value)
+const lastInningLabel = computed(() => props.gameInfo.status === 'START' ? '目前進度' : '比賽結束')
 const inningRangeLabel = computed(() => {
-  if (selectedInning.value === finalInning.value) return '全場'
+  if (selectedInning.value === finalInning.value) return props.gameInfo.status === 'START' ? '截至目前' : '全場'
   return selectedInning.value === 1 ? '第一局' : `第 1～${selectedInning.value} 局`
 })
 const inningPitches = computed(() => selectedInning.value === finalInning.value

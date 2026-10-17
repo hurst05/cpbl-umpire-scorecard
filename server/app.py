@@ -41,14 +41,17 @@ def get_game_analysis(game_id: str, force_refresh: bool = False):
     requested_kind = get_game_kind({"game_id": game_id})
     if requested_kind not in SUPPORTED_KIND_CODES:
         raise HTTPException(status_code=400, detail=f"賽事 {game_id} 非一軍支援賽事，略過載入分析")
+    cached = None
     if not force_refresh:
         cached = db.get_game(game_id)
         if cached:
             total_calls = cached.get("umpire_metrics", {}).get("total_called_pitches", 0)
             kind_code = get_game_kind(cached.get("game_info", {}))
+            cached_status = cached.get("game_info", {}).get("status")
+            # shortcut: 舊快取缺少狀態；需辨識既有未完賽場次時，再回補狀態。
             if kind_code != requested_kind or total_calls == 0:
-                pass  # 快取為無效資料，繼續向下重新抓取
-            else:
+                cached = None
+            elif cached_status in (None, "FINISHED"):
                 return cached
 
     try:
@@ -66,7 +69,16 @@ def get_game_analysis(game_id: str, force_refresh: bool = False):
         analyzed = analyze_game(game_raw, raw_data.get("players", {}))
         total_calls = analyzed.get("umpire_metrics", {}).get("total_called_pitches", 0)
         if total_calls == 0:
-            raise HTTPException(status_code=400, detail=f"賽事 {game_id} 判決數為 0，略過載入與儲存")
+            if cached:
+                return {
+                    **cached,
+                    "refresh_warning": "官網目前沒有可分析的 Trackman 球點。先顯示上次成功擷取的部分資料"
+                    "（非完整完賽結果），請稍後再搜尋更新。",
+                }
+            raise HTTPException(
+                status_code=400,
+                detail=f"賽事 {game_id} 官網目前缺少可分析的 Trackman 球點（判決數為 0），請稍後重試",
+            )
 
         db.save_game(game_id, analyzed)
         return analyzed
@@ -111,7 +123,7 @@ def batch_collect_date(date: Date, kind_code: GameKind = "A"):
         if get_game_kind(g) != kind_code:
             results.append({"game_id": gid, "status": "skipped", "reason": "非一軍選定類型賽事"})
             continue
-        if gid and g.get("has_trackman") and g.get("status") == "FINISHED":
+        if gid and g.get("has_trackman") and g.get("status") in ("START", "FINISHED"):
             try:
                 raw_data = fetch_game_detail(gid)
                 game_raw = raw_data.get("game", {})
@@ -129,7 +141,7 @@ def batch_collect_date(date: Date, kind_code: GameKind = "A"):
                 results.append({"game_id": gid, "status": "error", "message": str(e)})
         else:
             if gid:
-                results.append({"game_id": gid, "status": "skipped", "reason": "未完賽或無 Trackman 數據"})
+                results.append({"game_id": gid, "status": "skipped", "reason": "賽事狀態不符或無 Trackman 數據"})
     return {"date": date, "processed": results}
 
 

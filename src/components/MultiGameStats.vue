@@ -19,7 +19,7 @@
         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
           {{ isStatic
               ? `${GAME_TYPES[kindCode]}已收錄 ${cachedGames.length} 場賽事。${generatedAtStr ? `(資料產生於: ${generatedAtStr})` : ''}`
-              : `抓取指定日期的${GAME_TYPES[kindCode]}完賽比賽，並自動完成主審好球帶分析。` }}
+              : `抓取指定日期的${GAME_TYPES[kindCode]}進行中與已完賽比賽；再次抓取可更新逐球資料與分析。` }}
         </p>
       </div>
 

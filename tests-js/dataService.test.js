@@ -94,4 +94,19 @@ describe('dataService keeps game types separate', () => {
       '/api/batch-collect?date=2026-10-10&kind_code=E'
     ])
   })
+
+  test('game errors expose the backend explanation instead of only Bad Request', async t => {
+    const detail = '官網目前缺少可分析的 Trackman 球點，請稍後重試'
+    t.mock.method(globalThis, 'fetch', async () => new Response(JSON.stringify({ detail }), {
+      status: 400, statusText: 'Bad Request'
+    }))
+    await assert.rejects(services.api.fetchGame('2026-E-3'), { message: detail })
+  })
+
+  test('game errors retain a readable fallback for non-JSON or non-text details', async t => {
+    for (const body of ['unavailable', JSON.stringify({ detail: [{ msg: 'invalid' }] })]) {
+      t.mock.method(globalThis, 'fetch', async () => new Response(body, { status: 400, statusText: 'Bad Request' }))
+      await assert.rejects(services.api.fetchGame('2026-E-3'), { message: '擷取賽事資料失敗 (Bad Request)' })
+    }
+  })
 })

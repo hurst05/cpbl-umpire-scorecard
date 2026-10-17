@@ -84,7 +84,7 @@
     </header>
 
     <!-- Main Body -->
-    <main class="flex-1 max-w-[1440px] w-full mx-auto p-4 lg:p-6 flex flex-col gap-5">
+    <main ref="scorecardCapture" class="flex-1 max-w-[1440px] w-full mx-auto p-4 lg:p-6 flex flex-col gap-5">
       <!-- Loading State for Single Game Views -->
       <div v-if="isLoading && isSingleGameTab" class="flex flex-col items-center justify-center py-24 gap-3">
         <div class="w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
@@ -106,11 +106,29 @@
       </div>
 
       <template v-else>
+        <div v-if="activeTab === 'scorecard' && gameData" data-screenshot-exclude class="flex flex-wrap items-center justify-end gap-3">
+          <p v-if="screenshotError" role="alert" class="text-xs text-red-600 dark:text-red-400">{{ screenshotError }}</p>
+          <button
+            type="button"
+            @click="downloadScorecard"
+            :disabled="isCapturing"
+            :aria-busy="isCapturing"
+            class="px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-bold text-white shadow-sm transition-colors disabled:opacity-50 disabled:cursor-wait cursor-pointer"
+          >
+            {{ isCapturing ? '正在產生截圖…' : '下載截圖（PNG）' }}
+          </button>
+        </div>
+        <div v-if="isSingleGameTab && gameData?.refresh_warning" role="status" class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/50 text-amber-800 dark:text-amber-300 text-sm">
+          {{ gameData.refresh_warning }}
+        </div>
         <!-- Game Summary Banner (Shown on Single Game tabs: scorecard / at-bat) -->
         <div v-if="gameData && isSingleGameTab" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-xs dark:shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
           <div class="flex flex-wrap items-center gap-3">
-            <span class="px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 text-xs font-mono font-bold">
+            <span class="px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 text-xs font-mono font-bold whitespace-nowrap">
               {{ GAME_TYPES[getGameKindCode(gameData.game_info)] }} 第 {{ gameData.game_info.game_sno }} 場
+            </span>
+            <span v-if="gameData.game_info.status === 'START'" class="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+              擷取時進行中
             </span>
             <span class="text-xs text-slate-600 dark:text-slate-400">
               日期：<strong class="text-slate-900 dark:text-white">{{ gameData.game_info.date }}</strong> | 地點：<strong class="text-slate-900 dark:text-white">{{ gameData.game_info.field }}</strong>
@@ -198,6 +216,7 @@ import MultiGameStats from './components/MultiGameStats.vue'
 import SeasonStatsView from './components/SeasonStatsView.vue'
 import { fetchGame, fetchDefaultGameId, isStaticMode } from './services/dataService'
 import { GAME_TYPES, getGameKindCode } from './utils/gameTypes.js'
+import { downloadScorecardScreenshot } from './utils/scorecardScreenshot.js'
 
 const activeTab = ref('multi-game')
 const selectedKindCode = ref('A')
@@ -209,6 +228,23 @@ const isLoading = ref(false)
 const errorMessage = ref('')
 const isDark = ref(false)
 const isStatic = ref(isStaticMode())
+const scorecardCapture = ref(null)
+const isCapturing = ref(false)
+const screenshotError = ref('')
+
+async function downloadScorecard() {
+  if (isCapturing.value || !scorecardCapture.value || !gameData.value) return
+  isCapturing.value = true
+  screenshotError.value = ''
+  try {
+    await downloadScorecardScreenshot(scorecardCapture.value, `cpbl-scorecard-${gameData.value.game_info.game_id}.png`)
+  } catch (error) {
+    console.error('Scorecard screenshot:', error)
+    screenshotError.value = '截圖下載失敗，請再試一次。'
+  } finally {
+    isCapturing.value = false
+  }
+}
 
 const isSingleGameTab = computed(() => activeTab.value === 'scorecard' || activeTab.value === 'at-bat')
 

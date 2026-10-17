@@ -18,7 +18,7 @@
       <div v-else class="flex items-center gap-1.5 font-medium text-slate-700 dark:text-slate-300 flex-wrap">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-500"></span> 好球
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 ml-1.5"></span> 壞球
-        <span class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/30 dark:border-amber-500/40 ml-1.5 font-bold">! 誤判</span>
+        <span class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/30 dark:border-amber-500/40 ml-1.5 font-bold whitespace-nowrap">! 誤判</span>
         <span v-if="targetPitch" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-400/20 text-amber-700 dark:text-amber-300 border border-amber-400/40 ml-1.5 font-bold">🎯 基準球</span>
         <span v-if="hasMirroredPitches" class="inline-block px-1.5 py-0.5 rounded text-[10px] bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 ml-1.5 font-bold">🔀 鏡像對比</span>
       </div>

@@ -140,3 +140,13 @@ test('handles a game with no tracked calls without invalid slider bounds or perc
   assert.equal(state.effectiveOverallAcc.value, 100)
   assert.equal(state.effectiveGameConsistency.value.ratioStr, '0/0')
 })
+
+test('labels live data as current progress and switches to game end after completion', t => {
+  const { state, props } = createScorecard(t, { gameInfo: { game_id: 'live-game', status: 'START' } })
+  assert.equal(state.inningRangeLabel.value, '截至目前')
+  assert.equal(state.lastInningLabel.value, '目前進度')
+
+  props.gameInfo.status = 'FINISHED'
+  assert.equal(state.inningRangeLabel.value, '全場')
+  assert.equal(state.lastInningLabel.value, '比賽結束')
+})

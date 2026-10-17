@@ -351,6 +351,7 @@ def analyze_game(raw_game_data: dict, players_dict: dict = None) -> dict:
             "game_id": game.get("gameId"),
             "game_sno": game.get("gameSno"),
             "kind_code": game.get("kindCode"),
+            "status": game.get("gameStatus"),
             "date": game.get("preExeDate", "")[:10],
             "field": game.get("field", {}).get("abbe", ""),
             "home_team": home_team_name,

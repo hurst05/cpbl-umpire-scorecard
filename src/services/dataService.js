@@ -501,7 +501,8 @@ export async function fetchGame(gameId) {
   } else {
     const res = await fetch(`/api/game/${encodeURIComponent(gameId)}`)
     if (!res.ok) {
-      throw new Error(`擷取賽事資料失敗 (${res.statusText})`)
+      const error = await res.json().catch(() => null)
+      throw new Error(typeof error?.detail === 'string' ? error.detail : `擷取賽事資料失敗 (${res.statusText})`)
     }
     return res.json()
   }
