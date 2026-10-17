@@ -1,20 +1,34 @@
 {
   "year": "全部",
   "kind_code": "C",
-  "total_games": 0,
+  "total_games": 1,
   "duration": {
-    "avg_minutes": 0,
-    "formatted_avg": "無資料",
-    "valid_games_count": 0,
-    "shortest_game": null,
-    "longest_game": null
+    "avg_minutes": 138.0,
+    "formatted_avg": "2小時 18分",
+    "valid_games_count": 1,
+    "shortest_game": {
+      "game_id": "2026-C-1",
+      "game_sno": 1,
+      "date": "2026-10-17",
+      "matchup": "中信兄弟 vs 味全龍",
+      "minutes": 138,
+      "formatted": "2小時 18分"
+    },
+    "longest_game": {
+      "game_id": "2026-C-1",
+      "game_sno": 1,
+      "date": "2026-10-17",
+      "matchup": "中信兄弟 vs 味全龍",
+      "minutes": 138,
+      "formatted": "2小時 18分"
+    }
   },
   "scores": {
-    "avg_margin": 0.0,
-    "avg_winner_score": 0.0,
+    "avg_margin": 3.0,
+    "avg_winner_score": 3.0,
     "avg_loser_score": 0.0,
-    "avg_total_runs": 0.0,
-    "total_runs": 0,
+    "avg_total_runs": 3.0,
+    "total_runs": 3,
     "one_run_games_count": 0,
     "one_run_games_pct": 0.0,
     "blowout_games_count": 0,
@@ -23,28 +37,101 @@
     "margin_distribution": {
       "1": 0,
       "2": 0,
-      "3-4": 0,
+      "3-4": 1,
       "5+": 0
     }
   },
   "home_away": {
-    "home_wins": 0,
+    "home_wins": 1,
     "visiting_wins": 0,
     "ties": 0,
-    "home_win_pct": 0.0,
+    "home_win_pct": 100.0,
     "visiting_win_pct": 0.0
   },
   "umpire_summary": {
-    "avg_overall_acc": 0.0,
-    "avg_ball_acc": 0.0,
-    "avg_strike_acc": 0.0,
-    "avg_consistency": 0.0,
-    "avg_missed_calls": 0.0,
-    "total_missed_calls": 0,
-    "highest_acc_game": null,
-    "lowest_acc_game": null
+    "avg_overall_acc": 86.1,
+    "avg_ball_acc": 84.2,
+    "avg_strike_acc": 89.7,
+    "avg_consistency": 73.1,
+    "avg_missed_calls": 16.0,
+    "total_missed_calls": 16,
+    "highest_acc_game": {
+      "game_id": "2026-C-1",
+      "game_sno": 1,
+      "date": "2026-10-17",
+      "matchup": "中信兄弟 vs 味全龍",
+      "hp_umpire": "張展榮",
+      "overall_acc": 86.1,
+      "missed_count": 16
+    },
+    "lowest_acc_game": {
+      "game_id": "2026-C-1",
+      "game_sno": 1,
+      "date": "2026-10-17",
+      "matchup": "中信兄弟 vs 味全龍",
+      "hp_umpire": "張展榮",
+      "overall_acc": 86.1,
+      "missed_count": 16
+    }
   },
-  "umpire_leaderboard": [],
-  "team_standings": [],
-  "stadium_stats": []
+  "umpire_leaderboard": [
+    {
+      "hp_umpire": "張展榮",
+      "games": 1,
+      "overall_acc": 86.1,
+      "ball_acc": 84.2,
+      "strike_acc": 89.7,
+      "total_missed": 16,
+      "missed_per_game": 16.0,
+      "consistency": 73.1
+    }
+  ],
+  "team_standings": [
+    {
+      "team": "味全龍",
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "ties": 0,
+      "win_rate": 1.0,
+      "win_rate_str": "1.000",
+      "runs_scored": 3,
+      "runs_allowed": 0,
+      "run_diff": 3,
+      "avg_runs_scored": 3.0,
+      "avg_runs_allowed": 0.0,
+      "one_run_record": "0勝-0敗",
+      "one_run_win_rate": 0.0,
+      "home_record": "1勝-0敗",
+      "away_record": "0勝-0敗"
+    },
+    {
+      "team": "中信兄弟",
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "ties": 0,
+      "win_rate": 0.0,
+      "win_rate_str": ".000",
+      "runs_scored": 0,
+      "runs_allowed": 3,
+      "run_diff": -3,
+      "avg_runs_scored": 0.0,
+      "avg_runs_allowed": 3.0,
+      "one_run_record": "0勝-0敗",
+      "one_run_win_rate": 0.0,
+      "home_record": "0勝-0敗",
+      "away_record": "0勝-1敗"
+    }
+  ],
+  "stadium_stats": [
+    {
+      "field": "大巨蛋",
+      "games": 1,
+      "avg_duration_minutes": 138.0,
+      "formatted_avg_duration": "2小時 18分",
+      "avg_total_runs": 3.0,
+      "avg_accuracy": 86.1
+    }
+  ]
 }
