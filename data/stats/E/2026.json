@@ -49,20 +49,20 @@
     "visiting_win_pct": 25.0
   },
   "umpire_summary": {
-    "avg_overall_acc": 93.05,
-    "avg_ball_acc": 95.33,
-    "avg_strike_acc": 88.3,
-    "avg_consistency": 85.9,
-    "avg_missed_calls": 10.5,
-    "total_missed_calls": 42,
+    "avg_overall_acc": 93.28,
+    "avg_ball_acc": 96.17,
+    "avg_strike_acc": 87.62,
+    "avg_consistency": 98.4,
+    "avg_missed_calls": 10.0,
+    "total_missed_calls": 40,
     "highest_acc_game": {
       "game_id": "2026-E-3",
       "game_sno": 3,
       "date": "2026-10-11",
       "matchup": "統一7-ELEVEn獅 vs 中信兄弟",
       "hp_umpire": "尤志欽",
-      "overall_acc": 94.7,
-      "missed_count": 8
+      "overall_acc": 95.3,
+      "missed_count": 7
     },
     "lowest_acc_game": {
       "game_id": "2026-E-2",
@@ -78,32 +78,32 @@
     {
       "hp_umpire": "尤志欽",
       "games": 1,
-      "overall_acc": 94.7,
-      "ball_acc": 97.1,
-      "strike_acc": 89.1,
-      "total_missed": 8,
-      "missed_per_game": 8.0,
-      "consistency": 91.3
+      "overall_acc": 95.3,
+      "ball_acc": 99.0,
+      "strike_acc": 87.8,
+      "total_missed": 7,
+      "missed_per_game": 7.0,
+      "consistency": 99.3
     },
     {
       "hp_umpire": "張展榮",
       "games": 1,
-      "overall_acc": 94.7,
+      "overall_acc": 94.0,
       "ball_acc": 95.3,
-      "strike_acc": 93.6,
-      "total_missed": 7,
-      "missed_per_game": 7.0,
-      "consistency": 85.9
+      "strike_acc": 91.7,
+      "total_missed": 8,
+      "missed_per_game": 8.0,
+      "consistency": 98.7
     },
     {
       "hp_umpire": "紀華文",
       "games": 1,
-      "overall_acc": 92.3,
-      "ball_acc": 96.2,
-      "strike_acc": 84.1,
-      "total_missed": 15,
-      "missed_per_game": 15.0,
-      "consistency": 84.7
+      "overall_acc": 93.3,
+      "ball_acc": 97.7,
+      "strike_acc": 84.6,
+      "total_missed": 13,
+      "missed_per_game": 13.0,
+      "consistency": 98.9
     },
     {
       "hp_umpire": "吳家維",
@@ -113,7 +113,7 @@
       "strike_acc": 86.4,
       "total_missed": 12,
       "missed_per_game": 12.0,
-      "consistency": 81.7
+      "consistency": 96.7
     }
   ],
   "team_standings": [
@@ -161,7 +161,7 @@
       "avg_duration_minutes": 186.0,
       "formatted_avg_duration": "3小時 6分",
       "avg_total_runs": 7.0,
-      "avg_accuracy": 93.9
+      "avg_accuracy": 94.2
     },
     {
       "field": "亞太主",

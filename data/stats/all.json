@@ -49,20 +49,20 @@
     "visiting_win_pct": 49.0
   },
   "umpire_summary": {
-    "avg_overall_acc": 91.06,
-    "avg_ball_acc": 91.27,
-    "avg_strike_acc": 90.72,
-    "avg_consistency": 84.73,
-    "avg_missed_calls": 13.5,
-    "total_missed_calls": 3995,
+    "avg_overall_acc": 91.31,
+    "avg_ball_acc": 92.08,
+    "avg_strike_acc": 89.76,
+    "avg_consistency": 98.76,
+    "avg_missed_calls": 13.2,
+    "total_missed_calls": 3884,
     "highest_acc_game": {
-      "game_id": "2026-A-127",
-      "game_sno": 127,
-      "date": "2026-05-28",
-      "matchup": "中信兄弟 vs 台鋼雄鷹",
-      "hp_umpire": "彭楚雲",
-      "overall_acc": 97.1,
-      "missed_count": 4
+      "game_id": "2026-A-349",
+      "game_sno": 349,
+      "date": "2026-09-25",
+      "matchup": "富邦悍將 vs 台鋼雄鷹",
+      "hp_umpire": "吳家維",
+      "overall_acc": 96.7,
+      "missed_count": 6
     },
     "lowest_acc_game": {
       "game_id": "2026-A-80",
@@ -78,182 +78,182 @@
     {
       "hp_umpire": "尤志欽",
       "games": 23,
-      "overall_acc": 91.7,
-      "ball_acc": 92.1,
-      "strike_acc": 91.1,
-      "total_missed": 286,
-      "missed_per_game": 12.4,
-      "consistency": 84.87
+      "overall_acc": 91.93,
+      "ball_acc": 93.07,
+      "strike_acc": 89.77,
+      "total_missed": 279,
+      "missed_per_game": 12.1,
+      "consistency": 98.61
     },
     {
       "hp_umpire": "木內九二生",
       "games": 23,
-      "overall_acc": 90.84,
-      "ball_acc": 90.46,
-      "strike_acc": 91.82,
-      "total_missed": 306,
-      "missed_per_game": 13.3,
-      "consistency": 84.15
-    },
-    {
-      "hp_umpire": "紀華文",
-      "games": 21,
-      "overall_acc": 91.33,
-      "ball_acc": 91.34,
-      "strike_acc": 91.43,
-      "total_missed": 271,
+      "overall_acc": 91.15,
+      "ball_acc": 91.28,
+      "strike_acc": 90.97,
+      "total_missed": 296,
       "missed_per_game": 12.9,
-      "consistency": 84.29
+      "consistency": 98.57
     },
     {
       "hp_umpire": "楊崇煇",
       "games": 21,
-      "overall_acc": 91.3,
-      "ball_acc": 91.33,
-      "strike_acc": 91.49,
-      "total_missed": 274,
-      "missed_per_game": 13.0,
-      "consistency": 84.42
+      "overall_acc": 91.62,
+      "ball_acc": 91.9,
+      "strike_acc": 91.22,
+      "total_missed": 264,
+      "missed_per_game": 12.6,
+      "consistency": 98.7
+    },
+    {
+      "hp_umpire": "紀華文",
+      "games": 21,
+      "overall_acc": 91.6,
+      "ball_acc": 92.06,
+      "strike_acc": 90.75,
+      "total_missed": 262,
+      "missed_per_game": 12.5,
+      "consistency": 99.03
     },
     {
       "hp_umpire": "吳家維",
       "games": 20,
-      "overall_acc": 92.36,
-      "ball_acc": 92.87,
-      "strike_acc": 91.34,
-      "total_missed": 241,
-      "missed_per_game": 12.1,
-      "consistency": 85.47
-    },
-    {
-      "hp_umpire": "羅鈞鴻",
-      "games": 20,
-      "overall_acc": 91.45,
-      "ball_acc": 91.2,
-      "strike_acc": 91.93,
-      "total_missed": 248,
-      "missed_per_game": 12.4,
-      "consistency": 85.83
+      "overall_acc": 92.3,
+      "ball_acc": 93.44,
+      "strike_acc": 89.88,
+      "total_missed": 243,
+      "missed_per_game": 12.2,
+      "consistency": 99.11
     },
     {
       "hp_umpire": "劉世偉",
       "games": 20,
-      "overall_acc": 91.41,
-      "ball_acc": 91.06,
-      "strike_acc": 92.36,
-      "total_missed": 246,
-      "missed_per_game": 12.3,
-      "consistency": 84.98
+      "overall_acc": 91.78,
+      "ball_acc": 92.11,
+      "strike_acc": 91.07,
+      "total_missed": 236,
+      "missed_per_game": 11.8,
+      "consistency": 99.02
+    },
+    {
+      "hp_umpire": "羅鈞鴻",
+      "games": 20,
+      "overall_acc": 91.76,
+      "ball_acc": 92.28,
+      "strike_acc": 90.55,
+      "total_missed": 239,
+      "missed_per_game": 11.9,
+      "consistency": 98.66
     },
     {
       "hp_umpire": "彭楚雲",
       "games": 19,
-      "overall_acc": 92.21,
-      "ball_acc": 92.37,
-      "strike_acc": 92.18,
-      "total_missed": 228,
-      "missed_per_game": 12.0,
-      "consistency": 87.03
+      "overall_acc": 92.61,
+      "ball_acc": 93.22,
+      "strike_acc": 91.54,
+      "total_missed": 216,
+      "missed_per_game": 11.4,
+      "consistency": 99.04
     },
     {
       "hp_umpire": "邱景彥",
       "games": 19,
-      "overall_acc": 91.12,
-      "ball_acc": 92.09,
-      "strike_acc": 88.91,
-      "total_missed": 255,
-      "missed_per_game": 13.4,
-      "consistency": 84.06
+      "overall_acc": 91.39,
+      "ball_acc": 93.01,
+      "strike_acc": 87.93,
+      "total_missed": 247,
+      "missed_per_game": 13.0,
+      "consistency": 98.62
     },
     {
       "hp_umpire": "蔡豐澤",
       "games": 18,
-      "overall_acc": 91.2,
-      "ball_acc": 92.52,
-      "strike_acc": 88.43,
-      "total_missed": 248,
-      "missed_per_game": 13.8,
-      "consistency": 85.96
+      "overall_acc": 91.49,
+      "ball_acc": 93.21,
+      "strike_acc": 87.92,
+      "total_missed": 240,
+      "missed_per_game": 13.3,
+      "consistency": 99.33
     },
     {
       "hp_umpire": "陳均瑋",
       "games": 17,
-      "overall_acc": 89.52,
-      "ball_acc": 89.58,
-      "strike_acc": 90.07,
-      "total_missed": 276,
-      "missed_per_game": 16.2,
-      "consistency": 82.52
+      "overall_acc": 89.67,
+      "ball_acc": 90.31,
+      "strike_acc": 88.98,
+      "total_missed": 271,
+      "missed_per_game": 15.9,
+      "consistency": 98.09
     },
     {
       "hp_umpire": "林金達",
       "games": 15,
       "overall_acc": 89.83,
-      "ball_acc": 89.81,
-      "strike_acc": 89.62,
+      "ball_acc": 90.18,
+      "strike_acc": 88.79,
       "total_missed": 235,
       "missed_per_game": 15.7,
-      "consistency": 84.49
+      "consistency": 98.55
     },
     {
       "hp_umpire": "范元淦",
       "games": 12,
-      "overall_acc": 90.41,
-      "ball_acc": 90.92,
-      "strike_acc": 88.88,
-      "total_missed": 178,
-      "missed_per_game": 14.8,
-      "consistency": 82.02
+      "overall_acc": 90.71,
+      "ball_acc": 91.86,
+      "strike_acc": 87.87,
+      "total_missed": 173,
+      "missed_per_game": 14.4,
+      "consistency": 98.22
     },
     {
       "hp_umpire": "江春緯",
       "games": 12,
-      "overall_acc": 90.05,
-      "ball_acc": 90.84,
-      "strike_acc": 88.38,
-      "total_missed": 201,
-      "missed_per_game": 16.8,
-      "consistency": 83.31
+      "overall_acc": 90.55,
+      "ball_acc": 91.82,
+      "strike_acc": 87.83,
+      "total_missed": 192,
+      "missed_per_game": 16.0,
+      "consistency": 98.54
     },
     {
       "hp_umpire": "王俊宏",
       "games": 11,
-      "overall_acc": 89.51,
-      "ball_acc": 89.23,
-      "strike_acc": 89.84,
-      "total_missed": 174,
-      "missed_per_game": 15.8,
-      "consistency": 85.37
+      "overall_acc": 90.33,
+      "ball_acc": 90.52,
+      "strike_acc": 89.55,
+      "total_missed": 160,
+      "missed_per_game": 14.5,
+      "consistency": 98.79
     },
     {
       "hp_umpire": "陳乃瑞",
       "games": 9,
-      "overall_acc": 90.3,
-      "ball_acc": 89.71,
-      "strike_acc": 92.76,
+      "overall_acc": 90.32,
+      "ball_acc": 90.37,
+      "strike_acc": 91.33,
       "total_missed": 133,
       "missed_per_game": 14.8,
-      "consistency": 85.93
+      "consistency": 98.73
     },
     {
       "hp_umpire": "鄭惟丞",
       "games": 8,
-      "overall_acc": 91.23,
-      "ball_acc": 92.77,
-      "strike_acc": 87.59,
-      "total_missed": 103,
-      "missed_per_game": 12.9,
-      "consistency": 83.37
+      "overall_acc": 90.81,
+      "ball_acc": 93.27,
+      "strike_acc": 85.11,
+      "total_missed": 108,
+      "missed_per_game": 13.5,
+      "consistency": 98.68
     },
     {
       "hp_umpire": "張展榮",
       "games": 7,
-      "overall_acc": 91.04,
-      "ball_acc": 90.63,
-      "strike_acc": 91.93,
-      "total_missed": 92,
-      "missed_per_game": 13.1,
-      "consistency": 86.84
+      "overall_acc": 91.23,
+      "ball_acc": 91.37,
+      "strike_acc": 90.94,
+      "total_missed": 90,
+      "missed_per_game": 12.9,
+      "consistency": 99.36
     }
   ],
   "team_standings": [
@@ -373,7 +373,7 @@
       "avg_duration_minutes": 176.9,
       "formatted_avg_duration": "2小時 57分",
       "avg_total_runs": 7.62,
-      "avg_accuracy": 91.59
+      "avg_accuracy": 91.91
     },
     {
       "field": "洲際",
@@ -381,7 +381,7 @@
       "avg_duration_minutes": 181.1,
       "formatted_avg_duration": "3小時 1分",
       "avg_total_runs": 9.47,
-      "avg_accuracy": 91.19
+      "avg_accuracy": 91.48
     },
     {
       "field": "新莊",
@@ -389,7 +389,7 @@
       "avg_duration_minutes": 180.1,
       "formatted_avg_duration": "3小時 0分",
       "avg_total_runs": 7.13,
-      "avg_accuracy": 91.09
+      "avg_accuracy": 91.24
     },
     {
       "field": "澄清湖",
@@ -397,7 +397,7 @@
       "avg_duration_minutes": 174.2,
       "formatted_avg_duration": "2小時 54分",
       "avg_total_runs": 8.07,
-      "avg_accuracy": 90.36
+      "avg_accuracy": 90.58
     },
     {
       "field": "亞太主",
@@ -405,7 +405,7 @@
       "avg_duration_minutes": 180.2,
       "formatted_avg_duration": "3小時 0分",
       "avg_total_runs": 6.92,
-      "avg_accuracy": 90.41
+      "avg_accuracy": 90.72
     },
     {
       "field": "天母",
@@ -413,7 +413,7 @@
       "avg_duration_minutes": 177.2,
       "formatted_avg_duration": "2小時 57分",
       "avg_total_runs": 6.97,
-      "avg_accuracy": 90.92
+      "avg_accuracy": 91.31
     },
     {
       "field": "大巨蛋",
@@ -421,7 +421,7 @@
       "avg_duration_minutes": 184.5,
       "formatted_avg_duration": "3小時 4分",
       "avg_total_runs": 6.15,
-      "avg_accuracy": 92.02
+      "avg_accuracy": 92.08
     },
     {
       "field": "斗六",
@@ -429,7 +429,7 @@
       "avg_duration_minutes": 160.0,
       "formatted_avg_duration": "2小時 40分",
       "avg_total_runs": 4.0,
-      "avg_accuracy": 92.85
+      "avg_accuracy": 92.55
     }
   ]
 }
