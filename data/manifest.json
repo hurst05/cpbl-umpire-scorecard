@@ -1,11 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-18T23:42:27.880537+08:00",
-  "default_game_id": "2026-C-2",
+  "generated_at": "2026-10-21T23:39:49.906436+08:00",
+  "default_game_id": "2026-C-4",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-C-4",
+      "kind_code": "C",
+      "game_sno": 4,
+      "game_date": "2026-10-21",
+      "field": "大巨蛋",
+      "visiting_team": "味全龍",
+      "home_team": "中信兄弟",
+      "visiting_score": 4,
+      "home_score": 5,
+      "hp_umpire": "尤志欽",
+      "overall_acc": 93.9,
+      "ball_acc": 95.3,
+      "strike_acc": 91.5,
+      "overall_consistency": 85.3,
+      "missed_count": 12,
+      "game_duration_minutes": 220
+    },
+    {
+      "game_id": "2026-C-3",
+      "kind_code": "C",
+      "game_sno": 3,
+      "game_date": "2026-10-20",
+      "field": "大巨蛋",
+      "visiting_team": "味全龍",
+      "home_team": "中信兄弟",
+      "visiting_score": 6,
+      "home_score": 0,
+      "hp_umpire": "吳家維",
+      "overall_acc": 94.1,
+      "ball_acc": 95.3,
+      "strike_acc": 91.3,
+      "overall_consistency": 87.9,
+      "missed_count": 9,
+      "game_duration_minutes": 167
+    },
     {
       "game_id": "2026-C-2",
       "kind_code": "C",
