@@ -1,11 +1,29 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-26T00:16:18.229959+08:00",
-  "default_game_id": "2026-C-5",
+  "generated_at": "2026-10-26T20:56:45.369897+08:00",
+  "default_game_id": "2026-C-6",
   "available_years": [
     2026
   ],
   "games": [
+    {
+      "game_id": "2026-C-6",
+      "kind_code": "C",
+      "game_sno": 6,
+      "game_date": "2026-10-26",
+      "field": "大巨蛋",
+      "visiting_team": "中信兄弟",
+      "home_team": "味全龍",
+      "visiting_score": 0,
+      "home_score": 6,
+      "hp_umpire": "楊崇煇",
+      "overall_acc": 95.5,
+      "ball_acc": 95.5,
+      "strike_acc": 95.3,
+      "overall_consistency": 86.0,
+      "missed_count": 5,
+      "game_duration_minutes": 150
+    },
     {
       "game_id": "2026-C-5",
       "kind_code": "C",
